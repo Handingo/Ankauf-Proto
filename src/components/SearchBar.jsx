@@ -51,7 +51,7 @@ class SearchBar extends Component {
             <Container className="searchbar">
                 <Form className="d-flex">
                     <FormControl type="search" value={this.state.barcode} placeholder="Barcode" onChange={this.handleChange}/>
-                    <Button variant="primary" onClick={this.handleClick}>Suchen</Button>
+                    <Button id="button-search" variant="primary" onClick={this.handleClick}>Suchen</Button>
                 </Form>
             </Container>
         );

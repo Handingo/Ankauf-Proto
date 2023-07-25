@@ -30,7 +30,7 @@ class StepInit extends Component {
                 <br/>
                 <p>oder beschreiben Sie es uns, indem Sie auf Start klicken.</p>
                 <br/>
-                <Button variant="primary" onClick={this.handleClick}>Start</Button>
+                <Button id="button-start" variant="primary" onClick={this.handleClick}>Start</Button>
                 <br/>
                 <br/>
                 <br/>

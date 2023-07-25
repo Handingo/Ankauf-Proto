@@ -198,6 +198,19 @@ button {
     min-height: 30px;
 }
 
+#button-create-ticket {
+    text-align: center;
+    width: 21.5%;
+    min-width: 80px;
+    min-height: 30px;
+    margin-bottom: 0.5%;
+    background-color: #1a95a3;
+}
+
+#button-search, #button-start {
+    background-color: #1a95a3
+}
+
 /*.Steps p {
     display: flex;
     justify-content: center;

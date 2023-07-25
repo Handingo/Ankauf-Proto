@@ -2,6 +2,7 @@ import { Component } from "react";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import IconPreview from "../../icons/IconPreview";
+import { Button } from "react-bootstrap";
 
 class StepEnd extends Component {
 
@@ -13,11 +14,11 @@ class StepEnd extends Component {
 
         switch (this.props.selection.model) {
             case "Samsung Galaxy S20":
-                suggestion = 427;
+                suggestion = 500;
                 image = "./s20.png";
                 break;
             case "Samsung Galaxy S21":
-                suggestion = 527;
+                suggestion = 557;
                 image = "./s21.png";
                 break;
             case "Samsung Galaxy S22":
@@ -64,19 +65,19 @@ class StepEnd extends Component {
             default:
                 suggestion = NaN;
         }
-        
+
         switch (this.props.selection.condition) {
             case "Wie neu":
-                suggestion -= 0;
+                suggestion *= 1;
                 break;
             case "Sehr gut":
-                suggestion -= 75;
+                suggestion *= 0.9;
                 break;
             case "Gut":
-                suggestion -= 150;
+                suggestion *= 0.75;
                 break;
             case "Akzeptabel":
-                suggestion -= 250;
+                suggestion *= 0.55;
                 break;
             default:
                 suggestion = NaN;
@@ -87,8 +88,9 @@ class StepEnd extends Component {
                 <h2>Ankauf</h2>
                 <IconPreview image={image}/>
                 <h3>Unser Vorschlag:</h3>
-                <h2>{suggestion + ",00 €"}</h2>
+                <h2>{Math.round(suggestion) + ",00 €"}</h2>
                 <br/>
+                <Button id="button-create-ticket">Ticket erstellen</Button>
             </div>
         );
     }
