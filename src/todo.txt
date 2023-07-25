@@ -1,0 +1,2 @@
+- Abstraktion der Steps mit Properties
+- Footer etwas aufbereiten

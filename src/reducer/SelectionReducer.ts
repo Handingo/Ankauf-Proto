@@ -1,0 +1,63 @@
+import * as selectionActions from "../actions/SelectionActions"
+
+const initialState: {
+    step: number,
+    deviceType: string | undefined,
+    brand: string | undefined,
+    model: string | undefined,
+    color: string | undefined,
+    internalMemory: string | undefined,
+    condition: string | undefined
+} = {
+    step: 0,
+    deviceType: undefined,
+    brand: undefined,
+    model: undefined,
+    color: undefined,
+    internalMemory: undefined,
+    condition: undefined
+};
+
+function selectionReducer(state = initialState, action: any) {
+    switch (action.type) {
+        case selectionActions.SELECT_STEP:
+            return {
+                ...state,
+                step: action.step
+            }
+        case selectionActions.SELECT_DEVICE_TYPE:
+            return {
+                ...state,
+                deviceType: action.deviceType
+            }
+        case selectionActions.SELECT_BRAND:
+            return {
+                ...state,
+                brand: action.brand
+            }
+        case selectionActions.SELECT_MODEL:
+            return {
+                ...state,
+                model: action.model
+            }
+        case selectionActions.SELECT_COLOR:
+            return {
+                ...state,
+                color: action.color
+            }
+        case selectionActions.SELECT_INTERNAL_MEMORY:
+            return {
+                ...state,
+                internalMemory: action.internalMemory
+            }
+        case selectionActions.SELECT_CONDITION:
+            return {
+                ...state,
+                condition: action.condition
+            }
+    }
+
+    return state;
+}
+
+export default selectionReducer;
