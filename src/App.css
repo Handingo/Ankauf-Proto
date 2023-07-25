@@ -211,6 +211,11 @@ button {
     background-color: #1a95a3
 }
 
+#button-search {
+    margin-left: 1%;
+    min-width: 85px;
+}
+
 /*.Steps p {
     display: flex;
     justify-content: center;
