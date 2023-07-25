@@ -88,7 +88,7 @@ class StepEnd extends Component {
                 <h2>Ankauf</h2>
                 <IconPreview image={image}/>
                 <h3>Unser Vorschlag:</h3>
-                <h2>{Math.round(suggestion) + ",00 €"}</h2>
+                <h2>{!isNaN(suggestion) ? Math.round(suggestion) + ",00 €" : "Es konnte kein Vorschlag bestimmt werden."}</h2>
                 <br/>
                 <Button id="button-create-ticket">Ticket erstellen</Button>
             </div>
