@@ -16,6 +16,7 @@ class TicketForm extends Component {
         firstName: "",
         lastName: "",
         email: "",
+        emailConfirm: "",
         demicile: "",
         street: "",
         houseNumber: ""
@@ -30,6 +31,17 @@ class TicketForm extends Component {
 
     handleClick(e) {
         e.preventDefault();
+
+        for (const entry in this.state) {
+            if (this.state.hasOwnProperty(entry) && this.state[entry].length < 1) {
+                return;
+            }
+        }
+
+        if (this.state.email !== this.state.emailConfirm) {
+            return;
+        }
+
         this.props.selectStep(this.props.selection.step + 1);
     }
 
@@ -42,6 +54,8 @@ class TicketForm extends Component {
                 <input placeholder="Nachname" name="lastName" onChange={this.handleChange}/>
                 <label>E-Mail</label>
                 <input placeholder="E-Mail" name="email" onChange={this.handleChange}/>
+                <label>E-Mail bestätigen</label>
+                <input placeholder="E-Mail bestätigen" name="emailConfirm" onChange={this.handleChange}/>
                 <label>Wohnort</label>
                 <input placeholder="Wohnort" name="demicile" onChange={this.handleChange}/>
                 <label>Straße</label>
