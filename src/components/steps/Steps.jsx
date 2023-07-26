@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { Button } from "react-bootstrap";
 import * as selectionActions from '../../actions/SelectionActions';
 import StepInit from './StepInit';
+import Step from './Step';
 import StepEnd from "./StepEnd";
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
@@ -14,8 +15,9 @@ import StepSix from "./StepSix";
 
 class Steps extends Component {
 
-    /*
-    <Step
+    steps = [
+        <StepInit/>,
+        <Step
             id={1}
             text="Wählen Sie Ihren Gerätetypen."
             entities={[
@@ -77,7 +79,8 @@ class Steps extends Component {
             ]}
             action={selectionActions.getSelectConditionAction}
         />,
-        */
+        <StepEnd/>
+    ];
     
     constructor(props) {
         super(props);
@@ -88,7 +91,7 @@ class Steps extends Component {
         this.props.selectStep(this.props.selection.step - 1);
     }
 
-    steps = [
+    /*steps = [
         <StepInit/>,
         <StepOne/>,
         <StepTwo/>,
@@ -97,7 +100,7 @@ class Steps extends Component {
         <StepFive/>,
         <StepSix/>,
         <StepEnd/>
-    ];
+    ];*/
 
     render() {
         const step = this.props.selection.step;

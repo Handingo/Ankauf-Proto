@@ -14,8 +14,8 @@ class Step extends Component {
     }
 
     handleClick(event) {
-        this.props.action(event.currentTarget.getAttribute("name"));
-        this.props.selectStep(this.props.selection.step + 1);
+        this.props.dispatch(this.props.action(event.currentTarget.getAttribute("name")));
+        this.props.dispatch(selectionActions.getSelectStepAction(this.props.selection.step + 1));
     }
 
     render() {
@@ -45,8 +45,4 @@ class Step extends Component {
     }
 }
 
-const mapStateToProps = dispatch => bindActionCreators({
-    selectStep: selectionActions.getSelectStepAction
-}, dispatch);
-
-export default connect(state => { return state; }, mapStateToProps)(Step);
+export default connect(state => { return state; })(Step);
