@@ -191,7 +191,7 @@ button {
     align-self: center;
 }
 
-.Steps #button-back {
+#button-back, #button-send-ticket {
     text-align: center;
     width: 15%;
     min-width: 80px;
@@ -200,14 +200,18 @@ button {
 
 #button-create-ticket {
     text-align: center;
-    width: 21.5%;
+    width: 21.5%; /* an margin angepasst */
     min-width: 80px;
     min-height: 30px;
     margin-bottom: 0.5%;
-    background-color: #1a95a3;
 }
 
-#button-search, #button-start {
+#button-send-ticket {
+    margin-top: 3%;
+    margin-bottom: 0.5%;
+}
+
+#button-search, #button-start, #button-send-ticket, #button-create-ticket {
     background-color: #1a95a3
 }
 
@@ -224,4 +228,18 @@ button {
 
 .Steps .btn.btn-primary {
     font-size: 1.1rem !important;
+}
+
+#ticket-form input, #ticket-form label {
+    display: grid;
+}
+
+#ticket-form input {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+}
+
+#ticket-form input::placeholder {
+    color: rgba(0, 0, 0, 0.25);
 }

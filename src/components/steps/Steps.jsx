@@ -6,12 +6,13 @@ import * as selectionActions from '../../actions/SelectionActions';
 import StepInit from './StepInit';
 import Step from './Step';
 import StepEnd from "./StepEnd";
-import StepOne from "./StepOne";
+import TicketForm from "./TicketForm";
+/*import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
 import StepThree from "./StepThree";
 import StepFour from "./StepFour";
 import StepFive from "./StepFive";
-import StepSix from "./StepSix";
+import StepSix from "./StepSix";*/
 
 class Steps extends Component {
 
@@ -79,7 +80,8 @@ class Steps extends Component {
             ]}
             action={selectionActions.getSelectConditionAction}
         />,
-        <StepEnd/>
+        <StepEnd/>,
+        <TicketForm/>
     ];
     
     constructor(props) {

@@ -19,6 +19,8 @@ class Step extends Component {
     }
 
     render() {
+        let i = 0;
+
         return (
             <div className="step" id={this.props.id}>
                 <h2>Ankauf</h2>
@@ -27,7 +29,8 @@ class Step extends Component {
                 <br/>
                 <div className="selection">
                     {this.props.entities.map(entity => {
-                        const entityPrice = 1436.0;
+                        i++;
+                        const entityPrice = 427.0 + i * 75;
                         return (
                             <Col key={entity}>
                                 <Button variant="light" name={entity} onClick={this.handleClick}>

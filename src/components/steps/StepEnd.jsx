@@ -3,11 +3,20 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import IconPreview from "../../icons/IconPreview";
 import { Button } from "react-bootstrap";
+import * as selectionActions from "../../actions/SelectionActions";
 
 class StepEnd extends Component {
 
-    // const s = "Unser Vorschlag läge bei 1.436 €. Bei Interesse senden Sie uns gerne Ihr Gerät ein [...]";
-    
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(e) {
+        e.preventDefault();
+        this.props.selectStep(this.props.selection.step + 1);
+    }
+
     render() {
         let suggestion;
         let image;
@@ -90,14 +99,14 @@ class StepEnd extends Component {
                 <h3>Unser Vorschlag:</h3>
                 <h2>{!isNaN(suggestion) ? Math.round(suggestion) + ",00 €" : "Es konnte kein Vorschlag bestimmt werden."}</h2>
                 <br/>
-                <Button id="button-create-ticket">Ticket erstellen</Button>
+                <Button id="button-create-ticket" onClick={this.handleClick}>Ticket erstellen</Button>
             </div>
         );
     }
 }
 
 const mapStateToProps = dispatch => bindActionCreators({
-    
+    selectStep: selectionActions.getSelectStepAction
 }, dispatch);
 
 export default connect(state => { return state; }, mapStateToProps)(StepEnd);
