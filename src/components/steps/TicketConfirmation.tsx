@@ -7,7 +7,7 @@ class TicketConfirmation extends Component {
             <div id="ticket-confirmation">
                 <p>Vielen Dank für die Einsendung!<br/>
                     Bitte schicken Sie uns nun Ihr Gerät zu.<br/>
-                    Sie erhalten baldstmöglich eine Antwort per E-Mail.<br/>
+                    Sie erhalten baldestmöglich eine Antwort per E-Mail.<br/>
                     <br/>
                     <br/>
                     - Ihr Handingo-Team -<br/>
