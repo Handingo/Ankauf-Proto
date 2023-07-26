@@ -7,12 +7,7 @@ import StepInit from './StepInit';
 import Step from './Step';
 import StepEnd from "./StepEnd";
 import TicketForm from "./TicketForm";
-/*import StepOne from "./StepOne";
-import StepTwo from "./StepTwo";
-import StepThree from "./StepThree";
-import StepFour from "./StepFour";
-import StepFive from "./StepFive";
-import StepSix from "./StepSix";*/
+import TicketConfirmation from "./TicketConfirmation";
 
 class Steps extends Component {
 
@@ -81,7 +76,8 @@ class Steps extends Component {
             action={selectionActions.getSelectConditionAction}
         />,
         <StepEnd/>,
-        <TicketForm/>
+        <TicketForm/>,
+        <TicketConfirmation/>
     ];
     
     constructor(props) {
@@ -89,20 +85,10 @@ class Steps extends Component {
         this.handleClickBack = this.handleClickBack.bind(this);
     }
 
-    handleClickBack(event) {
+    handleClickBack(e) {
+        e.preventDefault();
         this.props.selectStep(this.props.selection.step - 1);
     }
-
-    /*steps = [
-        <StepInit/>,
-        <StepOne/>,
-        <StepTwo/>,
-        <StepThree/>,
-        <StepFour/>,
-        <StepFive/>,
-        <StepSix/>,
-        <StepEnd/>
-    ];*/
 
     render() {
         const step = this.props.selection.step;
@@ -112,7 +98,7 @@ class Steps extends Component {
                 {step < this.steps.length &&
                     this.steps[step]
                 }
-                {step !== 0 && 
+                {step !== 0 && step < this.steps.length - 1 &&
                     <Button id="button-back" variant="secondary" onClick={this.handleClickBack}>
                         Zurück
                     </Button>

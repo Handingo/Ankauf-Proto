@@ -1,13 +1,15 @@
 import { Component } from "react";
 import { Button } from "react-bootstrap";
 import { connect } from "react-redux";
-
+import { bindActionCreators } from 'redux';
+import * as selectionActions from '../../actions/SelectionActions';
 
 class TicketForm extends Component {
 
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     state = {
@@ -26,6 +28,11 @@ class TicketForm extends Component {
         this.setState({ [name]: value });
     }
 
+    handleClick(e) {
+        e.preventDefault();
+        this.props.selectStep(this.props.selection.step + 1);
+    }
+
     render() {
         return (
             <div id="ticket-form">
@@ -41,10 +48,14 @@ class TicketForm extends Component {
                 <input placeholder="Straße" name="street" onChange={this.handleChange}/>
                 <label>Hausnummer</label>
                 <input placeholder="Hausnummer" name="houseNumber" onChange={this.handleChange}/>
-                <Button id="button-send-ticket">Senden</Button>
+                <Button id="button-send-ticket" onClick={this.handleClick}>Senden</Button>
             </div>
         );
     }
 }
 
-export default connect(state => { return state; })(TicketForm);
+const mapStateToProps = dispatch => bindActionCreators({
+    selectStep: selectionActions.getSelectStepAction
+}, dispatch);
+
+export default connect(state => { return state; }, mapStateToProps)(TicketForm);
