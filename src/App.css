@@ -166,6 +166,10 @@ body {
     min-width: 100px;
 }
 
+#step-init .d-flex input::placeholder {
+    color: rgba(0, 0, 0, 0.25);
+}
+
 #step-end img {
     padding: 3%;
 }
