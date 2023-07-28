@@ -244,3 +244,20 @@ button {
 #ticket-form input::placeholder {
     color: rgba(0, 0, 0, 0.25);
 }
+
+#selection-breadcrumbs {
+    display: flex;
+    margin-left: 17%;
+}
+
+#selection-breadcrumbs a {
+    text-decoration: none;
+    color: #000;
+    margin-right: 5px;
+}
+
+#selection-breadcrumbs #selected-breadcrumb {
+    text-decoration: none;
+    color: #777;
+    margin-right: 5px;
+}
