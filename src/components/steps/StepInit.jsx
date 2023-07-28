@@ -19,35 +19,40 @@ class StepInit extends Component {
     render() {
         return (
             <div id="step-init">
-                <h2>Ankauf</h2>
-                <br/>
-                <h5>Wir kaufen Ihre Geräte!</h5>
-                <br/>
-                <p>Um einen Preisvorschlag zu erhalten, versuchen Sie entweder den Barcode Ihres Geräts in das Suchfeld einzugeben</p>
-                <br/>
-                <SearchBar/>
-                <br/>
-                <br/>
-                <p>oder beschreiben Sie es uns, indem Sie auf Start klicken.</p>
-                <br/>
-                <Button id="button-start" variant="primary" onClick={this.handleClick}>Start</Button>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <h5>Achtung!</h5>
-                <p>Wir kaufen keine Geräte an, die einen <a target="_blank" rel="noopener noreferrer" href="https://duckduckgo.com/?q=Simlock&t=h_&ia=web&iax=about">Simlock</a> aufweisen oder noch einer <a href="https://handingo.de/pages/icloud-google-sperre-entfernen">Aktivierungssperre</a> unterliegen.</p>
-                <br/>
-                <br/>
-                <h5>Sie haben Fragen oder Probleme?</h5>
-                <p>
+                <div id="banner-wrapped">
                     <br/>
-                    Kontaktieren Sie uns unter <a target="_blank" rel="noopener noreferrer" href="https://handingo.de/pages/kontakt">https://handingo.de/pages/kontakt</a>.
+                    <h2>Ankauf</h2>
+                    <br/>
+                    <p>Wir kaufen Deine Geräte!</p>
+                    <br/>
+                    <p>Um einen Preisvorschlag zu erhalten, versuche den Barcode deines Geräts in das Suchfeld einzugeben</p>
+                    <br/>
+                    <SearchBar/>
                     <br/>
                     <br/>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl rhoncus mattis rhoncus urna neque viverra. Massa placerat duis ultricies lacus sed. Enim nec dui nunc mattis enim ut tellus elementum sagittis. Ligula ullamcorper malesuada proin libero nunc consequat interdum varius. Nulla facilisi cras fermentum odio eu. Mattis enim ut tellus elementum sagittis vitae et. Tellus orci ac auctor augue mauris augue neque gravida in. Vel facilisis volutpat est velit egestas dui id ornare arcu. Vel pharetra vel turpis nunc eget lorem dolor sed viverra. Volutpat blandit aliquam etiam erat. Posuere ac ut consequat semper. Sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus. Aliquet bibendum enim facilisis gravida neque convallis. Quis imperdiet massa tincidunt nunc pulvinar sapien et.<br/>
-                    Enim praesent elementum facilisis leo vel. Ultricies mi quis hendrerit dolor magna eget est. Pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl. Sit amet dictum sit amet justo donec enim. Sit amet cursus sit amet dictum. Condimentum vitae sapien pellentesque habitant morbi. Senectus et netus et malesuada fames ac. Lorem ipsum dolor sit amet consectetur. Suspendisse potenti nullam ac tortor. Bibendum ut tristique et egestas quis ipsum suspendisse. Quis blandit turpis cursus in. Neque sodales ut etiam sit amet. Enim sit amet venenatis urna cursus. Luctus venenatis lectus magna fringilla urna porttitor rhoncus dolor. Et ligula ullamcorper malesuada proin libero.
-                </p>
+                    <p>oder beschreibe es uns, indem du auf Start klickst.</p>
+                    <br/>
+                    <Button id="button-start" variant="primary" onClick={this.handleClick}>Start</Button>
+                    <br/>
+                    <br/>
+                </div>
+                <div id="init-text">
+                    <br/>
+                    <br/>
+                    <h5>Achtung!</h5>
+                    <p>Wir kaufen keine Geräte an, die einen <a target="_blank" rel="noopener noreferrer" href="https://duckduckgo.com/?q=Simlock&t=h_&ia=web&iax=about">Simlock</a> aufweisen oder noch einer <a href="https://handingo.de/pages/icloud-google-sperre-entfernen">Aktivierungssperre</a> unterliegen.</p>
+                    <br/>
+                    <br/>
+                    <h5>Du hast Fragen oder Probleme?</h5>
+                    <p>
+                        <br/>
+                        Kontaktiere uns unter <a target="_blank" rel="noopener noreferrer" href="https://handingo.de/pages/kontakt">https://handingo.de/pages/kontakt</a>.
+                        <br/>
+                        <br/>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl rhoncus mattis rhoncus urna neque viverra. Massa placerat duis ultricies lacus sed. Enim nec dui nunc mattis enim ut tellus elementum sagittis. Ligula ullamcorper malesuada proin libero nunc consequat interdum varius. Nulla facilisi cras fermentum odio eu. Mattis enim ut tellus elementum sagittis vitae et. Tellus orci ac auctor augue mauris augue neque gravida in. Vel facilisis volutpat est velit egestas dui id ornare arcu. Vel pharetra vel turpis nunc eget lorem dolor sed viverra. Volutpat blandit aliquam etiam erat. Posuere ac ut consequat semper. Sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus. Aliquet bibendum enim facilisis gravida neque convallis. Quis imperdiet massa tincidunt nunc pulvinar sapien et.<br/>
+                        Enim praesent elementum facilisis leo vel. Ultricies mi quis hendrerit dolor magna eget est. Pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl. Sit amet dictum sit amet justo donec enim. Sit amet cursus sit amet dictum. Condimentum vitae sapien pellentesque habitant morbi. Senectus et netus et malesuada fames ac. Lorem ipsum dolor sit amet consectetur. Suspendisse potenti nullam ac tortor. Bibendum ut tristique et egestas quis ipsum suspendisse. Quis blandit turpis cursus in. Neque sodales ut etiam sit amet. Enim sit amet venenatis urna cursus. Luctus venenatis lectus magna fringilla urna porttitor rhoncus dolor. Et ligula ullamcorper malesuada proin libero.
+                    </p>
+                </div>
             </div>
         );
     }

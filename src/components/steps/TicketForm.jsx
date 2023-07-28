@@ -84,7 +84,7 @@ class TicketForm extends Component {
                         <FormLabel>Hausnummer</FormLabel>
                         <FormControl type="input" placeholder="Hausnummer" onChange={this.handleChange}/>
                         <FormLabel>Fotos des Geräts</FormLabel>
-                        <FormControl type="file" onChange={this.handleChange}/>
+                        <FormControl type="file"/>
                     </Form>
                 </Container>
                 <Button id="button-send-ticket" onClick={this.handleClick}>Senden</Button>

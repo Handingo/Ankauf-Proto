@@ -97,6 +97,11 @@ class Steps extends Component {
 
         return (
             <div className="Steps">
+                {step >= this.steps.length &&
+                    <div className="step-header">
+                        <h2>Ankauf</h2>
+                    </div>
+                }
                 {step < this.steps.length &&
                     this.steps[step]
                 }
@@ -104,9 +109,6 @@ class Steps extends Component {
                     <Button id="button-back" variant="secondary" onClick={this.handleClickBack}>
                         Zurück
                     </Button>
-                }
-                {step >= this.steps.length &&
-                    <h2>Ankauf</h2>
                 }
             </div>
         );
