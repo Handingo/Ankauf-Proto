@@ -38,7 +38,7 @@ class TicketForm extends Component {
             }
         }
 
-        if (this.state.email !== this.state.emailConfirm) {
+        if (!this.state.email.includes('@') || this.state.email.length < 3 || this.state.email !== this.state.emailConfirm) {
             return;
         }
 
@@ -62,6 +62,8 @@ class TicketForm extends Component {
                 <input placeholder="Straße" name="street" onChange={this.handleChange}/>
                 <label>Hausnummer</label>
                 <input placeholder="Hausnummer" name="houseNumber" onChange={this.handleChange}/>
+                <label htmlFor="file-input">Fotos des Geräts</label>
+                <input name="photos" type="file"/>
                 <Button id="button-send-ticket" onClick={this.handleClick}>Senden</Button>
             </div>
         );

@@ -35,11 +35,14 @@ class StepInit extends Component {
                 <br/>
                 <br/>
                 <br/>
+                <h5>Achtung!</h5>
+                <p>Wir kaufen keine Geräte an, die einen <a target="_blank" rel="noopener noreferrer" href="https://duckduckgo.com/?q=Simlock&t=h_&ia=web&iax=about">Simlock</a> aufweisen oder noch einer <a href="https://handingo.de/pages/icloud-google-sperre-entfernen">Aktivierungssperre</a> unterliegen.</p>
+                <br/>
                 <br/>
                 <h5>Sie haben Fragen oder Probleme?</h5>
                 <p>
                     <br/>
-                    Kontaktieren Sie uns unter <a href="https://handingo.de/pages/kontakt">https://handingo.de/pages/kontakt</a>.
+                    Kontaktieren Sie uns unter <a target="_blank" rel="noopener noreferrer" href="https://handingo.de/pages/kontakt">https://handingo.de/pages/kontakt</a>.
                     <br/>
                     <br/>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl rhoncus mattis rhoncus urna neque viverra. Massa placerat duis ultricies lacus sed. Enim nec dui nunc mattis enim ut tellus elementum sagittis. Ligula ullamcorper malesuada proin libero nunc consequat interdum varius. Nulla facilisi cras fermentum odio eu. Mattis enim ut tellus elementum sagittis vitae et. Tellus orci ac auctor augue mauris augue neque gravida in. Vel facilisis volutpat est velit egestas dui id ornare arcu. Vel pharetra vel turpis nunc eget lorem dolor sed viverra. Volutpat blandit aliquam etiam erat. Posuere ac ut consequat semper. Sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus. Aliquet bibendum enim facilisis gravida neque convallis. Quis imperdiet massa tincidunt nunc pulvinar sapien et.<br/>

@@ -135,8 +135,12 @@ body {
 }
 
 #step-init .d-flex {
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#step-init .d-flex input {
+    min-width: 100px;
 }
 
 #step-end img {
@@ -195,14 +199,14 @@ button {
 
 #button-back, #button-send-ticket {
     text-align: center;
-    width: 15%;
+    width: 18%;
     min-width: 80px;
     min-height: 30px;
 }
 
 #button-create-ticket {
     text-align: center;
-    width: 21.5%; /* an margin angepasst */
+    width: 25.75%; /* an margin angepasst */
     min-width: 80px;
     min-height: 30px;
     margin-bottom: 0.5%;
@@ -214,12 +218,24 @@ button {
 }
 
 #button-search, #button-start, #button-send-ticket, #button-create-ticket {
-    background-color: #1a95a3
+    background-color: #1a95a3;
+    border-color: #1a95a3;
+
+    &:hover {
+        background-color: #1a95a3cc;
+        border-color: #1a95a3cc;
+        transition: 250ms ease-in;
+    }
 }
 
 #button-search {
     margin-left: 1%;
     min-width: 85px;
+}
+
+#button-start {
+    min-width: 85px;
+    width: 20%;
 }
 
 /*.Steps p {
@@ -250,7 +266,6 @@ button {
 #selection-breadcrumbs {
     display: flex;
     margin-left: 17%;
-    text-rendering: optimizeLegibility;
 }
 
 #selection-breadcrumbs a {
@@ -271,4 +286,13 @@ button {
     #selection-breadcrumbs a {
         display: none;
     }
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    border: none;
+    padding: 3%;
+    background: #6c757d;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
 }

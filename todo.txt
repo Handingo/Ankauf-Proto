@@ -1,6 +1,5 @@
 - Ticket-Page etwas aufbereiten
 - (teilweise mit Breadcrumbs erfüllt) Auflisten welche Optionen ausgewählt wurden
-- Drag & Drop für Bild / Bild hochladen
 - Voransicht für Zustände bei der Auswahl
 - User am Anfang warnen, dass SIM-Lock-Geräte nicht angekauft werden können
 - Im TicketForm Auszahlungswunsch angeben lassen (TickBox) - PayPal, Banküberweisung, Gutschein (mit Bonus)
