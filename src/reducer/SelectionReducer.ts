@@ -60,7 +60,7 @@ function selectionReducer(state = initialState, action: any) {
             let entries: Array<any> = [];
 
             Object.entries(state).forEach((entry: any) => {
-                if (i < action.step) {
+                if (i < action.step || i === 0) {
                     entries.push(entry);
                 }
                 i++;

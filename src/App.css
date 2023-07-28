@@ -21,6 +21,7 @@ body {
     vertical-align: middle;
     padding: 16px 20px;
     white-space: nowrap;
+    border-radius: 0.75vw;
 
     &:hover {
         background-color: #DFDFDF;
@@ -164,6 +165,7 @@ button {
     min-width: 160px;
     display: grid;
     grid-template-columns: 12% 50% 26% 12%;
+    border-radius: 1vw;
 }
 
 .button-text {
@@ -248,16 +250,25 @@ button {
 #selection-breadcrumbs {
     display: flex;
     margin-left: 17%;
+    text-rendering: optimizeLegibility;
 }
 
 #selection-breadcrumbs a {
     text-decoration: none;
     color: #000;
     margin-right: 5px;
+    border-radius: 50%;
+    text-rendering: optimizeLegibility;
+    white-space: nowrap;
 
     &:hover {
-        border-radius: 50%;
         background-color: #DFDFDF;
         transition: 250ms ease-in;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    #selection-breadcrumbs a {
+        display: none;
     }
 }

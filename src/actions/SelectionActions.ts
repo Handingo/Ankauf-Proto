@@ -63,7 +63,6 @@ export function getSelectConditionAction(condition: string) {
 }
 
 export function getResetStatePartAction(step: number) {
-    console.log(step);
     return {
         type: RESET_STATE_PART,
         step: step
