@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Container, Form, FormControl, FormLabel } from "react-bootstrap";
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import * as selectionActions from '../../actions/SelectionActions';
@@ -45,10 +45,8 @@ class TicketForm extends Component {
         this.props.selectStep(this.props.selection.step + 1);
     }
 
-    render() {
-        return (
-            <div id="ticket-form">
-                <label>Vorname</label>
+    /*
+    <label>Vorname</label>
                 <input placeholder="Vorname" name="firstName" onChange={this.handleChange}/>
                 <label>Nachname</label>
                 <input placeholder="Nachname" name="lastName" onChange={this.handleChange}/>
@@ -64,6 +62,31 @@ class TicketForm extends Component {
                 <input placeholder="Hausnummer" name="houseNumber" onChange={this.handleChange}/>
                 <label htmlFor="file-input">Fotos des Geräts</label>
                 <input name="photos" type="file"/>
+    */
+
+    render() {
+        return (
+            <div id="ticket-form">
+                <Container className="ticket-form">
+                    <Form>
+                        <FormLabel>Vorname</FormLabel>
+                        <FormControl type="input" placeholder="Vorname" onChange={this.handleChange}/>
+                        <FormLabel>Nachname</FormLabel>
+                        <FormControl type="input" placeholder="Nachname" onChange={this.handleChange}/>
+                        <FormLabel>E-Mail</FormLabel>
+                        <FormControl type="input" placeholder="E-Mail" onChange={this.handleChange}/>
+                        <FormLabel>E-Mail bestätigen</FormLabel>
+                        <FormControl type="input" placeholder="E-Mail bestätigen" onChange={this.handleChange}/>
+                        <FormLabel>Wohnort</FormLabel>
+                        <FormControl type="input" placeholder="Wohnort" onChange={this.handleChange}/>
+                        <FormLabel>Straße</FormLabel>
+                        <FormControl type="input" placeholder="Straße" onChange={this.handleChange}/>
+                        <FormLabel>Hausnummer</FormLabel>
+                        <FormControl type="input" placeholder="Hausnummer" onChange={this.handleChange}/>
+                        <FormLabel>Fotos des Geräts</FormLabel>
+                        <FormControl type="file" onChange={this.handleChange}/>
+                    </Form>
+                </Container>
                 <Button id="button-send-ticket" onClick={this.handleClick}>Senden</Button>
             </div>
         );

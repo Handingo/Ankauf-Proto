@@ -256,7 +256,8 @@ button {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 2%;
-    width: 18%;
+    width: 21.5%;
+    min-width: 200px;
 }
 
 #ticket-form input::placeholder {

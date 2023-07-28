@@ -1,4 +1,3 @@
-- Ticket-Page etwas aufbereiten
 - (teilweise mit Breadcrumbs erfüllt) Auflisten welche Optionen ausgewählt wurden
 - Voransicht für Zustände bei der Auswahl
 - User am Anfang warnen, dass SIM-Lock-Geräte nicht angekauft werden können
