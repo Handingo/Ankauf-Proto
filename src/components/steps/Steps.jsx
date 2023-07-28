@@ -87,7 +87,9 @@ class Steps extends Component {
 
     handleClickBack(e) {
         e.preventDefault();
-        this.props.selectStep(this.props.selection.step - 1);
+        const step = this.props.selection.step - 1;
+        this.props.selectStep(step);
+        this.props.resetStatePart(step)
     }
 
     render() {
@@ -112,7 +114,8 @@ class Steps extends Component {
 }
 
 const mapStateToProps = dispatch => bindActionCreators({
-    selectStep: selectionActions.getSelectStepAction
+    selectStep: selectionActions.getSelectStepAction,
+    resetStatePart: selectionActions.getResetStatePartAction
 }, dispatch);
 
 export default connect(state => { return state; }, mapStateToProps)(Steps);

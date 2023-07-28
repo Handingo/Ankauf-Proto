@@ -20,8 +20,9 @@ class Step extends Component {
 
     handleBreadcrumbClick(e) {
         e.preventDefault();
-        this.props.dispatch(selectionActions.getSelectStepAction(Number(e.currentTarget.name)));
-        // TODO: state ab der neuen Auswahl löschen, damit die breadcrumbs nur bis zum aktuellen STand angezeigt werden
+        const step = Number(e.currentTarget.name);
+        this.props.dispatch(selectionActions.getResetStatePartAction(step));
+        this.props.dispatch(selectionActions.getSelectStepAction(step));
     }
 
     render() {
@@ -40,7 +41,7 @@ class Step extends Component {
             }
 
             const step = i - 1;
-            breadcrumbs.push(<a href="/" key={step} name={step} id={step === this.props.selection.step ? "selected-breadcrumb" : ""} onClick={this.handleBreadcrumbClick}>{selection + " /"}</a>);
+            breadcrumbs.push(<a href="/" key={step} name={step} onClick={this.handleBreadcrumbClick}>{selection + " /"}</a>);
         }
 
         i = 0;

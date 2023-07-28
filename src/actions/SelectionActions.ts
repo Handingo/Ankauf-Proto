@@ -5,6 +5,7 @@ export const SELECT_MODEL: string = "SELECT_MODEL";
 export const SELECT_COLOR: string = "SELECT_COLOR";
 export const SELECT_INTERNAL_MEMORY: string = "SELECT_INTERNAL_MEMORY";
 export const SELECT_CONDITION: string = "SELECT_CONDITION";
+export const RESET_STATE_PART: string = "RESET_STATE_PART";
 
 export function getSelectStepAction(step: number) {
     return {
@@ -58,5 +59,13 @@ export function getSelectConditionAction(condition: string) {
     return {
         type: SELECT_CONDITION,
         condition: condition
+    };
+}
+
+export function getResetStatePartAction(step: number) {
+    console.log(step);
+    return {
+        type: RESET_STATE_PART,
+        step: step
     };
 }
