@@ -72,6 +72,16 @@ class TicketForm extends Component {
                         <FormControl type="input" placeholder="Straße" name="street" onChange={this.handleChange}/>
                         <FormControl type="input" placeholder="Hausnummer" name="houseNumber" onChange={this.handleChange}/>
                         <br/>
+                        <div id="payment-method">
+                            <Form.Label id="payment-method-header">
+                                Zahlungswunsch
+                            </Form.Label>
+                            <Form.Select id="payment-method-selection">
+                                <option className="form-option">Banküberweisung</option>
+                                <option className="form-option">Gutschein (mit Bonus)</option>
+                            </Form.Select>
+                        </div>
+                        <br/>
                         <p>
                             Ich bestätige, dass die von mir getätigten Angaben der Wahrheit entsprechen und schicke das Gerät angemessen verpackt an die Firmenadresse
                             von Handingo.de. Das eingesendete Gerät verfügt über ein CE-Zeichen und befindet sich in einem Zustand, in welchem es möglichst einfach auf
