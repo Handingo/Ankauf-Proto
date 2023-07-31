@@ -12,7 +12,6 @@ body {
     text-align: center;
     font-size: 16px;
     font-weight: 400;
-    letter-spacing: -.004em;
 }
 
 .top-menu.navbar.navbar-expand-lg.navbar-light.bg-light.sticky-top .nav-link {
@@ -201,6 +200,15 @@ button {
         transition: 200ms ease-in;
         box-shadow: rgba(0, 0, 0, 0.0625) 0px 3px 5px, rgba(0, 0, 0, 0.05) 0px 3px 10px, rgba(0, 0, 0, 0.0375) 0px 3px 15px, rgba(0, 0, 0, 0.025) 0px 3px 20px, rgba(0, 0, 0, 0.0125) 0px 3px 25px;
     }
+}
+
+.preview-icon {
+    border-radius: 15% 0% 0% 15%;
+}
+
+:not(#step-init) .selection button:hover .preview-icon {
+    transition: 200ms ease 200ms;
+    transform: scale(2.2);
 }
 
 .button-text {
