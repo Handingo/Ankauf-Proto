@@ -120,6 +120,10 @@ body {
 
 #banner-wrapped {
     background-image: url("//handingo.de/cdn/shop/files/Handingo-Mount_720.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 27.5%;
     color: #fff;
     text-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
     margin: -4.3%;
@@ -136,9 +140,21 @@ body {
     font-weight: 600;
 }
 
+@media only screen and (min-width: 1400px) {
+    #init-explanation {
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+}
+
 #init-text, #step-end {
     margin-left: 15%;
     margin-right: 15%;
+}
+
+.searchbar input {
+    min-width: 200px !important;
+    max-width: 500px;
 }
 
 @media only screen and (max-width: 991px) {
@@ -199,7 +215,7 @@ button {
     min-height: 6vh;
     max-height: 20vh;
     display: grid;
-    grid-template-columns: 12% 50% 26% 12%;
+    grid-template-columns: 12% 56% 17% 12%;
     border-radius: 1vw;
     
     &:hover {

@@ -20,23 +20,18 @@ class StepInit extends Component {
         return (
             <div id="step-init">
                 <div id="banner-wrapped">
+                    <h2>Ankauf</h2>
                     <br/>
-                    
-                        <h2>Ankauf</h2>
-                        <br/>
-                        <p>Wir kaufen Deine Geräte!</p>
-                    
-                    
-                        <br/>
-                        <p>Um einen Preisvorschlag zu erhalten, versuche den Barcode deines Geräts in das Suchfeld einzugeben</p>
-                        <br/>
-                        <SearchBar/>
-                        <br/>
-                        <br/>
-                        <p>oder beschreibe es uns, indem du auf Start klickst.</p>
-                        <br/>
-                        <Button id="button-start" variant="primary" onClick={this.handleClick}>Start</Button>
-                    
+                    <p>Wir kaufen Deine Geräte!</p>
+                    <br/>
+                    <p id="init-explanation">Um einen Preisvorschlag zu erhalten, versuche den Barcode deines Geräts in das Suchfeld einzugeben</p>
+                    <br/>
+                    <SearchBar/>
+                    <br/>
+                    <br/>
+                    <p>oder beschreibe es uns, indem du auf Start klickst.</p>
+                    <br/>
+                    <Button id="button-start" variant="primary" onClick={this.handleClick}>Start</Button>
                     <br/>
                     <br/>
                 </div>
