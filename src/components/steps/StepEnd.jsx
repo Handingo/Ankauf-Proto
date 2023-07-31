@@ -1,8 +1,7 @@
 import { Component } from "react";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import IconPreview from "../../icons/IconPreview";
-import { Button } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import * as selectionActions from "../../actions/SelectionActions";
 
 class StepEnd extends Component {
@@ -19,7 +18,7 @@ class StepEnd extends Component {
 
     render() {
         let suggestion;
-        let image;
+        let image; // soll später das eingereichte foto sein
 
         switch (this.props.selection.model) {
             case "Samsung Galaxy S20":
@@ -114,17 +113,39 @@ class StepEnd extends Component {
                 continue;
             }
 
+            if (i !== 2) {
+                specifications.push(<hr key={-i}/>);
+            }
             specifications.push(<p key={i}><strong>{keys[i - 2] + ":"}</strong><br/><i>{selection}</i></p>);
         }
 
         return (
             <div id="step-end">
                 <h2>Ankauf</h2>
+                <br/>
                 <div id="selection-result">
-                    <div id="selection-result-details">{specifications}</div>
-                    <div id="selection-result-image"><IconPreview id="selection-result-image" image={image}/></div>
-                    <div id="selection-result-empty"></div>
+                    <Card id="selection-result-details">
+                        <Card.Header>
+                            <Card.Title>
+                                Angaben
+                            </Card.Title>
+                        </Card.Header>
+                        <Card.Body>
+                            {specifications}
+                        </Card.Body>
+                    </Card>
+                    <Card id="selection-result-image">
+                        <Card.Header>
+                            <Card.Title>
+                                Foto
+                            </Card.Title>
+                        </Card.Header>
+                        <Card.Body>
+                            <Card.Img src={image}></Card.Img>
+                        </Card.Body>
+                    </Card>
                 </div>
+                <br/>
                 <h3>Unser Vorschlag:</h3>
                 <h2>{!isNaN(suggestion) ? suggestion.toLocaleString(undefined, { minimumFractionDigits: 2 }) + " €" : "Es konnte kein Vorschlag bestimmt werden."}</h2>
                 <br/>

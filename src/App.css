@@ -225,13 +225,14 @@ button {
     }
 }
 
-#selection-result {
-    display: grid;
-    grid-template-columns: 15% 70% 15%;
+@media only screen and (min-width: 991px) {
+    #selection-result {
+        display: grid;
+        grid-template-columns: 33% 66%;
+    }
 }
 
-#selection-result-details {
-    margin-top: 20%;
+#selection-result-details p {
     text-align: left;
 }
 
@@ -253,7 +254,7 @@ button {
 
 :not(#step-init) .selection button:hover .preview-icon {
     transition: 200ms ease 200ms;
-    transform: scale(2.2);
+    transform: scale(1.33);
 }
 
 .button-text {
@@ -358,7 +359,7 @@ button {
 
 #selection-breadcrumbs {
     display: flex;
-    margin-left: 17%;
+    margin-left: 5%;
 }
 
 #selection-breadcrumbs a {
