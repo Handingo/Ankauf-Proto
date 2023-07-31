@@ -114,17 +114,17 @@ class StepEnd extends Component {
                 continue;
             }
 
-            specifications.push(<p>{keys[i - 2] + ":"}<br/>{selection}</p>);
-            specifications.push(<br/>);
+            specifications.push(<p key={i}><strong>{keys[i - 2] + ":"}</strong><br/><i>{selection}</i></p>);
         }
 
         return (
             <div id="step-end">
                 <h2>Ankauf</h2>
                 <div id="selection-result">
-                    {specifications}
+                    <div id="selection-result-details">{specifications}</div>
+                    <div id="selection-result-image"><IconPreview id="selection-result-image" image={image}/></div>
+                    <div id="selection-result-empty"></div>
                 </div>
-                <IconPreview image={image}/>
                 <h3>Unser Vorschlag:</h3>
                 <h2>{!isNaN(suggestion) ? suggestion.toLocaleString(undefined, { minimumFractionDigits: 2 }) + " €" : "Es konnte kein Vorschlag bestimmt werden."}</h2>
                 <br/>

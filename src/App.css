@@ -195,7 +195,9 @@ button {
     margin-bottom: calc(2px + 1.5%);
     padding: 2%;
     width: 66%;
-    min-width: 160px;
+    min-width: 85vw;
+    min-height: 6vh;
+    max-height: 20vh;
     display: grid;
     grid-template-columns: 12% 50% 26% 12%;
     border-radius: 1vw;
@@ -205,6 +207,24 @@ button {
         transition: 200ms ease-in;
         box-shadow: rgba(0, 0, 0, 0.0625) 0px 3px 5px, rgba(0, 0, 0, 0.05) 0px 3px 10px, rgba(0, 0, 0, 0.0375) 0px 3px 15px, rgba(0, 0, 0, 0.025) 0px 3px 20px, rgba(0, 0, 0, 0.0125) 0px 3px 25px;
     }
+}
+
+#selection-result {
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+}
+
+#selection-result-details {
+    margin-top: 20%;
+    text-align: left;
+}
+
+/*#selection-result-details :not(i) {
+    font-weight: 500;
+}*/
+
+#selection-result-details, #selection-result-empty {
+    flex: 1;
 }
 
 .selection .preview-icon {
@@ -248,14 +268,14 @@ button {
 #button-back, #button-send-ticket {
     text-align: center;
     width: 18%;
-    min-width: 80px;
+    min-width: 100px;
     min-height: 30px;
 }
 
 #button-create-ticket {
     text-align: center;
     width: 25.75%; /* an margin angepasst */
-    min-width: 80px;
+    min-width: 100px;
     min-height: 30px;
     margin-bottom: 0.5%;
 }
