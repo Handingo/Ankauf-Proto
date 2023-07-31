@@ -6,7 +6,7 @@ body {
     background-color: #EEE;
     min-height: 100vh;
 
-    font-family: DM-Sans, sans-serif;
+    font-family: "DM Sans", sans-serif;
     font-feature-settings: "kern" 1,"liga" 1,"calt" 1;
     text-decoration: none;
     text-align: center;
@@ -24,7 +24,7 @@ body {
 
     &:hover {
         background-color: #DFDFDF;
-        transition: 250ms ease-in;
+        transition: 200ms ease-in;
     }
 }
 
@@ -76,7 +76,6 @@ body {
 .bottom-menu a {
     margin-bottom: 3%;
     font-size: 14px;
-    font-family: "DM Sans", sans-serif;
     font-weight: 400;
     text-decoration: none;
     color: #000;
@@ -84,7 +83,7 @@ body {
 
     &:hover {
         color: #555;
-        transition: 250ms ease-in;
+        transition: 200ms ease-in;
     }
 }
 
@@ -100,7 +99,7 @@ body {
     
         &:hover {
             color: #555;
-            transition: 250ms ease-in;
+            transition: 200ms ease-in;
         }
     }
 }
@@ -114,6 +113,10 @@ body {
 .Steps { /* TODO */
     margin: 4%;
     min-height: 85vh;
+}
+
+.selection {
+    margin-bottom: 2%;
 }
 
 #banner-wrapped {
@@ -192,6 +195,12 @@ button {
     display: grid;
     grid-template-columns: 12% 50% 26% 12%;
     border-radius: 1vw;
+    
+    &:hover {
+        background-color: #DFDFDF;
+        transition: 200ms ease-in;
+        box-shadow: rgba(0, 0, 0, 0.0625) 0px 3px 5px, rgba(0, 0, 0, 0.05) 0px 3px 10px, rgba(0, 0, 0, 0.0375) 0px 3px 15px, rgba(0, 0, 0, 0.025) 0px 3px 20px, rgba(0, 0, 0, 0.0125) 0px 3px 25px;
+    }
 }
 
 .button-text {
@@ -246,7 +255,7 @@ button {
     &:hover {
         background-color: #1a95a3bb;
         border-color: #1a95a3bb;
-        transition: 250ms ease-in;
+        transition: 200ms ease-in;
     }
 }
 
@@ -301,7 +310,7 @@ button {
 
     &:hover {
         background-color: #DFDFDF;
-        transition: 250ms ease-in;
+        transition: 200ms ease-in;
     }
 }
 
