@@ -1,4 +1,2 @@
 - (teilweise mit Breadcrumbs erfüllt) Auflisten welche Optionen ausgewählt wurden
-- Voransicht für Zustände bei der Auswahl
 - Im TicketForm Auszahlungswunsch angeben lassen (TickBox) - PayPal, Banküberweisung, Gutschein (mit Bonus)
-- Vor Absenden ein Bestätigungsfeld für das Angeben von wahrheitsgemäßen Angaben und Bestätigen der AGB und Datenschutzerklärung

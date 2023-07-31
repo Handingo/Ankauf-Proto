@@ -6,40 +6,57 @@ import * as selectionActions from "../../actions/SelectionActions";
 
 class StepEnd extends Component {
 
+    state = {
+        documents: undefined
+    }
+
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        this.handleClickUpload = this.handleClickUpload.bind(this);
+        this.handleUpload = this.handleUpload.bind(this);
     }
 
     handleClick(e) {
         e.preventDefault();
+
+        if (!this.state.documents) {
+            return;
+        }
+
         this.props.selectStep(this.props.selection.step + 1);
+    }
+
+    handleClickUpload(e) {
+        e.preventDefault();
+        document.getElementById("file-upload").click();
+    }
+
+    handleUpload(e) {
+        e.preventDefault();
+        this.setState({
+            documents: e.currentTarget.files
+        });
     }
 
     render() {
         let suggestion;
-        let image; // soll später das eingereichte foto sein
 
         switch (this.props.selection.model) {
             case "Samsung Galaxy S20":
                 suggestion = 500;
-                image = "./s20.png";
                 break;
             case "Samsung Galaxy S21":
                 suggestion = 557;
-                image = "./s21.png";
                 break;
             case "Samsung Galaxy S22":
                 suggestion = 627;
-                image = "./s22.png";
                 break;
             case "Samsung Galaxy S23":
                 suggestion = 727;
-                image = "./smartphone-test.jpg";
                 break;
             default:
                 suggestion = NaN;
-                image = "./smartphone-test.jpg";
         }
         
         switch (this.props.selection.color) {
@@ -124,6 +141,20 @@ class StepEnd extends Component {
                 <h2>Ankauf</h2>
                 <br/>
                 <div id="selection-result">
+                    <Card id="selection-result-image">
+                        <Card.Header>
+                            <Card.Title>
+                                Foto
+                            </Card.Title>
+                        </Card.Header>
+                        <Card.Body>
+                            <input type="file" id="file-upload" name="photos" onChange={this.handleUpload}/>
+                            {this.state.documents
+                                ? <Card.Img src={URL.createObjectURL(this.state.documents[0])} onClick={this.handleClickUpload}></Card.Img>
+                                : <Button id="document-upload-button" variant="secondary" onClick={this.handleClickUpload}>Dokumente hochladen</Button>
+                            }
+                        </Card.Body>
+                    </Card>
                     <Card id="selection-result-details">
                         <Card.Header>
                             <Card.Title>
@@ -134,22 +165,12 @@ class StepEnd extends Component {
                             {specifications}
                         </Card.Body>
                     </Card>
-                    <Card id="selection-result-image">
-                        <Card.Header>
-                            <Card.Title>
-                                Foto
-                            </Card.Title>
-                        </Card.Header>
-                        <Card.Body>
-                            <Card.Img src={image}></Card.Img>
-                        </Card.Body>
-                    </Card>
                 </div>
                 <br/>
                 <h3>Unser Vorschlag:</h3>
                 <h2>{!isNaN(suggestion) ? suggestion.toLocaleString(undefined, { minimumFractionDigits: 2 }) + " €" : "Es konnte kein Vorschlag bestimmt werden."}</h2>
                 <br/>
-                <Button id="button-create-ticket" onClick={this.handleClick}>Ticket erstellen</Button>
+                <Button id="button-create-ticket" onClick={this.handleClick}>Jetzt verkaufen!</Button>
             </div>
         );
     }
