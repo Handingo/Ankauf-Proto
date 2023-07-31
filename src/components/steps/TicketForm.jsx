@@ -19,7 +19,8 @@ class TicketForm extends Component {
         emailConfirm: "",
         demicile: "",
         street: "",
-        houseNumber: ""
+        houseNumber: "",
+        photos: undefined
     };
 
     handleChange(e) {
@@ -32,37 +33,19 @@ class TicketForm extends Component {
     handleClick(e) {
         e.preventDefault();
 
+        console.log("hi")
         for (const entry in this.state) {
-            if (this.state.hasOwnProperty(entry) && this.state[entry].length < 1) {
+            if (this.state.hasOwnProperty(entry) && this.state[entry] && this.state[entry].length < 1) {
                 return;
             }
         }
-
+        console.log("hi2")
         if (!this.state.email.includes('@') || this.state.email.length < 3 || this.state.email !== this.state.emailConfirm) {
             return;
         }
-
+        console.log("hi3")
         this.props.selectStep(this.props.selection.step + 1);
     }
-
-    /*
-    <label>Vorname</label>
-                <input placeholder="Vorname" name="firstName" onChange={this.handleChange}/>
-                <label>Nachname</label>
-                <input placeholder="Nachname" name="lastName" onChange={this.handleChange}/>
-                <label>E-Mail</label>
-                <input placeholder="E-Mail" name="email" onChange={this.handleChange}/>
-                <label>E-Mail bestätigen</label>
-                <input placeholder="E-Mail bestätigen" name="emailConfirm" onChange={this.handleChange}/>
-                <label>Wohnort</label>
-                <input placeholder="Wohnort" name="demicile" onChange={this.handleChange}/>
-                <label>Straße</label>
-                <input placeholder="Straße" name="street" onChange={this.handleChange}/>
-                <label>Hausnummer</label>
-                <input placeholder="Hausnummer" name="houseNumber" onChange={this.handleChange}/>
-                <label htmlFor="file-input">Fotos des Geräts</label>
-                <input name="photos" type="file"/>
-    */
 
     render() {
         return (
@@ -70,21 +53,21 @@ class TicketForm extends Component {
                 <Container className="ticket-form">
                     <Form>
                         <FormLabel>Vorname</FormLabel>
-                        <FormControl type="input" placeholder="Vorname" onChange={this.handleChange}/>
+                        <FormControl type="input" placeholder="Vorname" name="firstName" onChange={this.handleChange}/>
                         <FormLabel>Nachname</FormLabel>
-                        <FormControl type="input" placeholder="Nachname" onChange={this.handleChange}/>
+                        <FormControl type="input" placeholder="Nachname" name="lastName" onChange={this.handleChange}/>
                         <FormLabel>E-Mail</FormLabel>
-                        <FormControl type="input" placeholder="E-Mail" onChange={this.handleChange}/>
+                        <FormControl type="input" placeholder="E-Mail" name="email" onChange={this.handleChange}/>
                         <FormLabel>E-Mail bestätigen</FormLabel>
-                        <FormControl type="input" placeholder="E-Mail bestätigen" onChange={this.handleChange}/>
+                        <FormControl type="input" placeholder="E-Mail bestätigen" name="emailConfirm" onChange={this.handleChange}/>
                         <FormLabel>Wohnort</FormLabel>
-                        <FormControl type="input" placeholder="Wohnort" onChange={this.handleChange}/>
+                        <FormControl type="input" placeholder="Wohnort" name="demicile" onChange={this.handleChange}/>
                         <FormLabel>Straße</FormLabel>
-                        <FormControl type="input" placeholder="Straße" onChange={this.handleChange}/>
+                        <FormControl type="input" placeholder="Straße" name="street" onChange={this.handleChange}/>
                         <FormLabel>Hausnummer</FormLabel>
-                        <FormControl type="input" placeholder="Hausnummer" onChange={this.handleChange}/>
+                        <FormControl type="input" placeholder="Hausnummer" name="houseNumber" onChange={this.handleChange}/>
                         <FormLabel>Fotos des Geräts</FormLabel>
-                        <FormControl type="file"/>
+                        <FormControl type="file" name="photos" onChange={this.handleChange}/>
                     </Form>
                 </Container>
                 <Button id="button-send-ticket" onClick={this.handleClick}>Senden</Button>

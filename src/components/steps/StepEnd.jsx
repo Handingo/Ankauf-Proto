@@ -92,12 +92,41 @@ class StepEnd extends Component {
                 suggestion = NaN;
         }
 
+        let i = 0;
+        const keys = [
+            "Gerätetyp",
+            "Hersteller",
+            "Modell",
+            "Farbe",
+            "Speicherplatz",
+            "Zustand"
+        ];
+        let specifications = [];
+
+        for (const entry in this.props.selection) {
+            if (i++ === 0 || !this.props.selection.hasOwnProperty(entry)) {
+                continue;
+            }
+
+            const selection = this.props.selection[entry];
+
+            if (!selection) {
+                continue;
+            }
+
+            specifications.push(<p>{keys[i - 2] + ":"}<br/>{selection}</p>);
+            specifications.push(<br/>);
+        }
+
         return (
             <div id="step-end">
                 <h2>Ankauf</h2>
+                <div id="selection-result">
+                    {specifications}
+                </div>
                 <IconPreview image={image}/>
                 <h3>Unser Vorschlag:</h3>
-                <h2>{!isNaN(suggestion) ? Math.round(suggestion) + ",00 €" : "Es konnte kein Vorschlag bestimmt werden."}</h2>
+                <h2>{!isNaN(suggestion) ? suggestion.toLocaleString(undefined, { minimumFractionDigits: 2 }) + " €" : "Es konnte kein Vorschlag bestimmt werden."}</h2>
                 <br/>
                 <Button id="button-create-ticket" onClick={this.handleClick}>Ticket erstellen</Button>
             </div>

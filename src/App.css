@@ -207,8 +207,12 @@ button {
     }
 }
 
-.preview-icon {
+.selection .preview-icon {
     border-radius: 15% 0% 0% 15%;
+}
+
+#step-end .preview-icon {
+    border-radius: 10%;
 }
 
 :not(#step-init) .selection button:hover .preview-icon {
@@ -261,7 +265,7 @@ button {
     margin-bottom: 0.5%;
 }
 
-#button-search, #button-start, #button-send-ticket, #button-create-ticket {
+#button-search, #button-send-ticket, #button-create-ticket {
     background-color: #1a95a3;
     border-color: #1a95a3;
 
@@ -278,8 +282,16 @@ button {
 }
 
 #button-start {
+    background-color: #D94136;
+    border-color: #D94136;
     min-width: 85px;
     width: 20%;
+    
+    &:hover {
+        background-color: #E95146;
+        border-color: #E95146;
+        transition: 200ms ease-in;
+    }
 }
 
 /*.Steps p {
