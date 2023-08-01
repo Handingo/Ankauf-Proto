@@ -433,6 +433,9 @@ input[type="file"]::-webkit-file-upload-button {
     display: none;
 }
 
-#selection-result #document-upload-button {
-    margin-top: 190px;
+#selection-result-image-body {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
 }

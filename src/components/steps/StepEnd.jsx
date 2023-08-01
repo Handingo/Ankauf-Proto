@@ -147,7 +147,7 @@ class StepEnd extends Component {
                                 Foto
                             </Card.Title>
                         </Card.Header>
-                        <Card.Body>
+                        <Card.Body id="selection-result-image-body">
                             <input type="file" id="file-upload" name="photos" onChange={this.handleUpload}/>
                             {this.state.documents
                                 ? <Card.Img src={URL.createObjectURL(this.state.documents[0])} onClick={this.handleClickUpload}></Card.Img>
