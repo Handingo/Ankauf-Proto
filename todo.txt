@@ -1,2 +1,0 @@
-- den upload button für die mobile version adjustieren
-- selection buttons für die desktop version adjustieren

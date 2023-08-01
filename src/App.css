@@ -214,11 +214,9 @@ button {
 :not(#step-init) .selection button {
     text-align: left;
     margin-bottom: calc(2px + 1.5%);
-    padding: 2%;
+    padding: 1%;
     width: 66%;
-    min-width: 85vw;
-    min-height: 6vh;
-    max-height: 20vh;
+    max-height: 18vh;
     display: grid;
     grid-template-columns: 12% 56% 17% 12%;
     border-radius: 1vw;
@@ -227,6 +225,27 @@ button {
         background-color: #DFDFDF;
         transition: 200ms ease-in;
         box-shadow: rgba(0, 0, 0, 0.0625) 0px 3px 5px, rgba(0, 0, 0, 0.05) 0px 3px 10px, rgba(0, 0, 0, 0.0375) 0px 3px 15px, rgba(0, 0, 0, 0.025) 0px 3px 20px, rgba(0, 0, 0, 0.0125) 0px 3px 25px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    :not(#step-init) .selection button {
+        text-align: left;
+        margin-bottom: calc(2px + 1.5%);
+        padding: 2%;
+        width: 66%;
+        min-width: 85vw;
+        min-height: 6vh;
+        max-height: 20vh;
+        display: grid;
+        grid-template-columns: 12% 56% 17% 12%;
+        border-radius: 1vw;
+        
+        &:hover {
+            background-color: #DFDFDF;
+            transition: 200ms ease-in;
+            box-shadow: rgba(0, 0, 0, 0.0625) 0px 3px 5px, rgba(0, 0, 0, 0.05) 0px 3px 10px, rgba(0, 0, 0, 0.0375) 0px 3px 15px, rgba(0, 0, 0, 0.025) 0px 3px 20px, rgba(0, 0, 0, 0.0125) 0px 3px 25px;
+        }
     }
 }
 
@@ -270,7 +289,7 @@ button {
 
 :not(#step-init) .selection button:hover .preview-icon {
     transition: 200ms ease 200ms;
-    transform: scale(1.33);
+    transform: scale(1.35);
 }
 
 .button-text {
@@ -284,7 +303,7 @@ button {
 .button-text-small {
     align-self: center;
     font-weight: 400;
-    font-size: calc(6px + 0.6vw);
+    font-size: calc(6px + 0.7vw);
     margin: 0;
     padding-left: 3%;
 }
@@ -397,7 +416,7 @@ button {
 
 #selection-breadcrumbs {
     display: flex;
-    margin-left: 5%;
+    margin-left: 18%;
 }
 
 #selection-breadcrumbs a {
