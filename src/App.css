@@ -118,6 +118,31 @@ body {
     margin-bottom: 1.25%;
 }
 
+.Steps #ticket-confirmation {
+    background-image: url("../public/checkout.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: -4.35%;
+    min-height: 100vh;
+}
+
+.Steps #ticket-confirmation p {
+    padding-top: 15%;
+    padding-bottom: 60%;
+    font-size: 30px;
+    text-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
+    
+}
+
+@media only screen and (max-width: 990px) {
+    .Steps #ticket-confirmation p {
+        padding-top: 45%;
+        font-size: 20px;
+        text-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
+    }    
+}
+
 #banner-wrapped {
     background-image: url("//handingo.de/cdn/shop/files/Handingo-Mount_720.jpg");
     background-position: center;
