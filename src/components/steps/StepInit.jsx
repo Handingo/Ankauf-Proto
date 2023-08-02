@@ -14,6 +14,7 @@ class StepInit extends Component {
 
     handleClick(event) {
         this.props.selectStep(this.props.selection.step + 1);
+        window.scrollTo(0, 0);
     }
 
     render() {

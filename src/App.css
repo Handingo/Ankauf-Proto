@@ -292,6 +292,11 @@ button {
     transform: scale(1.35);
 }
 
+:not(#step-init) .selection button:hover .button-text {
+    transition: 200ms ease 200ms;
+    margin-left: 3.5%;
+}
+
 .button-text {
     align-self: center;
     line-height: calc(12px + 0.6vh);

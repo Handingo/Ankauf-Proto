@@ -89,7 +89,8 @@ class Steps extends Component {
         e.preventDefault();
         const step = this.props.selection.step - 1;
         this.props.selectStep(step);
-        this.props.resetStatePart(step)
+        this.props.resetStatePart(step);
+        window.scrollTo(0, 0);
     }
 
     render() {

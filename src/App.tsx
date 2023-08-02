@@ -4,10 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Steps from './components/steps/Steps';
 import TopMenu from './components/navigation/TopMenu';
 import BottomMenu from './components/navigation/BottomMenu';
+import { connect } from 'react-redux';
 
 class App extends Component {
+    // <UnsecureAuth/>
     render() {
-        // <UnsecureAuth/>
         return (
             <div className="App">
                 <TopMenu/>
@@ -18,4 +19,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default connect(state => { return state; })(App);

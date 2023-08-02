@@ -25,6 +25,7 @@ class StepEnd extends Component {
         }
 
         this.props.selectStep(this.props.selection.step + 1);
+        window.scrollTo(0, 0);
     }
 
     handleClickUpload(e) {

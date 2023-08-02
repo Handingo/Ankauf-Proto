@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Button, Container, Form, FormCheck, FormControl } from "react-bootstrap";
+import { Button, Container, Form, FormControl } from "react-bootstrap";
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import * as selectionActions from '../../actions/SelectionActions';
@@ -54,6 +54,7 @@ class TicketForm extends Component {
         }
 
         this.props.selectStep(this.props.selection.step + 1);
+        window.scrollTo(0, 0);
     }
 
     render() {

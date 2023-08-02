@@ -16,6 +16,7 @@ class Step extends Component {
     handleClick(e) {
         this.props.dispatch(this.props.action(e.currentTarget.getAttribute("name")));
         this.props.dispatch(selectionActions.getSelectStepAction(this.props.selection.step + 1));
+        window.scrollTo(0, 0);
     }
 
     handleBreadcrumbClick(e) {
@@ -23,6 +24,7 @@ class Step extends Component {
         const step = Number(e.currentTarget.name);
         this.props.dispatch(selectionActions.getResetStatePartAction(step));
         this.props.dispatch(selectionActions.getSelectStepAction(step));
+        window.scrollTo(0, 0);
     }
 
     render() {
