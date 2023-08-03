@@ -4,16 +4,18 @@ import { bindActionCreators } from 'redux';
 import { Button } from "react-bootstrap";
 import * as selectionActions from '../../actions/SelectionActions';
 import StepInit from './StepInit';
-import Step from './Step';
+import SelectionStep from './SelectionStep';
 import StepEnd from "./StepEnd";
 import TicketForm from "./TicketForm";
 import TicketConfirmation from "./TicketConfirmation";
+import FunctionalityStep from "./FunctionalityStep";
 
 class Steps extends Component {
 
     steps = [
         <StepInit/>,
-        <Step
+        <FunctionalityStep/>,
+        <SelectionStep
             id={1}
             text="Wähle den Typen des Geräts."
             entities={[
@@ -22,7 +24,7 @@ class Steps extends Component {
             ]}
             action={selectionActions.getSelectDeviceTypeAction}
         />,
-        <Step
+        <SelectionStep
             id={2}
             text="Wähle den Hersteller des Geräts."
             entities={[
@@ -31,7 +33,7 @@ class Steps extends Component {
             ]}
             action={selectionActions.getSelectBrandAction}
         />,
-        <Step
+        <SelectionStep
             id={3}
             text="Wähle das Modell des Geräts."
             entities={[
@@ -42,7 +44,7 @@ class Steps extends Component {
             ]}
             action={selectionActions.getSelectModelAction}
         />,
-        <Step
+        <SelectionStep
             id={4}
             text="Wähle die Farbe des Modells."
             entities={[
@@ -52,7 +54,7 @@ class Steps extends Component {
             ]}
             action={selectionActions.getSelectColorAction}
         />,
-        <Step
+        <SelectionStep
             id={5}
             text="Wie viel Speicherplatz bietet das Modell?"
             entities={[
@@ -64,7 +66,7 @@ class Steps extends Component {
             ]}
             action={selectionActions.getSelectInternalMemoryAction}
         />,
-        <Step
+        <SelectionStep
             id={6}
             text="In welchem Zustand befindet sich das Gerät?"
             entities={[

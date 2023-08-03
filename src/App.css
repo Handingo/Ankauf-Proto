@@ -114,6 +114,17 @@ body {
     min-height: 85vh;
 }
 
+#step-functionality-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#step-functionality-selection button {
+    width: 30%;
+    margin-bottom: 0.5%;
+}
+
 .selection {
     margin-bottom: 1.25%;
 }
@@ -363,7 +374,7 @@ button {
     margin-bottom: 0.5%;
 }
 
-#button-search, #button-send-ticket, #button-create-ticket {
+#button-search, #button-functionality-yes, #button-send-ticket, #button-create-ticket {
     background-color: #1a95a3;
     border-color: #1a95a3;
 
