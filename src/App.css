@@ -109,7 +109,7 @@ body {
     border: 2px solid #d94136;
 }*/
 
-.Steps { /* TODO */
+.Steps {
     margin: 4%;
     min-height: 85vh;
 }
@@ -200,7 +200,7 @@ body {
     box-shadow: 0 1px 1px rgba(26, 149, 163, 0.2) inset, 0 0 8px rgba(26, 149, 163, 0.6) !important;
 }
 
-#ticket-form .form-option:hover { /* TODO */
+#ticket-form .form-option:hover { /* TODO - funktioniert nicht, Optionen bleiben blau */
     background-color: #1a95a3 !important;
     color: #1a95a3 !important;
 }
@@ -295,10 +295,6 @@ button {
 #selection-result-details p {
     text-align: left;
 }
-
-/*#selection-result-details :not(i) {
-    font-weight: 500;
-}*/
 
 #selection-result-details, #selection-result-empty {
     flex: 1;
@@ -395,12 +391,6 @@ button {
         transition: 200ms ease-in;
     }
 }
-
-/*.Steps p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}*/
 
 .Steps .btn.btn-primary {
     font-size: 1.1rem !important;

@@ -15,7 +15,7 @@ class Steps extends Component {
         <StepInit/>,
         <Step
             id={1}
-            text="Wählen Sie Ihren Gerätetypen."
+            text="Wähle den Typen des Geräts."
             entities={[
                 "Smartphone",
                 "Smartwatch"
@@ -24,7 +24,7 @@ class Steps extends Component {
         />,
         <Step
             id={2}
-            text="Wählen Sie den Hersteller Ihres Geräts."
+            text="Wähle den Hersteller des Geräts."
             entities={[
                 "Samsung",
                 "Huawei"
@@ -33,7 +33,7 @@ class Steps extends Component {
         />,
         <Step
             id={3}
-            text="Wählen Sie Ihr Modell."
+            text="Wähle das Modell des Geräts."
             entities={[
                 "Samsung Galaxy S20",
                 "Samsung Galaxy S21",
@@ -44,7 +44,7 @@ class Steps extends Component {
         />,
         <Step
             id={4}
-            text="Wählen Sie die Farbe Ihres Modells."
+            text="Wähle die Farbe des Modells."
             entities={[
                 "Black",
                 "White",
@@ -54,7 +54,7 @@ class Steps extends Component {
         />,
         <Step
             id={5}
-            text="Wie viel Speicherplatz bietet Ihr Modell?"
+            text="Wie viel Speicherplatz bietet das Modell?"
             entities={[
                 "64 GB",
                 "128 GB",
@@ -66,7 +66,7 @@ class Steps extends Component {
         />,
         <Step
             id={6}
-            text="Bitte wählen Sie den passenden Zustand ihres Geräts."
+            text="In welchem Zustand befindet sich das Gerät?"
             entities={[
                 "Wie neu",
                 "Sehr gut",
