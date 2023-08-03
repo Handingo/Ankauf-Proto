@@ -14,10 +14,12 @@ class TicketForm extends Component {
     }
 
     state = {
+        formOfAdress: "",
         firstName: "",
         lastName: "",
         email: "",
         emailConfirm: "",
+        postalCode: "",
         demicile: "",
         street: "",
         houseNumber: "",
@@ -67,10 +69,12 @@ class TicketForm extends Component {
                         <h3>Kundendaten</h3>
                         <br/>
                         <div id="customer-data">
+                            <FormControl type="input" placeholder="Anrede" name="formOfAdress" onChange={this.handleChange}/>
                             <FormControl type="input" placeholder="Vorname" name="firstName" onChange={this.handleChange}/>
                             <FormControl type="input" placeholder="Nachname" name="lastName" onChange={this.handleChange}/>
                             <FormControl type="input" placeholder="E-Mail" name="email" onChange={this.handleChange}/>
                             <FormControl type="input" placeholder="E-Mail bestätigen" name="emailConfirm" onChange={this.handleChange}/>
+                            <FormControl type="input" placeholder="Postleitzahl" name="postalCode" onChange={this.handleChange}/>
                             <FormControl type="input" placeholder="Wohnort" name="demicile" onChange={this.handleChange}/>
                             <FormControl type="input" placeholder="Straße" name="street" onChange={this.handleChange}/>
                             <FormControl type="input" placeholder="Hausnummer" name="houseNumber" onChange={this.handleChange}/>
@@ -78,17 +82,7 @@ class TicketForm extends Component {
                         <br/>
                         <br/>
                         <h3>Zusatzdaten</h3>
-                        <br/>
                         <div id="additional-data">
-                            <div id="payment-method">
-                                <Form.Label>
-                                    Zahlungswunsch
-                                </Form.Label>
-                                <Form.Select id="payment-method-selection">
-                                    <option className="form-option">Banküberweisung</option>
-                                    <option className="form-option">Gutschein (mit Bonus)</option>
-                                </Form.Select>
-                            </div>
                             <div id="delivery-service">
                                 <Form.Label>
                                     Lieferdienst
@@ -99,6 +93,18 @@ class TicketForm extends Component {
                                     <option className="form-option">UPS</option>
                                 </Form.Select>
                             </div>
+                            <div id="payment-method">
+                                <Form.Label>
+                                    Zahlungswunsch
+                                </Form.Label>
+                                <Form.Select id="payment-method-selection">
+                                    <option className="form-option">Banküberweisung</option>
+                                    <option className="form-option">Gutschein (mit Bonus)</option>
+                                </Form.Select>
+                            </div>
+                            {/* Je nach Zahlungswunsch anders rendern*/}
+                            <FormControl type="input" placeholder="IBAN" onChange={this.handleChange}/>
+                            <FormControl type="input" placeholder="BIC" onChange={this.handleChange}/>
                         </div>
                         <br/>
                         <p>
