@@ -63,24 +63,42 @@ class TicketForm extends Component {
             <div id="ticket-form">
                 <Container className="ticket-form">
                     <Form>
+                        <br/>
                         <h3>Kundendaten</h3>
                         <br/>
-                        <FormControl type="input" placeholder="Vorname" name="firstName" onChange={this.handleChange}/>
-                        <FormControl type="input" placeholder="Nachname" name="lastName" onChange={this.handleChange}/>
-                        <FormControl type="input" placeholder="E-Mail" name="email" onChange={this.handleChange}/>
-                        <FormControl type="input" placeholder="E-Mail bestätigen" name="emailConfirm" onChange={this.handleChange}/>
-                        <FormControl type="input" placeholder="Wohnort" name="demicile" onChange={this.handleChange}/>
-                        <FormControl type="input" placeholder="Straße" name="street" onChange={this.handleChange}/>
-                        <FormControl type="input" placeholder="Hausnummer" name="houseNumber" onChange={this.handleChange}/>
+                        <div id="customer-data">
+                            <FormControl type="input" placeholder="Vorname" name="firstName" onChange={this.handleChange}/>
+                            <FormControl type="input" placeholder="Nachname" name="lastName" onChange={this.handleChange}/>
+                            <FormControl type="input" placeholder="E-Mail" name="email" onChange={this.handleChange}/>
+                            <FormControl type="input" placeholder="E-Mail bestätigen" name="emailConfirm" onChange={this.handleChange}/>
+                            <FormControl type="input" placeholder="Wohnort" name="demicile" onChange={this.handleChange}/>
+                            <FormControl type="input" placeholder="Straße" name="street" onChange={this.handleChange}/>
+                            <FormControl type="input" placeholder="Hausnummer" name="houseNumber" onChange={this.handleChange}/>
+                        </div>
                         <br/>
-                        <div id="payment-method">
-                            <Form.Label id="payment-method-header">
-                                Zahlungswunsch
-                            </Form.Label>
-                            <Form.Select id="payment-method-selection">
-                                <option className="form-option">Banküberweisung</option>
-                                <option className="form-option">Gutschein (mit Bonus)</option>
-                            </Form.Select>
+                        <br/>
+                        <h3>Zusatzdaten</h3>
+                        <br/>
+                        <div id="additional-data">
+                            <div id="payment-method">
+                                <Form.Label>
+                                    Zahlungswunsch
+                                </Form.Label>
+                                <Form.Select id="payment-method-selection">
+                                    <option className="form-option">Banküberweisung</option>
+                                    <option className="form-option">Gutschein (mit Bonus)</option>
+                                </Form.Select>
+                            </div>
+                            <div id="delivery-service">
+                                <Form.Label>
+                                    Lieferdienst
+                                </Form.Label>
+                                <Form.Select id="delivery-service-selection">
+                                    <option className="form-option">DHL</option>
+                                    <option className="form-option">DPD</option>
+                                    <option className="form-option">UPS</option>
+                                </Form.Select>
+                            </div>
                         </div>
                         <br/>
                         <p>

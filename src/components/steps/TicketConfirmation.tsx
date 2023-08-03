@@ -6,8 +6,9 @@ class TicketConfirmation extends Component {
         return (
             <div id="ticket-confirmation">
                 <p>Vielen Dank für die Einsendung!<br/>
-                    Bitte schicke uns nun dein Gerät zu.<br/>
+                    <br/>
                     Du erhälst baldestmöglich eine Antwort per E-Mail.<br/>
+                    Sofern die Antwort als Zusage eintrifft, schicken wir dir eine Sendungsmarke zu.<br/>
                     <br/>
                     <br/>
                     - Dein Handingo-Team -<br/>

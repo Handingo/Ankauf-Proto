@@ -136,6 +136,8 @@ body {
     background-size: cover;
     margin: -4.35%;
     min-height: 100vh;
+    padding-left: 22%;
+    padding-right: 22%;
 }
 
 .Steps #ticket-confirmation p {
@@ -407,11 +409,20 @@ button {
     font-size: 1.1rem !important;
 }
 
+#ticket-form .form-label {
+    text-align: left;
+    padding-left: 5px;
+}
+
 #ticket-form input, #ticket-form label {
     display: grid;
 }
 
-#ticket-form input, #ticket-form #payment-method {
+#ticket-form option[disabled] {
+    text-align: center;
+}
+
+#ticket-form input, #ticket-form #payment-method, #ticket-form #delivery-service {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 2%;
@@ -430,6 +441,10 @@ button {
     padding: 2%;
 }
 
+#ticket-form #additional-data .form-select {
+    margin-bottom: 15%;
+}
+
 #ticket-form a {
     text-decoration: none;
     color: #1a95a3;
@@ -438,11 +453,6 @@ button {
 #ticket-form input[type="checkbox"] {
     transform: scale(2);
     accent-color: #1a95a3;
-}
-
-#ticket-form #payment-method-header {
-    text-align: left;
-    margin-left: 5px;
 }
 
 #selection-breadcrumbs {
