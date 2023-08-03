@@ -69,15 +69,15 @@ class TicketForm extends Component {
                         <h3>Kundendaten</h3>
                         <br/>
                         <div id="customer-data">
-                            <FormControl type="input" placeholder="Anrede" name="formOfAdress" onChange={this.handleChange}/>
-                            <FormControl type="input" placeholder="Vorname" name="firstName" onChange={this.handleChange}/>
-                            <FormControl type="input" placeholder="Nachname" name="lastName" onChange={this.handleChange}/>
-                            <FormControl type="input" placeholder="E-Mail" name="email" onChange={this.handleChange}/>
-                            <FormControl type="input" placeholder="E-Mail bestätigen" name="emailConfirm" onChange={this.handleChange}/>
-                            <FormControl type="input" placeholder="Postleitzahl" name="postalCode" onChange={this.handleChange}/>
-                            <FormControl type="input" placeholder="Wohnort" name="demicile" onChange={this.handleChange}/>
-                            <FormControl type="input" placeholder="Straße" name="street" onChange={this.handleChange}/>
-                            <FormControl type="input" placeholder="Hausnummer" name="houseNumber" onChange={this.handleChange}/>
+                            <FormControl type="text" maxLength="8" placeholder="Anrede" name="formOfAdress" onChange={this.handleChange}/>
+                            <FormControl type="text" maxLength="32" placeholder="Vorname" name="firstName" onChange={this.handleChange}/>
+                            <FormControl type="text" maxLength="32" placeholder="Nachname" name="lastName" onChange={this.handleChange}/>
+                            <FormControl type="email" maxLength="254" placeholder="E-Mail" name="email" onChange={this.handleChange}/>
+                            <FormControl type="email" maxLength="254" placeholder="E-Mail bestätigen" name="emailConfirm" onChange={this.handleChange}/>
+                            <FormControl type="number" min={0} max={999999} placeholder="Postleitzahl" name="postalCode" onChange={this.handleChange}/>
+                            <FormControl type="text" maxLength="64" placeholder="Wohnort" name="demicile" onChange={this.handleChange}/>
+                            <FormControl type="text" maxLength="64" placeholder="Straße" name="street" onChange={this.handleChange}/>
+                            <FormControl type="text" maxLength="4" placeholder="Hausnummer" name="houseNumber" onChange={this.handleChange}/>
                         </div>
                         <br/>
                         <br/>
@@ -103,8 +103,8 @@ class TicketForm extends Component {
                                 </Form.Select>
                             </div>
                             {/* Je nach Zahlungswunsch anders rendern*/}
-                            <FormControl type="input" placeholder="IBAN"/>
-                            <FormControl type="input" placeholder="BIC"/>
+                            <FormControl type="text" minLength="27" maxLength="27" placeholder="IBAN"/>
+                            <FormControl type="text" maxLength="16" placeholder="BIC"/>
                         </div>
                         <br/>
                         <p>
