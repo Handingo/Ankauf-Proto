@@ -25,13 +25,18 @@ class FunctionalityStep extends Component {
             <div id="step-functionality">
                 <h2>Ankauf</h2>
                 <br/>
-                <p>Ist dein Gerät voll funktionsfähig?</p>
+                <p>{this.props.text}</p>
                 <br/>
-                <br/>
-                <Col id="step-functionality-selection">
-                    <Button id="button-functionality-yes" onClick={this.handleClick}>Ja</Button>
-                    <Button variant="secondary" onClick={this.handleClickNo}>Nein</Button>
-                </Col>
+                {!this.props.reversed
+                    ? <Col id="step-functionality-selection">
+                        <Button id="button-functionality-yes" onClick={this.handleClick}>Ja</Button>
+                        <Button id="button-functionality-no" onClick={this.handleClickNo}>Nein</Button>
+                    </Col>
+                    : <Col id="step-functionality-selection">
+                        <Button id="button-functionality-yes" onClick={this.handleClick}>Nein</Button>
+                        <Button id="button-functionality-no" onClick={this.handleClickNo}>Ja</Button>
+                    </Col>
+                }
                 <br/>
                 <br/>
             </div>

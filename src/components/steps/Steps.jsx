@@ -14,7 +14,9 @@ class Steps extends Component {
 
     steps = [
         <StepInit/>,
-        <FunctionalityStep/>,
+        <FunctionalityStep text={"Ist dein Gerät voll funktionsfähig?"}/>,
+        <FunctionalityStep text={"Steht dein Gerät unter SIM-Lock oder Net-Lock?"} reversed/>,
+        <FunctionalityStep text={"Hast du GoogleID bzw. AppleID von deinem Gerät entfernt? (Gilt in der Regel nur für Smartphones)"}/>,
         <SelectionStep
             id={1}
             text="Wähle den Typen des Geräts."
@@ -91,7 +93,7 @@ class Steps extends Component {
         e.preventDefault();
         const step = this.props.selection.step - 1;
         this.props.selectStep(step);
-        this.props.resetStatePart(step);
+        this.props.resetStatePart(step - 3);
         window.scrollTo(0, 0);
     }
 

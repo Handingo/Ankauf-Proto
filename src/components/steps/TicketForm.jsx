@@ -103,8 +103,8 @@ class TicketForm extends Component {
                                 </Form.Select>
                             </div>
                             {/* Je nach Zahlungswunsch anders rendern*/}
-                            <FormControl type="input" placeholder="IBAN" onChange={this.handleChange}/>
-                            <FormControl type="input" placeholder="BIC" onChange={this.handleChange}/>
+                            <FormControl type="input" placeholder="IBAN"/>
+                            <FormControl type="input" placeholder="BIC"/>
                         </div>
                         <br/>
                         <p>

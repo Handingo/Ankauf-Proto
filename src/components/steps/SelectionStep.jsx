@@ -22,7 +22,7 @@ class SelectionStep extends Component {
     handleBreadcrumbClick(e) {
         e.preventDefault();
         const step = Number(e.currentTarget.name);
-        this.props.dispatch(selectionActions.getResetStatePartAction(step));
+        this.props.dispatch(selectionActions.getResetStatePartAction(step - 3));
         this.props.dispatch(selectionActions.getSelectStepAction(step));
         window.scrollTo(0, 0);
     }
@@ -42,7 +42,7 @@ class SelectionStep extends Component {
                 continue;
             }
 
-            const step = i - 1;
+            const step = i + 2;
             breadcrumbs.push(<a href="/" key={step} name={step} onClick={this.handleBreadcrumbClick}>{selection + " /"}</a>);
         }
 
