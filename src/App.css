@@ -148,6 +148,12 @@ body {
     
 }
 
+@media only screen and (max-width: 650px) {
+    .Steps {
+        margin-top: 30%;
+    }
+}
+
 @media only screen and (max-width: 990px) {
     .Steps #ticket-confirmation p {
         padding-top: 45%;
