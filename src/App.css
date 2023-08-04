@@ -149,7 +149,7 @@ body {
 }
 
 @media only screen and (max-width: 650px) {
-    .Steps {
+    .Steps #step-functionality, .Steps .step {
         margin-top: 30%;
     }
 }
@@ -196,9 +196,31 @@ body {
     margin-right: 15%;
 }
 
-.searchbar input {
+.rbt {
+    width: 55%;
     min-width: 200px !important;
-    max-width: 500px;
+}
+
+.rbt .rbt-input-wrapper {
+    overflow: hidden;
+}
+
+.rbt .rbt-highlight-text {
+    background-color: #00000022;
+}
+
+.rbt .dropdown-item:hover, .rbt .dropdown-item:hover {
+    background-color: #1a95a377;
+    color: #fff;
+}
+
+.rbt .dropdown-item.active {
+    background-color: #1a95a3bb;
+}
+
+.searchbar.container {
+    display: flex;
+    justify-content: center;
 }
 
 @media only screen and (max-width: 991px) {
@@ -207,14 +229,9 @@ body {
         margin-right: -5%;
         text-align: justify;
     }
-
-    .searchbar.container {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
 }
 
-.form-control:focus, .form-select:focus {
+.form-control:focus, .form-select:focus, .form-select::selection {
     border-color: #1a95a3bb !important;
     box-shadow: 0 1px 1px rgba(26, 149, 163, 0.2) inset, 0 0 8px rgba(26, 149, 163, 0.6) !important;
 }
@@ -229,8 +246,8 @@ body {
 }
 
 #step-init .d-flex {
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 30%;
+    padding-right: 60%;
     justify-content: center;
 }
 
@@ -238,7 +255,7 @@ body {
     min-width: 100px;
 }
 
-#step-init .d-flex input::placeholder {
+#step-init .d-flex input::placeholder, .searchbar.container input::placeholder {
     color: rgba(0, 0, 0, 0.25);
 }
 
@@ -405,7 +422,7 @@ button {
 }
 
 #button-search {
-    margin-left: 1%;
+    margin-left: 3px;
     min-width: 85px;
 }
 

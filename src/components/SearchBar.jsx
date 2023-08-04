@@ -1,39 +1,39 @@
 import { Component } from "react";
-import { Button, Container, Form, FormControl } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import * as selectionActions from '../actions/SelectionActions';
+import { Typeahead } from "react-bootstrap-typeahead";
 
 class SearchBar extends Component {
 
     state = {
-        barcode: ""
+        text: ""
     }
 
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleChange(e) {
-        const value = e.currentTarget.value;
-
-        if (value.length > 24) { // ist das die maximale Länge der Barcodes?
-            return;
-        }
-
-        const cleanValue = value.replace(/\D/, "");
-
+    handleChange = text => {
         this.setState({
-            barcode: cleanValue
+            text: text[0]
+        });
+    }
+
+    handleInputChange = text => {
+        this.setState({
+            text: text
         });
     }
 
     handleClick(e) {
         e.preventDefault();
 
-        if (this.state.barcode.length < 11) {
+        if (this.state.text.length < 1) {
             return;
         }
 
@@ -42,17 +42,32 @@ class SearchBar extends Component {
         this.props.selectModel("Samsung Galaxy S20");
         this.props.selectInternalMemory("256 GB");
         this.props.selectColor("Purple");
-        this.props.selectCondition("Wie neu");
-        this.props.selectStep(6);
+        this.props.selectStep(9);
     }
 
     render() {
-        return (
-            <Container className="searchbar">
-                <Form className="d-flex">
-                    <FormControl type="search" value={this.state.barcode} placeholder="Barcode" onChange={this.handleChange}/>
+        /*
+        <Form className="d-flex">
+                    <FormControl type="search" maxLength={64} value={this.state.text} placeholder="z. B. Samsung Galaxy S23 Ultra" onChange={this.handleChange}/>
                     <Button id="button-search" variant="primary" onClick={this.handleClick}>Suchen</Button>
                 </Form>
+        */
+        return (
+            <Container className="searchbar">
+                <Typeahead
+                    id="searchbar"
+                    options={[
+                        "Samsung Galaxy S23, 256 GB, White",
+                        "Samsung Galaxy S23 Plus, 512 GB, White",
+                        "Samsung Galaxy S23 Plus, 512 GB, Black",
+                        "Samsung Galaxy S23 Ultra, 256 GB, Spacegray",
+                        "Samsung Galaxy S23 Ultra, 512 GB, Spacegray"
+                    ]}
+                    placeholder="z. B. Samsung Galaxy S23 Ultra"
+                    onChange={this.handleChange}
+                    onInputChange={this.handleInputChange}
+                />
+                <Button id="button-search" variant="primary" onClick={this.handleClick}>Suchen</Button>
             </Container>
         );
     }

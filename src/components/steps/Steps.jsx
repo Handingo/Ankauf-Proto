@@ -9,14 +9,12 @@ import StepEnd from "./StepEnd";
 import TicketForm from "./TicketForm";
 import TicketConfirmation from "./TicketConfirmation";
 import FunctionalityStep from "./FunctionalityStep";
+import ConditionStep from "./ConditionStep";
 
 class Steps extends Component {
 
     steps = [
         <StepInit/>,
-        <FunctionalityStep text={"Ist dein Gerät voll funktionsfähig?"}/>,
-        <FunctionalityStep text={"Steht dein Gerät unter SIM-Lock oder Net-Lock?"} reversed/>,
-        <FunctionalityStep text={"Hast du GoogleID bzw. AppleID von deinem Gerät entfernt? (Gilt in der Regel nur für Smartphones)"}/>,
         <SelectionStep
             id={1}
             text="Wähle den Typen des Geräts."
@@ -68,17 +66,14 @@ class Steps extends Component {
             ]}
             action={selectionActions.getSelectInternalMemoryAction}
         />,
-        <SelectionStep
+        <ConditionStep
             id={6}
             text="In welchem Zustand befindet sich das Gerät?"
-            entities={[
-                "Wie neu",
-                "Sehr gut",
-                "Gut",
-                "Akzeptabel"
-            ]}
             action={selectionActions.getSelectConditionAction}
         />,
+        <FunctionalityStep text={"Ist dein Gerät voll funktionsfähig?"}/>,
+        <FunctionalityStep text={"Steht dein Gerät unter SIM-Lock oder Net-Lock?"} reversed/>,
+        <FunctionalityStep text={"Hast du GoogleID bzw. AppleID von deinem Gerät entfernt? (Gilt in der Regel nur für Smartphones)"}/>,
         <StepEnd/>,
         <TicketForm/>,
         <TicketConfirmation/>
@@ -93,7 +88,7 @@ class Steps extends Component {
         e.preventDefault();
         const step = this.props.selection.step - 1;
         this.props.selectStep(step);
-        this.props.resetStatePart(step - 3);
+        this.props.resetStatePart(step);
         window.scrollTo(0, 0);
     }
 

@@ -5,7 +5,7 @@ import * as selectionActions from '../../actions/SelectionActions';
 import IconContinue from "../../icons/IconContinue";
 import IconPreview from "../../icons/IconPreview";
 
-class SelectionStep extends Component {
+class ConditionStep extends Component {
 
     constructor(props) {
         super(props);
@@ -57,24 +57,42 @@ class SelectionStep extends Component {
                 <div id="selection-breadcrumbs">{breadcrumbs}</div>
                 <br/>
                 <div className="selection">
-                    {this.props.entities.map(entity => {
-                        i++;
-                        const entityPrice = 427.0 + i * 75;
-                        return (
-                            <Col key={entity}>
-                                <Button variant="light" name={entity} onClick={this.handleClick}>
-                                    <IconPreview image="./smartphone-test.jpg"/>
-                                    <p className="button-text">{entity}</p>
-                                    <small className="button-text-small">{this.props.id === 3 ? "(Wir bieten bis zu " + entityPrice + " €)" : ""}</small>
-                                    <IconContinue/>
-                                </Button>
-                            </Col>
-                        );
-                    })}
+                    <Col>
+                        <Button variant="light" name="Wie neu" onClick={this.handleClick}>
+                            <IconPreview image="./s20.png"/>
+                            <p className="button-text">Wie neu</p>
+                            <small className="button-text-small"/>
+                            <IconContinue/>
+                        </Button>
+                    </Col>
+                    <Col>
+                        <Button variant="light" name="Sehr gut" onClick={this.handleClick}>
+                            <IconPreview image="./s21.png"/>
+                            <p className="button-text">Sehr gut</p>
+                            <small className="button-text-small"/>
+                            <IconContinue/>
+                        </Button>
+                    </Col>
+                    <Col>
+                        <Button variant="light" name="Gut" onClick={this.handleClick}>
+                            <IconPreview image="./s22.png"/>
+                            <p className="button-text">Gut</p>
+                            <small className="button-text-small"/>
+                            <IconContinue/>
+                        </Button>
+                    </Col>
+                    <Col>
+                        <Button variant="light" name="Akzeptabel" onClick={this.handleClick}>
+                            <IconPreview image="./smartphone-test.jpg"/>
+                            <p className="button-text">Akzeptabel</p>
+                            <small className="button-text-small"/>
+                            <IconContinue/>
+                        </Button>
+                    </Col>
                 </div>
             </div>
         );
     }
 }
 
-export default connect(state => { return state; })(SelectionStep);
+export default connect(state => { return state; })(ConditionStep);

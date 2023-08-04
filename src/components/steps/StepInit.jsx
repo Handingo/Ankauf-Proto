@@ -25,7 +25,7 @@ class StepInit extends Component {
                     <br/>
                     <p>Wir kaufen Deine Geräte!</p>
                     <br/>
-                    <p id="init-explanation">Um einen Preisvorschlag zu erhalten, versuche den Barcode deines Geräts in das Suchfeld einzugeben</p>
+                    <p id="init-explanation">Um einen Preisvorschlag zu erhalten, versuche die Bezeichnung deines Geräts in das Suchfeld einzugeben</p>
                     <br/>
                     <SearchBar/>
                     <br/>
