@@ -15,11 +15,6 @@ class FunctionalityStep extends Component {
         window.scrollTo(0, 0);
     }
 
-    handleClickNo(e) {
-        this.props.dispatch(selectionActions.getSelectStepAction(-1));
-        window.scrollTo(0, 0);
-    }
-
     render() {
         return (
             <div id="step-functionality">
@@ -27,16 +22,10 @@ class FunctionalityStep extends Component {
                 <br/>
                 <p>{this.props.text}</p>
                 <br/>
-                {!this.props.reversed
-                    ? <Col id="step-functionality-selection">
-                        <Button id="button-functionality-yes" onClick={this.handleClick}>Ja</Button>
-                        <Button id="button-functionality-no" onClick={this.handleClickNo}>Nein</Button>
-                    </Col>
-                    : <Col id="step-functionality-selection">
-                        <Button id="button-functionality-yes" onClick={this.handleClick}>Nein</Button>
-                        <Button id="button-functionality-no" onClick={this.handleClickNo}>Ja</Button>
-                    </Col>
-                }
+                <Col id="step-functionality-selection">
+                    <Button id="button-functionality-yes" onClick={this.handleClick}>Ja</Button>
+                    <Button id="button-functionality-no" onClick={this.handleClick}>Nein</Button>
+                </Col>
                 <br/>
                 <br/>
             </div>

@@ -73,7 +73,7 @@ class Steps extends Component {
         />,
         <FunctionalityStep text={"Ist dein Gerät voll funktionsfähig?"}/>,
         <FunctionalityStep text={"Steht dein Gerät unter SIM-Lock oder Net-Lock?"} reversed/>,
-        <FunctionalityStep text={"Hast du GoogleID bzw. AppleID von deinem Gerät entfernt? (Gilt in der Regel nur für Smartphones)"}/>,
+        <FunctionalityStep text={"Hast du GoogleID bzw. AppleID von deinem Gerät entfernt?"}/>,
         <StepEnd/>,
         <TicketForm/>,
         <TicketConfirmation/>

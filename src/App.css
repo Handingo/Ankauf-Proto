@@ -399,24 +399,13 @@ button {
     margin-bottom: 0.5%;
 }
 
-#button-search, #button-functionality-yes, #button-send-ticket, #button-create-ticket {
+#button-search, #button-functionality-yes, #button-functionality-no, #button-send-ticket, #button-create-ticket {
     background-color: #1a95a3;
     border-color: #1a95a3;
 
     &:hover {
         background-color: #1a95a3bb;
         border-color: #1a95a3bb;
-        transition: 200ms ease-in;
-    }
-}
-
-#button-functionality-no {
-    background-color: #D94136;
-    border-color: #D94136;
-
-    &:hover {
-        background-color: #E95146;
-        border-color: #E95146;
         transition: 200ms ease-in;
     }
 }
