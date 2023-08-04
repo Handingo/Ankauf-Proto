@@ -379,7 +379,7 @@ button {
     align-self: center;
 }
 
-#button-back, #button-send-ticket {
+#button-back, #button-send-ticket, #button-continue {
     text-align: center;
     width: 18%;
     min-width: 110px;
@@ -399,7 +399,7 @@ button {
     margin-bottom: 0.5%;
 }
 
-#button-search, #button-functionality-yes, #button-functionality-no, #button-send-ticket, #button-create-ticket {
+#button-search, #button-functionality-yes, #button-functionality-no, #button-continue, #button-send-ticket, #button-create-ticket {
     background-color: #1a95a3;
     border-color: #1a95a3;
 
@@ -432,12 +432,12 @@ button {
     font-size: 1.1rem !important;
 }
 
-#ticket-form .form-label {
+.ticket-form .form-label {
     text-align: left;
     padding-left: 5px;
 }
 
-#ticket-form input, #ticket-form label {
+.ticket-form input, .ticket-form label {
     display: grid;
 }
 
@@ -445,7 +445,7 @@ button {
     text-align: center;
 }
 
-#ticket-form input, #ticket-form #payment-method, #ticket-form #delivery-service {
+.ticket-form input, .ticket-form #payment-method, .ticket-form #delivery-service {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 2%;
@@ -453,27 +453,36 @@ button {
     min-width: 200px;
 }
 
-#ticket-form input::placeholder {
+#imei-step .ticket-form.container input {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+    width: 24.5%;
+    min-width: 200px;
+    text-align: center;
+}
+
+.ticket-form input::placeholder {
     color: rgba(0, 0, 0, 0.4);
 }
 
-#ticket-form p {
+.ticket-form p {
     text-align: left;
     margin-left: 12%;
     margin-right: 12%;
     padding: 2%;
 }
 
-#ticket-form #additional-data .form-label {
+.ticket-form #additional-data .form-label {
     margin-top: 10%;
 }
 
-#ticket-form a {
+.ticket-form a {
     text-decoration: none;
     color: #1a95a3;
 }
 
-#ticket-form input[type="checkbox"] {
+.ticket-form input[type="checkbox"] {
     transform: scale(2);
     accent-color: #1a95a3;
 }

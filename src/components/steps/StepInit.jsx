@@ -40,7 +40,7 @@ class StepInit extends Component {
                     <br/>
                     <br/>
                     <h5>Achtung!</h5>
-                    <p>Wir kaufen keine Geräte an, die einen <a target="_blank" rel="noopener noreferrer" href="https://duckduckgo.com/?q=Simlock&t=h_&ia=web&iax=about">Simlock</a> aufweisen oder noch einer <a href="https://handingo.de/pages/icloud-google-sperre-entfernen">Aktivierungssperre</a> unterliegen.</p>
+                    <p>Wir kaufen keine Geräte an, die nicht funktionsfähig sind, einen <a target="_blank" rel="noopener noreferrer" href="https://duckduckgo.com/?q=Simlock&t=h_&ia=web&iax=about">Simlock</a> aufweisen oder noch einer <a href="https://handingo.de/pages/icloud-google-sperre-entfernen">Aktivierungssperre</a> unterliegen.</p>
                     <br/>
                     <br/>
                     <h5>Du hast Fragen oder Probleme?</h5>

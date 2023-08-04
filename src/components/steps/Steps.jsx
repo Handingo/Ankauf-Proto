@@ -10,6 +10,7 @@ import TicketForm from "./TicketForm";
 import TicketConfirmation from "./TicketConfirmation";
 import FunctionalityStep from "./FunctionalityStep";
 import ConditionStep from "./ConditionStep";
+import IMEIStep from "./IMEIStep";
 
 class Steps extends Component {
 
@@ -74,6 +75,7 @@ class Steps extends Component {
         <FunctionalityStep text={"Ist dein Gerät voll funktionsfähig?"}/>,
         <FunctionalityStep text={"Steht dein Gerät unter SIM-Lock oder Net-Lock?"} reversed/>,
         <FunctionalityStep text={"Hast du GoogleID bzw. AppleID von deinem Gerät entfernt?"}/>,
+        <IMEIStep/>,
         <StepEnd/>,
         <TicketForm/>,
         <TicketConfirmation/>
