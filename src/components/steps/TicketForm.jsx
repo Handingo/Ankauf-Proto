@@ -43,11 +43,13 @@ class TicketForm extends Component {
 
         for (const entry in this.state) {
             if (this.state.hasOwnProperty(entry) && this.state[entry] && this.state[entry].length < 1) {
+                window.scrollTo(0, 0);
                 return;
             }
         }
 
         if (!this.state.email.includes('@') || this.state.email.length < 3 || this.state.email !== this.state.emailConfirm) {
+            window.scrollTo(0, 0);
             return;
         }
 

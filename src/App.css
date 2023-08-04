@@ -149,7 +149,7 @@ body {
 }
 
 @media only screen and (max-width: 650px) {
-    .Steps #step-functionality, .Steps .step {
+    .Steps #step-functionality, .Steps #imei-step, .Steps .step {
         margin-top: 30%;
     }
 }
@@ -326,6 +326,10 @@ button {
     align-items: center;
     vertical-align: middle;
     margin-top: 1vh;
+}
+
+#selection-result .card-header small {
+    font-size: 14px;
 }
 
 #selection-result-details p {

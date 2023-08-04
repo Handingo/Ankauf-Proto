@@ -43,6 +43,7 @@ class SearchBar extends Component {
         this.props.selectInternalMemory("256 GB");
         this.props.selectColor("Purple");
         this.props.selectStep(6);
+        window.scrollTo(0, 0);
     }
 
     render() {

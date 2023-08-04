@@ -21,6 +21,7 @@ class StepEnd extends Component {
         e.preventDefault();
 
         if (!this.state.documents) {
+            window.scrollTo(0, 0);
             return;
         }
 
@@ -145,7 +146,7 @@ class StepEnd extends Component {
                     <Card id="selection-result-image">
                         <Card.Header>
                             <Card.Title>
-                                Foto
+                                Foto<i>*</i>
                             </Card.Title>
                         </Card.Header>
                         <Card.Body id="selection-result-image-body">
@@ -167,6 +168,8 @@ class StepEnd extends Component {
                         </Card.Body>
                     </Card>
                 </div>
+                <br/>
+                <p>* Bitte lade ein Foto des Geräts hoch.</p>
                 <br/>
                 <h3>Unser Vorschlag:</h3>
                 <h2>{!isNaN(suggestion) ? suggestion.toLocaleString(undefined, { minimumFractionDigits: 2 }) + " €" : "Es konnte kein Vorschlag bestimmt werden."}</h2>
