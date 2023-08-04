@@ -59,7 +59,7 @@ class ConditionStep extends Component {
                 <div className="selection">
                     <Col>
                         <Button variant="light" name="Wie neu" onClick={this.handleClick}>
-                            <IconPreview image="./s20.png"/>
+                            <IconPreview image="./states/state_wie_neu.png"/>
                             <p className="button-text">Wie neu</p>
                             <small className="button-text-small"/>
                             <IconContinue/>
@@ -67,7 +67,7 @@ class ConditionStep extends Component {
                     </Col>
                     <Col>
                         <Button variant="light" name="Sehr gut" onClick={this.handleClick}>
-                            <IconPreview image="./s21.png"/>
+                            <IconPreview image="./states/state_sehr_gut.png"/>
                             <p className="button-text">Sehr gut</p>
                             <small className="button-text-small"/>
                             <IconContinue/>
@@ -75,7 +75,7 @@ class ConditionStep extends Component {
                     </Col>
                     <Col>
                         <Button variant="light" name="Gut" onClick={this.handleClick}>
-                            <IconPreview image="./s22.png"/>
+                            <IconPreview image="./states/state_gut.png"/>
                             <p className="button-text">Gut</p>
                             <small className="button-text-small"/>
                             <IconContinue/>
@@ -83,7 +83,7 @@ class ConditionStep extends Component {
                     </Col>
                     <Col>
                         <Button variant="light" name="Akzeptabel" onClick={this.handleClick}>
-                            <IconPreview image="./smartphone-test.jpg"/>
+                            <IconPreview image="./states/state_akzeptabel.png"/>
                             <p className="button-text">Akzeptabel</p>
                             <small className="button-text-small"/>
                             <IconContinue/>
