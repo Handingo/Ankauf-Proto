@@ -65,6 +65,7 @@ class SearchBar extends Component {
                         "Samsung Galaxy S23 Ultra, 512 GB, Spacegray"
                     ]}
                     placeholder="z. B. Samsung Galaxy S23 Ultra"
+                    emptyLabel="Keine Vorschläge gefunden."
                     onChange={this.handleChange}
                     onInputChange={this.handleInputChange}
                 />
