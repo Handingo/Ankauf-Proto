@@ -57,7 +57,7 @@ function selectionReducer(state = initialState, action: any) {
             }
         case selectionActions.RESET_STATE_PART:
             let i = 0;
-            let entries: Array<any> = [];
+            const entries: Array<any> = [];
 
             Object.entries(state).forEach((entry: any) => {
                 if (i < action.step || i === 0) {

@@ -1,0 +1,2 @@
+- selected Umrandungen von blau zu geeigneter Farbe stylen
+- Zustands-GUI entwerfen
