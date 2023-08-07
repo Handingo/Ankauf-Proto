@@ -119,7 +119,7 @@ class StepEnd extends Component {
             "Speicherplatz",
             "Zustand"
         ];
-        let specifications = [];
+        const specifications = [];
 
         for (const entry in this.props.selection) {
             if (i++ === 0 || !this.props.selection.hasOwnProperty(entry)) {

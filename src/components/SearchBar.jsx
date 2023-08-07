@@ -47,12 +47,6 @@ class SearchBar extends Component {
     }
 
     render() {
-        /*
-        <Form className="d-flex">
-                    <FormControl type="search" maxLength={64} value={this.state.text} placeholder="z. B. Samsung Galaxy S23 Ultra" onChange={this.handleChange}/>
-                    <Button id="button-search" variant="primary" onClick={this.handleClick}>Suchen</Button>
-                </Form>
-        */
         return (
             <Container className="searchbar">
                 <Typeahead

@@ -50,12 +50,13 @@ class ConditionStep extends Component {
 
         return (
             <div className="step" id={this.props.id}>
+                
                 <h2>Ankauf</h2>
                 <br/>
                 <p>{this.props.text}</p>
                 <br/>
                 <div id="selection-breadcrumbs">{breadcrumbs}</div>
-                <br/>
+                <p id="determine-condition-link" onClick={this.handleOpenModal}>Zustand ermitteln</p>
                 <div className="selection">
                     <Col>
                         <Button variant="light" name="Wie neu" onClick={this.handleClick}>

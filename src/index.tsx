@@ -12,7 +12,7 @@ import rootReducer from './reducer/RootReducer';
 const store: Store = createStore(rootReducer, applyMiddleware(...[thunk]));
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <Provider store={store}>
-    <App/>
-  </Provider>
+    <Provider store={store}>
+        <App/>
+    </Provider>
 );

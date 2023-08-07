@@ -62,7 +62,6 @@ class TicketForm extends Component {
     }
 
     render() {
-        // <FormControl type="file" name="photos" onChange={this.handleChange}/>
         return (
             <div id="ticket-form">
                 <Container className="ticket-form">

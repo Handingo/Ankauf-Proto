@@ -7,7 +7,6 @@ import BottomMenu from './components/navigation/BottomMenu';
 import { connect } from 'react-redux';
 
 class App extends Component {
-    // <UnsecureAuth/>
     render() {
         return (
             <div className="App">

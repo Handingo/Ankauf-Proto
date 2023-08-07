@@ -130,7 +130,7 @@ body {
 }
 
 .Steps #ticket-confirmation {
-    background-image: url("../public/checkout.jpg");
+    background-image: url("../public/checkout2.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -145,6 +145,7 @@ body {
     padding-bottom: 60%;
     font-size: 22px;
     text-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
+    /* text-wrap: balance; */ /* coming soon (finally) */
 }
 
 @media only screen and (max-width: 990px) {
@@ -316,6 +317,29 @@ button {
             box-shadow: rgba(0, 0, 0, 0.0625) 0px 3px 5px, rgba(0, 0, 0, 0.05) 0px 3px 10px, rgba(0, 0, 0, 0.0375) 0px 3px 15px, rgba(0, 0, 0, 0.025) 0px 3px 20px, rgba(0, 0, 0, 0.0125) 0px 3px 25px;
         }
     }
+}
+
+.Steps #determine-condition-link {
+    text-align: left;
+    color: #1a95a3;
+    margin-left: 18%;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    font-size: calc(16px + 0.6vw);
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 650px) {
+    .Steps #determine-condition-link {
+        text-align: center;
+        margin-left: 0%;
+        margin-top: -5%;
+        margin-bottom: 5%;
+    }
+}
+
+.Steps #determine-condition-link:hover {
+    cursor: pointer;
 }
 
 @media only screen and (min-width: 991px) {
