@@ -1,16 +1,23 @@
 import { Component } from "react";
 import { connect } from 'react-redux';
-import { Button, Col } from "react-bootstrap";
+import { Button, Col, Modal } from "react-bootstrap";
 import * as selectionActions from '../../actions/SelectionActions';
 import IconContinue from "../../icons/IconContinue";
 import IconPreview from "../../icons/IconPreview";
+import ModelViewer from "../model/ModelViewer";
 
 class ConditionStep extends Component {
+
+    state = {
+        showModal: true
+    };
 
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.handleBreadcrumbClick = this.handleBreadcrumbClick.bind(this);
+        this.handleOpenModal = this.handleOpenModal.bind(this);
+        this.handleCloseModal = this.handleCloseModal.bind(this);
     }
 
     handleClick(e) {
@@ -25,6 +32,19 @@ class ConditionStep extends Component {
         this.props.dispatch(selectionActions.getResetStatePartAction(step));
         this.props.dispatch(selectionActions.getSelectStepAction(step));
         window.scrollTo(0, 0);
+    }
+
+    handleOpenModal(e) {
+        e.preventDefault();
+        this.setState({
+            showModal: true
+        });
+    }
+
+    handleCloseModal(e) {
+        this.setState({
+            showModal: false
+        });
     }
 
     render() {
@@ -50,7 +70,33 @@ class ConditionStep extends Component {
 
         return (
             <div className="step" id={this.props.id}>
-                
+                <Modal id="condition-modal" show={this.state.showModal} onHide={this.handleCloseModal}>
+                    <div id="condition-modal-content">
+                        <Modal.Header>
+                            <Button>Display</Button>
+                            <Button>Rahmen</Button>
+                            <Button>Rückseite</Button>
+                            <Button>Kamera</Button>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <div id="condition-modal-selection">
+                                <div id="condition-modal-selection-buttons">
+                                    <h2>Display</h2>
+                                    <br/>
+                                    <Button size="lg" variant="light">Keine Spuren</Button>
+                                    <Button size="lg" variant="light">Leichte Spuren</Button>
+                                    <Button size="lg" variant="light">Stärkere Spuren</Button>
+                                    <Button size="lg" variant="light">Leichte Kerben oder Risse</Button>
+                                    <Button size="lg" variant="light">Kerben oder Risse</Button>
+                                </div>
+                                <ModelViewer src="https://cdn.shopify.com/s/files/1/0566/7228/8943/files/01_WieNeu_Model_Hinweis.glb"/>
+                            </div>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button>Weiter</Button>
+                        </Modal.Footer>
+                    </div>
+                </Modal>
                 <h2>Ankauf</h2>
                 <br/>
                 <p>{this.props.text}</p>
