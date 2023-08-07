@@ -14,6 +14,16 @@ body {
     font-weight: 400;
 }
 
+.btn.btn-primary {
+    background-color: #1a95a3;
+    border-color: #1a95a3;
+
+    &:hover {
+        background-color: #1a95a3bb;
+        border-color: #1a95a3bb;
+    }
+}
+
 .top-menu.navbar.navbar-expand-lg.navbar-light.bg-light.sticky-top .nav-link {
     display: inline-block;
     vertical-align: middle;
@@ -343,19 +353,69 @@ button {
 }
 
 #model-viewer {
-    width: 100%;
-    height: 110%;
+    width: 99%;
+    height: auto;
+    margin-left: 2.5%;
 }
 
 #condition-modal {
-    max-width: 75vw;
+    max-width: 85vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#condition-modal .btn-close {
+    margin-right: 1%;
+}
+
+#condition-modal-continue {
+    margin-right: 1%;
+}
+
+@media only screen and (max-width: 991px) {
+    #condition-modal {
+        max-width: 95vw;
+        margin-top: 10vh;
+    }
+}
+
+#condition-modal-header {
+    margin-left: 1%;
+}
+
+#condition-modal-header p {
+    cursor: pointer;
+    margin-top: 1%;
+    margin-right: 5%;
+    font-weight: 600;
+    font-size: calc(12px + 0.6vw);
+    padding: 1%;
+    margin-bottom: 0.5%;
+    color: #777;
+
+    &:hover {
+        border-radius: 15%;
+        border-bottom: 2px solid #BBB;
+    }
+}
+
+.condition-modal-selected-step {
+    border-radius: 15%;
+    border-bottom: 2px solid #999;
+    background-color: #F8F9FA;
+    color: #555 !important;
+}
+
+.condition-modal-selected-condition {
+    background-color: #1a95a3bb !important;
+    color: #FFF !important;
 }
 
 #condition-modal-selection {
     display: grid;
     grid-template-columns: 40% 60%;
     margin: 1%;
-    margin-bottom: 5%;
+    margin-bottom: 2.5%;
 }
 
 #condition-modal-selection-buttons {
@@ -363,8 +423,33 @@ button {
     flex-direction: column;
 }
 
+#condition-modal-selection-buttons h2 {
+    text-align: center;
+}
+
 #condition-modal-selection-buttons button {
     text-align: left;
+    margin-bottom: 1%;
+    height: 10vh;
+    font-weight: 600;
+    font-size: calc(12px + 0.7vw);
+
+    &:hover {
+        background-color: #DFDFDF;
+        transition: 200ms ease-in;
+        box-shadow: rgba(0, 0, 0, 0.0625) 0px 3px 5px, rgba(0, 0, 0, 0.05) 0px 3px 10px, rgba(0, 0, 0, 0.0375) 0px 3px 15px, rgba(0, 0, 0, 0.025) 0px 3px 20px, rgba(0, 0, 0, 0.0125) 0px 3px 25px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    #condition-modal-selection-buttons button {
+        font-size: calc(12px + 1.1vw);
+    }
+}
+
+#condition-modal-content {
+    background-color: #EEE;
+    border-radius: 1%;
 }
 
 @media only screen and (min-width: 991px) {

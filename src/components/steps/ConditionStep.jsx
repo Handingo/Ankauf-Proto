@@ -9,7 +9,9 @@ import ModelViewer from "../model/ModelViewer";
 class ConditionStep extends Component {
 
     state = {
-        showModal: true
+        showModal: false,
+        conditionStep: 0,
+        selectedConditions: [0, 0, 0, 0]
     };
 
     constructor(props) {
@@ -18,6 +20,10 @@ class ConditionStep extends Component {
         this.handleBreadcrumbClick = this.handleBreadcrumbClick.bind(this);
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
+        this.handleClickModalSelection = this.handleClickModalSelection.bind(this);
+        this.handleClickModalConditionStep = this.handleClickModalConditionStep.bind(this);
+        this.handleClickModalContinue = this.handleClickModalContinue.bind(this);
+        this.handleClickModalBack = this.handleClickModalBack.bind(this);
     }
 
     handleClick(e) {
@@ -47,6 +53,38 @@ class ConditionStep extends Component {
         });
     }
 
+    handleClickModalBack(e) {
+        e.preventDefault();
+        this.setState({
+            conditionStep: this.state.conditionStep - 1
+        });
+    }
+
+    handleClickModalContinue(e) {
+        e.preventDefault();
+        this.setState({
+            conditionStep: this.state.conditionStep + 1
+        });
+    }
+
+    handleClickModalConditionStep(e) {
+        e.preventDefault();
+        this.setState({
+            conditionStep: Number(e.currentTarget.getAttribute("name"))
+        });
+    }
+
+    handleClickModalSelection(e) {
+        e.preventDefault();
+
+        const conditions = [...this.state.selectedConditions];
+        conditions[this.state.conditionStep] = Number(e.currentTarget.getAttribute("name"));
+
+        this.setState({
+            selectedConditions: conditions
+        });
+    }
+
     render() {
         let i = 0;
         let breadcrumbs = [];
@@ -68,32 +106,43 @@ class ConditionStep extends Component {
 
         i = 0;
 
+        const selectedCondition = this.state.selectedConditions[this.state.conditionStep];
+
         return (
             <div className="step" id={this.props.id}>
                 <Modal id="condition-modal" show={this.state.showModal} onHide={this.handleCloseModal}>
                     <div id="condition-modal-content">
-                        <Modal.Header>
-                            <Button>Display</Button>
-                            <Button>Rahmen</Button>
-                            <Button>Rückseite</Button>
-                            <Button>Kamera</Button>
+                        <Modal.Header id="condition-modal-header" closeButton>
+                            <p className={this.state.conditionStep === 0 ? "condition-modal-selected-step" : ""} name={0} onClick={this.handleClickModalConditionStep}>Display</p>
+                            <p className={this.state.conditionStep === 1 ? "condition-modal-selected-step" : ""} name={1} onClick={this.handleClickModalConditionStep}>Rahmen</p>
+                            <p className={this.state.conditionStep === 2 ? "condition-modal-selected-step" : ""} name={2} onClick={this.handleClickModalConditionStep}>Rückseite</p>
+                            <p className={this.state.conditionStep === 3 ? "condition-modal-selected-step" : ""} name={3} onClick={this.handleClickModalConditionStep}>Kamera</p>
                         </Modal.Header>
                         <Modal.Body>
                             <div id="condition-modal-selection">
                                 <div id="condition-modal-selection-buttons">
-                                    <h2>Display</h2>
+                                    <h2>{["Display", "Rahmen", "Rückseite", "Kamera"][this.state.conditionStep] /* dynamisch über den Titel erhalten? */}</h2>
                                     <br/>
-                                    <Button size="lg" variant="light">Keine Spuren</Button>
-                                    <Button size="lg" variant="light">Leichte Spuren</Button>
-                                    <Button size="lg" variant="light">Stärkere Spuren</Button>
-                                    <Button size="lg" variant="light">Leichte Kerben oder Risse</Button>
-                                    <Button size="lg" variant="light">Kerben oder Risse</Button>
+                                    <Button className={selectedCondition === 0 ? "condition-modal-selected-condition" : ""} size="lg" variant="light" name="0" onClick={this.handleClickModalSelection}>Keine Spuren</Button>
+                                    <Button className={selectedCondition === 1 ? "condition-modal-selected-condition" : ""} size="lg" variant="light" name="1" onClick={this.handleClickModalSelection}>Leichte Spuren</Button>
+                                    <Button className={selectedCondition === 2 ? "condition-modal-selected-condition" : ""} size="lg" variant="light" name="2" onClick={this.handleClickModalSelection}>Stärkere Spuren</Button>
+                                    <Button className={selectedCondition === 3 ? "condition-modal-selected-condition" : ""} size="lg" variant="light" name="3" onClick={this.handleClickModalSelection}>Leichte Kerben/Risse</Button>
+                                    <Button className={selectedCondition === 4 ? "condition-modal-selected-condition" : ""} size="lg" variant="light" name="4" onClick={this.handleClickModalSelection}>Kerben/Risse</Button>
                                 </div>
-                                <ModelViewer src="https://cdn.shopify.com/s/files/1/0566/7228/8943/files/01_WieNeu_Model_Hinweis.glb"/>
+                                <ModelViewer src={
+                                    [
+                                        "models/00_Perfekt.glb",
+                                        "models/01_WieNeu_Model.glb",
+                                        "models/02_SehrGut_Model.glb",
+                                        "models/03_Gut_Model.glb",
+                                        "models/04_Akzeptabel_Model.glb"
+                                    ][selectedCondition]
+                                }/>
                             </div>
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button>Weiter</Button>
+                            <Button variant="secondary" size="lg" onClick={this.handleClickModalBack}>Zurück</Button>
+                            <Button id="condition-modal-continue" size="lg" onClick={this.handleClickModalContinue}>Weiter</Button>
                         </Modal.Footer>
                     </div>
                 </Modal>
