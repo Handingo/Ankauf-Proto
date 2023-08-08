@@ -17,10 +17,13 @@ body {
 .btn.btn-primary {
     background-color: #1a95a3;
     border-color: #1a95a3;
+    --bs-btn-active-bg: #1a95a3bb;
+    --bs-btn-active-border-color: #1a95a3bb;
 
     &:hover {
         background-color: #1a95a3bb;
         border-color: #1a95a3bb;
+        transition: 200ms ease-in;
     }
 }
 
@@ -368,8 +371,9 @@ button {
     margin-right: 1%;
 }
 
-#condition-modal-continue {
+#condition-modal-continue, #condition-modal-finished {
     margin-right: 1%;
+    min-width: 95px;
 }
 
 @media only screen and (max-width: 991px) {
@@ -401,7 +405,7 @@ button {
 
 .condition-modal-selected-step {
     border-radius: 15%;
-    border-bottom: 2px solid #999;
+        border-bottom: 2px solid #999 !important;
     background-color: #F8F9FA;
     color: #555 !important;
 }
@@ -435,9 +439,20 @@ button {
     font-size: calc(12px + 0.7vw);
 
     &:hover {
-        background-color: #DFDFDF;
         transition: 200ms ease-in;
         box-shadow: rgba(0, 0, 0, 0.0625) 0px 3px 5px, rgba(0, 0, 0, 0.05) 0px 3px 10px, rgba(0, 0, 0, 0.0375) 0px 3px 15px, rgba(0, 0, 0, 0.025) 0px 3px 20px, rgba(0, 0, 0, 0.0125) 0px 3px 25px;
+        /*background: linear-gradient(
+            90deg,
+            #1B5D7Bbb,
+            #1a95a3bb
+        );
+        color: #fff !important;
+
+        background: linear-gradient(90deg, #1B5D7B, #1a95a3);
+        border-color: linear-gradient(90deg, #1B5D7B, #1a95a3);
+        --bs-btn-active-bg: linear-gradient(90deg, #1B5D7B, #1a95a3);
+        --bs-btn-active-border-color: linear-gradient(90deg, #1B5D7B, #1a95a3);
+        color: #fff;*/
     }
 }
 

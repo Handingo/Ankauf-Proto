@@ -39,9 +39,9 @@ class SearchBar extends Component {
 
         this.props.selectDeviceType("Smartphone");
         this.props.selectBrand("Samsung");
-        this.props.selectModel("Samsung Galaxy S20");
-        this.props.selectInternalMemory("256 GB");
-        this.props.selectColor("Purple");
+        this.props.selectModel("Samsung Galaxy S23 Ultra");
+        this.props.selectInternalMemory("512 GB");
+        this.props.selectColor("Spacegray");
         this.props.selectStep(6);
         window.scrollTo(0, 0);
     }

@@ -55,15 +55,29 @@ class ConditionStep extends Component {
 
     handleClickModalBack(e) {
         e.preventDefault();
+
+        const step = this.state.conditionStep - 1;
+
+        if (step < 0) {
+            return;
+        }
+
         this.setState({
-            conditionStep: this.state.conditionStep - 1
+            conditionStep: step
         });
     }
 
     handleClickModalContinue(e) {
         e.preventDefault();
+        
+        const step = this.state.conditionStep + 1;
+
+        if (step >= this.state.selectedConditions.length) {
+            return;
+        }
+
         this.setState({
-            conditionStep: this.state.conditionStep + 1
+            conditionStep: step
         });
     }
 
@@ -141,8 +155,9 @@ class ConditionStep extends Component {
                             </div>
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button variant="secondary" size="lg" onClick={this.handleClickModalBack}>Zurück</Button>
-                            <Button id="condition-modal-continue" size="lg" onClick={this.handleClickModalContinue}>Weiter</Button>
+                            <Button variant="secondary" size="lg" hidden={this.state.conditionStep < 1} onClick={this.handleClickModalBack}>Zurück</Button>
+                            <Button id="condition-modal-continue" size="lg" hidden={this.state.conditionStep >= this.state.selectedConditions.length - 1} onClick={this.handleClickModalContinue}>Weiter</Button>
+                            <Button id="condition-modal-finished" size="lg" hidden={this.state.conditionStep < this.state.selectedConditions.length - 1} onClick={this.handleClickModalContinue}>Fertig</Button>
                         </Modal.Footer>
                     </div>
                 </Modal>
