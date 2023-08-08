@@ -172,7 +172,7 @@ class StepEnd extends Component {
                 <p>* Bitte lade ein Foto des Geräts hoch.</p>
                 <br/>
                 <h3>Unser Vorschlag:</h3>
-                <h2>{!isNaN(suggestion) ? suggestion.toLocaleString(undefined, { minimumFractionDigits: 2 }) + " €" : "Es konnte kein Vorschlag bestimmt werden."}</h2>
+                <h2>{!isNaN(suggestion) ? suggestion.toLocaleString(undefined, { minimumFractionDigits: 2 }) + " €" : "Es konnte kein Vorschlag bestimmt werden. (Eventuell fehlt eine Angabe)"}</h2>
                 <br/>
                 <Button id="button-create-ticket" onClick={this.handleClick}>Jetzt verkaufen!</Button>
             </div>

@@ -9,7 +9,7 @@ class ModelViewer extends Component {
                 ar
                 camera-controls
                 touch-action="pan-y"
-                alt="Model of condition"
+                alt="Model"
             />
         );
     }

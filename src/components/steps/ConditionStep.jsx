@@ -1,15 +1,14 @@
 import { Component } from "react";
 import { connect } from 'react-redux';
-import { Button, Col, Modal } from "react-bootstrap";
+import { Button, Modal, Card } from "react-bootstrap";
 import * as selectionActions from '../../actions/SelectionActions';
-import IconContinue from "../../icons/IconContinue";
-import IconPreview from "../../icons/IconPreview";
 import ModelViewer from "../model/ModelViewer";
 
 class ConditionStep extends Component {
 
     state = {
         showModal: false,
+        showResultModal: false,
         conditionStep: 0,
         selectedConditions: [0, 0, 0, 0]
     };
@@ -20,14 +19,19 @@ class ConditionStep extends Component {
         this.handleBreadcrumbClick = this.handleBreadcrumbClick.bind(this);
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
+        this.handleOpenResultModal = this.handleOpenResultModal.bind(this);
+        this.handleCloseResultModal = this.handleCloseResultModal.bind(this);
         this.handleClickModalSelection = this.handleClickModalSelection.bind(this);
         this.handleClickModalConditionStep = this.handleClickModalConditionStep.bind(this);
         this.handleClickModalContinue = this.handleClickModalContinue.bind(this);
         this.handleClickModalBack = this.handleClickModalBack.bind(this);
+        this.handleClickModalFinish = this.handleClickModalFinish.bind(this);
+        this.handleClickModalFinishBack = this.handleClickModalFinishBack.bind(this);
+        this.buildResultData = this.buildResultData.bind(this);
     }
 
     handleClick(e) {
-        this.props.dispatch(this.props.action(e.currentTarget.getAttribute("name")));
+        this.props.dispatch(this.props.action("Wie neu")); // dynamisch machen
         this.props.dispatch(selectionActions.getSelectStepAction(this.props.selection.step + 1));
         window.scrollTo(0, 0);
     }
@@ -41,20 +45,30 @@ class ConditionStep extends Component {
     }
 
     handleOpenModal(e) {
-        e.preventDefault();
         this.setState({
             showModal: true
         });
     }
 
-    handleCloseModal(e) {
+    handleOpenResultModal(e) {
+        this.setState({
+            showResultModal: true
+        });
+    }
+
+    handleCloseModal() {
         this.setState({
             showModal: false
         });
     }
 
+    handleCloseResultModal() {
+        this.setState({
+            showResultModal: false
+        });
+    }
+
     handleClickModalBack(e) {
-        e.preventDefault();
 
         const step = this.state.conditionStep - 1;
 
@@ -68,8 +82,6 @@ class ConditionStep extends Component {
     }
 
     handleClickModalContinue(e) {
-        e.preventDefault();
-        
         const step = this.state.conditionStep + 1;
 
         if (step >= this.state.selectedConditions.length) {
@@ -99,9 +111,32 @@ class ConditionStep extends Component {
         });
     }
 
+    handleClickModalFinish(e) {
+        this.handleCloseModal();
+        this.handleOpenResultModal();
+    }
+
+    handleClickModalFinishBack(e) {
+        this.handleCloseResultModal();
+        this.handleOpenModal();
+    }
+
+    buildResultData() {
+        const resultData = [];
+        const areas = ["Display", "Rahmen", "Rückseite", "Kamera"];
+        const conditions = ["Keine Spuren", "Leichte Spuren", "Stärkere Spuren", "Leichte Kerben/Risse", "Kerben/Risse"];
+        let i = 0;
+
+        for (const condition of this.state.selectedConditions) {
+            resultData.push([areas[i++], conditions[condition]])
+        }
+
+        return resultData;
+    }
+
     render() {
         let i = 0;
-        let breadcrumbs = [];
+        const breadcrumbs = [];
 
         for (const entry in this.props.selection) {
             if (i++ === 0 || !this.props.selection.hasOwnProperty(entry)) {
@@ -121,6 +156,22 @@ class ConditionStep extends Component {
         i = 0;
 
         const selectedCondition = this.state.selectedConditions[this.state.conditionStep];
+
+        const conditionResults = [];
+
+        if (this.state.showResultModal) {
+
+            for (const pair of this.buildResultData()) {
+                if (i !== 0) {
+                    conditionResults.push(<hr key={-i}/>);
+                }
+
+                conditionResults.push(<p key={i}><strong>{pair[0]}</strong><br/><i>{pair[1]}</i></p>);
+                i++;
+            }
+        }
+
+        i = 0;
 
         return (
             <div className="step" id={this.props.id}>
@@ -157,7 +208,43 @@ class ConditionStep extends Component {
                         <Modal.Footer>
                             <Button variant="secondary" size="lg" hidden={this.state.conditionStep < 1} onClick={this.handleClickModalBack}>Zurück</Button>
                             <Button id="condition-modal-continue" size="lg" hidden={this.state.conditionStep >= this.state.selectedConditions.length - 1} onClick={this.handleClickModalContinue}>Weiter</Button>
-                            <Button id="condition-modal-finished" size="lg" hidden={this.state.conditionStep < this.state.selectedConditions.length - 1} onClick={this.handleClickModalContinue}>Fertig</Button>
+                            <Button id="condition-modal-finished" size="lg" hidden={this.state.conditionStep < this.state.selectedConditions.length - 1} onClick={this.handleClickModalFinish}>Fertig</Button>
+                        </Modal.Footer>
+                    </div>
+                </Modal>
+                <Modal id="condition-modal" show={this.state.showResultModal} onHide={this.handleCloseResultModal}>
+                    <div id="condition-modal-content">
+                        <Modal.Header id="condition-modal-header" closeButton>
+                            <h2>Zustandseinschätzung</h2>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <div id="condition-modal-result">
+                                <Card>
+                                    <Card.Header>
+                                        <Card.Title>
+                                            Angaben
+                                        </Card.Title>
+                                    </Card.Header>
+                                    <Card.Body id="condition-modal-result-details">
+                                        {conditionResults}
+                                    </Card.Body>
+                                </Card>
+                                <Card id="condition-modal-result-info">
+                                    <Card.Header>
+                                        <Card.Title>
+                                            Resultat
+                                        </Card.Title>
+                                    </Card.Header>
+                                    <Card.Body>
+                                        <p>Deine Angaben entsprechen der Zustandsbewertung</p>
+                                        <h2>Wie neu</h2>
+                                    </Card.Body>
+                                </Card>
+                            </div>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="secondary" size="lg" onClick={this.handleClickModalFinishBack}>Zurück</Button>
+                            <Button id="condition-modal-continue" size="lg" onClick={this.handleClick}>Bestätigen</Button>
                         </Modal.Footer>
                     </div>
                 </Modal>
@@ -166,41 +253,10 @@ class ConditionStep extends Component {
                 <p>{this.props.text}</p>
                 <br/>
                 <div id="selection-breadcrumbs">{breadcrumbs}</div>
-                <p id="determine-condition-link" onClick={this.handleOpenModal}>Zustand ermitteln</p>
-                <div className="selection">
-                    <Col>
-                        <Button variant="light" name="Wie neu" onClick={this.handleClick}>
-                            <IconPreview image="./states/state_wie_neu.png"/>
-                            <p className="button-text">Wie neu</p>
-                            <small className="button-text-small"/>
-                            <IconContinue/>
-                        </Button>
-                    </Col>
-                    <Col>
-                        <Button variant="light" name="Sehr gut" onClick={this.handleClick}>
-                            <IconPreview image="./states/state_sehr_gut.png"/>
-                            <p className="button-text">Sehr gut</p>
-                            <small className="button-text-small"/>
-                            <IconContinue/>
-                        </Button>
-                    </Col>
-                    <Col>
-                        <Button variant="light" name="Gut" onClick={this.handleClick}>
-                            <IconPreview image="./states/state_gut.png"/>
-                            <p className="button-text">Gut</p>
-                            <small className="button-text-small"/>
-                            <IconContinue/>
-                        </Button>
-                    </Col>
-                    <Col>
-                        <Button variant="light" name="Akzeptabel" onClick={this.handleClick}>
-                            <IconPreview image="./states/state_akzeptabel.png"/>
-                            <p className="button-text">Akzeptabel</p>
-                            <small className="button-text-small"/>
-                            <IconContinue/>
-                        </Button>
-                    </Col>
-                </div>
+                <br/>
+                <h2>Noch keinen Zustand ermittelt.</h2>
+                <br/>
+                <Button id="determine-condition-button" onClick={this.handleOpenModal}>Zustand ermitteln</Button>
             </div>
         );
     }

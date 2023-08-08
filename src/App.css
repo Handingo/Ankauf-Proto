@@ -332,7 +332,7 @@ button {
     }
 }
 
-.Steps #determine-condition-link {
+/*.Steps #determine-condition-link {
     text-align: left;
     color: #1a95a3;
     margin-left: 18%;
@@ -353,6 +353,12 @@ button {
 
 .Steps #determine-condition-link:hover {
     cursor: pointer;
+}*/
+
+#determine-condition-button {
+    width: 18%;
+    margin-bottom: 0.25%;
+    min-width: 110px;
 }
 
 #model-viewer {
@@ -371,8 +377,11 @@ button {
     margin-right: 1%;
 }
 
-#condition-modal-continue, #condition-modal-finished {
+#condition-modal .modal-footer {
     margin-right: 1%;
+}
+
+#condition-modal .modal-footer button {
     min-width: 95px;
 }
 
@@ -447,7 +456,7 @@ button {
             #1a95a3bb
         );
         color: #fff !important;
-
+        
         background: linear-gradient(90deg, #1B5D7B, #1a95a3);
         border-color: linear-gradient(90deg, #1B5D7B, #1a95a3);
         --bs-btn-active-bg: linear-gradient(90deg, #1B5D7B, #1a95a3);
@@ -690,4 +699,13 @@ input[type="file"]::-webkit-file-upload-button {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#condition-modal-result {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+#condition-modal-result .card-title {
+    text-align: center;
 }
