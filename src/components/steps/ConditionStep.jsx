@@ -10,7 +10,9 @@ class ConditionStep extends Component {
         showModal: false,
         showResultModal: false,
         conditionStep: 0,
-        selectedConditions: [0, 0, 0, 0]
+        selectedConditions: [0, 0, 0, 0],
+        resultDetails: [],
+        result: undefined
     };
 
     constructor(props) {
@@ -27,11 +29,10 @@ class ConditionStep extends Component {
         this.handleClickModalBack = this.handleClickModalBack.bind(this);
         this.handleClickModalFinish = this.handleClickModalFinish.bind(this);
         this.handleClickModalFinishBack = this.handleClickModalFinishBack.bind(this);
-        this.buildResultData = this.buildResultData.bind(this);
     }
 
     handleClick(e) {
-        this.props.dispatch(this.props.action("Wie neu")); // dynamisch machen
+        this.props.dispatch(this.props.action(this.state.result));
         this.props.dispatch(selectionActions.getSelectStepAction(this.props.selection.step + 1));
         window.scrollTo(0, 0);
     }
@@ -50,9 +51,40 @@ class ConditionStep extends Component {
         });
     }
 
-    handleOpenResultModal(e) {
+    handleOpenResultModal() {
+        const areas = ["Display", "Rahmen", "Rückseite", "Kamera"];
+        const conditions = ["Keine Spuren", "Leichte Spuren", "Stärkere Spuren", "Leichte Kerben/Risse", "Kerben/Risse"];
+        const results = ["Wie neu", "Sehr gut", "Gut", "Akzeptabel", "Inakzeptabel"];
+        let i = 0;
+        let score = 0;
+        let rawDetails = [];
+
+        for (const condition of this.state.selectedConditions) {
+            rawDetails.push([areas[i++], conditions[condition]]);
+            score += condition * 1.7;
+        }
+
+        score /= areas.length;
+        score = Math.round(Math.max(0.0, Math.min(results.length - 1, score - 0.51)));
+
+        const details = [];
+
+        for (const pair of rawDetails) {
+            if (i !== 0) {
+                details.push(<hr key={-i}/>);
+            }
+
+            details.push(<p key={i}><strong>{pair[0]}</strong><br/><i>{pair[1]}</i></p>);
+            i++;
+        }
+
+        // console.log(results[score]);
+        // console.log(score);
+
         this.setState({
-            showResultModal: true
+            showResultModal: true,
+            resultDetails: details,
+            result: results[score]
         });
     }
 
@@ -121,19 +153,6 @@ class ConditionStep extends Component {
         this.handleOpenModal();
     }
 
-    buildResultData() {
-        const resultData = [];
-        const areas = ["Display", "Rahmen", "Rückseite", "Kamera"];
-        const conditions = ["Keine Spuren", "Leichte Spuren", "Stärkere Spuren", "Leichte Kerben/Risse", "Kerben/Risse"];
-        let i = 0;
-
-        for (const condition of this.state.selectedConditions) {
-            resultData.push([areas[i++], conditions[condition]])
-        }
-
-        return resultData;
-    }
-
     render() {
         let i = 0;
         const breadcrumbs = [];
@@ -156,22 +175,6 @@ class ConditionStep extends Component {
         i = 0;
 
         const selectedCondition = this.state.selectedConditions[this.state.conditionStep];
-
-        const conditionResults = [];
-
-        if (this.state.showResultModal) {
-
-            for (const pair of this.buildResultData()) {
-                if (i !== 0) {
-                    conditionResults.push(<hr key={-i}/>);
-                }
-
-                conditionResults.push(<p key={i}><strong>{pair[0]}</strong><br/><i>{pair[1]}</i></p>);
-                i++;
-            }
-        }
-
-        i = 0;
 
         return (
             <div className="step" id={this.props.id}>
@@ -226,7 +229,7 @@ class ConditionStep extends Component {
                                         </Card.Title>
                                     </Card.Header>
                                     <Card.Body id="condition-modal-result-details">
-                                        {conditionResults}
+                                        {this.state.resultDetails}
                                     </Card.Body>
                                 </Card>
                                 <Card id="condition-modal-result-info">
@@ -236,8 +239,8 @@ class ConditionStep extends Component {
                                         </Card.Title>
                                     </Card.Header>
                                     <Card.Body>
-                                        <p>Deine Angaben entsprechen der Zustandsbewertung</p>
-                                        <h2>Wie neu</h2>
+                                        <p>Deine Angaben entsprechen in etwa dem Zustand</p>
+                                        <h2>{this.state.result}</h2>
                                     </Card.Body>
                                 </Card>
                             </div>
