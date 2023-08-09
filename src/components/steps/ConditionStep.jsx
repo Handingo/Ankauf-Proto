@@ -64,6 +64,8 @@ class ConditionStep extends Component {
             score += condition * 1.7;
         }
 
+        i = 0;
+
         score /= areas.length;
         score = Math.round(Math.max(0.0, Math.min(results.length - 1, score - 0.51)));
 
@@ -175,6 +177,7 @@ class ConditionStep extends Component {
         i = 0;
 
         const selectedCondition = this.state.selectedConditions[this.state.conditionStep];
+        const conditionAvailable = this.state.result !== undefined;
 
         return (
             <div className="step" id={this.props.id}>
@@ -255,11 +258,13 @@ class ConditionStep extends Component {
                 <br/>
                 <p>{this.props.text}</p>
                 <br/>
-                <div id="selection-breadcrumbs">{breadcrumbs}</div>
+                <h2>{conditionAvailable ? "Zustand: " + this.state.result : "Noch keinen Zustand ermittelt."}</h2>
                 <br/>
-                <h2>Noch keinen Zustand ermittelt.</h2>
                 <br/>
-                <Button id="determine-condition-button" onClick={this.handleOpenModal}>Zustand ermitteln</Button>
+                <div id="condition-buttons">
+                    <Button hidden={!conditionAvailable} id="condition-continue-button" onClick={this.handleClick}>Bestätigen</Button>
+                    <Button id="determine-condition-button" onClick={this.handleOpenModal}>{conditionAvailable ? "Erneut ermitteln" : "Zustand ermitteln"}</Button>
+                </div>
             </div>
         );
     }

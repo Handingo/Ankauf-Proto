@@ -355,10 +355,20 @@ button {
     cursor: pointer;
 }*/
 
-#determine-condition-button {
+#condition-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#determine-condition-button, #condition-continue-button {
     width: 18%;
     margin-bottom: 0.25%;
     min-width: 110px;
+}
+
+#condition-continue-button {
+    margin-bottom: 0.5%;
 }
 
 #model-viewer {
@@ -556,6 +566,10 @@ button {
     min-height: 30px;
 }
 
+#button-continue, #determine-condition-button {
+    margin-bottom: 0.5%;
+}
+
 #button-create-ticket {
     text-align: center;
     width: 25.75%; /* an margin angepasst */
@@ -626,7 +640,7 @@ button {
 #imei-step .ticket-form.container input {
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 2%;
+    margin-bottom: 4%;
     width: 24.5%;
     min-width: 200px;
     text-align: center;

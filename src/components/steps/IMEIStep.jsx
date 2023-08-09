@@ -47,9 +47,6 @@ class IMEIStep extends Component {
                     </Form>
                 </Container>
                 <Button id="button-continue" onClick={this.handleClick}>Bestätigen</Button>
-                <br/>
-                <br/>
-                <br/>
             </div>
         );
     }
