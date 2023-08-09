@@ -134,7 +134,7 @@ body {
 }
 
 #step-functionality-selection button {
-    width: 30%;
+    min-width: 300px;
     margin-bottom: 0.5%;
 }
 
@@ -189,17 +189,29 @@ body {
     color: #fff;
     text-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
     margin: -4.3%;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
     padding: 4%;
-    padding-left: 22%;
-    padding-right: 22%;
+    padding-left: 10%;
+    padding-right: 10%;
     font-weight: 600;
     font-size: 20px;
+}
+
+@media only screen and (max-width: 650px) {
+    #banner-wrapped {
+        min-height: 92vh;
+    }
 }
 
 #banner-wrapped h2 {
     font-size: 50px;
     font-weight: 600;
+    margin-top: 5%;
+}
+
+#init-explanation {
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 @media only screen and (min-width: 1400px) {
@@ -220,7 +232,10 @@ body {
 
 .rbt {
     width: 55%;
-    min-width: 200px !important;
+    min-width: 290px !important;
+    margin-bottom: 18px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .rbt .rbt-input-wrapper {
@@ -238,11 +253,6 @@ body {
 
 .rbt .dropdown-item.active {
     background-color: #1a95a3bb;
-}
-
-.searchbar.container {
-    display: flex;
-    justify-content: center;
 }
 
 @media only screen and (max-width: 991px) {
@@ -364,7 +374,7 @@ button {
 #determine-condition-button, #condition-continue-button {
     width: 18%;
     margin-bottom: 0.25%;
-    min-width: 110px;
+    min-width: 300px;
 }
 
 #condition-continue-button {
@@ -559,10 +569,16 @@ button {
     align-self: center;
 }
 
+#button-back-container {
+    position: fixed;
+    bottom: 4%;
+    width: 92%; /* 100% - 2 * padding(4%) */
+}
+
 #button-back, #button-send-ticket, #button-continue {
     text-align: center;
     width: 18%;
-    min-width: 110px;
+    min-width: 300px;
     min-height: 30px;
 }
 
@@ -573,7 +589,7 @@ button {
 #button-create-ticket {
     text-align: center;
     width: 25.75%; /* an margin angepasst */
-    min-width: 110px;
+    min-width: 300px;
     min-height: 30px;
     margin-bottom: 0.5%;
 }
@@ -595,14 +611,16 @@ button {
 }
 
 #button-search {
-    margin-left: 3px;
-    min-width: 85px;
+    min-width: 200px;
+    max-width: 270px;
+    width: 20%;
 }
 
 #button-start {
     background-color: #D94136;
     border-color: #D94136;
-    min-width: 85px;
+    min-width: 200px;
+    max-width: 270px;
     width: 20%;
     
     &:hover {
@@ -717,9 +735,39 @@ input[type="file"]::-webkit-file-upload-button {
 
 #condition-modal-result {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 45% 55%;
 }
 
 #condition-modal-result .card-title {
     text-align: center;
+}
+
+#condition-modal-result-info-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#condition-modal-result-info-body h2 {
+    text-align: center;
+}
+
+#condition-modal-result-image {
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+#functionality-image-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-height: 15vh;
+    margin-bottom: 1%;
+}
+
+#functionality-image-container img {
+    height: 13vh;
+    margin: 1vh;
 }

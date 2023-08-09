@@ -241,9 +241,12 @@ class ConditionStep extends Component {
                                             Resultat
                                         </Card.Title>
                                     </Card.Header>
-                                    <Card.Body>
-                                        <p>Deine Angaben entsprechen in etwa dem Zustand</p>
+                                    <Card.Body id="condition-modal-result-info-body">
+                                        <img id="condition-modal-result-image" src="./s20.png" alt=""></img>
+                                        <br/>
+                                        <br/>
                                         <h2>{this.state.result}</h2>
+                                        <br/>
                                     </Card.Body>
                                 </Card>
                             </div>

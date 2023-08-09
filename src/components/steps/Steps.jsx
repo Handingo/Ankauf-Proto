@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Button } from "react-bootstrap";
+import { Button, Col } from "react-bootstrap";
 import * as selectionActions from '../../actions/SelectionActions';
 import StepInit from './StepInit';
 import SelectionStep from './SelectionStep';
@@ -108,9 +108,11 @@ class Steps extends Component {
                     this.steps[step]
                 }
                 {step !== 0 && step < this.steps.length - 1 &&
-                    <Button id="button-back" variant="secondary" onClick={this.handleClickBack}>
-                        Zurück
-                    </Button>
+                    <Col id="button-back-container">
+                        <Button id="button-back" variant="secondary" onClick={this.handleClickBack}>
+                            Zurück
+                        </Button>
+                    </Col>
                 }
             </div>
         );

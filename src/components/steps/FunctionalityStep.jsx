@@ -22,6 +22,11 @@ class FunctionalityStep extends Component {
                 <br/>
                 <p>{this.props.text}</p>
                 <br/>
+                <div id="functionality-image-container">
+                    <img src="./s20.png" alt=""></img>
+                    <img src="./s21.png" alt=""></img>
+                </div>
+                <br/>
                 <Col id="step-functionality-selection">
                     <Button id="button-functionality-yes" onClick={this.handleClick}>Ja</Button>
                     <Button id="button-functionality-no" onClick={this.handleClick}>Nein</Button>
