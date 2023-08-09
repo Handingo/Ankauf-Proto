@@ -1,13 +1,19 @@
 import { Component } from "react";
 import { connect } from 'react-redux';
-import { Button, Col } from "react-bootstrap";
+import { Button, Col, Modal } from "react-bootstrap";
 import * as selectionActions from '../../actions/SelectionActions';
+import IconInfo from "../../icons/IconInfo";
 
 class FunctionalityStep extends Component {
+
+    state = {
+        showHelp: false
+    }
 
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        this.handleClickHelp = this.handleClickHelp.bind(this);
     }
 
     handleClick(e) {
@@ -15,16 +21,24 @@ class FunctionalityStep extends Component {
         window.scrollTo(0, 0);
     }
 
+    handleClickHelp() {
+        this.setState({
+            showHelp: !this.state.showHelp
+        })
+    }
+
     render() {
         return (
             <div id="step-functionality">
                 <h2>Ankauf</h2>
                 <br/>
-                <p>{this.props.text}</p>
+                <p id="functionality-text">
+                    {this.props.text}
+                    <span onClick={this.handleClickHelp}><IconInfo/></span>
+                </p>
                 <br/>
                 <div id="functionality-image-container">
-                    <img src="./s20.png" alt=""></img>
-                    <img src="./s21.png" alt=""></img>
+                    {this.props.images && this.props.images.map(image => <img key={Math.random()} src={image} alt=""/>)}
                 </div>
                 <br/>
                 <Col id="step-functionality-selection">
@@ -33,6 +47,14 @@ class FunctionalityStep extends Component {
                 </Col>
                 <br/>
                 <br/>
+                <Modal id="functionality-help-modal" show={this.state.showHelp} onHide={this.handleClickHelp}>
+                    <Modal.Header closeButton>
+                        {this.props.text}
+                    </Modal.Header>
+                    <Modal.Body>
+                        {this.props.help}
+                    </Modal.Body>
+                </Modal>
             </div>
         );
     }

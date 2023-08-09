@@ -304,6 +304,26 @@ button {
     justify-content: center;
 }
 
+.bi.bi-arrow-left-short {
+    margin: -400%; /* WEITERMACHEN - icon zu klein */
+}
+
+#button-back {
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#button-back-container {
+    justify-content: left;
+    position: fixed;
+    bottom: 4%;
+    right: 5.5%;
+    width: 92%; /* 100% - 2 * padding(4%) */
+}
+
 :not(#step-init) .selection button {
     text-align: left;
     margin-bottom: calc(2px + 1.5%);
@@ -503,15 +523,8 @@ button {
     }
 }
 
-#selection-result .card-header, #selection-result .card-body {
+#selection-result .card-header, #selection-result .card-body, #condition-modal-result .card-header, #condition-modal-result .card-body {
     background-color: #F8F9FA;
-}
-
-#selection-result .card-header {
-    text-align: center;
-    align-items: center;
-    vertical-align: middle;
-    margin-top: 1vh;
 }
 
 #selection-result .card-header small {
@@ -569,13 +582,7 @@ button {
     align-self: center;
 }
 
-#button-back-container {
-    position: fixed;
-    bottom: 4%;
-    width: 92%; /* 100% - 2 * padding(4%) */
-}
-
-#button-back, #button-send-ticket, #button-continue {
+#button-send-ticket, #button-continue {
     text-align: center;
     width: 18%;
     min-width: 300px;
@@ -589,7 +596,7 @@ button {
 #button-create-ticket {
     text-align: center;
     width: 25.75%; /* an margin angepasst */
-    min-width: 300px;
+    min-width: 225px;
     min-height: 30px;
     margin-bottom: 0.5%;
 }
@@ -742,6 +749,11 @@ input[type="file"]::-webkit-file-upload-button {
     text-align: center;
 }
 
+.card-title.h5 {
+    margin-top: 0.5vh;
+    margin-bottom: 0.75vh;
+}
+
 #condition-modal-result-info-body {
     display: flex;
     flex-direction: column;
@@ -770,4 +782,18 @@ input[type="file"]::-webkit-file-upload-button {
 #functionality-image-container img {
     height: 13vh;
     margin: 1vh;
+}
+
+#functionality-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#functionality-text svg {
+    margin-left: 6px;
+}
+
+#functionality-help-modal {
+    margin-top: 30vh;
 }

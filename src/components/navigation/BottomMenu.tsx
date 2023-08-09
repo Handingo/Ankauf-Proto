@@ -30,25 +30,6 @@ class BottomMenu extends Component {
                 <Container>
                     <div className="footer-row">
                         <div className="footer-column">
-                            <p className="footer-header">Kategorien</p>
-                            <a href={this.site}>Home</a>
-                            <a href={this.collections}>Kollektionen</a>
-                            <a href={this.collections + "smartphones"}>Smartphones</a>
-                            <a href={this.collections + "tablets"}>Tablets</a>
-                            <a href={this.collections + "smartwatches"}>Smartwatches</a>
-                            <a href={this.collections + "sale"}>Sale</a>
-                        </div>
-                        <div className="footer-column">
-                            <p className="footer-header">Handingo</p>
-                            <a href={this.site}>Wieso Handingo?</a>
-                            <a href={this.pages}>Nachhaltigkeit</a>
-                            <a href={this.policies + "privacy-policy"}>Datenschutzerklärung</a>
-                            <a href={this.site + "?id=GDPR_769769dd5c4da8efb4d18bf16ca2c677"}>Cookie-Richtlinien</a>
-                            <a href={this.policies + "terms-of-service"}>AGB</a>
-                            <a href={this.policies + "legal-notice"}>Impressum</a>
-                            <a href={this.pages + "handingo-sucht-dich"}>Karriere</a>
-                        </div>
-                        <div className="footer-column">
                             <p className="footer-header">Service</p>
                             <a href={this.policies + "shipping-policy"}>Zahlung & Versand</a>
                             <a href={this.policies + "refund-policy"}>Widerrufsrecht</a>

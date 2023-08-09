@@ -12,6 +12,12 @@ class App extends Component {
             <div className="App">
                 <TopMenu/>
                 <Steps />
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
                 <BottomMenu/>
             </div>
         );

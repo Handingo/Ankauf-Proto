@@ -11,6 +11,7 @@ import TicketConfirmation from "./TicketConfirmation";
 import FunctionalityStep from "./FunctionalityStep";
 import ConditionStep from "./ConditionStep";
 import IMEIStep from "./IMEIStep";
+import IconBack from "../../icons/IconBack";
 
 class Steps extends Component {
 
@@ -72,9 +73,9 @@ class Steps extends Component {
             text="In welchem Zustand befindet sich das Gerät?"
             action={selectionActions.getSelectConditionAction}
         />,
-        <FunctionalityStep text={"Ist dein Gerät voll funktionsfähig?"}/>,
-        <FunctionalityStep text={"Steht dein Gerät unter SIM-Lock oder Net-Lock?"} reversed/>,
-        <FunctionalityStep text={"Hast du GoogleID bzw. AppleID von deinem Gerät entfernt?"}/>,
+        <FunctionalityStep text="Ist dein Gerät voll funktionsfähig?" help="Lassen sich alle Funktionen des Geräts nutzen (wie bspw. die Kamera, das Mikrofon oder die Lautsprecher)?" images={["./s20.png", "./s21.png"]}/>,
+        <FunctionalityStep text="Steht dein Gerät unter SIM-Lock oder Net-Lock?" help="https://praxistipps.chip.de/simlock-entfernen-so-gehts-bei-allen-providern_100550" images={["./s20.png"]}/>,
+        <FunctionalityStep text="Hast du GoogleID bzw. AppleID von deinem Gerät entfernt?" help="Bevor du dein Gerät verkaufen kannst, muss die jeweilige Funktion deaktiviert/entfernt werden. Erfahre mehr am Ende dieser Seite, unter dem Kapitel Service und iCloud & Google-Sperre entfernen oder unter https://handingo.de/pages/icloud-google-sperre-entfernen" images={["./s20.png", "./s21.png", "./s22.png"]}/>,
         <IMEIStep/>,
         <StepEnd/>,
         <TicketForm/>,
@@ -110,7 +111,7 @@ class Steps extends Component {
                 {step !== 0 && step < this.steps.length - 1 &&
                     <Col id="button-back-container">
                         <Button id="button-back" variant="secondary" onClick={this.handleClickBack}>
-                            Zurück
+                            <IconBack/>
                         </Button>
                     </Col>
                 }
