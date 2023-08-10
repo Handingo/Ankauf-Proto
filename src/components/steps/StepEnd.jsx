@@ -36,6 +36,11 @@ class StepEnd extends Component {
 
     handleUpload(e) {
         e.preventDefault();
+
+        if (this.state.documents.length > 4) {
+            return;
+        }
+
         this.setState({
             documents: [...this.state.documents, ...e.currentTarget.files]
         });
