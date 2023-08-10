@@ -156,7 +156,7 @@ class StepEnd extends Component {
                                 this.state.documents.map(document => {
                                     const name = document.name.toLowerCase();
 
-                                    if (!name.endsWith(".png") && !name.endsWith(".jpg")) {
+                                    if (!name.endsWith(".jpg") && !name.endsWith(".png") && !name.endsWith(".heic")) {
                                         return null;
                                     }
 
