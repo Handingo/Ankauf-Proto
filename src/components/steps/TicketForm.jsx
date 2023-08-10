@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Button, Container, Form, FormControl } from "react-bootstrap";
+import { Button, Container, Form, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import * as selectionActions from '../../actions/SelectionActions';
@@ -23,6 +23,7 @@ class TicketForm extends Component {
         demicile: "",
         street: "",
         houseNumber: "",
+        validated: false,
         checked: false
     };
 
@@ -39,14 +40,15 @@ class TicketForm extends Component {
     }
 
     handleClick(e) {
-        e.preventDefault();
-
-        for (const entry in this.state) {
-            if (this.state.hasOwnProperty(entry) && this.state[entry] && this.state[entry].length < 1) {
-                window.scrollTo(0, 0);
-                return;
-            }
+        if (!e.currentTarget.checkValidity()) {
+            e.preventDefault();
+            e.stopPropagation();
+            window.scrollTo(0, 0);
         }
+
+        this.setState({
+            validated: true
+        });
 
         if (!this.state.email.includes('@') || this.state.email.length < 3 || this.state.email !== this.state.emailConfirm) {
             window.scrollTo(0, 0);
@@ -65,20 +67,102 @@ class TicketForm extends Component {
         return (
             <div id="ticket-form">
                 <Container className="ticket-form">
-                    <Form>
+                    <Form noValidate validated={this.state.validated} onSubmit={this.handleClick}>
                         <br/>
                         <h3>Kundendaten</h3>
                         <br/>
                         <div id="customer-data">
-                            <FormControl type="text" maxLength="8" placeholder="Anrede" name="formOfAdress" onChange={this.handleChange}/>
-                            <FormControl type="text" maxLength="32" placeholder="Vorname" name="firstName" onChange={this.handleChange}/>
-                            <FormControl type="text" maxLength="32" placeholder="Nachname" name="lastName" onChange={this.handleChange}/>
-                            <FormControl type="email" maxLength="254" placeholder="E-Mail" name="email" onChange={this.handleChange}/>
-                            <FormControl type="email" maxLength="254" placeholder="E-Mail bestätigen" name="emailConfirm" onChange={this.handleChange}/>
-                            <FormControl type="number" min={0} max={999999} placeholder="Postleitzahl" name="postalCode" onChange={this.handleChange}/>
-                            <FormControl type="text" maxLength="64" placeholder="Wohnort" name="demicile" onChange={this.handleChange}/>
-                            <FormControl type="text" maxLength="64" placeholder="Straße" name="street" onChange={this.handleChange}/>
-                            <FormControl type="text" maxLength="4" placeholder="Hausnummer" name="houseNumber" onChange={this.handleChange}/>
+                            <Form.Group as={Col}>
+                                <Form.Control
+                                    required
+                                    type="text"
+                                    maxLength="8"
+                                    name="formOfAdress"
+                                    placeholder="Anrede"
+                                    onChange={this.handleChange}
+                                />
+                            </Form.Group>
+                            <Form.Group as={Col}>
+                                <Form.Control
+                                    required
+                                    type="text"
+                                    maxLength="32"
+                                    placeholder="Vorname"
+                                    name="firstName"
+                                    onChange={this.handleChange}
+                                />
+                            </Form.Group>
+                            <Form.Group as={Col}>
+                                <Form.Control
+                                    required
+                                    type="text"
+                                    maxLength="32"
+                                    placeholder="Nachname"
+                                    name="lastName"
+                                    onChange={this.handleChange}
+                                />
+                            </Form.Group>
+                            <Form.Group as={Col}>
+                                <Form.Control
+                                    required
+                                    type="email"
+                                    maxLength="254"
+                                    placeholder="E-Mail"
+                                    name="email"
+                                    onChange={this.handleChange}
+                                />
+                            </Form.Group>
+                            <Form.Group as={Col}>
+                                <Form.Control
+                                    required
+                                    type="email"
+                                    maxLength="254"
+                                    placeholder="E-Mail bestätigen"
+                                    name="emailConfirm"
+                                    onChange={this.handleChange}
+                                />
+                            </Form.Group>
+                            <Form.Group as={Col}>
+                                <Form.Control
+                                    required
+                                    type="number"
+                                    min={0}
+                                    max={999999}
+                                    placeholder="Postleitzahl"
+                                    name="postalCode"
+                                    onChange={this.handleChange}
+                                />
+                            </Form.Group>
+                            <Form.Group as={Col}>
+                                <Form.Control
+                                    required
+                                    type="text"
+                                    maxLength="64"
+                                    placeholder="Wohnort"
+                                    name="demicile"
+                                    onChange={this.handleChange}
+                                />
+                            </Form.Group>
+                            <Form.Group as={Col}>
+                                <Form.Control
+                                    required
+                                    type="text"
+                                    maxLength="64"
+                                    placeholder="Straße"
+                                    name="street"
+                                    onChange={this.handleChange}
+                                />
+                            </Form.Group>
+                            <Form.Group as={Col}>
+                                <Form.Control
+                                    required
+                                    type="text"
+                                    maxLength="4"
+                                    placeholder="Hausnummer"
+                                    name="houseNumber"
+                                    onChange={this.handleChange}
+                                />
+                            </Form.Group>
                         </div>
                         <br/>
                         <br/>
@@ -104,8 +188,23 @@ class TicketForm extends Component {
                                 </Form.Select>
                             </div>
                             {/* Je nach Zahlungswunsch anders rendern*/}
-                            <FormControl type="text" minLength="27" maxLength="27" placeholder="IBAN"/>
-                            <FormControl type="text" maxLength="16" placeholder="BIC"/>
+                            <Form.Group as={Col}>
+                                <Form.Control
+                                    required
+                                    type="text"
+                                    minLength="27"
+                                    maxLength="27"
+                                    placeholder="IBAN"
+                                />
+                            </Form.Group>
+                            <Form.Group as={Col}>
+                                <Form.Control
+                                    required
+                                    type="text"
+                                    maxLength="16"
+                                    placeholder="BIC"
+                                />
+                            </Form.Group>
                         </div>
                         <br/>
                         <p>
@@ -119,9 +218,9 @@ class TicketForm extends Component {
                             <input type="checkbox" name="checked" onChange={this.handleChangeCheckbox}/>
                             <br/>
                         </p>
+                        <Button disabled={!this.state.checked} id="button-send-ticket" onClick={this.handleClick}>Senden</Button>
                     </Form>
                 </Container>
-                <Button id="button-send-ticket" onClick={this.handleClick}>Senden</Button>
             </div>
         );
     }

@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Button, Container, Form, FormControl } from "react-bootstrap";
+import { Button, Container, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import * as selectionActions from '../../actions/SelectionActions';
@@ -26,10 +26,6 @@ class IMEIStep extends Component {
     handleClick(e) {
         e.preventDefault();
 
-        if (!this.state.imei || this.state.imei < 1E14 || this.state.imei > 1E15 - 1) { // Eine IMEI-Nummer hat 15 Stellen
-            return;
-        }
-
         this.props.selectStep(this.props.selection.step + 1);
         window.scrollTo(0, 0);
     }
@@ -42,11 +38,16 @@ class IMEIStep extends Component {
                 <p>Bitte gebe nun eine IMEI-Nummer des Geräts ein.</p>
                 <br/>
                 <Container className="ticket-form">
-                    <Form>
-                        <FormControl type="number" min={100_000_000_000_000} max={999_999_999_999_999} placeholder="XXXXXX/XX/XXXXXX/X" name="imei" onChange={this.handleChange}/>
-                    </Form>
+                    <Form.Control
+                        type="number"
+                        min={100_000_000_000_000}
+                        max={999_999_999_999_999}
+                        placeholder="XXXXXX/XX/XXXXXX/X"
+                        name="imei"
+                        onChange={this.handleChange}
+                    />
                 </Container>
-                <Button id="button-continue" onClick={this.handleClick}>Bestätigen</Button>
+                <Button disabled={!this.state.imei || this.state.imei.length !== 15} id="button-continue" onClick={this.handleClick}>Bestätigen</Button>
             </div>
         );
     }

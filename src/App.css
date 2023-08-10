@@ -23,6 +23,15 @@ body {
     --bs-btn-border-color: #1a95a3;
 }
 
+.btn.btn-primary[disabled] {
+    background-color: #1a95a399;
+    border-color: #1a95a399;
+    --bs-btn-bg: #1a95a399;
+    --bs-btn-active-bg: #1a95a399;
+    --bs-btn-active-border-color: #1a95a399;
+    --bs-btn-border-color: #1a95a399;
+}
+
 .btn.btn-primary:hover {
     background-color: #1a95a3bb;
     border-color: #1a95a3bb;
@@ -764,4 +773,9 @@ input[type="file"]::-webkit-file-upload-button {
 
 #functionality-help-modal {
     margin-top: 30vh;
+}
+
+
+.col-md-4 {
+    margin-right: 0;
 }
