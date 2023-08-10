@@ -42,11 +42,9 @@ class FunctionalityStep extends Component {
                 </div>
                 <br/>
                 <Col id="step-functionality-selection">
-                    <Button id="button-functionality-yes" onClick={this.handleClick}>Ja</Button>
-                    <Button id="button-functionality-no" onClick={this.handleClick}>Nein</Button>
+                    <Button onClick={this.handleClick}>Ja</Button>
+                    <Button onClick={this.handleClick}>Nein</Button>
                 </Col>
-                <br/>
-                <br/>
                 <Modal id="functionality-help-modal" show={this.state.showHelp} onHide={this.handleClickHelp}>
                     <Modal.Header closeButton>
                         {this.props.text}

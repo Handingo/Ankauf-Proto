@@ -11,7 +11,6 @@ import TicketConfirmation from "./TicketConfirmation";
 import FunctionalityStep from "./FunctionalityStep";
 import ConditionStep from "./ConditionStep";
 import IMEIStep from "./IMEIStep";
-import IconBack from "../../icons/IconBack";
 
 class Steps extends Component {
 
@@ -110,7 +109,7 @@ class Steps extends Component {
                 }
                 {step !== 0 && step < this.steps.length - 1 &&
                     <Button id="button-back" variant="secondary" onClick={this.handleClickBack}>
-                        <IconBack/>
+                        Zurück
                     </Button>
                 }
             </div>
