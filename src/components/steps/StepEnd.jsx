@@ -7,7 +7,7 @@ import * as selectionActions from "../../actions/SelectionActions";
 class StepEnd extends Component {
 
     state = {
-        documents: undefined
+        documents: []
     }
 
     constructor(props) {
@@ -37,7 +37,7 @@ class StepEnd extends Component {
     handleUpload(e) {
         e.preventDefault();
         this.setState({
-            documents: e.currentTarget.files
+            documents: [...this.state.documents, ...e.currentTarget.files]
         });
     }
 
@@ -146,14 +146,22 @@ class StepEnd extends Component {
                     <Card id="selection-result-image">
                         <Card.Header>
                             <Card.Title>
-                                Foto<i>*</i>
+                                Fotos / Dokumente<i>*</i>
                             </Card.Title>
                         </Card.Header>
                         <Card.Body id="selection-result-image-body">
+                            <Button id="document-upload-button" variant="secondary" onClick={this.handleClickUpload}>Dateien hochladen</Button>
                             <input type="file" id="file-upload" name="photos" onChange={this.handleUpload}/>
-                            {this.state.documents
-                                ? <Card.Img src={URL.createObjectURL(this.state.documents[0])} onClick={this.handleClickUpload}></Card.Img>
-                                : <Button id="document-upload-button" variant="secondary" onClick={this.handleClickUpload}>Dokumente hochladen</Button>
+                            {this.state.documents.length > 0 &&
+                                this.state.documents.map(document => {
+                                    const name = document.name.toLowerCase();
+
+                                    if (!name.endsWith(".png") && !name.endsWith(".jpg")) {
+                                        return null;
+                                    }
+
+                                    return <Card.Img key={Math.random()} src={URL.createObjectURL(document)} onClick={this.handleClickUpload}></Card.Img>;
+                                })
                             }
                         </Card.Body>
                     </Card>
@@ -169,7 +177,7 @@ class StepEnd extends Component {
                     </Card>
                 </div>
                 <br/>
-                <p>* Bitte lade ein Foto des Geräts hoch.</p>
+                <p>* Bitte lade mindestens ein Foto des Geräts hoch.</p>
                 <br/>
                 <h3>Unser Vorschlag:</h3>
                 <h2>{!isNaN(suggestion) ? suggestion.toLocaleString(undefined, { minimumFractionDigits: 2 }) + " €" : "Es konnte kein Vorschlag bestimmt werden."}</h2>

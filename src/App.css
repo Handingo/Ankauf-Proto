@@ -698,8 +698,13 @@ input[type="file"]::-webkit-file-upload-button {
 
 #selection-result-image-body {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+#selection-result-image-body .card-img {
+    max-width: 50%;
 }
 
 #condition-modal-result {
