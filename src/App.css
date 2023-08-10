@@ -774,8 +774,3 @@ input[type="file"]::-webkit-file-upload-button {
 #functionality-help-modal {
     margin-top: 30vh;
 }
-
-
-.col-md-4 {
-    margin-right: 0;
-}
