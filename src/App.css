@@ -570,7 +570,7 @@ button {
 #button-send-ticket, #button-continue {
     text-align: center;
     width: 18%;
-    min-width: 280px;
+    min-width: 300px;
     min-height: 30px;
 }
 
@@ -588,7 +588,7 @@ button {
 
 #button-send-ticket {
     margin-top: 1vh;
-    margin-bottom: 0.5%;
+    margin-bottom: 15%;
 }
 
 #button-search {
@@ -622,10 +622,6 @@ button {
 
 .ticket-form input, .ticket-form label {
     display: grid;
-}
-
-#ticket-form option[disabled] {
-    text-align: center;
 }
 
 .ticket-form input, .ticket-form #payment-method, .ticket-form #delivery-service {
