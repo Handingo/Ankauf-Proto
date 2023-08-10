@@ -16,6 +16,7 @@ class SearchBar extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.handleClickInput = this.handleClickInput.bind(this);
     }
 
     handleChange = text => {
@@ -46,6 +47,10 @@ class SearchBar extends Component {
         window.scrollTo(0, 0);
     }
 
+    handleClickInput() {
+        window.scrollTo(0, window.scrollY + 1); // workaround for async position of recommendations
+    }
+
     render() {
         return (
             <Container className="searchbar">
@@ -62,6 +67,7 @@ class SearchBar extends Component {
                     emptyLabel="Keine Vorschläge gefunden."
                     onChange={this.handleChange}
                     onInputChange={this.handleInputChange}
+                    onFocus={this.handleClickInput}
                 />
                 <Button id="button-search" variant="primary" onClick={this.handleClick}>Suchen</Button>
             </Container>

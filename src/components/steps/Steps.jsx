@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Button, Col } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import * as selectionActions from '../../actions/SelectionActions';
 import StepInit from './StepInit';
 import SelectionStep from './SelectionStep';
@@ -74,8 +74,8 @@ class Steps extends Component {
             action={selectionActions.getSelectConditionAction}
         />,
         <FunctionalityStep text="Ist dein Gerät voll funktionsfähig?" help="Lassen sich alle Funktionen des Geräts nutzen (wie bspw. die Kamera, das Mikrofon oder die Lautsprecher)?" images={["./s20.png", "./s21.png"]}/>,
-        <FunctionalityStep text="Steht dein Gerät unter SIM-Lock oder Net-Lock?" help="https://praxistipps.chip.de/simlock-entfernen-so-gehts-bei-allen-providern_100550" images={["./s20.png"]}/>,
-        <FunctionalityStep text="Hast du GoogleID bzw. AppleID von deinem Gerät entfernt?" help="Bevor du dein Gerät verkaufen kannst, muss die jeweilige Funktion deaktiviert/entfernt werden. Erfahre mehr am Ende dieser Seite, unter dem Kapitel Service und iCloud & Google-Sperre entfernen oder unter https://handingo.de/pages/icloud-google-sperre-entfernen" images={["./s20.png", "./s21.png", "./s22.png"]}/>,
+        <FunctionalityStep text="Wurde SIM-/Net-Lock entfernt?" help="https://praxistipps.chip.de/simlock-entfernen-so-gehts-bei-allen-providern_100550" images={["./s20.png"]}/>,
+        <FunctionalityStep text="Wurde GoogleID/AppleID entfernt?" help="Bevor du dein Gerät verkaufen kannst, muss die jeweilige Funktion deaktiviert/entfernt werden. Erfahre mehr am Ende dieser Seite, unter dem Kapitel Service und iCloud & Google-Sperre entfernen oder unter https://handingo.de/pages/icloud-google-sperre-entfernen" images={["./s20.png", "./s21.png", "./s22.png"]}/>,
         <IMEIStep/>,
         <StepEnd/>,
         <TicketForm/>,
@@ -109,11 +109,9 @@ class Steps extends Component {
                     this.steps[step]
                 }
                 {step !== 0 && step < this.steps.length - 1 &&
-                    <Col id="button-back-container">
-                        <Button id="button-back" variant="secondary" onClick={this.handleClickBack}>
-                            <IconBack/>
-                        </Button>
-                    </Col>
+                    <Button id="button-back" variant="secondary" onClick={this.handleClickBack}>
+                        <IconBack/>
+                    </Button>
                 }
             </div>
         );

@@ -17,14 +17,16 @@ body {
 .btn.btn-primary {
     background-color: #1a95a3;
     border-color: #1a95a3;
+    --bs-btn-bg: #1a95a3;
     --bs-btn-active-bg: #1a95a3bb;
     --bs-btn-active-border-color: #1a95a3bb;
+    --bs-btn-border-color: #1a95a3;
+}
 
-    &:hover {
-        background-color: #1a95a3bb;
-        border-color: #1a95a3bb;
-        transition: 200ms ease-in;
-    }
+.btn.btn-primary:hover {
+    background-color: #1a95a3bb;
+    border-color: #1a95a3bb;
+    transition: 200ms ease-in;
 }
 
 .top-menu.navbar.navbar-expand-lg.navbar-light.bg-light.sticky-top .nav-link {
@@ -33,11 +35,11 @@ body {
     padding: 16px 20px;
     white-space: nowrap;
     border-radius: 0.75vw;
+}
 
-    &:hover {
-        background-color: #DFDFDF;
-        transition: 200ms ease-in;
-    }
+.top-menu.navbar.navbar-expand-lg.navbar-light.bg-light.sticky-top .nav-link:hover {
+    background-color: #DFDFDF;
+    transition: 200ms ease-in;
 }
 
 .bottommenu.navbar.navbar-expand-lg.navbar-light.bg-light {
@@ -92,11 +94,11 @@ body {
     text-decoration: none;
     color: #000;
     text-rendering: optimizeLegibility;
+}
 
-    &:hover {
-        color: #1a95a3;
-        transition: 200ms ease-in;
-    }
+.bottom-menu a:hover {
+    color: #1a95a3;
+    transition: 200ms ease-in;
 }
 
 @media only screen and (max-width: 991px) {
@@ -108,11 +110,11 @@ body {
     .bottom-menu a {
         font-size: 16px;
         margin-bottom: 5%;
-    
-        &:hover {
-            color: #1a95a3;
-            transition: 200ms ease-in;
-        }
+    }
+
+    .bottom-menu a:hover {
+        color: #1a95a3;
+        transition: 200ms ease-in;
     }
 }
 
@@ -124,6 +126,7 @@ body {
 
 .Steps {
     margin: 4%;
+    margin-left: 0;
     min-height: 85vh;
 }
 
@@ -309,19 +312,13 @@ button {
 }
 
 #button-back {
+    position: fixed;
+    bottom: 2vh;
+    left: 1vw;
     border-radius: 50px;
     width: 50px;
     height: 50px;
-    vertical-align: middle;
-    text-align: center;
-}
-
-#button-back-container {
-    justify-content: left;
-    position: fixed;
-    bottom: 4%;
-    right: 5.5%;
-    width: 92%; /* 100% - 2 * padding(4%) */
+    float: left;
 }
 
 :not(#step-init) .selection button {
@@ -333,12 +330,12 @@ button {
     display: grid;
     grid-template-columns: 12% 56% 17% 12%;
     border-radius: 1vw;
-    
-    &:hover {
-        background-color: #DFDFDF;
-        transition: 200ms ease-in;
-        box-shadow: rgba(0, 0, 0, 0.0625) 0px 3px 5px, rgba(0, 0, 0, 0.05) 0px 3px 10px, rgba(0, 0, 0, 0.0375) 0px 3px 15px, rgba(0, 0, 0, 0.025) 0px 3px 20px, rgba(0, 0, 0, 0.0125) 0px 3px 25px;
-    }
+}
+
+:not(#step-init) .selection button:hover {
+    background-color: #DFDFDF;
+    transition: 200ms ease-in;
+    box-shadow: rgba(0, 0, 0, 0.0625) 0px 3px 5px, rgba(0, 0, 0, 0.05) 0px 3px 10px, rgba(0, 0, 0, 0.0375) 0px 3px 15px, rgba(0, 0, 0, 0.025) 0px 3px 20px, rgba(0, 0, 0, 0.0125) 0px 3px 25px;
 }
 
 @media only screen and (max-width: 650px) {
@@ -353,12 +350,12 @@ button {
         display: grid;
         grid-template-columns: 12% 56% 17% 12%;
         border-radius: 1vw;
-        
-        &:hover {
-            background-color: #DFDFDF;
-            transition: 200ms ease-in;
-            box-shadow: rgba(0, 0, 0, 0.0625) 0px 3px 5px, rgba(0, 0, 0, 0.05) 0px 3px 10px, rgba(0, 0, 0, 0.0375) 0px 3px 15px, rgba(0, 0, 0, 0.025) 0px 3px 20px, rgba(0, 0, 0, 0.0125) 0px 3px 25px;
-        }
+    }
+
+    :not(#step-init) .selection button:hover {
+        background-color: #DFDFDF;
+        transition: 200ms ease-in;
+        box-shadow: rgba(0, 0, 0, 0.0625) 0px 3px 5px, rgba(0, 0, 0, 0.05) 0px 3px 10px, rgba(0, 0, 0, 0.0375) 0px 3px 15px, rgba(0, 0, 0, 0.025) 0px 3px 20px, rgba(0, 0, 0, 0.0125) 0px 3px 25px;
     }
 }
 
@@ -445,11 +442,11 @@ button {
     padding: 1%;
     margin-bottom: 0.5%;
     color: #777;
+}
 
-    &:hover {
-        border-radius: 15%;
-        border-bottom: 2px solid #BBB;
-    }
+#condition-modal-header p:hover {
+    border-radius: 15%;
+    border-bottom: 2px solid #BBB;
 }
 
 .condition-modal-selected-step {
@@ -486,23 +483,11 @@ button {
     height: 10vh;
     font-weight: 600;
     font-size: calc(12px + 0.7vw);
+}
 
-    &:hover {
-        transition: 200ms ease-in;
-        box-shadow: rgba(0, 0, 0, 0.0625) 0px 3px 5px, rgba(0, 0, 0, 0.05) 0px 3px 10px, rgba(0, 0, 0, 0.0375) 0px 3px 15px, rgba(0, 0, 0, 0.025) 0px 3px 20px, rgba(0, 0, 0, 0.0125) 0px 3px 25px;
-        /*background: linear-gradient(
-            90deg,
-            #1B5D7Bbb,
-            #1a95a3bb
-        );
-        color: #fff !important;
-        
-        background: linear-gradient(90deg, #1B5D7B, #1a95a3);
-        border-color: linear-gradient(90deg, #1B5D7B, #1a95a3);
-        --bs-btn-active-bg: linear-gradient(90deg, #1B5D7B, #1a95a3);
-        --bs-btn-active-border-color: linear-gradient(90deg, #1B5D7B, #1a95a3);
-        color: #fff;*/
-    }
+#condition-modal-selection-buttons button:hover {
+    transition: 200ms ease-in;
+    box-shadow: rgba(0, 0, 0, 0.0625) 0px 3px 5px, rgba(0, 0, 0, 0.05) 0px 3px 10px, rgba(0, 0, 0, 0.0375) 0px 3px 15px, rgba(0, 0, 0, 0.025) 0px 3px 20px, rgba(0, 0, 0, 0.0125) 0px 3px 25px;
 }
 
 @media only screen and (max-width: 991px) {
@@ -585,7 +570,7 @@ button {
 #button-send-ticket, #button-continue {
     text-align: center;
     width: 18%;
-    min-width: 300px;
+    min-width: 280px;
     min-height: 30px;
 }
 
@@ -596,25 +581,14 @@ button {
 #button-create-ticket {
     text-align: center;
     width: 25.75%; /* an margin angepasst */
-    min-width: 225px;
+    min-width: 240px;
     min-height: 30px;
-    margin-bottom: 0.5%;
+    margin-bottom: 15%;
 }
 
 #button-send-ticket {
     margin-top: 1vh;
     margin-bottom: 0.5%;
-}
-
-#button-search, #button-functionality-yes, #button-functionality-no, #button-continue, #button-send-ticket, #button-create-ticket {
-    background-color: #1a95a3;
-    border-color: #1a95a3;
-
-    &:hover {
-        background-color: #1a95a3bb;
-        border-color: #1a95a3bb;
-        transition: 200ms ease-in;
-    }
 }
 
 #button-search {
@@ -629,12 +603,12 @@ button {
     min-width: 200px;
     max-width: 270px;
     width: 20%;
-    
-    &:hover {
-        background-color: #E95146;
-        border-color: #E95146;
-        transition: 200ms ease-in;
-    }
+}
+
+#button-start:hover {
+    background-color: #E95146;
+    border-color: #E95146;
+    transition: 200ms ease-in;
 }
 
 .Steps .btn.btn-primary {
@@ -658,8 +632,8 @@ button {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 2%;
-    width: 24.5%;
-    min-width: 200px;
+    width: 28%;
+    min-width: 280px;
 }
 
 #imei-step .ticket-form.container input {
@@ -667,7 +641,7 @@ button {
     margin-right: auto;
     margin-bottom: 4%;
     width: 24.5%;
-    min-width: 200px;
+    min-width: 300px;
     text-align: center;
 }
 
@@ -677,9 +651,18 @@ button {
 
 .ticket-form p {
     text-align: left;
-    margin-left: 12%;
-    margin-right: 12%;
+    margin-left: 18%;
+    margin-right: 18%;
     padding: 2%;
+}
+
+@media only screen and (max-width: 650px) {
+    .ticket-form p {
+        text-align: left;
+        margin-left: 9%;
+        margin-right: 9%;
+        padding: 2%;
+    }
 }
 
 .ticket-form #additional-data .form-label {
@@ -708,11 +691,11 @@ button {
     border-radius: 50%;
     text-rendering: optimizeLegibility;
     white-space: nowrap;
+}
 
-    &:hover {
-        background-color: #DFDFDF;
-        transition: 200ms ease-in;
-    }
+#selection-breadcrumbs a:hover {
+    background-color: #DFDFDF;
+    transition: 200ms ease-in;
 }
 
 @media only screen and (max-width: 650px) {
