@@ -150,7 +150,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin: -4.35%;
+    margin: -4.15%;
     min-height: 100vh;
     padding-left: 30%;
     padding-right: 30%;
@@ -313,7 +313,7 @@ button {
 
 #button-back {
     position: fixed;
-    bottom: 2vh;
+    bottom: 1vh;
     left: 1vw;
     border-radius: 50px;
     width: 50px;
