@@ -23,6 +23,8 @@ class TicketForm extends Component {
         demicile: "",
         street: "",
         houseNumber: "",
+        iban: "",
+        bic: "",
         validated: false,
         checked: false
     };
@@ -191,11 +193,9 @@ class TicketForm extends Component {
                                 </Form.Label>
                                 <Form.Control
                                     type="number"
-                                    minLength="15"
-                                    maxLength="15"
+                                    min={100_000_000_000_000}
+                                    max={999_999_999_999_999}
                                     placeholder="IMEI-Nummer des Geräts"
-                                    name="imei"
-                                    onChange={this.handleChange}
                                 />
                                 <Form.Control.Feedback type="invalid">Eine IMEI hat 15 Stellen.</Form.Control.Feedback>
                             </Form.Group>
@@ -230,6 +230,8 @@ class TicketForm extends Component {
                                     minLength="27"
                                     maxLength="27"
                                     placeholder="IBAN"
+                                    name="iban"
+                                    onChange={this.handleChange}
                                 />
                                 <Form.Control.Feedback type="invalid">Bitte teile uns deine IBAN mit.</Form.Control.Feedback>
                             </Form.Group>
@@ -239,6 +241,8 @@ class TicketForm extends Component {
                                     type="text"
                                     maxLength="16"
                                     placeholder="BIC"
+                                    name="bic"
+                                    onChange={this.handleChange}
                                 />
                                 <Form.Control.Feedback type="invalid">Bitte teile uns den BIC deiner Bank mit.</Form.Control.Feedback>
                             </Form.Group>
