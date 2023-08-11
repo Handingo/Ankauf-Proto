@@ -185,6 +185,20 @@ class TicketForm extends Component {
                         <h3>Zusatzdaten</h3>
                         <br/>
                         <div id="additional-data">
+                            <Form.Group as={Col}>
+                                <Form.Label>
+                                    IMEI-Nummer
+                                </Form.Label>
+                                <Form.Control
+                                    type="number"
+                                    minLength="15"
+                                    maxLength="15"
+                                    placeholder="IMEI-Nummer des Geräts"
+                                    name="imei"
+                                    onChange={this.handleChange}
+                                />
+                                <Form.Control.Feedback type="invalid">Eine IMEI hat 15 Stellen.</Form.Control.Feedback>
+                            </Form.Group>
                             <div id="delivery-service">
                                 <Form.Group as={Col}>
                                     <Form.Label>

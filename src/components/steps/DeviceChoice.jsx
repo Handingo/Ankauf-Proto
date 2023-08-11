@@ -63,7 +63,7 @@ class SelectionStep extends Component {
                         return (
                             <Col key={entity}>
                                 <Button variant="light" name={entity} onClick={this.handleClick}>
-                                    <IconPreview image="./smartphone-test.jpg"/>
+                                    <IconPreview image="./smartphone-test.jpg"/> {/* Verwendet IconPreview.tsx */}
                                     <p className="button-text">{entity}</p>
                                     <small className="button-text-small">{this.props.id === 3 ? "(Wir bieten bis zu " + entityPrice + " €)" : ""}</small>
                                     <IconContinue/>

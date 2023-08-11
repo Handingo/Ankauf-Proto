@@ -623,7 +623,6 @@ button {
 .ticket-form input, .ticket-form #payment-method, .ticket-form #delivery-service {
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 2%;
     width: 28%;
     min-width: 300px;
 }

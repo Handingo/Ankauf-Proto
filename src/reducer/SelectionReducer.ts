@@ -18,6 +18,8 @@ const initialState: {
     condition: undefined
 };
 
+// SelectionReducer arbeitet mit SelectionActions zusammen
+
 function selectionReducer(state = initialState, action: any) {
     switch (action.type) {
         case selectionActions.SELECT_STEP:

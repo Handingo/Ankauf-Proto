@@ -7,6 +7,8 @@ export const SELECT_INTERNAL_MEMORY: string = "SELECT_INTERNAL_MEMORY";
 export const SELECT_CONDITION: string = "SELECT_CONDITION";
 export const RESET_STATE_PART: string = "RESET_STATE_PART";
 
+// SelectionReducer arbeitet mit SelectionActions zusammen
+
 export function getSelectStepAction(step: number) {
     return {
         type: SELECT_STEP,

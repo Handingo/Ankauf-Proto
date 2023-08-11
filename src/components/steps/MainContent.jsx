@@ -3,23 +3,22 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Button } from "react-bootstrap";
 import * as selectionActions from '../../actions/SelectionActions';
-import StepInit from './StepInit';
-import SelectionStep from './SelectionStep';
-import StepEnd from "./StepEnd";
+import StepInit from './LandingPage';
+import SelectionStep from './DeviceChoice';
+import StepEnd from "./EndProposal";
 import TicketForm from "./TicketForm";
 import TicketConfirmation from "./TicketConfirmation";
-import FunctionalityStep from "./FunctionalityStep";
-import ConditionStep from "./ConditionStep";
-import IMEIStep from "./IMEIStep";
+import FunctionalityStep from "./FunctionalityChoice";
+import ConditionStep from "./ConditionChoice";
 
 class Steps extends Component {
 
     steps = [
-        <StepInit/>,
+        <StepInit/>, // LandingPage
         <SelectionStep
             id={1}
             text="Wähle den Typen des Geräts."
-            entities={[
+            entities={[ // Eventuelle Anbindung an Datenbank
                 "Smartphone",
                 "Smartwatch"
             ]}
@@ -28,7 +27,7 @@ class Steps extends Component {
         <SelectionStep
             id={2}
             text="Wähle den Hersteller des Geräts."
-            entities={[
+            entities={[ // Eventuelle Anbindung an Datenbank
                 "Samsung",
                 "Huawei"
             ]}
@@ -37,7 +36,7 @@ class Steps extends Component {
         <SelectionStep
             id={3}
             text="Wähle das Modell des Geräts."
-            entities={[
+            entities={[ // Eventuelle Anbindung an Datenbank
                 "Samsung Galaxy S20",
                 "Samsung Galaxy S21",
                 "Samsung Galaxy S22",
@@ -48,7 +47,7 @@ class Steps extends Component {
         <SelectionStep
             id={4}
             text="Wähle die Farbe des Modells."
-            entities={[
+            entities={[ // Eventuelle Anbindung an Datenbank
                 "Black",
                 "White",
                 "Purple"
@@ -58,7 +57,7 @@ class Steps extends Component {
         <SelectionStep
             id={5}
             text="Wie viel Speicherplatz bietet das Modell?"
-            entities={[
+            entities={[ // Eventuelle Anbindung an Datenbank
                 "64 GB",
                 "128 GB",
                 "256 GB",
@@ -72,10 +71,11 @@ class Steps extends Component {
             text="In welchem Zustand befindet sich das Gerät?"
             action={selectionActions.getSelectConditionAction}
         />,
+        // Wird in Zeile 50-53 in DeviceChoice.jsx implementiert
         <FunctionalityStep text="Ist dein Gerät voll funktionsfähig?" help="Lassen sich alle Funktionen des Geräts nutzen (wie bspw. die Kamera, das Mikrofon oder die Lautsprecher)?" images={["./s20.png", "./s21.png"]}/>,
         <FunctionalityStep text="Wurde SIM-/Net-Lock entfernt?" help="https://praxistipps.chip.de/simlock-entfernen-so-gehts-bei-allen-providern_100550" images={["./s20.png"]}/>,
         <FunctionalityStep text="Wurde GoogleID/AppleID entfernt?" help="Bevor du dein Gerät verkaufen kannst, muss die jeweilige Funktion deaktiviert/entfernt werden. Erfahre mehr am Ende dieser Seite, unter dem Kapitel Service und iCloud & Google-Sperre entfernen oder unter https://handingo.de/pages/icloud-google-sperre-entfernen" images={["./s20.png", "./s21.png", "./s22.png"]}/>,
-        <IMEIStep/>,
+        // <IMEIStep/>, // Datenschutzrechtlich teilweise schwierig, daher optional in das Endformular eingefügt
         <StepEnd/>,
         <TicketForm/>,
         <TicketConfirmation/>
