@@ -654,10 +654,6 @@ button {
     }
 }
 
-.ticket-form #additional-data .form-label {
-    margin-top: 10%;
-}
-
 .ticket-form a {
     text-decoration: none;
     color: #1a95a3;
@@ -773,4 +769,25 @@ input[type="file"]::-webkit-file-upload-button {
 
 #functionality-help-modal {
     margin-top: 30vh;
+}
+
+#ticket-form .col {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto 16px auto;
+    width: 300px;
+}
+
+#ticket-form .form-control {
+    margin-bottom: 0;
+}
+
+#ticket-form .invalid-feedback {
+    text-align: left;
+    margin-left: 5px;
+    margin-bottom: -4px;
+}
+
+#ticket-form .form-label {
+    margin-top: 0;
 }

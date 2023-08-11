@@ -50,6 +50,13 @@ class TicketForm extends Component {
             validated: true
         });
 
+        for (const entry in this.state) {
+            if (this.state.hasOwnProperty(entry) && this.state[entry] !== undefined && this.state[entry].length < 1) {
+                window.scrollTo(0, 0);
+                return;
+            }
+        }
+
         if (!this.state.email.includes('@') || this.state.email.length < 3 || this.state.email !== this.state.emailConfirm) {
             window.scrollTo(0, 0);
             return;
@@ -81,6 +88,7 @@ class TicketForm extends Component {
                                     placeholder="Anrede"
                                     onChange={this.handleChange}
                                 />
+                                <Form.Control.Feedback type="invalid">Bitte teile uns deine Anrede mit.</Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Control
@@ -91,6 +99,7 @@ class TicketForm extends Component {
                                     name="firstName"
                                     onChange={this.handleChange}
                                 />
+                                <Form.Control.Feedback type="invalid">Bitte teile uns deinen Vornamen mit.</Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Control
@@ -101,6 +110,7 @@ class TicketForm extends Component {
                                     name="lastName"
                                     onChange={this.handleChange}
                                 />
+                                <Form.Control.Feedback type="invalid">Bitte teile uns deinen Nachnamen mit.</Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Control
@@ -111,6 +121,7 @@ class TicketForm extends Component {
                                     name="email"
                                     onChange={this.handleChange}
                                 />
+                                <Form.Control.Feedback type="invalid">Bitte teile uns deine E-Mail-Adresse mit.</Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Control
@@ -121,6 +132,7 @@ class TicketForm extends Component {
                                     name="emailConfirm"
                                     onChange={this.handleChange}
                                 />
+                                <Form.Control.Feedback type="invalid">Bitte gebe deine E-Mail-Adresse erneut ein.</Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Control
@@ -132,6 +144,7 @@ class TicketForm extends Component {
                                     name="postalCode"
                                     onChange={this.handleChange}
                                 />
+                                <Form.Control.Feedback type="invalid">Bitte teile uns deine Postleitzahl mit.</Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Control
@@ -142,6 +155,7 @@ class TicketForm extends Component {
                                     name="demicile"
                                     onChange={this.handleChange}
                                 />
+                                <Form.Control.Feedback type="invalid">Bitte teile uns deinen Wohnort mit.</Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Control
@@ -152,6 +166,7 @@ class TicketForm extends Component {
                                     name="street"
                                     onChange={this.handleChange}
                                 />
+                                <Form.Control.Feedback type="invalid">Bitte teile uns deine Straße mit.</Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Control
@@ -162,30 +177,36 @@ class TicketForm extends Component {
                                     name="houseNumber"
                                     onChange={this.handleChange}
                                 />
+                                <Form.Control.Feedback type="invalid">Bitte teile uns deine Hausnummer mit.</Form.Control.Feedback>
                             </Form.Group>
                         </div>
                         <br/>
                         <br/>
                         <h3>Zusatzdaten</h3>
+                        <br/>
                         <div id="additional-data">
                             <div id="delivery-service">
-                                <Form.Label>
-                                    Lieferdienst
-                                </Form.Label>
-                                <Form.Select id="delivery-service-selection">
-                                    <option className="form-option">DHL</option>
-                                    <option className="form-option">DPD</option>
-                                    <option className="form-option">UPS</option>
-                                </Form.Select>
+                                <Form.Group as={Col}>
+                                    <Form.Label>
+                                        Lieferdienst
+                                    </Form.Label>
+                                    <Form.Select id="delivery-service-selection">
+                                        <option className="form-option">DHL</option>
+                                        <option className="form-option">DPD</option>
+                                        <option className="form-option">UPS</option>
+                                    </Form.Select>
+                                </Form.Group>
                             </div>
                             <div id="payment-method">
-                                <Form.Label>
-                                    Zahlungswunsch
-                                </Form.Label>
-                                <Form.Select id="payment-method-selection">
-                                    <option className="form-option">Banküberweisung</option>
-                                    <option className="form-option">Gutschein (mit Bonus)</option>
-                                </Form.Select>
+                                <Form.Group as={Col}>
+                                    <Form.Label>
+                                        Zahlungswunsch
+                                    </Form.Label>
+                                    <Form.Select id="payment-method-selection">
+                                        <option className="form-option">Banküberweisung</option>
+                                        <option className="form-option">Gutschein (mit Bonus)</option>
+                                    </Form.Select>
+                                </Form.Group>
                             </div>
                             {/* Je nach Zahlungswunsch anders rendern*/}
                             <Form.Group as={Col}>
@@ -196,6 +217,7 @@ class TicketForm extends Component {
                                     maxLength="27"
                                     placeholder="IBAN"
                                 />
+                                <Form.Control.Feedback type="invalid">Bitte teile uns deine IBAN mit.</Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Control
@@ -204,6 +226,7 @@ class TicketForm extends Component {
                                     maxLength="16"
                                     placeholder="BIC"
                                 />
+                                <Form.Control.Feedback type="invalid">Bitte teile uns den BIC deiner Bank mit.</Form.Control.Feedback>
                             </Form.Group>
                         </div>
                         <br/>
