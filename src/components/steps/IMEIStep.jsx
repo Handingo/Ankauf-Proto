@@ -52,6 +52,7 @@ class IMEIStep extends Component {
                     <Form noValidate validated={this.state.validated}>
                         <Form.Group as={Col}>
                             <Form.Control
+                                id="imei-input"
                                 isValid={this.state.imei && this.state.imei.length === 15}
                                 type="number"
                                 min={100_000_000_000_000}
@@ -60,6 +61,7 @@ class IMEIStep extends Component {
                                 name="imei"
                                 onChange={this.handleChange}
                             />
+                            <Form.Control.Feedback type="invalid">Eine IMEI-Nummer hat 15 Stellen.</Form.Control.Feedback>
                         </Form.Group>
                     </Form>
                 </Container>
