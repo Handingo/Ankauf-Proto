@@ -17,7 +17,6 @@ export function getSelectStepAction(step: number) {
 }
 
 export function getSelectDeviceTypeAction(deviceType: string) {
-    console.log(deviceType)
     return {
         type: SELECT_DEVICE_TYPE,
         deviceType: deviceType
@@ -25,7 +24,6 @@ export function getSelectDeviceTypeAction(deviceType: string) {
 }
 
 export function getSelectBrandAction(brand: string) {
-    console.log(brand)
     return {
         type: SELECT_BRAND,
         brand: brand
@@ -33,7 +31,6 @@ export function getSelectBrandAction(brand: string) {
 }
 
 export function getSelectModelAction(model: string) {
-    console.log(model)
     return {
         type: SELECT_MODEL,
         model: model
@@ -41,7 +38,6 @@ export function getSelectModelAction(model: string) {
 }
 
 export function getSelectColorAction(color: string) {
-    console.log(color)
     return {
         type: SELECT_COLOR,
         color: color
@@ -49,7 +45,6 @@ export function getSelectColorAction(color: string) {
 }
 
 export function getSelectInternalMemoryAction(internalMemory: string) {
-    console.log(internalMemory)
     return {
         type: SELECT_INTERNAL_MEMORY,
         internalMemory: internalMemory
@@ -57,7 +52,6 @@ export function getSelectInternalMemoryAction(internalMemory: string) {
 }
 
 export function getSelectConditionAction(condition: string) {
-    console.log(condition)
     return {
         type: SELECT_CONDITION,
         condition: condition
