@@ -1,8 +1,9 @@
 import { Component } from "react";
-import { Button, Container, Form, Col } from "react-bootstrap";
+import { Button, Container, Form, Col, Modal } from "react-bootstrap";
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import * as selectionActions from '../../actions/SelectionActions';
+import IconInfo from "../../icons/IconInfo";
 
 class TicketForm extends Component {
 
@@ -11,6 +12,7 @@ class TicketForm extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.handleChangeCheckbox = this.handleChangeCheckbox.bind(this);
+        this.handleClickImeiHelp = this.handleClickImeiHelp.bind(this);
     }
 
     state = {
@@ -25,6 +27,7 @@ class TicketForm extends Component {
         houseNumber: "",
         iban: "",
         bic: "",
+        showImeiHelp: true,
         validated: false,
         checked: false
     };
@@ -70,6 +73,12 @@ class TicketForm extends Component {
 
         this.props.selectStep(this.props.selection.step + 1);
         window.scrollTo(0, 0);
+    }
+
+    handleClickImeiHelp() {
+        this.setState({
+            showImeiHelp: !this.state.showImeiHelp
+        });
     }
 
     render() {
@@ -189,7 +198,7 @@ class TicketForm extends Component {
                         <div id="additional-data">
                             <Form.Group as={Col}>
                                 <Form.Label>
-                                    IMEI-Nummer
+                                    <p>IMEI-Nummer <span onClick={this.handleClickImeiHelp}><IconInfo/></span></p>
                                 </Form.Label>
                                 <Form.Control
                                     type="number"
@@ -202,7 +211,7 @@ class TicketForm extends Component {
                             <div id="delivery-service">
                                 <Form.Group as={Col}>
                                     <Form.Label>
-                                        Lieferdienst
+                                        <p>Lieferdienst</p>
                                     </Form.Label>
                                     <Form.Select id="delivery-service-selection">
                                         <option className="form-option">DHL</option>
@@ -214,7 +223,7 @@ class TicketForm extends Component {
                             <div id="payment-method">
                                 <Form.Group as={Col}>
                                     <Form.Label>
-                                        Zahlungswunsch
+                                        <p>Zahlungswunsch</p>
                                     </Form.Label>
                                     <Form.Select id="payment-method-selection">
                                         <option className="form-option">Banküberweisung</option>
@@ -248,7 +257,7 @@ class TicketForm extends Component {
                             </Form.Group>
                         </div>
                         <br/>
-                        <p>
+                        <p id="legal-text">
                             Ich bestätige, dass die von mir getätigten Angaben der Wahrheit entsprechen und schicke das Gerät angemessen verpackt an die Firmenadresse
                             von Handingo.de. Das eingesendete Gerät verfügt über ein CE-Zeichen und befindet sich in einem Zustand, in welchem es möglichst einfach auf
                             Werkseinstellungen zurückgesetzt werden kann. Außerdem bin ich damit einverstanden, dass Schutzmaßnahmen, wie Displayfolien, ggf. restlos
@@ -262,6 +271,26 @@ class TicketForm extends Component {
                         <Button disabled={!this.state.checked} id="button-send-ticket" onClick={this.handleClick}>Senden</Button>
                     </Form>
                 </Container>
+                <Modal id="form-help-modal" show={this.state.showImeiHelp} onHide={this.handleClickImeiHelp}>
+                    <Modal.Header closeButton>
+                        <h5>IMEI-Nummer</h5>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <p>
+                            Die IMEI-Nummer (Kurzform für "International Mobile Equipment Identity"-Seriennummer) besteht aus 15 Ziffern und wird dazu verwendet, jedes Smartphone weltweit eindeutig identifizieren zu können.<br/>
+                            <br/>
+                            <h5>Unter Android auslesen:</h5>
+                            Solltest du noch die Originalverpackung des Geräts besitzen, dann dürfte die IMEI-Nummer auf dieser hinterlegt sein.<br/>
+                            Ansonsten gehe einfach in die Einstellungen des Geräts, klicke (oft ganz unten) auf "Über das Telefon" und "Status".
+                            In der darauffolgenden Auflistung sollte sich auch die IMEI-Nummer befinden.<br/>
+                            <br/>
+                            <h5>Unter iOS (Apple) auslesen:</h5>
+                            Solltest du noch die Originalverpackung des Geräts besitzen, dann dürfte die IMEI-Nummer auf dieser hinterlegt sein.<br/>
+                            Ansonsten gehe einfach in die Einstellungen des Geräts, klicke auf "Allgemein" und "Info".
+                            In der darauffolgenden Auflistung sollte sich auch die IMEI-Nummer befinden.
+                        </p>
+                    </Modal.Body>
+                </Modal>
             </div>
         );
     }

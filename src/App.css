@@ -147,6 +147,10 @@ body {
     min-height: 85vh;
 }
 
+.info-icon {
+    cursor: pointer;
+}
+
 #step-functionality-selection {
     display: flex;
     flex-direction: column;
@@ -639,17 +643,24 @@ button {
 }
 
 .ticket-form p {
+    margin-bottom: 0;
+    overflow: hidden;
+}
+
+.ticket-form #legal-text {
     text-align: left;
     margin-left: 18%;
     margin-right: 18%;
+    margin-bottom: 2%;
     padding: 2%;
 }
 
 @media only screen and (max-width: 650px) {
-    .ticket-form p {
+    .ticket-form #legal-text {
         text-align: left;
         margin-left: 9%;
         margin-right: 9%;
+        margin-bottom: 2%;
         padding: 2%;
     }
 }
