@@ -4,7 +4,7 @@ import { Button, Modal, Card } from "react-bootstrap";
 import * as selectionActions from '../../actions/SelectionActions';
 import ModelViewer from "../model/ModelViewer";
 
-class ConditionStep extends Component {
+class ConditionChoice extends Component {
 
     state = {
         showModal: false,
@@ -273,4 +273,4 @@ class ConditionStep extends Component {
     }
 }
 
-export default connect(state => { return state; })(ConditionStep);
+export default connect(state => { return state; })(ConditionChoice);

@@ -4,7 +4,7 @@ import { Button, Col, Modal } from "react-bootstrap";
 import * as selectionActions from '../../actions/SelectionActions';
 import IconInfo from "../../icons/IconInfo";
 
-class FunctionalityStep extends Component {
+class FunctionalityChoice extends Component {
 
     state = {
         showHelp: false
@@ -58,4 +58,4 @@ class FunctionalityStep extends Component {
     }
 }
 
-export default connect(state => { return state; })(FunctionalityStep);
+export default connect(state => { return state; })(FunctionalityChoice);

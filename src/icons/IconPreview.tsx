@@ -1,7 +1,6 @@
 import { Component } from "react";
 
 // Wird in DeviceChoice.jsx verwendet
-
 class IconPreview extends Component<{image: string}> {
     render() {
         return (

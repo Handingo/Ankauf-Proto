@@ -7,7 +7,7 @@ class SelectionButton extends Component<{image: string, text: string}> {
     render() {
         return (
             <Button className="selection-button">
-                <img src={this.props.image}></img>
+                <img src={this.props.image} alt=""></img>
                 {this.props.text}
                 ::after
             </Button>

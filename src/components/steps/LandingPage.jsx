@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 import * as selectionActions from '../../actions/SelectionActions'
 import SearchBar from "../SearchBar";
 
-class StepInit extends Component {
+class LandingPage extends Component {
 
     constructor(props) {
         super(props);
@@ -62,4 +62,4 @@ const mapStateToProps = dispatch => bindActionCreators({
     selectStep: selectionActions.getSelectStepAction
 }, dispatch);
 
-export default connect(state => { return state; }, mapStateToProps)(StepInit);
+export default connect(state => { return state; }, mapStateToProps)(LandingPage);

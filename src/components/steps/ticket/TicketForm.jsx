@@ -2,8 +2,8 @@ import { Component } from "react";
 import { Button, Container, Form, Col, Modal } from "react-bootstrap";
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
-import * as selectionActions from '../../actions/SelectionActions';
-import IconInfo from "../../icons/IconInfo";
+import * as selectionActions from '../../../actions/SelectionActions';
+import IconInfo from "../../../icons/IconInfo";
 
 class TicketForm extends Component {
 
@@ -231,7 +231,7 @@ class TicketForm extends Component {
                                     </Form.Select>
                                 </Form.Group>
                             </div>
-                            {/* Je nach Zahlungswunsch anders rendern*/}
+                            {/* Je nach Zahlungswunsch anders rendern */}
                             <Form.Group as={Col}>
                                 <Form.Control
                                     required

@@ -38,7 +38,7 @@ class SearchBar extends Component {
             return;
         }
 
-        // TODO - Sollte an Datenbank angebunden werden
+        // TODO - Should get connected with database
         this.props.selectDeviceType("Smartphone");
         this.props.selectBrand("Samsung");
         this.props.selectModel("Samsung Galaxy S23");

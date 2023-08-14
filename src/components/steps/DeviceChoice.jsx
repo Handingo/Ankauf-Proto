@@ -5,7 +5,7 @@ import * as selectionActions from '../../actions/SelectionActions';
 import IconContinue from "../../icons/IconContinue";
 import IconPreview from "../../icons/IconPreview";
 
-class SelectionStep extends Component {
+class DeviceChoice extends Component {
 
     constructor(props) {
         super(props);
@@ -77,4 +77,4 @@ class SelectionStep extends Component {
     }
 }
 
-export default connect(state => { return state; })(SelectionStep);
+export default connect(state => { return state; })(DeviceChoice);

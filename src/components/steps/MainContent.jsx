@@ -6,12 +6,12 @@ import * as selectionActions from '../../actions/SelectionActions';
 import StepInit from './LandingPage';
 import SelectionStep from './DeviceChoice';
 import StepEnd from "./EndProposal";
-import TicketForm from "./TicketForm";
+import TicketForm from "./ticket/TicketForm";
 import TicketConfirmation from "./TicketConfirmation";
 import FunctionalityStep from "./FunctionalityChoice";
 import ConditionStep from "./ConditionChoice";
 
-class Steps extends Component {
+class MainContent extends Component {
 
     steps = [
         <StepInit/>, // LandingPage
@@ -75,7 +75,6 @@ class Steps extends Component {
         <FunctionalityStep text="Ist dein Gerät voll funktionsfähig?" help="Lassen sich alle Funktionen des Geräts nutzen (wie bspw. die Kamera, das Mikrofon oder die Lautsprecher)?" images={["./s20.png", "./s21.png"]}/>,
         <FunctionalityStep text="Wurde SIM-/Net-Lock entfernt?" help="https://praxistipps.chip.de/simlock-entfernen-so-gehts-bei-allen-providern_100550" images={["./s20.png"]}/>,
         <FunctionalityStep text="Wurde GoogleID/AppleID entfernt?" help="Bevor du dein Gerät verkaufen kannst, muss die jeweilige Funktion deaktiviert/entfernt werden. Erfahre mehr am Ende dieser Seite, unter dem Kapitel Service und iCloud & Google-Sperre entfernen oder unter https://handingo.de/pages/icloud-google-sperre-entfernen" images={["./s20.png", "./s21.png", "./s22.png"]}/>,
-        // <IMEIStep/>, // Datenschutzrechtlich teilweise schwierig, daher optional in das Endformular eingefügt
         <StepEnd/>,
         <TicketForm/>,
         <TicketConfirmation/>
@@ -122,4 +121,4 @@ const mapStateToProps = dispatch => bindActionCreators({
     resetStatePart: selectionActions.getResetStatePartAction
 }, dispatch);
 
-export default connect(state => { return state; }, mapStateToProps)(Steps);
+export default connect(state => { return state; }, mapStateToProps)(MainContent);

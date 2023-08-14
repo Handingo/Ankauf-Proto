@@ -4,11 +4,11 @@ import { bindActionCreators } from 'redux';
 import { Button, Card } from "react-bootstrap";
 import * as selectionActions from "../../actions/SelectionActions";
 
-class StepEnd extends Component {
+class EndProposal extends Component {
 
     state = {
         documents: []
-    }
+    };
 
     constructor(props) {
         super(props);
@@ -197,4 +197,4 @@ const mapStateToProps = dispatch => bindActionCreators({
     selectStep: selectionActions.getSelectStepAction
 }, dispatch);
 
-export default connect(state => { return state; }, mapStateToProps)(StepEnd);
+export default connect(state => { return state; }, mapStateToProps)(EndProposal);

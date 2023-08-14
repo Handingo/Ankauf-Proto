@@ -1,7 +1,6 @@
 import { Component } from "react";
 
 class TicketConfirmation extends Component {
-
     render() {
         return (
             <div id="ticket-confirmation">
