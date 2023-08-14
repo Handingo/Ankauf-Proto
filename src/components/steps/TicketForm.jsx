@@ -27,7 +27,7 @@ class TicketForm extends Component {
         houseNumber: "",
         iban: "",
         bic: "",
-        showImeiHelp: true,
+        showImeiHelp: false,
         validated: false,
         checked: false
     };
@@ -277,14 +277,18 @@ class TicketForm extends Component {
                     </Modal.Header>
                     <Modal.Body>
                         <p>
-                            Die IMEI-Nummer (Kurzform für "International Mobile Equipment Identity"-Seriennummer) besteht aus 15 Ziffern und wird dazu verwendet, jedes Smartphone weltweit eindeutig identifizieren zu können.<br/>
-                            <br/>
-                            <h5>Unter Android auslesen:</h5>
+                            Die IMEI-Nummer (Kurzform für "International Mobile Equipment Identity"-Seriennummer) besteht aus 15 Ziffern und wird dazu verwendet, jedes Smartphone weltweit eindeutig identifizieren zu können.
+                        </p>
+                        <br/>
+                        <h5>Unter Android auslesen:</h5>
+                        <p>
                             Solltest du noch die Originalverpackung des Geräts besitzen, dann dürfte die IMEI-Nummer auf dieser hinterlegt sein.<br/>
                             Ansonsten gehe einfach in die Einstellungen des Geräts, klicke (oft ganz unten) auf "Über das Telefon" und "Status".
-                            In der darauffolgenden Auflistung sollte sich auch die IMEI-Nummer befinden.<br/>
-                            <br/>
-                            <h5>Unter iOS (Apple) auslesen:</h5>
+                            In der darauffolgenden Auflistung sollte sich auch die IMEI-Nummer befinden.
+                        </p>
+                        <br/>
+                        <h5>Unter iOS (Apple) auslesen:</h5>
+                        <p>
                             Solltest du noch die Originalverpackung des Geräts besitzen, dann dürfte die IMEI-Nummer auf dieser hinterlegt sein.<br/>
                             Ansonsten gehe einfach in die Einstellungen des Geräts, klicke auf "Allgemein" und "Info".
                             In der darauffolgenden Auflistung sollte sich auch die IMEI-Nummer befinden.
