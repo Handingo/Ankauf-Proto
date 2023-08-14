@@ -1,13 +1,13 @@
 import { Component } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 
-class TopMenu extends Component {
+class Header extends Component {
     render() {
         return (
             <Navbar className="top-menu" expand="lg" bg="light" sticky="top">
                 <Container>
                     <Navbar.Brand href="https://handingo.de" className="site-header__logo-link">
-                        <img src="//handingo.de/cdn/shop/files/handingo_990f0cf9-0fc6-490a-9791-7383397a7c1c.png" alt="" width="200" height="55" loading="eager" className="small--hide" sizes="200px" />
+                        <img src="https://handingo.de/cdn/shop/files/handingo_990f0cf9-0fc6-490a-9791-7383397a7c1c.png" alt="" width="200" height="55" loading="eager" className="small--hide" sizes="200px" />
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                     <Navbar.Collapse>
@@ -26,4 +26,4 @@ class TopMenu extends Component {
     }
 }
 
-export default TopMenu;
+export default Header;

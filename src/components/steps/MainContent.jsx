@@ -7,7 +7,7 @@ import StepInit from './LandingPage';
 import SelectionStep from './DeviceChoice';
 import StepEnd from "./EndProposal";
 import TicketForm from "./ticket/TicketForm";
-import TicketConfirmation from "./TicketConfirmation";
+import TicketConfirmation from "./ticket/TicketConfirmation";
 import FunctionalityStep from "./FunctionalityChoice";
 import ConditionStep from "./ConditionChoice";
 
@@ -72,9 +72,9 @@ class MainContent extends Component {
             action={selectionActions.getSelectConditionAction}
         />,
         // Wird in Zeile 50-53 in DeviceChoice.jsx implementiert
-        <FunctionalityStep text="Ist dein Gerät voll funktionsfähig?" help="Lassen sich alle Funktionen des Geräts nutzen (wie bspw. die Kamera, das Mikrofon oder die Lautsprecher)?" images={["./s20.png", "./s21.png"]}/>,
-        <FunctionalityStep text="Wurde SIM-/Net-Lock entfernt?" help="https://praxistipps.chip.de/simlock-entfernen-so-gehts-bei-allen-providern_100550" images={["./s20.png"]}/>,
-        <FunctionalityStep text="Wurde GoogleID/AppleID entfernt?" help="Bevor du dein Gerät verkaufen kannst, muss die jeweilige Funktion deaktiviert/entfernt werden. Erfahre mehr am Ende dieser Seite, unter dem Kapitel Service und iCloud & Google-Sperre entfernen oder unter https://handingo.de/pages/icloud-google-sperre-entfernen" images={["./s20.png", "./s21.png", "./s22.png"]}/>,
+        <FunctionalityStep text="Ist dein Gerät voll funktionsfähig?" help="Lassen sich alle Funktionen des Geräts nutzen (wie bspw. die Kamera, das Mikrofon oder die Lautsprecher)?" images={["./smartphones/s20.png", "./smartphones/s21.png"]}/>,
+        <FunctionalityStep text="Wurde SIM-/Net-Lock entfernt?" help="https://praxistipps.chip.de/simlock-entfernen-so-gehts-bei-allen-providern_100550" images={["./smartphones/s20.png"]}/>,
+        <FunctionalityStep text="Wurde GoogleID/AppleID entfernt?" help="Bevor du dein Gerät verkaufen kannst, muss die jeweilige Funktion deaktiviert/entfernt werden. Erfahre mehr am Ende dieser Seite, unter dem Kapitel Service und iCloud & Google-Sperre entfernen oder unter https://handingo.de/pages/icloud-google-sperre-entfernen" images={["./smartphones/s20.png", "./smartphones/s21.png", "./smartphones/s22.png"]}/>,
         <StepEnd/>,
         <TicketForm/>,
         <TicketConfirmation/>

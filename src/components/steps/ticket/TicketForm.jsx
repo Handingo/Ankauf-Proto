@@ -3,7 +3,7 @@ import { Button, Container, Form, Col, Modal } from "react-bootstrap";
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import * as selectionActions from '../../../actions/SelectionActions';
-import IconInfo from "../../../icons/IconInfo";
+import IconInfo from "../../icons/IconInfo";
 
 class TicketForm extends Component {
 

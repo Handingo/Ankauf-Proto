@@ -2,8 +2,8 @@ import { Component } from "react";
 import { connect } from 'react-redux';
 import { Button, Col } from "react-bootstrap";
 import * as selectionActions from '../../actions/SelectionActions';
-import IconContinue from "../../icons/IconContinue";
-import IconPreview from "../../icons/IconPreview";
+import IconContinue from "../icons/IconContinue";
+import IconPreview from "../icons/IconPreview";
 
 class DeviceChoice extends Component {
 
@@ -63,7 +63,7 @@ class DeviceChoice extends Component {
                         return (
                             <Col key={entity}>
                                 <Button variant="light" name={entity} onClick={this.handleClick}>
-                                    <IconPreview image="./smartphone-test.jpg"/> {/* Verwendet IconPreview.tsx */}
+                                    <IconPreview image="./smartphones/s23.jpg"/> {/* Verwendet IconPreview.tsx */}
                                     <p className="button-text">{entity}</p>
                                     <small className="button-text-small">{this.props.id === 3 ? "(Wir bieten bis zu " + entityPrice + " €)" : ""}</small>
                                     <IconContinue/>

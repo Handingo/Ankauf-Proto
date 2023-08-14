@@ -242,7 +242,7 @@ class ConditionChoice extends Component {
                                         </Card.Title>
                                     </Card.Header>
                                     <Card.Body id="condition-modal-result-info-body">
-                                        <img id="condition-modal-result-image" src="./s20.png" alt=""></img>
+                                        <img id="condition-modal-result-image" src="./smartphones/s20.png" alt=""></img>
                                         <br/>
                                         <br/>
                                         <h2>{this.state.result}</h2>

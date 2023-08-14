@@ -167,7 +167,7 @@ body {
 }
 
 .Steps #ticket-confirmation {
-    background-image: url("../public/checkout2.jpg");
+    background-image: url("../public/checkout/checkout.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
