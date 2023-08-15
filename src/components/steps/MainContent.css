@@ -1,0 +1,11 @@
+.Steps {
+    margin-top: 4%;
+    margin-bottom: 4%;
+    margin-left: 0;
+    min-height: 85vh;
+}
+
+#button-back {
+    min-width: 300px;
+    margin-bottom: 32px;
+}

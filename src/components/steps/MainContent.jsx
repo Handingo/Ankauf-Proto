@@ -1,3 +1,4 @@
+import "./MainContent.css";
 import { Component } from "react";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -99,12 +100,7 @@ class MainContent extends Component {
 
         return (
             <div className="Steps">
-                {step >= this.steps.length &&
-                    <div className="step-header">
-                        <h2>Ankauf</h2>
-                    </div>
-                }
-                {step < this.steps.length &&
+                {step >= 0 && step < this.steps.length &&
                     this.steps[step]
                 }
                 {step !== 0 && step < this.steps.length - 1 &&

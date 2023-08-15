@@ -1,3 +1,4 @@
+import "./ModelViewer.css";
 import { Component } from "react";
 
 class ModelViewer extends Component {

@@ -13,6 +13,10 @@ body {
     font-weight: 400;
 }
 
+button {
+    overflow: hidden;
+}
+
 .btn.btn-primary {
     background-color: #1a95a3;
     border-color: #1a95a3;
@@ -37,18 +41,6 @@ body {
     transition: 200ms ease-in;
 }
 
-#button-back {
-    min-width: 300px;
-    margin-bottom: 32px;
-}
-
-.Steps {
-    margin-top: 4%;
-    margin-bottom: 4%;
-    margin-left: 0;
-    min-height: 85vh;
-}
-
 #step-functionality-selection {
     display: flex;
     flex-direction: column;
@@ -60,19 +52,10 @@ body {
     margin-bottom: 16px;
 }
 
-.selection {
-    margin-bottom: 1.25%;
-}
-
 @media only screen and (max-width: 650px) {
     .Steps #step-functionality, .Steps .step {
         margin-top: 30%;
     }
-}
-
-#step-end {
-    margin-left: 10%;
-    margin-right: 10%;
 }
 
 @media only screen and (max-width: 991px) {
@@ -88,55 +71,9 @@ body {
     box-shadow: 0 1px 1px rgba(26, 149, 163, 0.2) inset, 0 0 8px rgba(26, 149, 163, 0.6) !important;
 }
 
-#step-end img {
-    padding: 3%;
-}
-
-button {
-    overflow: hidden;
-}
-
 .col {
     display: flex;
     justify-content: center;
-}
-
-:not(#step-init) .selection button {
-    text-align: left;
-    margin-bottom: calc(2px + 1.5%);
-    padding: 1%;
-    width: 66%;
-    max-height: 18vh;
-    display: grid;
-    grid-template-columns: 12% 56% 17% 12%;
-    border-radius: 1vw;
-}
-
-:not(#step-init) .selection button:hover {
-    background-color: #DFDFDF;
-    transition: 200ms ease-in;
-    box-shadow: rgba(0, 0, 0, 0.0625) 0px 3px 5px, rgba(0, 0, 0, 0.05) 0px 3px 10px, rgba(0, 0, 0, 0.0375) 0px 3px 15px, rgba(0, 0, 0, 0.025) 0px 3px 20px, rgba(0, 0, 0, 0.0125) 0px 3px 25px;
-}
-
-@media only screen and (max-width: 650px) {
-    :not(#step-init) .selection button {
-        text-align: left;
-        margin-bottom: calc(2px + 1.5%);
-        padding: 2%;
-        width: 66%;
-        min-width: 300px;
-        min-height: 6vh;
-        max-height: 20vh;
-        display: grid;
-        grid-template-columns: 12% 56% 17% 12%;
-        border-radius: 1vw;
-    }
-
-    :not(#step-init) .selection button:hover {
-        background-color: #DFDFDF;
-        transition: 200ms ease-in;
-        box-shadow: rgba(0, 0, 0, 0.0625) 0px 3px 5px, rgba(0, 0, 0, 0.05) 0px 3px 10px, rgba(0, 0, 0, 0.0375) 0px 3px 15px, rgba(0, 0, 0, 0.025) 0px 3px 20px, rgba(0, 0, 0, 0.0125) 0px 3px 25px;
-    }
 }
 
 #condition-buttons {
@@ -152,12 +89,6 @@ button {
 
 #condition-continue-button {
     margin-bottom: 16px;
-}
-
-#model-viewer {
-    width: 99%;
-    height: auto;
-    margin-left: 2.5%;
 }
 
 #condition-modal {
@@ -257,61 +188,8 @@ button {
     border-radius: 1%;
 }
 
-@media only screen and (min-width: 991px) {
-    #selection-result {
-        display: grid;
-        grid-template-columns: 66% 33%;
-    }
-}
-
-#selection-result .card-header, #selection-result .card-body, #condition-modal-result .card-header, #condition-modal-result .card-body {
+#condition-modal-result .card-header, #condition-modal-result .card-body {
     background-color: #F8F9FA;
-}
-
-#selection-result .card-header small {
-    font-size: 14px;
-}
-
-#selection-result-details p {
-    text-align: left;
-}
-
-#selection-result-details, #selection-result-empty {
-    flex: 1;
-}
-
-.selection .icon-preview {
-    border-radius: 15% 0% 0% 15%;
-}
-
-#step-end .icon-preview {
-    border-radius: 10%;
-}
-
-:not(#step-init) .selection button:hover .icon-preview {
-    transition: 200ms ease 200ms;
-    transform: scale(1.35);
-}
-
-:not(#step-init) .selection button:hover .button-text {
-    transition: 200ms ease 200ms;
-    margin-left: 3.5%;
-}
-
-.button-text {
-    align-self: center;
-    line-height: calc(12px + 0.6vh);
-    margin: 0;
-    font-weight: 600;
-    font-size: calc(16px + 0.6vw);
-}
-
-.button-text-small {
-    align-self: center;
-    font-weight: 400;
-    font-size: calc(6px + 0.7vw);
-    margin: 0;
-    padding-left: 3%;
 }
 
 #button-send-ticket, #button-continue {
@@ -335,31 +213,6 @@ button {
     font-size: 1.1rem !important;
 }
 
-#selection-breadcrumbs {
-    display: flex;
-    margin-left: 18%;
-}
-
-#selection-breadcrumbs a {
-    text-decoration: none;
-    color: #000;
-    margin-right: 5px;
-    border-radius: 50%;
-    text-rendering: optimizeLegibility;
-    white-space: nowrap;
-}
-
-#selection-breadcrumbs a:hover {
-    background-color: #DFDFDF;
-    transition: 200ms ease-in;
-}
-
-@media only screen and (max-width: 650px) {
-    #selection-breadcrumbs a {
-        display: none;
-    }
-}
-
 input[type="file"]::-webkit-file-upload-button {
     border: none;
     padding: 3%;
@@ -367,21 +220,6 @@ input[type="file"]::-webkit-file-upload-button {
     color: #fff;
     cursor: pointer;
     border-radius: 5px;
-}
-
-#selection-result #file-upload {
-    display: none;
-}
-
-#selection-result-image-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#selection-result-image-body .card-img {
-    max-width: 50%;
 }
 
 #condition-modal-result {
@@ -440,8 +278,4 @@ input[type="file"]::-webkit-file-upload-button {
 
 #functionality-help-modal {
     margin-top: 30vh;
-}
-
-.footer-column {
-    margin-bottom: 0;
 }

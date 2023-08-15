@@ -9,7 +9,7 @@ const initialState: {
     internalMemory: string | undefined,
     condition: string | undefined
 } = {
-    step: 0,
+    step: 10,
     deviceType: undefined,
     brand: undefined,
     model: undefined,

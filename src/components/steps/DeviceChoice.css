@@ -1,0 +1,84 @@
+#selection-breadcrumbs {
+    display: flex;
+    margin-left: 18%;
+}
+
+#selection-breadcrumbs a {
+    text-decoration: none;
+    color: #000;
+    margin-right: 5px;
+    border-radius: 50%;
+    text-rendering: optimizeLegibility;
+    white-space: nowrap;
+}
+
+#selection-breadcrumbs a:hover {
+    background-color: #DFDFDF;
+    transition: 200ms ease-in;
+}
+
+@media only screen and (max-width: 650px) {
+    #selection-breadcrumbs a {
+        display: none;
+    }
+}
+
+.selection {
+    margin-bottom: 1.25%;
+}
+
+.selection .icon-preview {
+    border-radius: 15% 0% 0% 15%;
+}
+
+:not(#step-init) .selection button {
+    text-align: left;
+    margin-bottom: calc(2px + 1.5%);
+    padding: 1%;
+    width: 66%;
+    max-height: 18vh;
+    display: grid;
+    grid-template-columns: 12% 56% 17% 12%;
+    border-radius: 1vw;
+}
+
+@media only screen and (max-width: 650px) {
+    :not(#step-init) .selection button {
+        padding: 2%;
+        min-width: 300px;
+        min-height: 6vh;
+        max-height: 20vh;
+    }
+}
+
+:not(#step-init) .selection button:hover {
+    background-color: #DFDFDF;
+    transition: 200ms ease-in;
+    box-shadow: rgba(0, 0, 0, 0.0625) 0px 3px 5px, rgba(0, 0, 0, 0.05) 0px 3px 10px, rgba(0, 0, 0, 0.0375) 0px 3px 15px, rgba(0, 0, 0, 0.025) 0px 3px 20px, rgba(0, 0, 0, 0.0125) 0px 3px 25px;
+}
+
+:not(#step-init) .selection button:hover .icon-preview {
+    transition: 200ms ease 200ms;
+    transform: scale(1.35);
+}
+
+:not(#step-init) .selection button:hover .button-text {
+    transition: 200ms ease 200ms;
+    margin-left: 3.5%;
+}
+
+.button-text {
+    align-self: center;
+    line-height: calc(12px + 0.6vh);
+    margin: 0;
+    font-weight: 600;
+    font-size: calc(16px + 0.6vw);
+}
+
+.button-text-small {
+    align-self: center;
+    font-weight: 400;
+    font-size: calc(6px + 0.7vw);
+    margin: 0;
+    padding-left: 3%;
+}
