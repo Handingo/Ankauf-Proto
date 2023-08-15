@@ -41,19 +41,8 @@ button {
     transition: 200ms ease-in;
 }
 
-#step-functionality-selection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#step-functionality-selection button {
-    min-width: 300px;
-    margin-bottom: 16px;
-}
-
 @media only screen and (max-width: 650px) {
-    .Steps #step-functionality, .Steps .step {
+    .Steps .step {
         margin-top: 30%;
     }
 }
@@ -251,31 +240,4 @@ input[type="file"]::-webkit-file-upload-button {
     text-align: center;
     width: 100%;
     max-width: 500px;
-}
-
-#functionality-image-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    max-height: 15vh;
-    margin-bottom: 1%;
-}
-
-#functionality-image-container img {
-    height: 13vh;
-    margin: 1vh;
-}
-
-#functionality-text {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#functionality-text svg {
-    margin-left: 6px;
-}
-
-#functionality-help-modal {
-    margin-top: 30vh;
 }

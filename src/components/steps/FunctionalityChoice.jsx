@@ -1,3 +1,4 @@
+import "./FunctionalityChoice.css";
 import { Component } from "react";
 import { connect } from 'react-redux';
 import { Button, Col, Modal } from "react-bootstrap";

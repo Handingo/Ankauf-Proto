@@ -1,0 +1,42 @@
+#step-functionality-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#step-functionality-selection button {
+    min-width: 300px;
+    margin-bottom: 16px;
+}
+
+@media only screen and (max-width: 650px) {
+    #step-functionality {
+        margin-top: 30%;
+    }
+}
+
+#functionality-image-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-height: 15vh;
+    margin-bottom: 1%;
+}
+
+#functionality-image-container img {
+    height: 13vh;
+    margin: 1vh;
+}
+
+#functionality-text {
+    display: flex;
+    justify-content: center;
+}
+
+#functionality-text svg {
+    margin-left: 6px;
+}
+
+#functionality-help-modal {
+    margin-top: 30vh;
+}
