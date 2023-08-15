@@ -1,3 +1,4 @@
+import "./TicketForm.css";
 import { Component } from "react";
 import { Button, Container, Form, Col, Modal } from "react-bootstrap";
 import { connect } from "react-redux";

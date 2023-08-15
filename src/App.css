@@ -134,12 +134,6 @@ body {
     }
 }
 
-/*.topmenu.navbar.navbar-expand.navbar-light.bg-light .nav-highlighted.nav-link {
-    background: #F8F9FA;
-    border-radius: 50%;
-    border: 2px solid #d94136;
-}*/
-
 .Steps {
     margin-top: 4%;
     margin-bottom: 4%;
@@ -164,39 +158,6 @@ body {
 
 .selection {
     margin-bottom: 1.25%;
-}
-
-.Steps #ticket-confirmation {
-    background-image: url("../public/checkout/checkout.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-top: -4%;
-    margin-bottom: -4%;
-    min-height: 100vh;
-    padding-left: 30%;
-    padding-right: 30%;
-}
-
-.Steps #ticket-confirmation p {
-    padding-top: 32%;
-    padding-bottom: 60%;
-    font-size: 22px;
-    text-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
-    /* text-wrap: balance; */ /* coming soon (finally) */
-}
-
-@media only screen and (max-width: 990px) {
-    .Steps #ticket-confirmation {
-        padding-left: 16%;
-        padding-right: 16%;
-    }
-
-    .Steps #ticket-confirmation p {
-        padding-top: 45%;
-        font-size: 20px;
-        text-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
-    }    
 }
 
 @media only screen and (max-width: 650px) {
@@ -298,11 +259,6 @@ body {
     box-shadow: 0 1px 1px rgba(26, 149, 163, 0.2) inset, 0 0 8px rgba(26, 149, 163, 0.6) !important;
 }
 
-#ticket-form .form-option:hover { /* TODO - funktioniert nicht, Optionen bleiben blau */
-    background-color: #1a95a3 !important;
-    color: #1a95a3 !important;
-}
-
 #step-init p a {
     text-decoration: none;
 }
@@ -361,29 +317,6 @@ button {
         box-shadow: rgba(0, 0, 0, 0.0625) 0px 3px 5px, rgba(0, 0, 0, 0.05) 0px 3px 10px, rgba(0, 0, 0, 0.0375) 0px 3px 15px, rgba(0, 0, 0, 0.025) 0px 3px 20px, rgba(0, 0, 0, 0.0125) 0px 3px 25px;
     }
 }
-
-/*.Steps #determine-condition-link {
-    text-align: left;
-    color: #1a95a3;
-    margin-left: 18%;
-    margin-top: 2%;
-    margin-bottom: 3%;
-    font-size: calc(16px + 0.6vw);
-    text-decoration: underline;
-}
-
-@media only screen and (max-width: 650px) {
-    .Steps #determine-condition-link {
-        text-align: center;
-        margin-left: 0%;
-        margin-top: -5%;
-        margin-bottom: 5%;
-    }
-}
-
-.Steps #determine-condition-link:hover {
-    cursor: pointer;
-}*/
 
 #condition-buttons {
     display: flex;
@@ -615,66 +548,6 @@ button {
     font-size: 1.1rem !important;
 }
 
-.ticket-form .form-label {
-    text-align: left;
-    padding-left: 5px;
-}
-
-.ticket-form input, .ticket-form label {
-    display: grid;
-}
-
-.ticket-form input, .ticket-form #payment-method, .ticket-form #delivery-service {
-    margin-left: auto;
-    margin-right: auto;
-    width: 28%;
-    min-width: 300px;
-}
-
-#imei-step .ticket-form.container input {
-    margin-left: auto;
-    margin-right: auto;
-    min-width: 300px;
-    text-align: center;
-}
-
-.ticket-form input::placeholder {
-    color: rgba(0, 0, 0, 0.4);
-}
-
-.ticket-form p {
-    margin-bottom: 0;
-    overflow: hidden;
-}
-
-.ticket-form #legal-text {
-    text-align: left;
-    margin-left: 18%;
-    margin-right: 18%;
-    margin-bottom: 2%;
-    padding: 2%;
-}
-
-@media only screen and (max-width: 650px) {
-    .ticket-form #legal-text {
-        text-align: left;
-        margin-left: 9%;
-        margin-right: 9%;
-        margin-bottom: 2%;
-        padding: 2%;
-    }
-}
-
-.ticket-form a {
-    text-decoration: none;
-    color: #1a95a3;
-}
-
-.ticket-form input[type="checkbox"] {
-    transform: scale(2);
-    accent-color: #1a95a3;
-}
-
 #selection-breadcrumbs {
     display: flex;
     margin-left: 18%;
@@ -780,33 +653,6 @@ input[type="file"]::-webkit-file-upload-button {
 
 #functionality-help-modal {
     margin-top: 30vh;
-}
-
-#ticket-form .col, #imei-step .col {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto 16px auto;
-    width: 300px;
-}
-
-#ticket-form .form-control, #imei-step .form-control {
-    margin-bottom: 0;
-}
-
-#ticket-form .invalid-feedback {
-    text-align: left;
-    margin-left: 5px;
-    margin-bottom: -4px;
-}
-
-#imei-step .invalid-feedback {
-    text-align: left;
-    margin-left: 5px;
-    margin-bottom: 4px;
-}
-
-#ticket-form .form-label, #imei-input {
-    margin-top: 0;
 }
 
 .footer-column {

@@ -1,4 +1,5 @@
 import { Component } from "react";
+import "./TicketConfirmation.css";
 
 class TicketConfirmation extends Component {
     render() {

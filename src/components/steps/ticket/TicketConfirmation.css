@@ -1,0 +1,31 @@
+#ticket-confirmation {
+    min-height: 100vh;
+    background-image: url("/public/checkout/checkout.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -4%;
+    margin-bottom: -4%;
+    padding-left: 30%;
+    padding-right: 30%;
+}
+
+#ticket-confirmation p {
+    padding-top: 32%;
+    padding-bottom: 60%;
+    font-size: 22px;
+    text-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
+    /* text-wrap: balance; */ /* coming soon (finally) */
+}
+
+@media only screen and (max-width: 990px) {
+    #ticket-confirmation {
+        padding-left: 16%;
+        padding-right: 16%;
+    }
+
+    #ticket-confirmation p {
+        padding-top: 45%;
+        font-size: 20px;
+    }    
+}

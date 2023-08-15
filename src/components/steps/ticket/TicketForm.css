@@ -1,0 +1,77 @@
+#ticket-form .form-option:hover { /* TODO - funktioniert nicht, Optionen bleiben blau */
+    background-color: #1a95a3 !important;
+}
+
+#ticket-form .col {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto 16px auto;
+    width: 300px;
+}
+
+#ticket-form .form-control {
+    margin-bottom: 0;
+}
+
+#ticket-form .invalid-feedback {
+    text-align: left;
+    margin-left: 5px;
+    margin-bottom: -4px;
+}
+
+#ticket-form .form-label {
+    margin-top: 0;
+}
+
+.ticket-form .form-label {
+    text-align: left;
+    padding-left: 5px;
+}
+
+.ticket-form input, .ticket-form label {
+    display: grid;
+}
+
+.ticket-form input, .ticket-form #delivery-service, .ticket-form #payment-method {
+    margin-left: auto;
+    margin-right: auto;
+    width: 28%;
+    min-width: 300px;
+}
+
+.ticket-form input::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.ticket-form p {
+    margin-bottom: 0;
+    overflow: hidden;
+}
+
+.ticket-form #legal-text {
+    text-align: left;
+    margin-left: 18%;
+    margin-right: 18%;
+    margin-bottom: 2%;
+    padding: 2%;
+}
+
+@media only screen and (max-width: 650px) {
+    .ticket-form #legal-text {
+        text-align: left;
+        margin-left: 9%;
+        margin-right: 9%;
+        margin-bottom: 2%;
+        padding: 2%;
+    }
+}
+
+.ticket-form a {
+    text-decoration: none;
+    color: #1a95a3;
+}
+
+.ticket-form input[type="checkbox"] {
+    transform: scale(2);
+    accent-color: #1a95a3;
+}

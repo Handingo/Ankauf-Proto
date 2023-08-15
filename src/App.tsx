@@ -1,10 +1,10 @@
-import { Component } from 'react';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Steps from './components/steps/MainContent';
-import TopMenu from './components/navigation_header_footer/Header';
-import BottomMenu from './components/navigation_header_footer/Footer';
-import { connect } from 'react-redux';
+import { Component } from "react";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Steps from "./components/steps/MainContent";
+import TopMenu from "./components/navigation_header_footer/Header";
+import BottomMenu from "./components/navigation_header_footer/Footer";
+import { connect } from "react-redux";
 
 // Wurzel der Website
 
