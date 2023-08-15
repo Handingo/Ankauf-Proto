@@ -1,0 +1,28 @@
+.rbt {
+    width: 55%;
+    min-width: 290px !important;
+    margin-bottom: 18px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rbt .rbt-input-wrapper {
+    overflow: hidden;
+}
+
+.rbt .rbt-highlight-text {
+    background-color: #00000022;
+}
+
+.rbt .dropdown-item:hover {
+    background-color: #1a95a377;
+    color: #fff;
+}
+
+.rbt .dropdown-item.active {
+    background-color: #1a95a3bb;
+}
+
+.searchbar.container input::placeholder {
+    color: rgba(0, 0, 0, 0.25);
+}

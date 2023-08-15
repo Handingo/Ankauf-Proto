@@ -5,7 +5,6 @@ body {
 .App {
     background-color: #EEE;
     min-height: 100vh;
-
     font-family: "DM Sans", sans-serif;
     font-feature-settings: "kern" 1,"liga" 1,"calt" 1;
     text-decoration: none;
@@ -43,106 +42,11 @@ body {
     margin-bottom: 32px;
 }
 
-.top-menu.navbar.navbar-expand-lg.navbar-light.bg-light.sticky-top .nav-link {
-    display: inline-block;
-    vertical-align: middle;
-    padding: 16px 20px;
-    white-space: nowrap;
-    border-radius: 0.75vw;
-}
-
-.top-menu.navbar.navbar-expand-lg.navbar-light.bg-light.sticky-top .nav-link:hover {
-    background-color: #DFDFDF;
-    transition: 200ms ease-in;
-}
-
-.bottommenu.navbar.navbar-expand-lg.navbar-light.bg-light {
-    min-height: 8vh;
-}
-
-.bottommenu.navbar.navbar-expand-lg.navbar-light.bg-light .nav-link {
-    display: inline-block;
-    vertical-align: middle;
-    padding: 16px 20px;
-    white-space: nowrap;
-    font-weight: 600;
-}
-
-.bottom-menu {
-    padding-top: 4%;
-    padding-bottom: 4%;
-    background: #F8F9FA;
-}
-
-@media only screen and (max-width: 771px) {
-    .bottom-menu {
-        padding-top: 8%;
-        padding-bottom: 8%;
-    }
-}
-
-@media only screen and (min-width: 770px) {
-    .footer-row {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(32%, 1fr));
-        grid-gap: 20px;
-    }
-}
-
-.footer-column {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    margin-left: 60px;
-    margin-bottom: 8%;
-}
-
-.footer-header {
-    font-size: 15px;
-    font-weight: bold;
-    font-family: "Rubik", sans-serif;
-}
-
-.bottom-menu a {
-    margin-bottom: 3%;
-    font-size: 14px;
-    font-weight: 400;
-    text-decoration: none;
-    color: #000;
-    text-rendering: optimizeLegibility;
-}
-
-.bottom-menu a:hover {
-    color: #1a95a3;
-    transition: 200ms ease-in;
-}
-
-@media only screen and (max-width: 991px) {
-    .footer-header {
-        font-size: 18px;
-        margin-bottom: 6%;
-    }
-    
-    .bottom-menu a {
-        font-size: 16px;
-        margin-bottom: 5%;
-    }
-
-    .bottom-menu a:hover {
-        color: #1a95a3;
-        transition: 200ms ease-in;
-    }
-}
-
 .Steps {
     margin-top: 4%;
     margin-bottom: 4%;
     margin-left: 0;
     min-height: 85vh;
-}
-
-.info-icon {
-    cursor: pointer;
 }
 
 #step-functionality-selection {
@@ -161,89 +65,14 @@ body {
 }
 
 @media only screen and (max-width: 650px) {
-    .Steps #step-functionality, .Steps #imei-step, .Steps .step {
+    .Steps #step-functionality, .Steps .step {
         margin-top: 30%;
     }
-}
-
-#banner-wrapped {
-    background-image: url("//handingo.de/cdn/shop/files/Handingo-Mount_720.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 27.5%;
-    color: #fff;
-    text-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
-    margin-top: -4.3%;
-    margin-bottom: 1%;
-    padding: 4%;
-    padding-left: 10%;
-    padding-right: 10%;
-    font-weight: 600;
-    font-size: 20px;
-}
-
-@media only screen and (max-width: 650px) {
-    #banner-wrapped {
-        min-height: 92vh;
-    }
-}
-
-#banner-wrapped h2 {
-    font-size: 50px;
-    font-weight: 600;
-    margin-top: 2%;
-}
-
-#init-explanation {
-    margin-left: 5%;
-    margin-right: 5%;
-}
-
-@media only screen and (min-width: 1400px) {
-    #init-explanation {
-        padding-left: 20%;
-        padding-right: 20%;
-    }
-}
-
-#init-text {
-    margin-left: 15%;
-    margin-right: 15%;
-}
-
-#init-text a {
-    color: #1a95a3;
 }
 
 #step-end {
     margin-left: 10%;
     margin-right: 10%;
-}
-
-.rbt {
-    width: 55%;
-    min-width: 290px !important;
-    margin-bottom: 18px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.rbt .rbt-input-wrapper {
-    overflow: hidden;
-}
-
-.rbt .rbt-highlight-text {
-    background-color: #00000022;
-}
-
-.rbt .dropdown-item:hover, .rbt .dropdown-item:hover {
-    background-color: #1a95a377;
-    color: #fff;
-}
-
-.rbt .dropdown-item.active {
-    background-color: #1a95a3bb;
 }
 
 @media only screen and (max-width: 991px) {
@@ -257,14 +86,6 @@ body {
 .form-control:focus, .form-select:focus, .form-select::selection {
     border-color: #1a95a3bb !important;
     box-shadow: 0 1px 1px rgba(26, 149, 163, 0.2) inset, 0 0 8px rgba(26, 149, 163, 0.6) !important;
-}
-
-#step-init p a {
-    text-decoration: none;
-}
-
-.searchbar.container input::placeholder {
-    color: rgba(0, 0, 0, 0.25);
 }
 
 #step-end img {
@@ -459,15 +280,15 @@ button {
     flex: 1;
 }
 
-.selection .preview-icon {
+.selection .icon-preview {
     border-radius: 15% 0% 0% 15%;
 }
 
-#step-end .preview-icon {
+#step-end .icon-preview {
     border-radius: 10%;
 }
 
-:not(#step-init) .selection button:hover .preview-icon {
+:not(#step-init) .selection button:hover .icon-preview {
     transition: 200ms ease 200ms;
     transform: scale(1.35);
 }
@@ -493,15 +314,6 @@ button {
     padding-left: 3%;
 }
 
-.continue-icon {
-    align-self: center;
-    min-width: 190%;
-}
-
-.preview-icon {
-    align-self: center;
-}
-
 #button-send-ticket, #button-continue {
     text-align: center;
     min-width: 300px;
@@ -517,31 +329,6 @@ button {
     min-width: 300px;
     min-height: 30px;
     margin-bottom: 16px;
-}
-
-#button-send-ticket {
-    margin-top: 1vh;
-    margin-bottom: 16px;
-}
-
-#button-search {
-    min-width: 200px;
-    max-width: 270px;
-    width: 20%;
-}
-
-#button-start {
-    background-color: #D94136;
-    border-color: #D94136;
-    min-width: 200px;
-    max-width: 270px;
-    width: 20%;
-}
-
-#button-start:hover {
-    background-color: #E95146;
-    border-color: #E95146;
-    transition: 200ms ease-in;
 }
 
 .Steps .btn.btn-primary {

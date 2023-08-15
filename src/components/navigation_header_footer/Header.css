@@ -1,0 +1,12 @@
+.top-menu.navbar.navbar-expand-lg.navbar-light.bg-light.sticky-top .nav-link {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 16px 20px;
+    white-space: nowrap;
+    border-radius: 0.75vw;
+}
+
+.top-menu.navbar.navbar-expand-lg.navbar-light.bg-light.sticky-top .nav-link:hover {
+    background-color: #DFDFDF;
+    transition: 200ms ease-in;
+}

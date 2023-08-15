@@ -75,3 +75,8 @@
     transform: scale(2);
     accent-color: #1a95a3;
 }
+
+#button-send-ticket {
+    margin-top: 1vh;
+    margin-bottom: 16px;
+}

@@ -1,3 +1,4 @@
+import "./SearchBar.css";
 import { Component } from "react";
 import { Container, Button } from "react-bootstrap";
 import { connect } from "react-redux";

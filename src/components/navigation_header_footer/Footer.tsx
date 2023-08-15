@@ -1,3 +1,4 @@
+import "./Footer.css";
 import { Component } from "react";
 import { Container } from "react-bootstrap";
 
