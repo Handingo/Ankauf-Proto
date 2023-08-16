@@ -9,7 +9,7 @@ const initialState: {
     internalMemory: string | undefined,
     condition: string | undefined
 } = {
-    step: 6,
+    step: 0,
     deviceType: undefined,
     brand: undefined,
     model: undefined,
@@ -58,7 +58,7 @@ function selectionReducer(state = initialState, action: any) {
                 condition: action.condition
             }
         case selectionActions.RESET_STATE_PART:
-            let i = 0;
+            let i: number = 0;
             const entries: Array<any> = [];
 
             Object.entries(state).forEach((entry: any) => {

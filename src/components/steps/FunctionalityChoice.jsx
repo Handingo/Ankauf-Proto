@@ -3,7 +3,7 @@ import { Component } from "react";
 import { connect } from 'react-redux';
 import { Button, Col, Modal } from "react-bootstrap";
 import * as selectionActions from '../../actions/SelectionActions';
-import IconInfo from "../icons/IconInfo";
+import IconInfo from "../util/icons/IconInfo";
 
 class FunctionalityChoice extends Component {
 

@@ -1,6 +1,7 @@
 import "./Footer.css";
 import { Component } from "react";
 import { Container } from "react-bootstrap";
+import Link from "../util/Link";
 
 class Footer extends Component {
 
@@ -14,12 +15,12 @@ class Footer extends Component {
                     <div className="footer-row">
                         <div className="footer-column">
                             <p className="footer-header">Service</p>
-                            <a href={this.policies + "shipping-policy"}>Zahlung & Versand</a>
-                            <a href={this.policies + "refund-policy"}>Widerrufsrecht</a>
-                            <a href={this.pages + "faq"}>Smartphones</a>
-                            <a href={this.pages + "icloud-google-sperre-entfernen"}>iCloud & Google-Sperre entfernen</a>
-                            <a href={this.pages + "kontakt"}>Kontakt</a>
-                            <a href={this.pages + "hinweise-zur-baterrieentsorgung"}>Hinweise zur Batterieentsorgung</a>
+                            <Link newTab text="Zahlung & Versand" href={this.policies + "shipping-policy"}/>
+                            <Link newTab text="Widerrufsrecht" href={this.policies + "refund-policy"}/>
+                            <Link newTab text="FAQ" href={this.pages + "faq"}/>
+                            <Link newTab text="iCloud & Google-Sperre entfernen" href={this.pages + "icloud-google-sperre-entfernen"}/>
+                            <Link newTab text="Kontakt" href={this.pages + "kontakt"}/>
+                            <Link newTab text="Hinweise zur Batterieentsorgung" href={this.pages + "hinweise-zur-baterrieentsorgung"}/>
                         </div>
                     </div>
                 </Container>

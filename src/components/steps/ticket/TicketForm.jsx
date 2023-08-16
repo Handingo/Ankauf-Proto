@@ -4,7 +4,8 @@ import { Button, Container, Form, Col, Modal } from "react-bootstrap";
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import * as selectionActions from '../../../actions/SelectionActions';
-import IconInfo from "../../icons/IconInfo";
+import IconInfo from "../../util/icons/IconInfo";
+import Link from "../../util/Link";
 
 class TicketForm extends Component {
 
@@ -266,7 +267,7 @@ class TicketForm extends Component {
                             Außerdem bin ich damit einverstanden, dass Schutzmaßnahmen, wie Displayfolien, ggf. restlos entfernt werden,
                             damit das Gerät ausreichend geprüft werden kann.<br/>
                             <br/>
-                            Zu guter Letzt habe ich die <a target="_blank" rel="noopener noreferrer" href="https://handingo.de/policies/terms-of-service">AGB</a> sowie <a target="_blank" rel="noopener noreferrer" href="https://handingo.de/policies/privacy-policy">Datenschutzerklärung</a> gelesen und akzeptiere sie.<br/>
+                            Zu guter Letzt habe ich die <Link newTab text="AGB" href="https://handingo.de/policies/terms-of-service"/> sowie <Link newTab text="Datenschutzerklärung" href="https://handingo.de/policies/privacy-policy"/> gelesen und akzeptiere sie.<br/>
                             <br/><br/>
                             <input type="checkbox" name="checked" onChange={this.handleChangeCheckbox}/>
                             <br/>

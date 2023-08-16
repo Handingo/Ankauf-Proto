@@ -3,8 +3,8 @@ import { Component } from "react";
 import { connect } from 'react-redux';
 import { Button, Col } from "react-bootstrap";
 import * as selectionActions from '../../actions/SelectionActions';
-import IconContinue from "../icons/IconContinue";
-import IconPreview from "../icons/IconPreview";
+import IconContinue from "../util/icons/IconContinue";
+import IconPreview from "../util/icons/IconPreview";
 
 class DeviceChoice extends Component {
 
