@@ -259,12 +259,14 @@ class TicketForm extends Component {
                         </div>
                         <br/>
                         <p id="legal-text">
-                            Ich bestätige, dass die von mir getätigten Angaben der Wahrheit entsprechen und schicke das Gerät angemessen verpackt an die Firmenadresse
-                            von Handingo.de. Das eingesendete Gerät verfügt über ein CE-Zeichen und befindet sich in einem Zustand, in welchem es möglichst einfach auf
-                            Werkseinstellungen zurückgesetzt werden kann. Außerdem bin ich damit einverstanden, dass Schutzmaßnahmen, wie Displayfolien, ggf. restlos
-                            entfernt werden, damit das Gerät ausreichend geprüft werden kann.
-                            <br/><br/>
-                            Zu guter Letzt habe ich die <a href="https://handingo.de/policies/terms-of-service">AGB</a> sowie <a href="https://handingo.de/policies/privacy-policy">Datenschutzerklärung</a> gelesen und akzeptiere sie.
+                            Ich bestätige, dass die von mir getätigten Angaben der Wahrheit entsprechen und schicke das Gerät, sobald meine
+                            Anfrage bestätigt wurde, angemessen verpackt, an die Firmenadresse von Handingo.de.<br/>
+                            Das eingesendete Gerät verfügt über ein CE-Zeichen und befindet sich in einem Zustand, in welchem es möglichst
+                            einfach auf Werkseinstellungen zurückgesetzt werden kann.<br/>
+                            Außerdem bin ich damit einverstanden, dass Schutzmaßnahmen, wie Displayfolien, ggf. restlos entfernt werden,
+                            damit das Gerät ausreichend geprüft werden kann.<br/>
+                            <br/>
+                            Zu guter Letzt habe ich die <a target="_blank" rel="noopener noreferrer" href="https://handingo.de/policies/terms-of-service">AGB</a> sowie <a target="_blank" rel="noopener noreferrer" href="https://handingo.de/policies/privacy-policy">Datenschutzerklärung</a> gelesen und akzeptiere sie.<br/>
                             <br/><br/>
                             <input type="checkbox" name="checked" onChange={this.handleChangeCheckbox}/>
                             <br/>
