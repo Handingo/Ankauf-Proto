@@ -6,7 +6,7 @@ import TopMenu from "./components/navigation_header_footer/Header";
 import BottomMenu from "./components/navigation_header_footer/Footer";
 import { connect } from "react-redux";
 
-// Wurzel der Website
+// Root of content for the website
 
 class App extends Component {
     render() {

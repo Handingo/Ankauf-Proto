@@ -19,7 +19,7 @@ class MainContent extends Component {
         <DeviceChoice
             id={1}
             text="Wähle den Typen des Geräts."
-            entities={[ // Eventuelle Anbindung an Datenbank
+            entities={[ // TODO - should get connected to a database
                 "Smartphone",
                 "Smartwatch"
             ]}
@@ -28,7 +28,7 @@ class MainContent extends Component {
         <DeviceChoice
             id={2}
             text="Wähle den Hersteller des Geräts."
-            entities={[ // Eventuelle Anbindung an Datenbank
+            entities={[ // TODO - should get connected to a database
                 "Samsung",
                 "Huawei"
             ]}
@@ -37,7 +37,7 @@ class MainContent extends Component {
         <DeviceChoice
             id={3}
             text="Wähle das Modell des Geräts."
-            entities={[ // Eventuelle Anbindung an Datenbank
+            entities={[ // TODO - should get connected to a database
                 "Samsung Galaxy S20",
                 "Samsung Galaxy S21",
                 "Samsung Galaxy S22",
@@ -48,7 +48,7 @@ class MainContent extends Component {
         <DeviceChoice
             id={4}
             text="Wähle die Farbe des Modells."
-            entities={[ // Eventuelle Anbindung an Datenbank
+            entities={[ // TODO - should get connected to a database
                 "Black",
                 "White",
                 "Purple"
@@ -58,7 +58,7 @@ class MainContent extends Component {
         <DeviceChoice
             id={5}
             text="Wie viel Speicherplatz bietet das Modell?"
-            entities={[ // Eventuelle Anbindung an Datenbank
+            entities={[ // TODO - should get connected to a database
                 "64 GB",
                 "128 GB",
                 "256 GB",

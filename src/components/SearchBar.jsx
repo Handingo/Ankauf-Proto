@@ -39,7 +39,7 @@ class SearchBar extends Component {
             return;
         }
 
-        // TODO - Should get connected with database
+        // TODO - These are hardcoded values... should get connected to a database
         this.props.selectDeviceType("Smartphone");
         this.props.selectBrand("Samsung");
         this.props.selectModel("Samsung Galaxy S23");
@@ -54,6 +54,7 @@ class SearchBar extends Component {
     }
 
     render() {
+        // TODO - options should get determined via database
         return (
             <Container className="searchbar">
                 <Typeahead

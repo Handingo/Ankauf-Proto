@@ -60,11 +60,11 @@ class DeviceChoice extends Component {
                 <div className="selection">
                     {this.props.entities.map(entity => {
                         i++;
-                        const entityPrice = 427.0 + i * 75;
+                        const entityPrice = 427.0 + i * 75; // TODO - should get connected to a database
                         return (
                             <Col key={entity}>
                                 <Button variant="light" name={entity} onClick={this.handleClick}>
-                                    <IconPreview image="./smartphones/s23.jpg"/> {/* Verwendet IconPreview.tsx */}
+                                    <IconPreview image="./smartphones/s23.jpg"/> {/* TODO - should get connected to a database */}
                                     <p className="button-text">{entity}</p>
                                     <small className="button-text-small">{this.props.id === 3 ? "(Wir bieten bis zu " + entityPrice + " €)" : ""}</small>
                                     <IconContinue/>

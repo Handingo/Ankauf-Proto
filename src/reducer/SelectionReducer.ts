@@ -18,7 +18,7 @@ const initialState: {
     condition: undefined
 };
 
-// SelectionReducer arbeitet mit SelectionActions zusammen
+// SelectionReducer works with SelectionActions.ts
 
 function selectionReducer(state = initialState, action: any) {
     switch (action.type) {
