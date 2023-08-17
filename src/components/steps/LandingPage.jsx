@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Button } from "react-bootstrap";
 import * as selectionActions from '../../actions/SelectionActions'
-import SearchBar from "../SearchBar";
+import SearchBar from "../util/SearchBar";
 import Link from "../util/Link";
 
 class LandingPage extends Component {

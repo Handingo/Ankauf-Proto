@@ -3,7 +3,7 @@ import { Component } from "react";
 import { Container, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
-import * as selectionActions from '../actions/SelectionActions';
+import * as selectionActions from '../../actions/SelectionActions';
 import { Typeahead } from "react-bootstrap-typeahead";
 
 class SearchBar extends Component {

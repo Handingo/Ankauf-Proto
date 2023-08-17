@@ -50,6 +50,7 @@ class EndProposal extends Component {
     render() {
         let suggestion;
 
+        // TODO - should get connected to a database
         switch (this.props.selection.model) {
             case "Samsung Galaxy S20":
                 suggestion = 500;
