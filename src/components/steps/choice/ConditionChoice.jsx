@@ -2,8 +2,8 @@ import "./ConditionChoice.css";
 import { Component } from "react";
 import { connect } from 'react-redux';
 import { Button, Modal, Card } from "react-bootstrap";
-import * as selectionActions from '../../actions/SelectionActions';
-import ModelViewer from "../model/ModelViewer";
+import * as selectionActions from '../../../actions/SelectionActions';
+import ModelViewer from "../../model/ModelViewer";
 
 class ConditionChoice extends Component {
 

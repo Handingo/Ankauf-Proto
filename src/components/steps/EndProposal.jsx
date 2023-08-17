@@ -5,6 +5,8 @@ import { bindActionCreators } from 'redux';
 import { Button, Card } from "react-bootstrap";
 import * as selectionActions from "../../actions/SelectionActions";
 
+// Page which displays an estimated offer and lets users upload pictures/documents of the device
+
 class EndProposal extends Component {
 
     state = {
@@ -145,6 +147,8 @@ class EndProposal extends Component {
             specifications.push(<p key={i}><strong>{keys[i - 2] + ":"}</strong><br/><i>{selection}</i></p>);
         }
 
+        i = 0;
+
         return (
             <div id="step-end">
                 <h2>Ankauf</h2>
@@ -167,7 +171,7 @@ class EndProposal extends Component {
                                         return null;
                                     }
 
-                                    return <Card.Img key={Math.random()} src={URL.createObjectURL(document)} onClick={this.handleClickUpload}></Card.Img>;
+                                    return <Card.Img key={i++} src={URL.createObjectURL(document)} onClick={this.handleClickUpload}></Card.Img>;
                                 })
                             }
                         </Card.Body>
@@ -189,7 +193,7 @@ class EndProposal extends Component {
                 <h3>Unser Vorschlag:</h3>
                 <h2>{!isNaN(suggestion) ? suggestion.toLocaleString(undefined, { minimumFractionDigits: 2 }) + " €" : "Es konnte kein Vorschlag bestimmt werden."}</h2>
                 <br/>
-                <Button disabled={!this.state.documents.length > 0} id="button-create-ticket" onClick={this.handleClick}>Jetzt verkaufen!</Button>
+                <Button disabled={this.state.documents.length < 1} id="button-create-ticket" onClick={this.handleClick}>Jetzt verkaufen!</Button>
             </div>
         );
     }

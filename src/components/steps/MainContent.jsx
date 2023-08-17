@@ -5,12 +5,12 @@ import { bindActionCreators } from 'redux';
 import { Button } from "react-bootstrap";
 import * as selectionActions from '../../actions/SelectionActions';
 import LandingPage from './LandingPage';
-import DeviceChoice from './DeviceChoice';
+import DeviceChoice from './choice/DeviceChoice';
 import EndProposal from "./EndProposal";
 import TicketForm from "./ticket/TicketForm";
 import TicketConfirmation from "./ticket/TicketConfirmation";
-import FunctionalityChoice from "./FunctionalityChoice";
-import ConditionChoice from "./ConditionChoice";
+import FunctionalityChoice from "./choice/FunctionalityChoice";
+import ConditionChoice from "./choice/ConditionChoice";
 
 class MainContent extends Component {
 
@@ -72,7 +72,7 @@ class MainContent extends Component {
             text="In welchem Zustand befindet sich das Gerät?"
             action={selectionActions.getSelectConditionAction}
         />,
-        // Wird in Zeile 50-53 in FunctionalityChoice.jsx implementiert
+        // "text" und "help" werden in Zeile 53-56 in FunctionalityChoice.jsx implementiert
         // TODO - den Link von praxistipps mit eigenem Text ersetzen
         <FunctionalityChoice text="Ist dein Gerät voll funktionsfähig?" help="Lassen sich alle Funktionen des Geräts nutzen (wie bspw. die Kamera, das Mikrofon oder die Lautsprecher)?" images={["./smartphones/s20.png", "./smartphones/s21.png"]}/>,
         <FunctionalityChoice text="Wurde SIM-/Net-Lock entfernt?" help="https://praxistipps.chip.de/simlock-entfernen-so-gehts-bei-allen-providern_100550" images={["./smartphones/s20.png"]}/>,

@@ -27,10 +27,6 @@
     margin-bottom: 1.25%;
 }
 
-.selection .icon-preview {
-    border-radius: 15% 0% 0% 15%;
-}
-
 :not(#step-init) .selection button {
     text-align: left;
     margin-bottom: calc(2px + 1.5%);
@@ -65,20 +61,4 @@
 :not(#step-init) .selection button:hover .button-text {
     transition: 200ms ease 200ms;
     margin-left: 3.5%;
-}
-
-.button-text {
-    align-self: center;
-    line-height: calc(12px + 0.6vh);
-    margin: 0;
-    font-weight: 600;
-    font-size: calc(16px + 0.6vw);
-}
-
-.button-text-small {
-    align-self: center;
-    font-weight: 400;
-    font-size: calc(6px + 0.7vw);
-    margin: 0;
-    padding-left: 3%;
 }

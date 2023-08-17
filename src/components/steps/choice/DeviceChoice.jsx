@@ -2,8 +2,8 @@ import "./DeviceChoice.css";
 import { Component } from "react";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as selectionActions from '../../actions/SelectionActions';
-import DeviceChoiceButton from "../util/DeviceChoiceButton";
+import * as selectionActions from '../../../actions/SelectionActions';
+import DeviceChoiceButton from "../../util/DeviceChoiceButton";
 
 class DeviceChoice extends Component {
 
@@ -52,7 +52,7 @@ class DeviceChoice extends Component {
                 <br/>
                 <div className="selection">
                     {this.props.entities.map(entity => // TODO - maximum price should get determined via database
-                        <DeviceChoiceButton id={this.props.id} entity={entity} entityPrice={427.0 + (++i) * 75} action={this.props.action}/>
+                        <DeviceChoiceButton key={i++} id={this.props.id} entity={entity} entityPrice={427.0 + i * 75} action={this.props.action}/>
                     )}
                 </div>
             </div>

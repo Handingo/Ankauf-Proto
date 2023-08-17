@@ -2,8 +2,8 @@ import "./FunctionalityChoice.css";
 import { Component } from "react";
 import { connect } from 'react-redux';
 import { Button, Col, Modal } from "react-bootstrap";
-import * as selectionActions from '../../actions/SelectionActions';
-import IconInfo from "../util/icons/IconInfo";
+import * as selectionActions from '../../../actions/SelectionActions';
+import IconInfo from "../../util/icons/IconInfo";
 
 class FunctionalityChoice extends Component {
 
@@ -29,6 +29,8 @@ class FunctionalityChoice extends Component {
     }
 
     render() {
+        let i = 0;
+
         return (
             <div id="step-functionality">
                 <h2>Ankauf</h2>
@@ -39,7 +41,7 @@ class FunctionalityChoice extends Component {
                 </p>
                 <br/>
                 <div id="functionality-image-container">
-                    {this.props.images && this.props.images.map(image => <img key={Math.random()} src={image} alt=""/>)}
+                    {this.props.images && this.props.images.map(image => <img key={i++} src={image} alt=""/>)}
                 </div>
                 <br/>
                 <Col id="step-functionality-selection">

@@ -1,3 +1,4 @@
+import "./DeviceChoiceButton.css";
 import { Component } from "react";
 import { Button, Col } from "react-bootstrap";
 import IconContinue from "../util/icons/IconContinue";
@@ -20,7 +21,7 @@ class DeviceChoiceButton extends Component {
 
     render() {
         return (
-            <Col key={this.props.entity}>
+            <Col>
                 <Button variant="light" name={this.props.entity} onClick={this.handleClick}>
                     <IconPreview image="./smartphones/s23.jpg"/> {/* TODO - should get connected to a database */}
                     <p className="button-text">{this.props.entity}</p>

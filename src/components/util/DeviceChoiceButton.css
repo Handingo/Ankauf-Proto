@@ -1,0 +1,15 @@
+.button-text {
+    align-self: center;
+    font-weight: 600;
+    font-size: calc(16px + 0.6vw);
+    line-height: calc(12px + 0.6vh);
+    margin: 0;
+}
+
+.button-text-small {
+    align-self: center;
+    font-weight: 400;
+    font-size: calc(6px + 0.7vw);
+    padding-left: 3%;
+    margin: 0;
+}
