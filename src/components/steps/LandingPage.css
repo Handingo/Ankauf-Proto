@@ -72,3 +72,11 @@
 #init-text a {
     color: #1a95a3;
 }
+
+@media only screen and (max-width: 991px) {
+    #init-text p {
+        margin-left: -5%;
+        margin-right: -5%;
+        text-align: justify;
+    }
+}

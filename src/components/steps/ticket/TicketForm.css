@@ -77,6 +77,9 @@
 }
 
 #button-send-ticket {
+    text-align: center;
+    min-width: 300px;
+    min-height: 30px;
     margin-top: 1vh;
     margin-bottom: 16px;
 }

@@ -40,3 +40,19 @@
 #selection-result-details {
     flex: 1;
 }
+
+input[type="file"]::-webkit-file-upload-button {
+    border: none;
+    padding: 3%;
+    background: #6c757d;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#button-create-ticket {
+    text-align: center;
+    min-width: 300px;
+    min-height: 30px;
+    margin-bottom: 16px;
+}

@@ -1,3 +1,4 @@
+import "./ConditionChoice.css";
 import { Component } from "react";
 import { connect } from 'react-redux';
 import { Button, Modal, Card } from "react-bootstrap";
@@ -79,9 +80,6 @@ class ConditionChoice extends Component {
             details.push(<p key={i}><strong>{pair[0]}</strong><br/><i>{pair[1]}</i></p>);
             i++;
         }
-
-        // console.log(results[score]);
-        // console.log(score);
 
         this.setState({
             showResultModal: true,

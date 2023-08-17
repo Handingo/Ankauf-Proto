@@ -1,0 +1,141 @@
+#condition-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#determine-condition-button {
+    margin-bottom: 16px;
+}
+
+#determine-condition-button, #condition-continue-button {
+    min-width: 300px;
+    margin-bottom: 16px;
+}
+
+#condition-modal {
+    max-width: 85vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media only screen and (max-width: 991px) {
+    #condition-modal {
+        max-width: 95vw;
+        margin-top: 10vh;
+    }
+}
+
+#condition-modal .btn-close {
+    margin-right: 1%;
+}
+
+#condition-modal .modal-footer {
+    margin-right: 1%;
+}
+
+#condition-modal .modal-footer button {
+    min-width: 95px;
+}
+
+#condition-modal-header {
+    margin-left: 1%;
+}
+
+#condition-modal-header p {
+    cursor: pointer;
+    margin-top: 1%;
+    margin-right: 5%;
+    font-weight: 600;
+    font-size: calc(12px + 0.6vw);
+    padding: 1%;
+    margin-bottom: 0.5%;
+    color: #777;
+}
+
+#condition-modal-header p:hover {
+    border-radius: 15%;
+    border-bottom: 2px solid #BBB;
+}
+
+.condition-modal-selected-step {
+    border-radius: 15%;
+    border-bottom: 2px solid #999 !important;
+    background-color: #F8F9FA;
+    color: #555 !important;
+}
+
+.condition-modal-selected-condition {
+    background-color: #1a95a3bb !important;
+    color: #FFF !important;
+}
+
+#condition-modal-selection {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    margin: 1%;
+    margin-bottom: 2.5%;
+}
+
+#condition-modal-selection-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+#condition-modal-selection-buttons h2 {
+    text-align: center;
+}
+
+#condition-modal-selection-buttons button {
+    text-align: left;
+    margin-bottom: 1%;
+    height: 10vh;
+    font-weight: 600;
+    font-size: calc(12px + 0.7vw);
+}
+
+#condition-modal-selection-buttons button:hover {
+    transition: 200ms ease-in;
+    box-shadow: rgba(0, 0, 0, 0.0625) 0px 3px 5px, rgba(0, 0, 0, 0.05) 0px 3px 10px, rgba(0, 0, 0, 0.0375) 0px 3px 15px, rgba(0, 0, 0, 0.025) 0px 3px 20px, rgba(0, 0, 0, 0.0125) 0px 3px 25px;
+}
+
+@media only screen and (max-width: 991px) {
+    #condition-modal-selection-buttons button {
+        font-size: calc(12px + 1.1vw);
+    }
+}
+
+#condition-modal-content {
+    background-color: #EEE;
+    border-radius: 1%;
+}
+
+#condition-modal-result .card-header, #condition-modal-result .card-body {
+    background-color: #F8F9FA;
+}
+
+#condition-modal-result {
+    display: grid;
+    grid-template-columns: 45% 55%;
+}
+
+#condition-modal-result .card-title {
+    text-align: center;
+}
+
+#condition-modal-result-info-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#condition-modal-result-info-body h2 {
+    text-align: center;
+}
+
+#condition-modal-result-image {
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
