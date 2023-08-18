@@ -1,7 +1,6 @@
 import "./MainContent.css";
 import { Component } from "react";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
 import * as selectionActions from "../../actions/SelectionActions";
 import * as functionalityActions from "../../actions/FunctionalityActions";
 import LandingPage from "./LandingPage";
@@ -71,7 +70,6 @@ class MainContent extends Component {
         <ConditionChoice
             id={6}
             text="In welchem Zustand befindet sich das Gerät?"
-            action={selectionActions.getSelectConditionAction}
         />,
         // "text" und "help" werden in Zeile 53-56 in FunctionalityChoice.jsx implementiert
         // TODO - Wurde SIM-/Net-Lock entfernt? - help-Link prüfen
@@ -88,19 +86,19 @@ class MainContent extends Component {
             action={functionalityActions.getGarantyAction}
         />,
         <FunctionalityChoice
-            text="Wurde SIM-/Net-Lock entfernt?"
+            text="Wurde SIM-/Net-Lock entfernt?" reversed
             help="Bevor du dein Gerät verkaufen kannst, muss SIM-/Net-Lock entfernt werden, da sonst ggf. keine SIM-Karten von anderen Anbietern in das Gerät eingesetzt werden können. Erfahre mehr am Ende dieser Seite, unter dem Kapitel Service und Simlock-/Net-Lock entfernen oder unter https://handingo.de/pages/simlock-netlock-entfernen."
             images={["./smartphones/s20.png"]}
             action={functionalityActions.getSimLockAction}
         />,
         <FunctionalityChoice
-            text="Wurde GoogleID/AppleID entfernt?"
+            text="Wurde GoogleID/AppleID entfernt?" reversed
             help="Bevor du dein Gerät verkaufen kannst, muss die jeweilige Funktion deaktiviert/entfernt werden. Erfahre mehr am Ende dieser Seite, unter dem Kapitel Service und iCloud & Google-Sperre entfernen oder unter https://handingo.de/pages/icloud-google-sperre-entfernen."
             images={["./smartphones/s20.png", "./smartphones/s21.png", "./smartphones/s22.png"]}
             action={functionalityActions.getActivationLockAction}
         />,
         <FunctionalityChoice
-            text="Hat das Gerät eine MDM-Software oder eine entfernte Verwaltung aktiv?"
+            text="Hat das Gerät eine aktive MDM-Software oder entfernte Verwaltung?"
             help="Dies kann besonders dann zutreffen, wenn das Gerät als Firmengerät diente. Hinweis: Wir kaufen keine Apple Geräte an, welche diesem Status unterliegen."
             images={["./smartphones/s23.png", "./smartphones/s21.png"]}
             action={functionalityActions.getMDMActiveAction}
@@ -126,9 +124,4 @@ class MainContent extends Component {
     }
 }
 
-const mapStateToProps = dispatch => bindActionCreators({
-    selectStep: selectionActions.getSelectStepAction,
-    resetStatePart: selectionActions.getResetStatePartAction
-}, dispatch);
-
-export default connect(state => { return state; }, mapStateToProps)(MainContent);
+export default connect(state => { return state; })(MainContent);

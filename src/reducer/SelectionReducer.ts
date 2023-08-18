@@ -6,16 +6,14 @@ const initialState: {
     brand: string | undefined,
     model: string | undefined,
     color: string | undefined,
-    internalMemory: string | undefined,
-    condition: string | undefined
+    internalMemory: string | undefined
 } = {
     step: 0,
     deviceType: undefined,
     brand: undefined,
     model: undefined,
     color: undefined,
-    internalMemory: undefined,
-    condition: undefined
+    internalMemory: undefined
 };
 
 // SelectionReducer works with SelectionActions.ts
@@ -51,11 +49,6 @@ function selectionReducer(state = initialState, action: any) {
             return {
                 ...state,
                 internalMemory: action.internalMemory
-            }
-        case selectionActions.SELECT_CONDITION:
-            return {
-                ...state,
-                condition: action.condition
             }
         case selectionActions.RESET_STATE_PART:
             let i: number = 0;

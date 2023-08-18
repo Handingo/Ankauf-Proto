@@ -1,5 +1,8 @@
 import "./ButtonBack.css";
 import { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as selectionActions from "../../../actions/SelectionActions";
 import { Button } from "react-bootstrap";
 
 class ButtonBack extends Component {
@@ -26,4 +29,9 @@ class ButtonBack extends Component {
     }
 }
 
-export default ButtonBack;
+const mapStateToProps = dispatch => bindActionCreators({
+    selectStep: selectionActions.getSelectStepAction,
+    resetStatePart: selectionActions.getResetStatePartAction
+}, dispatch);
+
+export default connect(state => { return state; }, mapStateToProps)(ButtonBack);

@@ -1,8 +1,9 @@
 import "./ConditionChoice.css";
 import { Component } from "react";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import { Button, Modal, Card } from "react-bootstrap";
-import * as selectionActions from '../../../actions/SelectionActions';
+import * as selectionActions from "../../../actions/SelectionActions";
+import * as conditionActions from "../../../actions/ConditionActions";
 import ModelViewer from "../../model/ModelViewer";
 
 class ConditionChoice extends Component {
@@ -11,17 +12,13 @@ class ConditionChoice extends Component {
         showModal: false,
         showResultModal: false,
         conditionStep: 0, // condition value of currently selected device part
-        selectedConditions: [0, 0, 0, 0], // stores condition value for each device part
-        resultDetails: [],
-        result: undefined // result condition name
+        resultDetails: []
     };
 
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
-        this.handleBreadcrumbClick = this.handleBreadcrumbClick.bind(this);
-        this.handleOpenModal = this.handleOpenModal.bind(this);
-        this.handleCloseModal = this.handleCloseModal.bind(this);
+        this.handleModal = this.handleModal.bind(this);
         this.handleOpenResultModal = this.handleOpenResultModal.bind(this);
         this.handleCloseResultModal = this.handleCloseResultModal.bind(this);
         this.handleClickModalSelection = this.handleClickModalSelection.bind(this);
@@ -33,22 +30,13 @@ class ConditionChoice extends Component {
     }
 
     handleClick(e) {
-        this.props.dispatch(this.props.action(this.state.result));
         this.props.dispatch(selectionActions.getSelectStepAction(this.props.selection.step + 1));
         window.scrollTo(0, 0);
     }
 
-    handleBreadcrumbClick(e) {
-        e.preventDefault();
-        const step = Number(e.currentTarget.name) - 3;
-        this.props.dispatch(selectionActions.getResetStatePartAction(step));
-        this.props.dispatch(selectionActions.getSelectStepAction(step));
-        window.scrollTo(0, 0);
-    }
-
-    handleOpenModal(e) {
+    handleModal(e) {
         this.setState({
-            showModal: true
+            showModal: !this.state.showModal
         });
     }
 
@@ -60,7 +48,7 @@ class ConditionChoice extends Component {
         let score = 0;
         let rawDetails = [];
 
-        for (const condition of this.state.selectedConditions) {
+        for (const condition of this.props.condition.selectedConditions) {
             rawDetails.push([areas[i++], conditions[condition]]);
             score += condition * 1.7;
         }
@@ -81,16 +69,11 @@ class ConditionChoice extends Component {
             i++;
         }
 
+        this.props.dispatch(conditionActions.getResultAction(results[score]));
+
         this.setState({
             showResultModal: true,
-            resultDetails: details,
-            result: results[score]
-        });
-    }
-
-    handleCloseModal() {
-        this.setState({
-            showModal: false
+            resultDetails: details
         });
     }
 
@@ -116,7 +99,7 @@ class ConditionChoice extends Component {
     handleClickModalContinue(e) {
         const step = this.state.conditionStep + 1;
 
-        if (step >= this.state.selectedConditions.length) {
+        if (step >= this.props.condition.selectedConditions.length) {
             return;
         }
 
@@ -135,51 +118,28 @@ class ConditionChoice extends Component {
     handleClickModalSelection(e) {
         e.preventDefault();
 
-        const conditions = [...this.state.selectedConditions];
-        conditions[this.state.conditionStep] = Number(e.currentTarget.getAttribute("name"));
-
-        this.setState({
-            selectedConditions: conditions
-        });
+        const part = this.state.conditionStep;
+        const condition = Number(e.currentTarget.getAttribute("name"));
+        this.props.dispatch(conditionActions.getSelectPartConditionAction(part, condition));
     }
 
     handleClickModalFinish(e) {
-        this.handleCloseModal();
+        this.handleModal();
         this.handleOpenResultModal();
     }
 
     handleClickModalFinishBack(e) {
         this.handleCloseResultModal();
-        this.handleOpenModal();
+        this.handleModal();
     }
 
     render() {
-        let i = 0;
-        const breadcrumbs = [];
-
-        for (const entry in this.props.selection) {
-            if (i++ === 0 || !this.props.selection.hasOwnProperty(entry)) {
-                continue;
-            }
-
-            const selection = this.props.selection[entry];
-
-            if (!selection) {
-                continue;
-            }
-
-            const step = i + 2;
-            breadcrumbs.push(<a href="/" key={step} name={step} onClick={this.handleBreadcrumbClick}>{selection + " /"}</a>);
-        }
-
-        i = 0;
-
-        const selectedCondition = this.state.selectedConditions[this.state.conditionStep];
-        const conditionAvailable = this.state.result !== undefined;
+        const selectedCondition = this.props.condition.selectedConditions[this.state.conditionStep];
+        const conditionAvailable = this.props.condition.result !== undefined;
 
         return (
             <div className="step" id={this.props.id}>
-                <Modal id="condition-modal" show={this.state.showModal} onHide={this.handleCloseModal}>
+                <Modal id="condition-modal" show={this.state.showModal} onHide={this.handleModal}>
                     <div id="condition-modal-content">
                         <Modal.Header id="condition-modal-header" closeButton>
                             <p className={this.state.conditionStep === 0 ? "condition-modal-selected-step" : ""} name={0} onClick={this.handleClickModalConditionStep}>Display</p>
@@ -211,8 +171,8 @@ class ConditionChoice extends Component {
                         </Modal.Body>
                         <Modal.Footer>
                             <Button variant="secondary" size="lg" hidden={this.state.conditionStep < 1} onClick={this.handleClickModalBack}>Zurück</Button>
-                            <Button id="condition-modal-continue" size="lg" hidden={this.state.conditionStep >= this.state.selectedConditions.length - 1} onClick={this.handleClickModalContinue}>Weiter</Button>
-                            <Button id="condition-modal-finished" size="lg" hidden={this.state.conditionStep < this.state.selectedConditions.length - 1} onClick={this.handleClickModalFinish}>Fertig</Button>
+                            <Button id="condition-modal-continue" size="lg" hidden={this.state.conditionStep >= this.props.condition.selectedConditions.length - 1} onClick={this.handleClickModalContinue}>Weiter</Button>
+                            <Button id="condition-modal-finished" size="lg" hidden={this.state.conditionStep < this.props.condition.selectedConditions.length - 1} onClick={this.handleClickModalFinish}>Fertig</Button>
                         </Modal.Footer>
                     </div>
                 </Modal>
@@ -243,7 +203,7 @@ class ConditionChoice extends Component {
                                         <img id="condition-modal-result-image" src="./smartphones/s20.png" alt=""></img>
                                         <br/>
                                         <br/>
-                                        <h2>{this.state.result}</h2>
+                                        <h2>{this.props.condition.result}</h2>
                                         <br/>
                                     </Card.Body>
                                 </Card>
@@ -259,12 +219,12 @@ class ConditionChoice extends Component {
                 <br/>
                 <p>{this.props.text}</p>
                 <br/>
-                <h2>{conditionAvailable ? "Zustand: " + this.state.result : "Noch keinen Zustand ermittelt."}</h2>
+                <h2>{conditionAvailable ? "Zustand: " + this.props.condition.result : "Noch keinen Zustand ermittelt."}</h2>
                 <br/>
                 <br/>
                 <div id="condition-buttons">
                     <Button hidden={!conditionAvailable} id="condition-continue-button" onClick={this.handleClick}>Bestätigen</Button>
-                    <Button id="determine-condition-button" onClick={this.handleOpenModal}>{conditionAvailable ? "Erneut ermitteln" : "Zustand ermitteln"}</Button>
+                    <Button id="determine-condition-button" onClick={this.handleModal}>{conditionAvailable ? "Erneut ermitteln" : "Zustand ermitteln"}</Button>
                 </div>
             </div>
         );

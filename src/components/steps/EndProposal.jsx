@@ -102,7 +102,7 @@ class EndProposal extends Component {
                 suggestion = NaN;
         }
 
-        switch (this.props.selection.condition) {
+        switch (this.props.condition.result) {
             case "Wie neu":
                 suggestion *= 1;
                 break;
@@ -128,7 +128,12 @@ class EndProposal extends Component {
             "Modell",
             "Farbe",
             "Speicherplatz",
-            "Zustand"
+            "Zustand",
+            "Voll funktionsfähig",
+            "Herstellergarantie",
+            "Sim-/Net-Lock",
+            "Aktivierungssperre",
+            "Aktive MDM-Software"
         ];
         const specifications = [];
 
@@ -147,6 +152,22 @@ class EndProposal extends Component {
                 specifications.push(<hr key={-i}/>);
             }
             specifications.push(<p key={i}><strong>{keys[i - 2] + ":"}</strong><br/><i>{selection}</i></p>);
+        }
+
+        i++;
+        specifications.push(<hr key={-i}/>);
+        specifications.push(<p key={i}><strong>{keys[i - 2] + ":"}</strong><br/><i>{this.props.condition.result}</i></p>);
+
+        for (const entry in this.props.functionality) {
+            i++;
+
+            if (!this.props.functionality.hasOwnProperty(entry) || this.props.functionality[entry] === undefined) {
+                continue;
+            }
+
+            const value = this.props.functionality[entry] === "true" ? "Ja" : "Nein";
+            specifications.push(<hr key={-i}/>);
+            specifications.push(<p key={i}><strong>{keys[i - 2] + ":"}</strong><br/><i>{value}</i></p>);
         }
 
         i = 0;

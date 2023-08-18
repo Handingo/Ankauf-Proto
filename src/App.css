@@ -10,7 +10,7 @@ button {
     background-color: #EEE;
     min-height: 100vh;
     font-family: "DM Sans", sans-serif;
-    font-feature-settings: "kern" 1,"liga" 1,"calt" 1;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
     text-decoration: none;
     text-align: center;
     font-size: 16px;
@@ -25,6 +25,10 @@ button {
     --bs-btn-active-border-color: #1a95a3bb;
     --bs-btn-border-color: #1a95a3;
     font-size: 1.1rem !important;
+}
+
+.btn.btn-primary.btn-lg {
+    font-size: 1.25rem !important;
 }
 
 .btn.btn-primary[disabled] {

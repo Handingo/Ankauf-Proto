@@ -1,11 +1,11 @@
 import { Reducer, combineReducers } from "redux";
 import selectionReducer from "./SelectionReducer";
+import conditionReducer from "./ConditionReducer";
 import functionalityReducer from "./FunctionalityReducer";
-
-// Verbindet mehrere Reducer miteinander
 
 const rootReducer: Reducer = combineReducers({
     selection: selectionReducer,
+    condition: conditionReducer,
     functionality: functionalityReducer
 });
 
