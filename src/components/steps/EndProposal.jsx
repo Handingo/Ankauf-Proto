@@ -119,6 +119,8 @@ class EndProposal extends Component {
                 suggestion = NaN;
         }
 
+        suggestion = Math.max(suggestion, 0);
+
         let i = 0;
         const keys = [
             "Gerätetyp",

@@ -1,10 +1,11 @@
 import "./MainContent.css";
 import { Component } from "react";
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as selectionActions from '../../actions/SelectionActions';
-import LandingPage from './LandingPage';
-import DeviceChoice from './choice/DeviceChoice';
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as selectionActions from "../../actions/SelectionActions";
+import * as functionalityActions from "../../actions/FunctionalityActions";
+import LandingPage from "./LandingPage";
+import DeviceChoice from "./choice/DeviceChoice";
 import EndProposal from "./EndProposal";
 import TicketForm from "./ticket/TicketForm";
 import TicketConfirmation from "./ticket/TicketConfirmation";
@@ -78,16 +79,31 @@ class MainContent extends Component {
             text="Ist dein Gerät voll funktionsfähig?"
             help="Lassen sich alle Funktionen des Geräts nutzen (wie bspw. die Kamera, das Mikrofon oder die Lautsprecher)?"
             images={["./smartphones/s20.png", "./smartphones/s21.png"]}
+            action={functionalityActions.getFullyFunctionalAction}
+        />,
+        <FunctionalityChoice
+            text="Hat das Gerät noch eine Herstellergarantie?"
+            help="Besitzt du einen Beleg für das Gerät, welcher noch eine Herstellergarantie verspricht?"
+            images={["./smartphones/s23.png", "./smartphones/s21.png"]}
+            action={functionalityActions.getGarantyAction}
         />,
         <FunctionalityChoice
             text="Wurde SIM-/Net-Lock entfernt?"
             help="Bevor du dein Gerät verkaufen kannst, muss SIM-/Net-Lock entfernt werden, da sonst ggf. keine SIM-Karten von anderen Anbietern in das Gerät eingesetzt werden können. Erfahre mehr am Ende dieser Seite, unter dem Kapitel Service und Simlock-/Net-Lock entfernen oder unter https://handingo.de/pages/simlock-netlock-entfernen."
             images={["./smartphones/s20.png"]}
+            action={functionalityActions.getSimLockAction}
         />,
         <FunctionalityChoice
             text="Wurde GoogleID/AppleID entfernt?"
             help="Bevor du dein Gerät verkaufen kannst, muss die jeweilige Funktion deaktiviert/entfernt werden. Erfahre mehr am Ende dieser Seite, unter dem Kapitel Service und iCloud & Google-Sperre entfernen oder unter https://handingo.de/pages/icloud-google-sperre-entfernen."
             images={["./smartphones/s20.png", "./smartphones/s21.png", "./smartphones/s22.png"]}
+            action={functionalityActions.getActivationLockAction}
+        />,
+        <FunctionalityChoice
+            text="Hat das Gerät eine MDM-Software oder eine entfernte Verwaltung aktiv?"
+            help="Dies kann besonders dann zutreffen, wenn das Gerät als Firmengerät diente. Hinweis: Wir kaufen keine Apple Geräte an, welche diesem Status unterliegen."
+            images={["./smartphones/s23.png", "./smartphones/s21.png"]}
+            action={functionalityActions.getMDMActiveAction}
         />,
         <EndProposal/>,
         <TicketForm/>,

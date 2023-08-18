@@ -1,6 +1,7 @@
 import "./FunctionalityChoice.css";
 import { Component } from "react";
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Button, Col, Modal } from "react-bootstrap";
 import * as selectionActions from '../../../actions/SelectionActions';
 import IconInfo from "../../util/icon/IconInfo";
@@ -18,7 +19,8 @@ class FunctionalityChoice extends Component {
     }
 
     handleClick(e) {
-        this.props.dispatch(selectionActions.getSelectStepAction(this.props.selection.step + 1));
+        this.props.dispatch(this.props.action(Boolean(e.currentTarget.getAttribute("name"))));
+        this.props.selectStep(this.props.selection.step + 1);
         window.scrollTo(0, 0);
     }
 
@@ -45,8 +47,8 @@ class FunctionalityChoice extends Component {
                 </div>
                 <br/>
                 <Col id="step-functionality-selection">
-                    <Button onClick={this.handleClick}>Ja</Button>
-                    <Button onClick={this.handleClick}>Nein</Button>
+                    <Button name="true" onClick={this.handleClick}>Ja</Button>
+                    <Button name="false" onClick={this.handleClick}>Nein</Button>
                 </Col>
                 <Modal id="functionality-help-modal" show={this.state.showHelp} onHide={this.handleClickHelp}>
                     <Modal.Header closeButton>
@@ -61,4 +63,8 @@ class FunctionalityChoice extends Component {
     }
 }
 
-export default connect(state => { return state; })(FunctionalityChoice);
+const mapStateToProps = dispatch => bindActionCreators({
+    selectStep: selectionActions.getSelectStepAction
+}, dispatch);
+
+export default connect(state => { return state; }, mapStateToProps)(FunctionalityChoice);
