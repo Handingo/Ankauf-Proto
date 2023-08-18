@@ -247,7 +247,7 @@ class TicketForm extends Component {
                             {/* Je nach Zahlungswunsch anders rendern */}
                             <Form.Group as={Col}>
                                 <Form.Control
-                                    autocomplete="nope"
+                                    autoComplete="nope"
                                     required
                                     type="text"
                                     minLength="27"
@@ -260,7 +260,7 @@ class TicketForm extends Component {
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Control
-                                    autocomplete="nope"
+                                    autoComplete="nope"
                                     required
                                     type="text"
                                     maxLength="16"

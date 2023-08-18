@@ -30,7 +30,8 @@ class MainContent extends Component {
             text="Wähle den Hersteller des Geräts."
             entities={[ // TODO - should get connected to a database
                 "Samsung",
-                "Huawei"
+                "Huawei",
+                "Apple"
             ]}
             action={selectionActions.getSelectBrandAction}
         />,
@@ -71,7 +72,7 @@ class MainContent extends Component {
             id={6}
             text="In welchem Zustand befindet sich das Gerät?"
         />,
-        // "text" und "help" werden in Zeile 53-56 in FunctionalityChoice.jsx implementiert
+        // "text" und "help" werden in Zeile 54-57 in FunctionalityChoice.jsx implementiert
         // TODO - Wurde SIM-/Net-Lock entfernt? - help-Link prüfen
         <FunctionalityChoice
             text="Ist dein Gerät voll funktionsfähig?"
@@ -85,6 +86,7 @@ class MainContent extends Component {
             images={["./smartphones/s23.png", "./smartphones/s21.png"]}
             action={functionalityActions.getGarantyAction}
         />,
+        // reversed indicates that the selection should get handled in a positive way - it's good when the customer removed Sim-Lock
         <FunctionalityChoice
             text="Wurde SIM-/Net-Lock entfernt?" reversed
             help="Bevor du dein Gerät verkaufen kannst, muss SIM-/Net-Lock entfernt werden, da sonst ggf. keine SIM-Karten von anderen Anbietern in das Gerät eingesetzt werden können. Erfahre mehr am Ende dieser Seite, unter dem Kapitel Service und Simlock-/Net-Lock entfernen oder unter https://handingo.de/pages/simlock-netlock-entfernen."
@@ -98,7 +100,7 @@ class MainContent extends Component {
             action={functionalityActions.getActivationLockAction}
         />,
         <FunctionalityChoice
-            text="Hat das Gerät eine aktive MDM-Software oder entfernte Verwaltung?"
+            text="Ist eine MDM-Software o. ä. aktiv?"
             help="Dies kann besonders dann zutreffen, wenn das Gerät als Firmengerät diente. Hinweis: Wir kaufen keine Apple Geräte an, welche diesem Status unterliegen."
             images={["./smartphones/s23.png", "./smartphones/s21.png"]}
             action={functionalityActions.getMDMActiveAction}

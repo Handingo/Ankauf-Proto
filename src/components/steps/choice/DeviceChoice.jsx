@@ -52,7 +52,7 @@ class DeviceChoice extends Component {
                 <br/>
                 <div className="selection">
                     {this.props.entities.map(entity => // TODO - maximum price should get determined via database
-                        <ButtonDeviceChoice key={i++} id={this.props.id} entity={entity} entityPrice={427.0 + i * 75} action={this.props.action}/>
+                        <ButtonDeviceChoice key={i++} id={this.props.id} entity={entity} entityPrice={527.0 + i * 75} action={this.props.action}/>
                     )}
                 </div>
             </div>

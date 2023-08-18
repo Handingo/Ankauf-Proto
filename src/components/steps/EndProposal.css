@@ -56,3 +56,17 @@ input[type="file"]::-webkit-file-upload-button {
     min-height: 30px;
     margin-bottom: 16px;
 }
+
+#proposal-failure-text {
+    font-size: 18px;
+    margin-top: 16px;
+}
+
+#proposal-failure-text p {
+    margin-bottom: 0;
+}
+
+#proposal-failure-text a {
+    text-decoration: none;
+    color: #1a95a3;
+}

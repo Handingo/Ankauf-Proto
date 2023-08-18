@@ -3,6 +3,7 @@ import { Component } from "react";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Button, Card } from "react-bootstrap";
+import Link from "../util/Link";
 import * as selectionActions from "../../actions/SelectionActions";
 
 // Page which displays an estimated offer and lets users upload pictures/documents of the device
@@ -119,7 +120,27 @@ class EndProposal extends Component {
                 suggestion = NaN;
         }
 
-        suggestion = Math.max(suggestion, 0);
+        if (this.props.functionality.isFullyFunctional === "false") { // JavaScript "type conversion"... name attribute => boolean
+            suggestion = NaN;
+        }
+
+        if (this.props.functionality.hasGaranty) {
+            suggestion += 50;
+        }
+
+        const isApple = this.props.selection.brand === "Apple";
+
+        if (this.props.functionality.hasSimLock === "true") { // JavaScript "type conversion"... name attribute => boolean
+            suggestion = isApple ? NaN : suggestion - 200;
+        }
+
+        if (this.props.functionality.hasMDMActive === "true") {
+            suggestion = isApple ? NaN : suggestion - 200;
+        }
+
+        if (suggestion < 10) {
+            suggestion = NaN;
+        }
 
         let i = 0;
         const keys = [
@@ -214,9 +235,16 @@ class EndProposal extends Component {
                 <p>* Bitte lade mindestens ein Foto des Geräts hoch.</p>
                 <br/>
                 <h3>Unser Vorschlag:</h3>
-                <h2>{!isNaN(suggestion) ? suggestion.toLocaleString(undefined, { minimumFractionDigits: 2 }) + " €" : "Es konnte kein Vorschlag bestimmt werden."}</h2>
+                {!isNaN(suggestion)
+                    ? <h2 id="proposal">{suggestion.toLocaleString(undefined, { minimumFractionDigits: 2 }) + " €"}</h2>
+                    : <div id="proposal-failure-text">
+                        <p>Leider scheint es so, als würden wir dein Gerät nicht ankaufen.</p>
+                        <p>Bei Fragen, melde dich gerne unter <Link newTab text="https://handingo.de/pages/kontakt" href="https://handingo.de/pages/kontakt"/>.</p>
+                      </div>
+                }
                 <br/>
-                <Button disabled={this.state.documents.length < 1} id="button-create-ticket" onClick={this.handleClick}>Jetzt verkaufen!</Button>
+                <br/>
+                <Button disabled={this.state.documents.length < 1 || isNaN(suggestion)} id="button-create-ticket" onClick={this.handleClick}>Jetzt verkaufen!</Button>
             </div>
         );
     }
