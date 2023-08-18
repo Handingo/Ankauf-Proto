@@ -3,7 +3,7 @@ import { Component } from "react";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as selectionActions from '../../../actions/SelectionActions';
-import DeviceChoiceButton from "../../util/DeviceChoiceButton";
+import ButtonDeviceChoice from "../../util/button/ButtonDeviceChoice";
 
 class DeviceChoice extends Component {
 
@@ -15,7 +15,7 @@ class DeviceChoice extends Component {
     handleBreadcrumbClick(e) {
         e.preventDefault();
         const step = Number(e.currentTarget.getAttribute("name"));
-        this.props.resetStatePart(step);
+        this.props.resetStatePart(step); // deletes all selections that follow after the clicked breadcrumb which has been made so far
         this.props.selectStep(step);
         window.scrollTo(0, 0);
     }
@@ -52,7 +52,7 @@ class DeviceChoice extends Component {
                 <br/>
                 <div className="selection">
                     {this.props.entities.map(entity => // TODO - maximum price should get determined via database
-                        <DeviceChoiceButton key={i++} id={this.props.id} entity={entity} entityPrice={427.0 + i * 75} action={this.props.action}/>
+                        <ButtonDeviceChoice key={i++} id={this.props.id} entity={entity} entityPrice={427.0 + i * 75} action={this.props.action}/>
                     )}
                 </div>
             </div>

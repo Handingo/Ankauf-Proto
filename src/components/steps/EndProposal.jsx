@@ -40,11 +40,11 @@ class EndProposal extends Component {
     handleUpload(e) {
         e.preventDefault();
 
-        if (this.state.documents.length > 4) {
+        if (this.state.documents.length + e.currentTarget.files.length > 5) { // max 5 documents
             return;
         }
 
-        this.setState({
+        this.setState({ // add uploaded documents to existing ones
             documents: [...this.state.documents, ...e.currentTarget.files]
         });
     }

@@ -2,7 +2,6 @@ import "./MainContent.css";
 import { Component } from "react";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Button } from "react-bootstrap";
 import * as selectionActions from '../../actions/SelectionActions';
 import LandingPage from './LandingPage';
 import DeviceChoice from './choice/DeviceChoice';
@@ -11,6 +10,7 @@ import TicketForm from "./ticket/TicketForm";
 import TicketConfirmation from "./ticket/TicketConfirmation";
 import FunctionalityChoice from "./choice/FunctionalityChoice";
 import ConditionChoice from "./choice/ConditionChoice";
+import ButtonBack from "../util/button/ButtonBack";
 
 class MainContent extends Component {
 
@@ -73,27 +73,26 @@ class MainContent extends Component {
             action={selectionActions.getSelectConditionAction}
         />,
         // "text" und "help" werden in Zeile 53-56 in FunctionalityChoice.jsx implementiert
-        // TODO - den Link von praxistipps mit eigenem Text ersetzen
-        <FunctionalityChoice text="Ist dein Gerät voll funktionsfähig?" help="Lassen sich alle Funktionen des Geräts nutzen (wie bspw. die Kamera, das Mikrofon oder die Lautsprecher)?" images={["./smartphones/s20.png", "./smartphones/s21.png"]}/>,
-        <FunctionalityChoice text="Wurde SIM-/Net-Lock entfernt?" help="https://praxistipps.chip.de/simlock-entfernen-so-gehts-bei-allen-providern_100550" images={["./smartphones/s20.png"]}/>,
-        <FunctionalityChoice text="Wurde GoogleID/AppleID entfernt?" help="Bevor du dein Gerät verkaufen kannst, muss die jeweilige Funktion deaktiviert/entfernt werden. Erfahre mehr am Ende dieser Seite, unter dem Kapitel Service und iCloud & Google-Sperre entfernen oder unter https://handingo.de/pages/icloud-google-sperre-entfernen" images={["./smartphones/s20.png", "./smartphones/s21.png", "./smartphones/s22.png"]}/>,
+        // TODO - Wurde SIM-/Net-Lock entfernt? - help-Link prüfen
+        <FunctionalityChoice
+            text="Ist dein Gerät voll funktionsfähig?"
+            help="Lassen sich alle Funktionen des Geräts nutzen (wie bspw. die Kamera, das Mikrofon oder die Lautsprecher)?"
+            images={["./smartphones/s20.png", "./smartphones/s21.png"]}
+        />,
+        <FunctionalityChoice
+            text="Wurde SIM-/Net-Lock entfernt?"
+            help="Bevor du dein Gerät verkaufen kannst, muss SIM-/Net-Lock entfernt werden, da sonst ggf. keine SIM-Karten von anderen Anbietern in das Gerät eingesetzt werden können. Erfahre mehr am Ende dieser Seite, unter dem Kapitel Service und Simlock-/Net-Lock entfernen oder unter https://handingo.de/pages/simlock-netlock-entfernen."
+            images={["./smartphones/s20.png"]}
+        />,
+        <FunctionalityChoice
+            text="Wurde GoogleID/AppleID entfernt?"
+            help="Bevor du dein Gerät verkaufen kannst, muss die jeweilige Funktion deaktiviert/entfernt werden. Erfahre mehr am Ende dieser Seite, unter dem Kapitel Service und iCloud & Google-Sperre entfernen oder unter https://handingo.de/pages/icloud-google-sperre-entfernen."
+            images={["./smartphones/s20.png", "./smartphones/s21.png", "./smartphones/s22.png"]}
+        />,
         <EndProposal/>,
         <TicketForm/>,
         <TicketConfirmation/>
     ];
-    
-    constructor(props) {
-        super(props);
-        this.handleClickBack = this.handleClickBack.bind(this);
-    }
-
-    handleClickBack(e) {
-        e.preventDefault();
-        const step = this.props.selection.step - 1;
-        this.props.selectStep(step);
-        this.props.resetStatePart(step);
-        window.scrollTo(0, 0);
-    }
 
     render() {
         const step = this.props.selection.step;
@@ -104,9 +103,7 @@ class MainContent extends Component {
                     this.steps[step]
                 }
                 {step !== 0 && step < this.steps.length - 1 &&
-                    <Button id="button-back" variant="secondary" onClick={this.handleClickBack}>
-                        Zurück
-                    </Button>
+                    <ButtonBack/>
                 }
             </div>
         );

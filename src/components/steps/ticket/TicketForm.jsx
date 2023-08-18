@@ -4,7 +4,7 @@ import { Button, Container, Form, Col, Modal } from "react-bootstrap";
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import * as selectionActions from '../../../actions/SelectionActions';
-import IconInfo from "../../util/icons/IconInfo";
+import IconInfo from "../../util/icon/IconInfo";
 import Link from "../../util/Link";
 
 class TicketForm extends Component {
@@ -57,6 +57,7 @@ class TicketForm extends Component {
             validated: true
         });
 
+        // checks whether some fields aren't filled yet
         for (const entry in this.state) {
             if (this.state.hasOwnProperty(entry) && this.state[entry] !== undefined && this.state[entry].length < 1) {
                 window.scrollTo(0, 0);
@@ -86,7 +87,7 @@ class TicketForm extends Component {
     render() {
         return (
             <div id="ticket-form">
-                <Container className="ticket-form">
+                <Container className="ticket-form-container">
                     <Form noValidate validated={this.state.validated} onSubmit={this.handleClick}>
                         <br/>
                         <h3>Kundendaten</h3>
@@ -94,6 +95,7 @@ class TicketForm extends Component {
                         <div id="customer-data">
                             <Form.Group as={Col}>
                                 <Form.Control
+                                    id="ticket-input-formOfAdress"
                                     required
                                     type="text"
                                     maxLength="8"
@@ -105,6 +107,7 @@ class TicketForm extends Component {
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Control
+                                    id="ticket-input-firstName"
                                     required
                                     type="text"
                                     maxLength="32"
@@ -116,6 +119,7 @@ class TicketForm extends Component {
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Control
+                                    id="ticket-input-lastName"
                                     required
                                     type="text"
                                     maxLength="32"
@@ -127,6 +131,7 @@ class TicketForm extends Component {
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Control
+                                    id="ticket-input-email"
                                     required
                                     type="email"
                                     maxLength="254"
@@ -138,6 +143,7 @@ class TicketForm extends Component {
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Control
+                                    id="ticket-input-emailConfirm"
                                     required
                                     type="email"
                                     maxLength="254"
@@ -149,6 +155,7 @@ class TicketForm extends Component {
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Control
+                                    id="ticket-input-postalCode"
                                     required
                                     type="number"
                                     min={0}
@@ -161,6 +168,7 @@ class TicketForm extends Component {
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Control
+                                    id="ticket-input-demicile"
                                     required
                                     type="text"
                                     maxLength="64"
@@ -172,6 +180,7 @@ class TicketForm extends Component {
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Control
+                                    id="ticket-input-street"
                                     required
                                     type="text"
                                     maxLength="64"
@@ -183,6 +192,7 @@ class TicketForm extends Component {
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Control
+                                    id="ticket-input-houseNumber"
                                     required
                                     type="text"
                                     maxLength="4"
@@ -199,10 +209,11 @@ class TicketForm extends Component {
                         <br/>
                         <div id="additional-data">
                             <Form.Group as={Col}>
-                                <Form.Label>
+                                <Form.Label htmlFor="ticket-input-imei">
                                     <p>IMEI-Nummer <span onClick={this.handleClickImeiHelp}><IconInfo/></span></p>
                                 </Form.Label>
                                 <Form.Control
+                                    id="ticket-input-imei"
                                     type="number"
                                     min={100_000_000_000_000}
                                     max={999_999_999_999_999}
@@ -212,7 +223,7 @@ class TicketForm extends Component {
                             </Form.Group>
                             <div id="delivery-service">
                                 <Form.Group as={Col}>
-                                    <Form.Label>
+                                    <Form.Label htmlFor="delivery-service-selection">
                                         <p>Lieferdienst</p>
                                     </Form.Label>
                                     <Form.Select id="delivery-service-selection">
@@ -224,7 +235,7 @@ class TicketForm extends Component {
                             </div>
                             <div id="payment-method">
                                 <Form.Group as={Col}>
-                                    <Form.Label>
+                                    <Form.Label htmlFor="payment-method-selection">
                                         <p>Zahlungswunsch</p>
                                     </Form.Label>
                                     <Form.Select id="payment-method-selection">
@@ -236,6 +247,7 @@ class TicketForm extends Component {
                             {/* Je nach Zahlungswunsch anders rendern */}
                             <Form.Group as={Col}>
                                 <Form.Control
+                                    autocomplete="nope"
                                     required
                                     type="text"
                                     minLength="27"
@@ -248,6 +260,7 @@ class TicketForm extends Component {
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Control
+                                    autocomplete="nope"
                                     required
                                     type="text"
                                     maxLength="16"

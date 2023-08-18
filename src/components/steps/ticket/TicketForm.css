@@ -23,32 +23,32 @@
     margin-top: 0;
 }
 
-.ticket-form .form-label {
+.ticket-form-container .form-label {
     text-align: left;
     padding-left: 5px;
 }
 
-.ticket-form input, .ticket-form label {
+.ticket-form-container input, .ticket-form-container label {
     display: grid;
 }
 
-.ticket-form input, .ticket-form #delivery-service, .ticket-form #payment-method {
+.ticket-form-container input, .ticket-form-container #delivery-service, .ticket-form-container #payment-method {
     margin-left: auto;
     margin-right: auto;
     width: 28%;
     min-width: 300px;
 }
 
-.ticket-form input::placeholder {
+.ticket-form-container input::placeholder {
     color: rgba(0, 0, 0, 0.4);
 }
 
-.ticket-form p {
+.ticket-form-container p {
     margin-bottom: 0;
     overflow: hidden;
 }
 
-.ticket-form #legal-text {
+.ticket-form-container #legal-text {
     text-align: left;
     margin-left: 18%;
     margin-right: 18%;
@@ -57,7 +57,7 @@
 }
 
 @media only screen and (max-width: 650px) {
-    .ticket-form #legal-text {
+    .ticket-form-container #legal-text {
         text-align: left;
         margin-left: 9%;
         margin-right: 9%;
@@ -66,12 +66,12 @@
     }
 }
 
-.ticket-form a {
+.ticket-form-container a {
     text-decoration: none;
     color: #1a95a3;
 }
 
-.ticket-form input[type="checkbox"] {
+.ticket-form-container input[type="checkbox"] {
     transform: scale(2);
     accent-color: #1a95a3;
 }

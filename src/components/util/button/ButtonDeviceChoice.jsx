@@ -1,12 +1,12 @@
-import "./DeviceChoiceButton.css";
+import "./ButtonDeviceChoice.css";
 import { Component } from "react";
 import { Button, Col } from "react-bootstrap";
-import IconContinue from "../util/icons/IconContinue";
-import IconPreview from "../util/icons/IconPreview";
-import * as selectionActions from '../../actions/SelectionActions';
+import IconContinue from "../icon/IconContinue";
+import IconPreview from "../icon/IconPreview";
+import * as selectionActions from '../../../actions/SelectionActions';
 import { connect } from 'react-redux';
 
-class DeviceChoiceButton extends Component {
+class ButtonDeviceChoice extends Component {
 
     constructor(props) {
         super(props);
@@ -33,4 +33,4 @@ class DeviceChoiceButton extends Component {
     }
 }
 
-export default connect(state => { return state; })(DeviceChoiceButton);
+export default connect(state => { return state; })(ButtonDeviceChoice);

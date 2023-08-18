@@ -10,10 +10,10 @@ class ConditionChoice extends Component {
     state = {
         showModal: false,
         showResultModal: false,
-        conditionStep: 0,
-        selectedConditions: [0, 0, 0, 0],
+        conditionStep: 0, // condition value of currently selected device part
+        selectedConditions: [0, 0, 0, 0], // stores condition value for each device part
         resultDetails: [],
-        result: undefined
+        result: undefined // result condition name
     };
 
     constructor(props) {
@@ -199,7 +199,7 @@ class ConditionChoice extends Component {
                                     <Button className={selectedCondition === 4 ? "condition-modal-selected-condition" : ""} size="lg" variant="light" name="4" onClick={this.handleClickModalSelection}>Kerben/Risse</Button>
                                 </div>
                                 <ModelViewer src={
-                                    [
+                                    [ // should get connected to a database or a stable content webpage
                                         "models/00_Perfekt.glb",
                                         "models/01_WieNeu_Model.glb",
                                         "models/02_SehrGut_Model.glb",
