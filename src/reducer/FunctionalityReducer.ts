@@ -2,13 +2,13 @@ import * as functionalityActions from "../actions/FunctionalityActions"
 
 const initialState: {
     isFullyFunctional: boolean | undefined,
-    hasGaranty: boolean | undefined,
+    isKindaOld: boolean | undefined,
     hasSimLock: boolean | undefined,
     hasActivationLock: boolean | undefined,
     isMDMActive: boolean | undefined
 } = {
     isFullyFunctional: undefined,
-    hasGaranty: undefined,
+    isKindaOld: undefined,
     hasSimLock: undefined,
     hasActivationLock: undefined,
     isMDMActive: undefined
@@ -23,10 +23,10 @@ function functionalityReducer(state = initialState, action: any) {
                 ...state,
                 isFullyFunctional: action.isFullyFunctional
             }
-        case functionalityActions.HAS_GARANTY_ACTION:
+        case functionalityActions.IS_KINDA_OLD_ACTION:
             return {
                 ...state,
-                hasGaranty: action.hasGaranty
+                isKindaOld: action.isKindaOld
             }
         case functionalityActions.HAS_SIM_LOCK_ACTION:
             return {
