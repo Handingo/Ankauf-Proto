@@ -122,24 +122,24 @@ class EndProposal extends Component {
 
         if (this.props.functionality.isFullyFunctional === "false") { // JavaScript "type conversion"... name attribute => boolean
             suggestion = NaN;
-        }
-
-        if (this.props.functionality.hasGaranty) {
-            suggestion += 50;
-        }
-
-        const isApple = this.props.selection.brand === "Apple";
-
-        if (this.props.functionality.hasSimLock === "true") { // JavaScript "type conversion"... name attribute => boolean
-            suggestion = isApple ? NaN : suggestion - 200;
-        }
-
-        if (this.props.functionality.hasMDMActive === "true") {
-            suggestion = isApple ? NaN : suggestion - 200;
-        }
-
-        if (suggestion < 10) {
-            suggestion = NaN;
+        } else {
+            if (this.props.functionality.isKindaOld === "false") {
+                suggestion += 25;
+            }
+    
+            const isApple = this.props.selection.brand === "Apple";
+    
+            if (this.props.functionality.hasSimLock === "true") { // JavaScript "type conversion"... name attribute => boolean
+                suggestion = isApple ? NaN : suggestion - 150;
+            }
+    
+            if (this.props.functionality.hasMDMActive === "true") {
+                suggestion = isApple ? NaN : suggestion - 150;
+            }
+    
+            if (suggestion < 50) {
+                suggestion = suggestion < 10 ? NaN : suggestion - 5;
+            }
         }
 
         let i = 0;
@@ -151,7 +151,7 @@ class EndProposal extends Component {
             "Speicherplatz",
             "Zustand",
             "Voll funktionsfähig",
-            "Herstellergarantie",
+            "Älter als 2 Jahre",
             "Sim-/Net-Lock",
             "Aktivierungssperre",
             "Aktive MDM-Software"
@@ -232,7 +232,7 @@ class EndProposal extends Component {
                     </Card>
                 </div>
                 <br/>
-                <p>* Bitte lade mindestens ein Foto des Geräts hoch.</p>
+                <p>* Hier kannst du bis zu 5 Dateien hochladen.</p>
                 <br/>
                 <h3>Unser Vorschlag:</h3>
                 {!isNaN(suggestion)
@@ -244,7 +244,7 @@ class EndProposal extends Component {
                 }
                 <br/>
                 <br/>
-                <Button disabled={this.state.documents.length < 1 || isNaN(suggestion)} id="button-create-ticket" onClick={this.handleClick}>Jetzt verkaufen!</Button>
+                <Button disabled={isNaN(suggestion)} id="button-create-ticket" onClick={this.handleClick}>Jetzt verkaufen!</Button>
             </div>
         );
     }

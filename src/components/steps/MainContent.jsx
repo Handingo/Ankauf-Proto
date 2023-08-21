@@ -81,10 +81,10 @@ class MainContent extends Component {
             action={functionalityActions.getFullyFunctionalAction}
         />,
         <FunctionalityChoice
-            text="Hat das Gerät noch eine Herstellergarantie?"
-            help="Besitzt du einen Beleg für das Gerät, welcher noch eine Herstellergarantie verspricht?"
+            text="Ist dein Gerät älter als 2 Jahre?"
+            help="Befindet sich das Gerät bereits länger als 2 Jahre in der Nutzung?"
             images={["./smartphones/s23.png", "./smartphones/s21.png"]}
-            action={functionalityActions.getGarantyAction}
+            action={functionalityActions.getKindaOldAction}
         />,
         // reversed indicates that the selection should get handled in a positive way - it's good when the customer removed Sim-Lock
         <FunctionalityChoice
@@ -99,12 +99,13 @@ class MainContent extends Component {
             images={["./smartphones/s20.png", "./smartphones/s21.png", "./smartphones/s22.png"]}
             action={functionalityActions.getActivationLockAction}
         />,
+        /*
         <FunctionalityChoice
             text="Ist eine MDM-Software o. ä. aktiv?"
             help="Dies kann besonders dann zutreffen, wenn das Gerät als Firmengerät diente. Hinweis: Wir kaufen keine Apple Geräte an, welche diesem Status unterliegen."
             images={["./smartphones/s23.png", "./smartphones/s21.png"]}
             action={functionalityActions.getMDMActiveAction}
-        />,
+        />,*/
         <EndProposal/>,
         <TicketForm/>,
         <TicketConfirmation/>

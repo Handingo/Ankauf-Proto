@@ -28,6 +28,7 @@ class TicketForm extends Component {
         demicile: "",
         street: "",
         houseNumber: "",
+        imei: "",
         iban: "",
         bic: "",
         showImeiHelp: false,
@@ -225,10 +226,24 @@ class TicketForm extends Component {
                                 </Form.Label>
                                 <Form.Control
                                     id="ticket-input-imei"
+                                    required
                                     type="number"
                                     min={100_000_000_000_000}
                                     max={999_999_999_999_999}
                                     placeholder="IMEI-Nummer des Geräts"
+                                    name="imei"
+                                />
+                                <Form.Control.Feedback type="invalid">Eine IMEI hat 15 Stellen.</Form.Control.Feedback>
+                            </Form.Group>
+                            <Form.Group as={Col}>
+                                <Form.Label htmlFor="ticket-input-firmware-version">
+                                    <p>Firmware-Version <span onClick={this.handleClickImeiHelp}><IconInfo/></span></p>
+                                </Form.Label>
+                                <Form.Control
+                                    id="ticket-input-imei"
+                                    type="text"
+                                    maxLength={48}
+                                    placeholder="Firmware-Version des Geräts"
                                 />
                                 <Form.Control.Feedback type="invalid">Eine IMEI hat 15 Stellen.</Form.Control.Feedback>
                             </Form.Group>
@@ -251,7 +266,7 @@ class TicketForm extends Component {
                                     </Form.Label>
                                     <Form.Select id="payment-method-selection">
                                         <option className="form-option">Banküberweisung</option>
-                                        <option className="form-option">Gutschein (mit Bonus)</option>
+                                        <option className="form-option">Gutschein (mit 10% Bonus)<IconInfo/></option>
                                     </Form.Select>
                                 </Form.Group>
                             </div>

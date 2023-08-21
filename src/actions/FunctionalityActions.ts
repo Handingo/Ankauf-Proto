@@ -1,5 +1,5 @@
 export const FULLY_FUNCTIONAL_ACTION: string = "FULLY_FUNCTIONAL_ACTION";
-export const HAS_GARANTY_ACTION: string = "HAS_GARANTY_ACTION";
+export const IS_KINDA_OLD_ACTION: string = "IS_KINDA_OLD_ACTION";
 export const HAS_SIM_LOCK_ACTION: string = "HAS_SIM_LOCK_ACTION";
 export const HAS_ACTIVATION_LOCK_ACTION: string = "HAS_ACTIVATION_LOCK_ACTION";
 export const IS_MDM_ACTIVE_ACTION: string = "IS_MDM_ACTIVE_ACTION";
@@ -13,10 +13,10 @@ export function getFullyFunctionalAction(isFullyFunctional: boolean) {
     };
 }
 
-export function getGarantyAction(hasGaranty: boolean) {
+export function getKindaOldAction(isKindaOld: boolean) {
     return {
-        type: HAS_GARANTY_ACTION,
-        hasGaranty: hasGaranty
+        type: IS_KINDA_OLD_ACTION,
+        isKindaOld: isKindaOld
     };
 }
 

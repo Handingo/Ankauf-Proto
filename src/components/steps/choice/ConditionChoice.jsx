@@ -42,7 +42,7 @@ class ConditionChoice extends Component {
 
     handleOpenResultModal() {
         const areas = ["Display", "Rahmen", "Rückseite", "Kamera"];
-        const conditions = ["Keine Spuren", "Leichte Spuren", "Stärkere Spuren", "Leichte Kerben/Risse", "Kerben/Risse"];
+        const conditions = ["Keine Spuren", "Leichte Spuren", "Stärkere Spuren", "Kerben/Risse", "Stärkere Kerben/Risse"];
         const results = ["Wie neu", "Sehr gut", "Gut", "Akzeptabel", "Inakzeptabel"];
         let i = 0;
         let score = 0;
@@ -155,8 +155,8 @@ class ConditionChoice extends Component {
                                     <Button className={selectedCondition === 0 ? "condition-modal-selected-condition" : ""} size="lg" variant="light" name="0" onClick={this.handleClickModalSelection}>Keine Spuren</Button>
                                     <Button className={selectedCondition === 1 ? "condition-modal-selected-condition" : ""} size="lg" variant="light" name="1" onClick={this.handleClickModalSelection}>Leichte Spuren</Button>
                                     <Button className={selectedCondition === 2 ? "condition-modal-selected-condition" : ""} size="lg" variant="light" name="2" onClick={this.handleClickModalSelection}>Stärkere Spuren</Button>
-                                    <Button className={selectedCondition === 3 ? "condition-modal-selected-condition" : ""} size="lg" variant="light" name="3" onClick={this.handleClickModalSelection}>Leichte Kerben/Risse</Button>
-                                    <Button className={selectedCondition === 4 ? "condition-modal-selected-condition" : ""} size="lg" variant="light" name="4" onClick={this.handleClickModalSelection}>Kerben/Risse</Button>
+                                    <Button className={selectedCondition === 3 ? "condition-modal-selected-condition" : ""} size="lg" variant="light" name="3" onClick={this.handleClickModalSelection}>Kerben/Risse</Button>
+                                    <Button className={selectedCondition === 4 ? "condition-modal-selected-condition" : ""} size="lg" variant="light" name="4" onClick={this.handleClickModalSelection}>Stärkere Kerben/Risse</Button>
                                 </div>
                                 <ModelViewer src={
                                     [ // should get connected to a database or a stable content webpage
