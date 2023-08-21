@@ -11,14 +11,17 @@ import * as selectionActions from "../../actions/SelectionActions";
 class EndProposal extends Component {
 
     state = {
+        images: [],
         documents: []
     };
 
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
-        this.handleClickUpload = this.handleClickUpload.bind(this);
-        this.handleUpload = this.handleUpload.bind(this);
+        this.handleClickUploadImage = this.handleClickUploadImage.bind(this);
+        this.handleClickUploadDocument = this.handleClickUploadDocument.bind(this);
+        this.handleUploadImage = this.handleUploadImage.bind(this);
+        this.handleUploadDocument = this.handleUploadDocument.bind(this);
     }
 
     handleClick(e) {
@@ -33,20 +36,41 @@ class EndProposal extends Component {
         window.scrollTo(0, 0);
     }
 
-    handleClickUpload(e) {
+    handleClickUploadImage(e) {
         e.preventDefault();
-        document.getElementById("file-upload").click();
+        document.getElementById("image-upload").click();
     }
 
-    handleUpload(e) {
+    handleClickUploadDocument(e) {
         e.preventDefault();
+        document.getElementById("document-upload").click();
+    }
+
+    handleUploadImage(e) {
+        e.preventDefault();
+
+        const name = e.currentTarget.getAttribute("name");
+
+        if (this.state.images.length + e.currentTarget.files.length > 5) { // max 5 documents
+            return;
+        }
+
+        this.setState({ // add uploaded documents to existing ones
+            [name]: [...this.state.images, ...e.currentTarget.files]
+        });
+    }
+
+    handleUploadDocument(e) {
+        e.preventDefault();
+
+        const name = e.currentTarget.getAttribute("name");
 
         if (this.state.documents.length + e.currentTarget.files.length > 5) { // max 5 documents
             return;
         }
 
         this.setState({ // add uploaded documents to existing ones
-            documents: [...this.state.documents, ...e.currentTarget.files]
+            [name]: [...this.state.documents, ...e.currentTarget.files]
         });
     }
 
@@ -198,28 +222,66 @@ class EndProposal extends Component {
                 <h2 id="step-end-header">Ankauf</h2>
                 <br/>
                 <div id="selection-result">
-                    <Card id="selection-result-image">
-                        <Card.Header>
-                            <Card.Title>
-                                Fotos / Dokumente<i>*</i>
-                            </Card.Title>
-                        </Card.Header>
-                        <Card.Body id="selection-result-image-body">
-                            <Button id="document-upload-button" variant="secondary" onClick={this.handleClickUpload}>Dateien hochladen</Button>
-                            <input type="file" id="file-upload" name="photos" onChange={this.handleUpload}/>
-                            {this.state.documents.length > 0 &&
-                                this.state.documents.map(document => {
-                                    const name = document.name.toLowerCase();
+                    <div id="selection-result-files">
+                        <Card>
+                            <Card.Header>
+                                <Card.Title>
+                                    Fotos<i>*</i>
+                                </Card.Title>
+                            </Card.Header>
+                            <Card.Body id="selection-result-images-body">
+                                <Button id="image-upload-button" variant="secondary" onClick={this.handleClickUploadImage}>Foto hochladen</Button>
+                                <input type="file" id="image-upload" name="images" onChange={this.handleUploadImage}/>
+                                {this.state.images.length > 0 &&
+                                    this.state.images.map(image => {
+                                        const name = image.name.toLowerCase();
+                                        const splitName = name.split(".");
 
-                                    if (!name.endsWith(".jpg") && !name.endsWith(".png") && !name.endsWith(".heic")) {
-                                        return null;
-                                    }
+                                        if (splitName.length < 2) { // name is empty or has no ending
+                                            return null;
+                                        }
 
-                                    return <Card.Img key={i++} src={URL.createObjectURL(document)} onClick={this.handleClickUpload}></Card.Img>;
-                                })
-                            }
-                        </Card.Body>
-                    </Card>
+                                        const ending = "." + splitName[splitName.length - 1]
+
+                                        if (![".jpg", ".png", ".heic"].includes(ending)) {
+                                            return null;
+                                        }
+
+                                        return <Card.Img key={i++} src={URL.createObjectURL(image)} onClick={this.handleClickUploadImage}></Card.Img>;
+                                    })
+                                }
+                            </Card.Body>
+                        </Card>
+                        <Card>
+                            <Card.Header>
+                                <Card.Title>
+                                    Dokumente<i>*</i>
+                                </Card.Title>
+                            </Card.Header>
+                            <Card.Body id="selection-result-documents-body">
+                                <Button id="document-upload-button" variant="secondary" onClick={this.handleClickUploadDocument}>Dokument hochladen</Button>
+                                <input type="file" id="document-upload" name="documents" onChange={this.handleUploadDocument}/>
+                                {this.state.documents.length > 0 &&
+                                    this.state.documents.map(document => {
+                                        const name = document.name.toLowerCase();
+                                        const splitName = name.split(".");
+
+                                        if (splitName.length < 2) { // name is empty or has no ending
+                                            return null;
+                                        }
+
+                                        const ending = "." + splitName[splitName.length - 1]
+
+                                        if (![".pdf", ".docx", ".odt", ".jpg", ".png", ".heic"].includes(ending)) {
+                                            return null;
+                                        }
+
+                                        return <Card.Img key={i++} src={URL.createObjectURL(document)} onClick={this.handleClickUploadDocument}></Card.Img>;
+                                    })
+                                }
+                            </Card.Body>
+                        </Card>
+                    </div>
                     <Card id="selection-result-details">
                         <Card.Header>
                             <Card.Title>

@@ -19,25 +19,33 @@
         display: grid;
         grid-template-columns: 66% 33%;
     }
+   
+    #selection-result-files .card-body {
+        min-height: 386px;
+    }
 }
 
-#selection-result #file-upload {
+#image-upload, #document-upload {
     display: none;
 }
 
-#selection-result-image-body {
+#selection-result-images-body, #selection-result-documents-body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-#selection-result-image-body .card-img {
+.card-img {
     max-width: 50%;
 }
 
-#selection-result .card-header, #selection-result .card-body {
+.card-header, .card-body {
     background-color: #F8F9FA;
+}
+
+.card-body button {
+    min-width: 200px;
 }
 
 #selection-result-details p {
