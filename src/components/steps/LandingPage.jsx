@@ -41,18 +41,19 @@ class LandingPage extends Component {
                 <div id="init-text">
                     <br/>
                     <br/>
-                    <h5>Achtung!</h5>
-                    <p>Wir kaufen keine Geräte an, die nicht funktionsfähig sind, einen <Link newTab text="Simlock" href="https://de.wikipedia.org/wiki/SIM-Lock"/> aufweisen oder noch einer <Link newTab text="Aktivierungssperre" href="https://handingo.de/pages/icloud-google-sperre-entfernen"/> unterliegen.</p>
+                    <h5>Wichtige Hinweise</h5>
+                    <p>
+                        Wir kaufen keine Geräte an, die nicht funktionsfähig sind, einen <Link newTab text="Simlock" href="https://de.wikipedia.org/wiki/SIM-Lock"/> aufweisen, 
+                        noch einer <Link newTab text="Aktivierungssperre" href="https://handingo.de/pages/icloud-google-sperre-entfernen"/> unterliegen oder mit 
+                        einer <Link newTab text="MDM Software" href="https://de.wikipedia.org/wiki/Mobile-Device-Management"/> arbeiten.
+                        Bitte achte außerdem darauf, dass das von dir verschickte Gerät in einem möglichst sauberen Zustand und bestenfalls mithilfe 
+                        der <Link newTab text="Verpackungshinweise von DHL" href="https://www.dhl.de/de/geschaeftskunden/paket/rund-um-den-versand/verpackung-versand.html"/> verschickt wird.
+                    </p>
                     <br/>
                     <br/>
                     <h5>Du hast Fragen oder Probleme?</h5>
                     <p>
-                        <br/>
                         Kontaktiere uns unter <Link newTab text="https://handingo.de/pages/kontakt" href="https://handingo.de/pages/kontakt"/>.
-                        <br/>
-                        <br/>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl rhoncus mattis rhoncus urna neque viverra. Massa placerat duis ultricies lacus sed. Enim nec dui nunc mattis enim ut tellus elementum sagittis. Ligula ullamcorper malesuada proin libero nunc consequat interdum varius. Nulla facilisi cras fermentum odio eu. Mattis enim ut tellus elementum sagittis vitae et. Tellus orci ac auctor augue mauris augue neque gravida in. Vel facilisis volutpat est velit egestas dui id ornare arcu. Vel pharetra vel turpis nunc eget lorem dolor sed viverra. Volutpat blandit aliquam etiam erat. Posuere ac ut consequat semper. Sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus. Aliquet bibendum enim facilisis gravida neque convallis. Quis imperdiet massa tincidunt nunc pulvinar sapien et.<br/>
-                        Enim praesent elementum facilisis leo vel. Ultricies mi quis hendrerit dolor magna eget est. Pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl. Sit amet dictum sit amet justo donec enim. Sit amet cursus sit amet dictum. Condimentum vitae sapien pellentesque habitant morbi. Senectus et netus et malesuada fames ac. Lorem ipsum dolor sit amet consectetur. Suspendisse potenti nullam ac tortor. Bibendum ut tristique et egestas quis ipsum suspendisse. Quis blandit turpis cursus in. Neque sodales ut etiam sit amet. Enim sit amet venenatis urna cursus. Luctus venenatis lectus magna fringilla urna porttitor rhoncus dolor. Et ligula ullamcorper malesuada proin libero.
                     </p>
                 </div>
             </div>

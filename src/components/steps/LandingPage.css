@@ -69,6 +69,10 @@
     margin-right: 15%;
 }
 
+#init-text h5 {
+    margin-bottom: 16px;
+}
+
 #init-text a {
     color: #1a95a3;
 }
