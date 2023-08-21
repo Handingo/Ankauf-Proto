@@ -195,7 +195,7 @@ class EndProposal extends Component {
 
         return (
             <div id="step-end">
-                <h2>Ankauf</h2>
+                <h2 id="step-end-header">Ankauf</h2>
                 <br/>
                 <div id="selection-result">
                     <Card id="selection-result-image">

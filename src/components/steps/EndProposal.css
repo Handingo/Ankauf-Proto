@@ -3,6 +3,13 @@
     margin-right: 10%;
 }
 
+@media only screen and (max-width: 651px) {
+    #step-end-header {
+        margin-top: 10%;
+        margin-bottom: 2%;
+    }
+}
+
 #step-end img {
     padding: 16px;
 }

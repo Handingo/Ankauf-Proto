@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import * as selectionActions from '../../../actions/SelectionActions';
 import IconInfo from "../../util/icon/IconInfo";
 import Link from "../../util/Link";
+import { isValidIBAN, isValidBIC } from "../../util/BankUtil"
 
 class TicketForm extends Component {
 
@@ -71,6 +72,16 @@ class TicketForm extends Component {
         }
 
         if (!this.state.checked) {
+            return;
+        }
+
+        if (!isValidBIC(this.state.bic)) {
+            window.scrollTo(0, 0);
+            return;
+        }
+
+        if (!isValidIBAN(this.state.iban)) {
+            window.scrollTo(0, 0);
             return;
         }
 
@@ -250,25 +261,27 @@ class TicketForm extends Component {
                                     autoComplete="nope"
                                     required
                                     type="text"
-                                    minLength="27"
-                                    maxLength="27"
+                                    minLength="15"
+                                    maxLength="34"
                                     placeholder="IBAN"
                                     name="iban"
                                     onChange={this.handleChange}
                                 />
-                                <Form.Control.Feedback type="invalid">Bitte teile uns deine IBAN mit.</Form.Control.Feedback>
+                                <Form.Control.Feedback type="invalid">Diese IBAN ist ungültig. (15-34 Zeichen)</Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Control
                                     autoComplete="nope"
                                     required
+                                    isValid={this.state.validated}
                                     type="text"
-                                    maxLength="16"
+                                    minLength="9"
+                                    maxLength="11"
                                     placeholder="BIC"
                                     name="bic"
                                     onChange={this.handleChange}
                                 />
-                                <Form.Control.Feedback type="invalid">Bitte teile uns den BIC deiner Bank mit.</Form.Control.Feedback>
+                                <Form.Control.Feedback type="invalid">Dieser BIC ist ungültig. (9-11 Zeichen)</Form.Control.Feedback>
                             </Form.Group>
                         </div>
                         <br/>
