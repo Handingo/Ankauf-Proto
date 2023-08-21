@@ -237,7 +237,7 @@ class TicketForm extends Component {
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Label htmlFor="ticket-input-firmware-version">
-                                    <p>Firmware-Version <span onClick={this.handleClickImeiHelp}><IconInfo/></span></p>
+                                    <p>Firmware-Version <span onClick={this.handleClickImeiHelp}></span></p>
                                 </Form.Label>
                                 <Form.Control
                                     id="ticket-input-imei"
