@@ -221,7 +221,7 @@ class TicketForm extends Component {
                         <div id="additional-data">
                             <Form.Group as={Col}>
                                 <Form.Label htmlFor="ticket-input-imei">
-                                    <p>IMEI-Nummer <span onClick={this.handleClickImeiHelp}><IconInfo/></span></p>
+                                    <p>IMEI-Nummer <span onClick={this.handleClickImeiHelp}></span></p>
                                 </Form.Label>
                                 <Form.Control
                                     id="ticket-input-imei"
