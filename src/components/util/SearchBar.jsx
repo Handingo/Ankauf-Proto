@@ -64,7 +64,7 @@ class SearchBar extends Component {
                         "Samsung Galaxy S23 Plus, 512 GB, White",
                         "Samsung Galaxy S23 Plus, 512 GB, Black",
                         "Samsung Galaxy S23 Ultra, 256 GB, Spacegray",
-                        "Samsung Galaxy S23 Ultra, 512 GB, Spacegray"
+                        "Samsung Galaxy S23 Ultra, 512 GB, Black"
                     ]}
                     placeholder="z. B. Samsung Galaxy S23 Ultra"
                     emptyLabel="Keine Vorschläge gefunden."
