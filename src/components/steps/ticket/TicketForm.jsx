@@ -16,6 +16,7 @@ class TicketForm extends Component {
         this.handleClick = this.handleClick.bind(this);
         this.handleChangeCheckbox = this.handleChangeCheckbox.bind(this);
         this.handleClickImeiHelp = this.handleClickImeiHelp.bind(this);
+        this.handleClickFirmwareHelp = this.handleClickFirmwareHelp.bind(this);
     }
 
     state = {
@@ -32,6 +33,7 @@ class TicketForm extends Component {
         iban: "",
         bic: "",
         showImeiHelp: false,
+        showFirmwareHelp: false,
         validated: false,
         checked: false
     };
@@ -93,6 +95,12 @@ class TicketForm extends Component {
     handleClickImeiHelp() {
         this.setState({
             showImeiHelp: !this.state.showImeiHelp
+        });
+    }
+
+    handleClickFirmwareHelp() {
+        this.setState({
+            showFirmwareHelp: !this.state.showFirmwareHelp
         });
     }
 
@@ -222,7 +230,7 @@ class TicketForm extends Component {
                         <div id="additional-data">
                             <Form.Group as={Col}>
                                 <Form.Label htmlFor="ticket-input-imei">
-                                    <p>IMEI-Nummer <span onClick={this.handleClickImeiHelp}></span></p>
+                                    <p>IMEI-Nummer <span onClick={this.handleClickImeiHelp}><IconInfo/></span></p>
                                 </Form.Label>
                                 <Form.Control
                                     id="ticket-input-imei"
@@ -237,7 +245,7 @@ class TicketForm extends Component {
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Label htmlFor="ticket-input-firmware-version">
-                                    <p>Firmware-Version <span onClick={this.handleClickImeiHelp}></span></p>
+                                    <p>Firmware-Version <span onClick={this.handleClickFirmwareHelp}><IconInfo/></span></p>
                                 </Form.Label>
                                 <Form.Control
                                     id="ticket-input-imei"
@@ -245,7 +253,6 @@ class TicketForm extends Component {
                                     maxLength={48}
                                     placeholder="Firmware-Version des Geräts"
                                 />
-                                <Form.Control.Feedback type="invalid">Eine IMEI hat 15 Stellen.</Form.Control.Feedback>
                             </Form.Group>
                             <div id="delivery-service">
                                 <Form.Group as={Col}>
@@ -266,7 +273,7 @@ class TicketForm extends Component {
                                     </Form.Label>
                                     <Form.Select id="payment-method-selection">
                                         <option className="form-option">Banküberweisung</option>
-                                        <option className="form-option">Gutschein (mit 10% Bonus)<IconInfo/></option>
+                                        <option className="form-option">Gutschein (mit 10% Bonus)</option>
                                     </Form.Select>
                                 </Form.Group>
                             </div>
@@ -337,6 +344,24 @@ class TicketForm extends Component {
                             Solltest du noch die Originalverpackung des Geräts besitzen, dann dürfte die IMEI-Nummer auf dieser hinterlegt sein.<br/>
                             Ansonsten gehe einfach in die Einstellungen des Geräts, klicke auf "Allgemein" und "Info".
                             In der darauffolgenden Auflistung sollte sich auch die IMEI-Nummer befinden.
+                        </p>
+                    </Modal.Body>
+                </Modal>
+                <Modal id="form-help-firmware-version" show={this.state.showFirmwareHelp} onHide={this.handleClickFirmwareHelp}>
+                    <Modal.Header closeButton>
+                        <h5>Firmware-Version</h5>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <h5>Unter Android auslesen:</h5>
+                        <p>
+                            Gehe in die Einstellungen deines Geräts und tippe auf "Telefoninfo" oder auch "Info". Anschließend wähle "Softwareinformationen".
+                            Unter dem Punkt "Android-Version" sollte sich nun die für uns nützliche Angabe befinden.
+                        </p>
+                        <br/>
+                        <h5>Unter iOS (Apple) auslesen:</h5>
+                        <p>
+                            Gehe in die Einstellungen deines Geräts und tippe auf "Allgemein". Anschließend wähle "Info".
+                            Unter dem Punkt "iOS-Version" sollte sich nun die für uns nützliche Angabe befinden.
                         </p>
                     </Modal.Body>
                 </Modal>
