@@ -81,8 +81,8 @@ class MainContent extends Component {
             action={functionalityActions.getFullyFunctionalAction}
         />,
         <FunctionalityChoice
-            text="Ist dein Gerät älter als 2 Jahre?"
-            help="Befindet sich das Gerät bereits länger als 2 Jahre in der Nutzung?"
+            text="War das Gerät länger als 2 Jahre in Gebrauch?"
+            help="Befand sich das Gerät insgesamt bereits länger als 2 Jahre in Gebrauch?"
             images={["./smartphones/s23.png", "./smartphones/s21.png"]}
             action={functionalityActions.getKindaOldAction}
         />,
