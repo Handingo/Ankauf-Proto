@@ -9,8 +9,56 @@
     width: 300px;
 }
 
+#payment-method-container {
+    margin-bottom: 0 !important;
+    margin-top: 8px !important;
+}
+
+.payment-method-container-row {
+    display: flex;
+    align-items: left;
+    margin-bottom: 16px;
+}
+
+.payment-method-container-row p {
+    padding-left: 10px;
+}
+
+.payment-method-container-row span {
+    margin-left: auto;
+}
+
+input[type="radio"] {
+    accent-color: #1a95a3;
+    float: left;
+    margin-top: 4px;
+    min-width: 25px !important;
+    max-width: 25px !important;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.icon-info {
+    margin-bottom: 2px;
+}
+
 #ticket-form .form-control {
     margin-bottom: 0;
+}
+
+#form-radio-button-selections strong {
+    color: #1a95a3;
+}
+
+.form-hidden-text {
+    text-align: left;
+    min-width: 270px;
+    margin-left: 30px;
+}
+
+#form-radio-button-selections .form-control {
+    min-width: 270px;
+    margin-left: 30px;
 }
 
 #ticket-form .invalid-feedback {
@@ -19,8 +67,8 @@
     margin-bottom: -4px;
 }
 
-#ticket-form .form-label {
-    margin-top: 0;
+.form-label {
+    margin-top: 8px;
 }
 
 .ticket-form-container .form-label {

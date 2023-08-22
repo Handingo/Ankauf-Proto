@@ -17,6 +17,9 @@ class TicketForm extends Component {
         this.handleChangeCheckbox = this.handleChangeCheckbox.bind(this);
         this.handleClickImeiHelp = this.handleClickImeiHelp.bind(this);
         this.handleClickFirmwareHelp = this.handleClickFirmwareHelp.bind(this);
+        this.handleClickPaymentBank = this.handleClickPaymentBank.bind(this);
+        this.handleClickPaymentBonus = this.handleClickPaymentBonus.bind(this);
+        this.handleClickPaymentBonusInfo = this.handleClickPaymentBonusInfo.bind(this);
     }
 
     state = {
@@ -34,6 +37,8 @@ class TicketForm extends Component {
         bic: "",
         showImeiHelp: false,
         showFirmwareHelp: false,
+        showPaymentBankInput: false,
+        showPaymentBonusInfoModal: false,
         validated: false,
         checked: false
     };
@@ -101,6 +106,25 @@ class TicketForm extends Component {
     handleClickFirmwareHelp() {
         this.setState({
             showFirmwareHelp: !this.state.showFirmwareHelp
+        });
+    }
+
+    // Unfortunately there seems to be no "uncheck" event, so there has to be a handler for each element
+    handleClickPaymentBank() {
+        this.setState({
+            showPaymentBankInput: true
+        });
+    }
+
+    handleClickPaymentBonus() {
+        this.setState({
+            showPaymentBankInput: false
+        });
+    }
+
+    handleClickPaymentBonusInfo() {
+        this.setState({
+            showPaymentBonusInfoModal: !this.state.showPaymentBonusInfoModal
         });
     }
 
@@ -262,55 +286,70 @@ class TicketForm extends Component {
                                     </Form.Label>
                                     <Form.Select id="delivery-service-selection">
                                         <option className="form-option">DHL</option>
-                                        <option className="form-option">DPD</option>
-                                        <option className="form-option">UPS</option>
                                     </Form.Select>
                                 </Form.Group>
                             </div>
-                            <div id="payment-method">
-                                <Form.Group as={Col}>
-                                    <Form.Label htmlFor="payment-method-selection">
-                                        <p>Zahlungswunsch</p>
-                                    </Form.Label>
-                                    <Form.Select id="payment-method-selection">
-                                        <option className="form-option">Banküberweisung</option>
-                                        <option className="form-option">Gutschein (mit 10% Bonus)</option>
-                                    </Form.Select>
-                                </Form.Group>
-                            </div>
-                            {/* Je nach Zahlungswunsch anders rendern */}
-                            <Form.Group as={Col}>
-                                <Form.Control
-                                    autoComplete="nope"
-                                    required
-                                    type="text"
-                                    minLength="15"
-                                    maxLength="34"
-                                    placeholder="IBAN"
-                                    name="iban"
-                                    onChange={this.handleChange}
-                                />
-                                <Form.Control.Feedback type="invalid">Diese IBAN ist ungültig. (15-34 Zeichen)</Form.Control.Feedback>
-                            </Form.Group>
-                            <Form.Group as={Col}>
-                                <Form.Control
-                                    autoComplete="nope"
-                                    required
-                                    isValid={this.state.validated}
-                                    type="text"
-                                    minLength="9"
-                                    maxLength="11"
-                                    placeholder="BIC"
-                                    name="bic"
-                                    onChange={this.handleChange}
-                                />
-                                <Form.Control.Feedback type="invalid">Dieser BIC ist ungültig. (9-11 Zeichen)</Form.Control.Feedback>
+                            <Form.Group id="form-radio-button-selections" as={Col}>
+                                <Form.Label>
+                                    <p>Auszahlungswunsch</p>
+                                </Form.Label>
+                                <Col id="payment-method-container">
+                                    <div className="payment-method-container-block">
+                                        <div className="payment-method-container-row">
+                                            <div>
+                                                <input type="radio" id="payment-method-bonus" name="payment-method" onClick={this.handleClickPaymentBonus}/>
+                                                <p>Gutschein <span onClick={this.handleClickPaymentBonusInfo}><IconInfo/></span></p>
+                                            </div>
+                                            <span><strong>{(1.1 * this.props.result.resultValue).toLocaleString(undefined, { minimumFractionDigits: 2 })} €</strong></span>
+                                        </div>
+                                    </div>
+                                    <div className="payment-method-container-block">
+                                        <div className="payment-method-container-row">
+                                            <div>
+                                                <input type="radio" id="payment-method-bank" name="payment-method" onClick={this.handleClickPaymentBank}/>
+                                                <p>Banküberweisung</p>
+                                            </div>
+                                            <span><strong>{(this.props.result.resultValue).toLocaleString(undefined, { minimumFractionDigits: 2 })} €</strong></span>
+                                        </div>
+                                        {this.state.showPaymentBankInput && 
+                                            <div id="payment-method-container-bank-input">
+                                                <Form.Group as={Col}>
+                                                    <Form.Control
+                                                        autoComplete="nope"
+                                                        required
+                                                        type="text"
+                                                        minLength="15"
+                                                        maxLength="34"
+                                                        placeholder="IBAN"
+                                                        name="iban"
+                                                        onChange={this.handleChange}
+                                                    />
+                                                    <Form.Control.Feedback type="invalid">Diese IBAN ist ungültig. (15-34 Zeichen)</Form.Control.Feedback>
+                                                </Form.Group>
+                                                <Form.Group as={Col}>
+                                                    <Form.Control
+                                                        autoComplete="nope"
+                                                        required
+                                                        isValid={this.state.validated}
+                                                        type="text"
+                                                        minLength="9"
+                                                        maxLength="11"
+                                                        placeholder="BIC"
+                                                        name="bic"
+                                                        onChange={this.handleChange}
+                                                    />
+                                                    <Form.Control.Feedback type="invalid">Dieser BIC ist ungültig. (9-11 Zeichen)</Form.Control.Feedback>
+                                                </Form.Group>
+                                            </div>
+                                        }
+                                    </div>
+                                </Col>
                             </Form.Group>
                         </div>
                         <br/>
                         <p id="legal-text">
                             Ich bestätige, dass die von mir getätigten Angaben der Wahrheit entsprechen und schicke das Gerät, sobald meine
-                            Anfrage bestätigt wurde, angemessen verpackt, an die Firmenadresse von Handingo.de.<br/>
+                            Anfrage bestätigt wurde, angemessen verpackt und im angegebenen Zustand, an die Firmenadresse von Handingo.de.<br/>
                             Das eingesendete Gerät verfügt über ein CE-Zeichen und befindet sich in einem Zustand, in welchem es möglichst
                             einfach auf Werkseinstellungen zurückgesetzt werden kann.<br/>
                             Außerdem bin ich damit einverstanden, dass Schutzmaßnahmen, wie Displayfolien, ggf. restlos entfernt werden,
@@ -363,6 +402,17 @@ class TicketForm extends Component {
                         <p>
                             Gehe in die Einstellungen deines Geräts und tippe auf "Allgemein". Anschließend wähle "Info".
                             Unter dem Punkt "iOS-Version" sollte sich nun die für uns nützliche Angabe befinden.
+                        </p>
+                    </Modal.Body>
+                </Modal>
+                <Modal id="form-help-payment-bonus" show={this.state.showPaymentBonusInfoModal} onHide={this.handleClickPaymentBonusInfo}>
+                    <Modal.Header closeButton>
+                        <h5>Gutschein mit Bonus</h5>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <p>
+                            Erhalte einen Bonus von 10% auf den ausgezahlten Wert, indem du ihn dir gleich für unseren Shop gutschreiben lässt!<br/>
+                            Bitte beachte, dass deine oben angegebene E-Mail-Adresse dafür der deines Handingo-Accounts entsprechen muss.
                         </p>
                     </Modal.Body>
                 </Modal>

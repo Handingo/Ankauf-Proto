@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { Button, Card } from "react-bootstrap";
 import Link from "../util/Link";
 import * as selectionActions from "../../actions/SelectionActions";
+import * as resultActions from "../../actions/ResultActions";
 
 // Page which displays an estimated offer and lets users upload pictures/documents of the device
 
@@ -12,7 +13,8 @@ class EndProposal extends Component {
 
     state = {
         images: [],
-        documents: []
+        documents: [],
+        resultValue: 0.0
     };
 
     constructor(props) {
@@ -22,59 +24,7 @@ class EndProposal extends Component {
         this.handleClickUploadDocument = this.handleClickUploadDocument.bind(this);
         this.handleUploadImage = this.handleUploadImage.bind(this);
         this.handleUploadDocument = this.handleUploadDocument.bind(this);
-    }
 
-    handleClick(e) {
-        e.preventDefault();
-
-        if (!this.state.documents) {
-            window.scrollTo(0, 0);
-            return;
-        }
-
-        this.props.selectStep(this.props.selection.step + 1);
-        window.scrollTo(0, 0);
-    }
-
-    handleClickUploadImage(e) {
-        e.preventDefault();
-        document.getElementById("image-upload").click();
-    }
-
-    handleClickUploadDocument(e) {
-        e.preventDefault();
-        document.getElementById("document-upload").click();
-    }
-
-    handleUploadImage(e) {
-        e.preventDefault();
-
-        const name = e.currentTarget.getAttribute("name");
-
-        if (this.state.images.length + e.currentTarget.files.length > 5) { // max 5 documents
-            return;
-        }
-
-        this.setState({ // add uploaded documents to existing ones
-            [name]: [...this.state.images, ...e.currentTarget.files]
-        });
-    }
-
-    handleUploadDocument(e) {
-        e.preventDefault();
-
-        const name = e.currentTarget.getAttribute("name");
-
-        if (this.state.documents.length + e.currentTarget.files.length > 5) { // max 5 documents
-            return;
-        }
-
-        this.setState({ // add uploaded documents to existing ones
-            [name]: [...this.state.documents, ...e.currentTarget.files]
-        });
-    }
-
-    render() {
         let suggestion;
 
         // TODO - should get connected to a database
@@ -166,6 +116,61 @@ class EndProposal extends Component {
             }
         }
 
+        this.state.resultValue = suggestion;
+    }
+
+    handleClick(e) {
+        e.preventDefault();
+
+        if (!this.state.documents) {
+            window.scrollTo(0, 0);
+            return;
+        }
+
+        this.props.setResultValue(this.state.resultValue);
+        this.props.selectStep(this.props.selection.step + 1);
+        window.scrollTo(0, 0);
+    }
+
+    handleClickUploadImage(e) {
+        e.preventDefault();
+        document.getElementById("image-upload").click();
+    }
+
+    handleClickUploadDocument(e) {
+        e.preventDefault();
+        document.getElementById("document-upload").click();
+    }
+
+    handleUploadImage(e) {
+        e.preventDefault();
+
+        const name = e.currentTarget.getAttribute("name");
+
+        if (this.state.images.length + e.currentTarget.files.length > 5) { // max 5 documents
+            return;
+        }
+
+        this.setState({ // add uploaded documents to existing ones
+            [name]: [...this.state.images, ...e.currentTarget.files]
+        });
+    }
+
+    handleUploadDocument(e) {
+        e.preventDefault();
+
+        const name = e.currentTarget.getAttribute("name");
+
+        if (this.state.documents.length + e.currentTarget.files.length > 5) { // max 5 documents
+            return;
+        }
+
+        this.setState({ // add uploaded documents to existing ones
+            [name]: [...this.state.documents, ...e.currentTarget.files]
+        });
+    }
+
+    render() {
         let i = 0;
         const keys = [
             "Gerätetyp",
@@ -216,6 +221,8 @@ class EndProposal extends Component {
         }
 
         i = 0;
+
+        const suggestion = this.state.resultValue;
 
         return (
             <div id="step-end">
@@ -313,7 +320,8 @@ class EndProposal extends Component {
 }
 
 const mapStateToProps = dispatch => bindActionCreators({
-    selectStep: selectionActions.getSelectStepAction
+    selectStep: selectionActions.getSelectStepAction,
+    setResultValue: resultActions.getResultValueAction
 }, dispatch);
 
 export default connect(state => { return state; }, mapStateToProps)(EndProposal);

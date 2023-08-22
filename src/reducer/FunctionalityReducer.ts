@@ -1,4 +1,4 @@
-import * as functionalityActions from "../actions/FunctionalityActions"
+import * as functionalityActions from "../actions/FunctionalityActions";
 
 const initialState: {
     isFullyFunctional: boolean | undefined,
