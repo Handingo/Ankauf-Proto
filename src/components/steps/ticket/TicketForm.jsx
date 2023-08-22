@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import * as selectionActions from '../../../actions/SelectionActions';
 import IconInfo from "../../util/icon/IconInfo";
 import Link from "../../util/Link";
-import { isValidIBAN, isValidBIC } from "../../util/BankUtil"
+// import { isValidIBAN, isValidBIC } from "../../util/BankUtil"
 
 class TicketForm extends Component {
 
@@ -18,6 +18,7 @@ class TicketForm extends Component {
         this.handleClickImeiHelp = this.handleClickImeiHelp.bind(this);
         this.handleClickFirmwareHelp = this.handleClickFirmwareHelp.bind(this);
         this.handleClickPaymentBank = this.handleClickPaymentBank.bind(this);
+        this.handleClickPaymentPaypal = this.handleClickPaymentPaypal.bind(this);
         this.handleClickPaymentBonus = this.handleClickPaymentBonus.bind(this);
         this.handleClickPaymentBonusInfo = this.handleClickPaymentBonusInfo.bind(this);
     }
@@ -83,7 +84,7 @@ class TicketForm extends Component {
             return;
         }
 
-        if (!isValidBIC(this.state.bic)) {
+        /*if (!isValidBIC(this.state.bic)) {
             window.scrollTo(0, 0);
             return;
         }
@@ -91,7 +92,7 @@ class TicketForm extends Component {
         if (!isValidIBAN(this.state.iban)) {
             window.scrollTo(0, 0);
             return;
-        }
+        }*/
 
         this.props.selectStep(this.props.selection.step + 1);
         window.scrollTo(0, 0);
@@ -113,6 +114,12 @@ class TicketForm extends Component {
     handleClickPaymentBank() {
         this.setState({
             showPaymentBankInput: true
+        });
+    }
+
+    handleClickPaymentPaypal() {
+        this.setState({
+            showPaymentBankInput: false
         });
     }
 
@@ -298,9 +305,18 @@ class TicketForm extends Component {
                                         <div className="payment-method-container-row">
                                             <div>
                                                 <input type="radio" id="payment-method-bonus" name="payment-method" onClick={this.handleClickPaymentBonus}/>
-                                                <p>Gutschein <span onClick={this.handleClickPaymentBonusInfo}><IconInfo/></span></p>
+                                                <p>Gutschein (+10%) &nbsp;<span onClick={this.handleClickPaymentBonusInfo}><IconInfo/></span></p>
                                             </div>
                                             <span><strong>{(1.1 * this.props.result.resultValue).toLocaleString(undefined, { minimumFractionDigits: 2 })} €</strong></span>
+                                        </div>
+                                    </div>
+                                    <div className="payment-method-container-block">
+                                        <div className="payment-method-container-row">
+                                            <div>
+                                                <input type="radio" id="payment-method-paypal" name="payment-method" onClick={this.handleClickPaymentPaypal}/>
+                                                <p>PayPal</p>
+                                            </div>
+                                            <span><strong>{(this.props.result.resultValue).toLocaleString(undefined, { minimumFractionDigits: 2 })} €</strong></span>
                                         </div>
                                     </div>
                                     <div className="payment-method-container-block">

@@ -67,6 +67,10 @@ input[type="radio"] {
     margin-bottom: -4px;
 }
 
+#form-radio-button-selections .invalid-feedback {
+    margin-left: 35px;
+}
+
 .form-label {
     margin-top: 8px;
 }

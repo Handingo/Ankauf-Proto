@@ -1,0 +1,11 @@
++ Hat das Gerät Simlock?
++ (+10%)
++ 2 Jahre und funktion vertauschen
++ Auszahlung auch über Paypal
+endscreen link zur app
+zusatzfrage ob funktionstest gewünscht ist
+
+funktion nein? checkboxen kamera etc, als props übergeben - wenn nicht in den props, nicht anzeigen
+
+Muss diskutiert werden:
+Firmware wirklich behalten? <- auskommentieren
