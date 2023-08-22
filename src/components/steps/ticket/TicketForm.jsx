@@ -153,6 +153,7 @@ class TicketForm extends Component {
                                 <Form.Control
                                     id="ticket-input-email"
                                     required
+                                    autoComplete="true"
                                     type="email"
                                     maxLength="254"
                                     placeholder="E-Mail"
@@ -248,7 +249,7 @@ class TicketForm extends Component {
                                     <p>Firmware-Version <span onClick={this.handleClickFirmwareHelp}><IconInfo/></span></p>
                                 </Form.Label>
                                 <Form.Control
-                                    id="ticket-input-imei"
+                                    id="ticket-input-firmware-version"
                                     type="text"
                                     maxLength={48}
                                     placeholder="Firmware-Version des Geräts"
