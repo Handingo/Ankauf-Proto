@@ -16,7 +16,7 @@
 
 .payment-method-container-row {
     display: flex;
-    align-items: left;
+    /* align-items: left; */
     margin-bottom: 16px;
 }
 

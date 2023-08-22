@@ -67,15 +67,27 @@ class TicketForm extends Component {
             validated: true
         });
 
+        let j = 0;
         // checks whether some fields aren't filled yet
         for (const entry in this.state) {
             if (this.state.hasOwnProperty(entry) && this.state[entry] !== undefined && this.state[entry].length < 1) {
-                window.scrollTo(0, 0);
-                return;
+                if (j < 10) {
+                    console.log(j + " / " + this.state[entry]);
+                    window.scrollTo(0, 0);
+                    return;
+                }
+
+                if (this.state.showPaymentBankInput) {
+                    console.log("bank / " + this.state[entry]);
+                    window.scrollTo(0, 0);
+                    return;
+                }
             }
+            j++;
         }
 
         if (!this.state.email.includes('@') || this.state.email.length < 3 || this.state.email !== this.state.emailConfirm) {
+            console.log("@");
             window.scrollTo(0, 0);
             return;
         }
@@ -272,6 +284,7 @@ class TicketForm extends Component {
                                     max={999_999_999_999_999}
                                     placeholder="IMEI-Nummer des Geräts"
                                     name="imei"
+                                    onChange={this.handleChange}
                                 />
                                 <Form.Control.Feedback type="invalid">Eine IMEI hat 15 Stellen.</Form.Control.Feedback>
                             </Form.Group>
