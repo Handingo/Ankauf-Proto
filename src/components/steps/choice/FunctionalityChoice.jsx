@@ -51,10 +51,10 @@ class FunctionalityChoice extends Component {
                 </Col>
                 <Modal id="functionality-help-modal" show={this.state.showHelp} onHide={this.handleClickHelp}>
                     <Modal.Header closeButton>
-                        {this.props.text} {/* Line 77-79 in MainContent.jsx */}
+                        {this.props.text} {/* Line 78-79 in MainContent.jsx */}
                     </Modal.Header>
                     <Modal.Body>
-                        {this.props.help} {/* Line 77-79 in MainContent.jsx */}
+                        {this.props.help} {/* Line 78-79 in MainContent.jsx */}
                     </Modal.Body>
                 </Modal>
             </div>
