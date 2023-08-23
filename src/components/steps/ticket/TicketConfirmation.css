@@ -10,12 +10,16 @@
     padding-right: 30%;
 }
 
-#ticket-confirmation p {
+p {
     padding-top: 32%;
     padding-bottom: 60%;
     font-size: 22px;
     text-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
     /* text-wrap: balance; */ /* coming soon (finally) */
+}
+
+a {
+    color: #1a95a3;
 }
 
 @media only screen and (max-width: 990px) {
@@ -24,7 +28,7 @@
         padding-right: 16%;
     }
 
-    #ticket-confirmation p {
+    p {
         padding-top: 45%;
         font-size: 20px;
     }    

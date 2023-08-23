@@ -1,8 +1,9 @@
-#ticket-form .form-option:hover { /* TODO - funktioniert nicht, Optionen bleiben blau */
+option:hover, option:checked { /* TODO - funktioniert nicht, Optionen bleiben blau */
     background-color: #1a95a3 !important;
+    accent-color: #1a95a3 !important;
 }
 
-#ticket-form .col {
+.col {
     display: flex;
     flex-direction: column;
     margin: 0 auto 16px auto;
