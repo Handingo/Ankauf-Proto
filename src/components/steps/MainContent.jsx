@@ -11,6 +11,7 @@ import TicketConfirmation from "./ticket/TicketConfirmation";
 import FunctionalityChoice from "./choice/FunctionalityChoice";
 import ConditionChoice from "./choice/ConditionChoice";
 import ButtonBack from "../util/button/ButtonBack";
+import FunctionalityTest from "./choice/FunctionalityTest";
 
 class MainContent extends Component {
 
@@ -80,6 +81,9 @@ class MainContent extends Component {
         />,
         // "text" und "help" werden in Zeile 54-57 in FunctionalityChoice.jsx implementiert
         // TODO - Wurde SIM-/Net-Lock entfernt? - help-Link prüfen
+        <FunctionalityTest
+            text="Wie funktionsfähig ist dein Gerät?"
+        />,
         <FunctionalityChoice
             text="Ist dein Gerät voll funktionsfähig?"
             help="Lassen sich alle Funktionen des Geräts nutzen (wie bspw. die Kamera, das Mikrofon oder die Lautsprecher)?"

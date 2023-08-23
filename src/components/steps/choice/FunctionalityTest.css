@@ -1,0 +1,30 @@
+.fade.modal.show {
+    padding-left: 0 !important;
+}
+
+#determine-functionality-button {
+    margin-bottom: 16px;
+}
+
+#determine-functionality-button, #functionality-test-continue-button {
+    min-width: 300px;
+    margin-bottom: 16px;
+}
+
+.functionality-test-row {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.functionality-test-row p {
+    margin-bottom: 0;
+}
+
+.functionality-test-row input {
+    margin-left: 16px;
+    margin-right: 32px;
+    margin-top: 0;
+    transform: scale(1.5);
+    accent-color: #1a95a3;
+    cursor: pointer;
+}

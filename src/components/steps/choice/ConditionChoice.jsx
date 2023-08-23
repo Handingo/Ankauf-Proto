@@ -29,12 +29,12 @@ class ConditionChoice extends Component {
         this.handleClickModalFinishBack = this.handleClickModalFinishBack.bind(this);
     }
 
-    handleClick(e) {
+    handleClick() {
         this.props.dispatch(selectionActions.getSelectStepAction(this.props.selection.step + 1));
         window.scrollTo(0, 0);
     }
 
-    handleModal(e) {
+    handleModal() {
         this.setState({
             showModal: !this.state.showModal
         });
@@ -83,7 +83,7 @@ class ConditionChoice extends Component {
         });
     }
 
-    handleClickModalBack(e) {
+    handleClickModalBack() {
 
         const step = this.state.conditionStep - 1;
 
@@ -96,7 +96,7 @@ class ConditionChoice extends Component {
         });
     }
 
-    handleClickModalContinue(e) {
+    handleClickModalContinue() {
         const step = this.state.conditionStep + 1;
 
         if (step >= this.props.condition.selectedConditions.length) {
@@ -219,7 +219,7 @@ class ConditionChoice extends Component {
                 <br/>
                 <p>{this.props.text}</p>
                 <br/>
-                <h2>{conditionAvailable ? "Zustand: " + this.props.condition.result : "Noch keinen Zustand ermittelt."}</h2>
+                <h3>{conditionAvailable ? "Zustand: " + this.props.condition.result : "Noch keinen Zustand ermittelt."}</h3>
                 <br/>
                 <br/>
                 <div id="condition-buttons">

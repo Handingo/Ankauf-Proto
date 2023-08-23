@@ -127,6 +127,7 @@ input[type="radio"] {
 .ticket-form-container input[type="checkbox"] {
     transform: scale(2);
     accent-color: #1a95a3;
+    cursor: pointer;
 }
 
 #button-send-ticket {
