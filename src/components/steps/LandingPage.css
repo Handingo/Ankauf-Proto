@@ -78,6 +78,10 @@
 }
 
 @media only screen and (max-width: 991px) {
+    #init-text {
+        margin-bottom: 64px;
+    }
+
     #init-text p {
         margin-left: -5%;
         margin-right: -5%;

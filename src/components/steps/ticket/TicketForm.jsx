@@ -34,12 +34,14 @@ class TicketForm extends Component {
         street: "",
         houseNumber: "",
         imei: "",
-        iban: "",
-        bic: "",
+        paypalName: undefined,
+        iban: undefined,
+        bic: undefined,
         showImeiHelp: false,
         showFirmwareHelp: false,
         showPaymentBankInput: false,
         showPaymentBonusInfoModal: false,
+        chosePayment: false,
         validated: false,
         checked: false
     };
@@ -87,12 +89,16 @@ class TicketForm extends Component {
         }
 
         if (!this.state.email.includes('@') || this.state.email.length < 3 || this.state.email !== this.state.emailConfirm) {
-            console.log("@");
             window.scrollTo(0, 0);
             return;
         }
 
         if (!this.state.checked) {
+            return;
+        }
+
+        if (!this.state.chosePayment) {
+            window.scrollTo(0, 700);
             return;
         }
 
@@ -122,28 +128,34 @@ class TicketForm extends Component {
         });
     }
 
-    // Unfortunately there seems to be no "uncheck" event, so there has to be a handler for each element
-    handleClickPaymentBank() {
-        this.setState({
-            showPaymentBankInput: true
-        });
-    }
-
-    handleClickPaymentPaypal() {
-        this.setState({
-            showPaymentBankInput: false
-        });
-    }
-
     handleClickPaymentBonus() {
         this.setState({
-            showPaymentBankInput: false
+            showPaymentPaypalInput: false,
+            showPaymentBankInput: false,
+            chosePayment: true
         });
     }
 
     handleClickPaymentBonusInfo() {
         this.setState({
             showPaymentBonusInfoModal: !this.state.showPaymentBonusInfoModal
+        });
+    }
+
+    // Unfortunately there seems to be no "uncheck" event, so there has to be a handler for each element
+    handleClickPaymentBank() {
+        this.setState({
+            showPaymentPaypalInput: false,
+            showPaymentBankInput: true,
+            chosePayment: true
+        });
+    }
+
+    handleClickPaymentPaypal() {
+        this.setState({
+            showPaymentPaypalInput: true,
+            showPaymentBankInput: false,
+            chosePayment: true
         });
     }
 
@@ -331,6 +343,23 @@ class TicketForm extends Component {
                                             </div>
                                             <span><strong>{(this.props.result.resultValue).toLocaleString(undefined, { minimumFractionDigits: 2 })} €</strong></span>
                                         </div>
+                                        {this.state.showPaymentPaypalInput && 
+                                            <div id="payment-method-container-paypal-input">
+                                                <Form.Group as={Col}>
+                                                    <Form.Control
+                                                        autoComplete="nope"
+                                                        required
+                                                        type="text"
+                                                        minLength="2"
+                                                        maxLength="64"
+                                                        placeholder="Paypal Name"
+                                                        name="paypalName"
+                                                        onChange={this.handleChange}
+                                                    />
+                                                    <Form.Control.Feedback type="invalid">Dieser Name ist ungültig. (2-64 Zeichen)</Form.Control.Feedback>
+                                                </Form.Group>
+                                            </div>
+                                        }
                                     </div>
                                     <div className="payment-method-container-block">
                                         <div className="payment-method-container-row">
@@ -359,7 +388,6 @@ class TicketForm extends Component {
                                                     <Form.Control
                                                         autoComplete="nope"
                                                         required
-                                                        isValid={this.state.validated}
                                                         type="text"
                                                         minLength="9"
                                                         maxLength="11"

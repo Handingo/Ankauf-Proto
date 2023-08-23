@@ -3,7 +3,7 @@ option:hover, option:checked { /* TODO - funktioniert nicht, Optionen bleiben bl
     accent-color: #1a95a3 !important;
 }
 
-.col {
+#ticket-form .col {
     display: flex;
     flex-direction: column;
     margin: 0 auto 16px auto;

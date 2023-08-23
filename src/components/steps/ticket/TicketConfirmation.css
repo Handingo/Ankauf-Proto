@@ -10,7 +10,7 @@
     padding-right: 30%;
 }
 
-p {
+#ticket-confirmation p {
     padding-top: 32%;
     padding-bottom: 60%;
     font-size: 22px;
@@ -18,7 +18,7 @@ p {
     /* text-wrap: balance; */ /* coming soon (finally) */
 }
 
-a {
+#ticket-confirmation a {
     color: #1a95a3;
 }
 
@@ -28,7 +28,7 @@ a {
         padding-right: 16%;
     }
 
-    p {
+    #ticket-confirmation p {
         padding-top: 45%;
         font-size: 20px;
     }    
