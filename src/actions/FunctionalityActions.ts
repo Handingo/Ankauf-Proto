@@ -1,15 +1,15 @@
-export const FULLY_FUNCTIONAL_ACTION: string = "FULLY_FUNCTIONAL_ACTION";
 export const IS_KINDA_OLD_ACTION: string = "IS_KINDA_OLD_ACTION";
+export const FUNCTIONALITY_DETAILS_ACTION: string = "FUNCTIONALITY_DETAILS_ACTION";
 export const HAS_SIM_LOCK_ACTION: string = "HAS_SIM_LOCK_ACTION";
 export const HAS_ACTIVATION_LOCK_ACTION: string = "HAS_ACTIVATION_LOCK_ACTION";
 export const IS_MDM_ACTIVE_ACTION: string = "IS_MDM_ACTIVE_ACTION";
 
 // FunctionalityReducer.ts works with FunctionalityActions
 
-export function getFullyFunctionalAction(isFullyFunctional: boolean) {
+export function getFunctionalityDetailsAction(functionalityDetails: any) {
     return {
-        type: FULLY_FUNCTIONAL_ACTION,
-        isFullyFunctional: isFullyFunctional
+        type: FUNCTIONALITY_DETAILS_ACTION,
+        functionalityDetails: functionalityDetails
     };
 }
 

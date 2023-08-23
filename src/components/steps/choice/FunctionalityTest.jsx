@@ -1,22 +1,36 @@
 import "./FunctionalityTest.css";
 import { Component } from "react";
 import { Button, Modal } from "react-bootstrap";
+import * as functionalityActions from "../../../actions/FunctionalityActions";
 import * as selectionActions from "../../../actions/SelectionActions";
+import { connect } from "react-redux";
 
 class FunctionalityTest extends Component {
 
     state = {
-        showModal: true,
-        result: undefined
+        showModal: false,
+        data: {
+            display: false,
+            call: false,
+            battery: false,
+            camera: false,
+            connectivity: false,
+            biometry: false,
+            sensors: false,
+            buttons: false,
+            storage: false
+        }
     };
 
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.handleModal = this.handleModal.bind(this);
+        this.handleChangeCheckbox = this.handleChangeCheckbox.bind(this);
     }
 
     handleClick() {
+        this.props.dispatch(functionalityActions.getFunctionalityDetailsAction(this.state.data));
         this.props.dispatch(selectionActions.getSelectStepAction(this.props.selection.step + 1));
         window.scrollTo(0, 0);
     }
@@ -27,8 +41,17 @@ class FunctionalityTest extends Component {
         });
     }
 
+    handleChangeCheckbox(e) {
+        this.setState({
+            data: {
+                ...this.state.data,
+                [e.currentTarget.getAttribute("name")]: e.currentTarget.checked
+            }
+        });
+    }
+
     render() {
-        const functionalityAvailable = this.state.result !== undefined;
+        const functionalityAvailable = this.props.functionality.functionalityDetails !== undefined;
 
         return (
             <div id="functionality-test">
@@ -36,7 +59,7 @@ class FunctionalityTest extends Component {
                 <br/>
                 <p>{this.props.text}</p>
                 <br/>
-                <h3>{functionalityAvailable ? this.state.result : "Bitte überprüfe die Funktionsfähigkeit deines Geräts."}</h3>
+                <h3>{functionalityAvailable ? "Du hast die Überprüfung durchgeführt." : "Bitte überprüfe die Funktionsfähigkeit deines Geräts."}</h3>
                 <br/>
                 <br/>
                 <div id="functionality-buttons">
@@ -74,7 +97,7 @@ class FunctionalityTest extends Component {
                             <p><strong>Leistung</strong> Lässt sich das Gerät flüssig bedienen?</p>
                         </div>
                         <div className="functionality-test-row">
-                            <input type="checkbox" name="authentication" onChange={this.handleChangeCheckbox}/>
+                            <input type="checkbox" name="biometry" onChange={this.handleChangeCheckbox}/>
                             <p><strong>Biometrie</strong> Funktioniert das Entsperren?</p>
                         </div>
                         <div className="functionality-test-row">
@@ -91,7 +114,7 @@ class FunctionalityTest extends Component {
                         </div>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button id="functionality-modal-finished" size="lg" onClick={this.handleClickModalFinish}>Fertig</Button>
+                        <Button id="functionality-modal-finished" size="lg" onClick={this.handleClick}>Fertig</Button>
                     </Modal.Footer>
                 </Modal>
             </div>
@@ -99,4 +122,4 @@ class FunctionalityTest extends Component {
     }
 }
 
-export default FunctionalityTest;
+export default connect(state => { return state; })(FunctionalityTest);

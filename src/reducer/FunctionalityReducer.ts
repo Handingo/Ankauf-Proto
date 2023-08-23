@@ -1,14 +1,24 @@
 import * as functionalityActions from "../actions/FunctionalityActions";
 
 const initialState: {
-    isFullyFunctional: boolean | undefined,
     isKindaOld: boolean | undefined,
+    functionalityDetails: {
+        display: false,
+        call: false,
+        battery: false,
+        camera: false,
+        connectivity: false,
+        biometry: false,
+        sensors: false,
+        buttons: false,
+        storage: false
+    } | undefined,
     hasSimLock: boolean | undefined,
     hasActivationLock: boolean | undefined,
     isMDMActive: boolean | undefined
 } = {
-    isFullyFunctional: undefined,
     isKindaOld: undefined,
+    functionalityDetails: undefined,
     hasSimLock: undefined,
     hasActivationLock: undefined,
     isMDMActive: undefined
@@ -18,10 +28,10 @@ const initialState: {
 
 function functionalityReducer(state = initialState, action: any) {
     switch (action.type) {
-        case functionalityActions.FULLY_FUNCTIONAL_ACTION:
+        case functionalityActions.FUNCTIONALITY_DETAILS_ACTION:
             return {
                 ...state,
-                isFullyFunctional: action.isFullyFunctional
+                functionalityDetails: action.functionalityDetails
             }
         case functionalityActions.IS_KINDA_OLD_ACTION:
             return {

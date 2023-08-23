@@ -2,6 +2,16 @@
     padding-left: 0 !important;
 }
 
+#functionality-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#functionality-buttons button {
+    min-width: 300px;
+}
+
 #determine-functionality-button {
     margin-bottom: 16px;
 }

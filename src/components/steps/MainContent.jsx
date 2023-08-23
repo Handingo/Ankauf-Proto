@@ -85,12 +85,6 @@ class MainContent extends Component {
             text="Wie funktionsfähig ist dein Gerät?"
         />,
         <FunctionalityChoice
-            text="Ist dein Gerät voll funktionsfähig?"
-            help="Lassen sich alle Funktionen des Geräts nutzen (wie bspw. die Kamera, das Mikrofon oder die Lautsprecher)?"
-            images={["./smartphones/s20.png", "./smartphones/s21.png"]}
-            action={functionalityActions.getFullyFunctionalAction}
-        />,
-        <FunctionalityChoice
             text="Hat das Gerät SIM-/Net-Lock?"
             help="Bevor du dein Gerät verkaufen kannst, muss SIM-/Net-Lock entfernt werden, da sonst ggf. keine SIM-Karten von anderen Anbietern in das Gerät eingesetzt werden können. Erfahre mehr am Ende dieser Seite, unter dem Kapitel Service und Simlock-/Net-Lock entfernen oder unter https://handingo.de/pages/simlock-netlock-entfernen."
             images={["./smartphones/s20.png"]}
