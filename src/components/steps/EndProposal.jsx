@@ -220,6 +220,40 @@ class EndProposal extends Component {
             specifications.push(<p key={i}><strong>{keys[i - 2] + ":"}</strong><br/><i>{value}</i></p>);
         }
 
+        specifications.push(<hr key={-i}/>);
+        
+        const functionalKeys = [
+            "Display",
+            "Telefon",
+            "Akku",
+            "Kamera",
+            "Verbindung",
+            "Leistung",
+            "Biometrie",
+            "Sensoren",
+            "Knöpfe",
+            "Speicher"
+        ];
+
+        let nonFunctional = "";
+
+        i = 0;
+
+        for (const entry in this.props.functionality.functionalityDetails) {
+            const data = this.props.functionality.functionalityDetails[entry];
+            console.log(data)
+
+            if (!data) {
+                nonFunctional = nonFunctional.concat(functionalKeys[i] + ", ");
+                console.log(nonFunctional)
+            }
+
+            i++;
+        }
+
+        nonFunctional = nonFunctional.substring(0, nonFunctional.length - 2);
+        specifications.push(<p key={i + 50}><strong>Nicht funktionsfähig:</strong><br/><i>{nonFunctional}</i></p>);
+
         i = 0;
 
         const suggestion = this.state.resultValue;

@@ -3,15 +3,16 @@ import * as functionalityActions from "../actions/FunctionalityActions";
 const initialState: {
     isKindaOld: boolean | undefined,
     functionalityDetails: {
-        display: false,
-        call: false,
-        battery: false,
-        camera: false,
-        connectivity: false,
-        biometry: false,
-        sensors: false,
-        buttons: false,
-        storage: false
+        display: boolean,
+        call: boolean,
+        battery: boolean,
+        camera: boolean,
+        connectivity: boolean,
+        performance: false,
+        biometry: boolean,
+        sensors: boolean,
+        buttons: boolean,
+        storage: boolean
     } | undefined,
     hasSimLock: boolean | undefined,
     hasActivationLock: boolean | undefined,
