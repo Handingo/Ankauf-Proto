@@ -29,6 +29,7 @@ class ConditionChoice extends Component {
         this.handleClickModalFinishBack = this.handleClickModalFinishBack.bind(this);
     }
 
+    // gets clicked/called when the user finished the condition process
     handleClick() {
         this.props.dispatch(selectionActions.getSelectStepAction(this.props.selection.step + 1));
         window.scrollTo(0, 0);

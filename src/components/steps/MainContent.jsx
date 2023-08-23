@@ -82,6 +82,7 @@ class MainContent extends Component {
         />,
         <AppTest
             text="Möchtest du die Funktionsfähigkeit des Geräts per App testen?"
+            help="Diese App testet das Smartphone ganz ausführlich und mit wenig Aufwand. Wenn wir an deinem Gerät interessiert sind, dann würden wir dir einen Code senden, welcher es dir ermöglicht, den Test durchführen zu können."
             images={["./smartphones/s20.png"]}
             action={functionalityActions.getAppTestAction}
         />,

@@ -70,14 +70,17 @@ class TicketForm extends Component {
         });
 
         let j = 0;
+
         // checks whether some fields aren't filled yet
         for (const entry in this.state) {
             if (this.state.hasOwnProperty(entry) && this.state[entry] !== undefined && this.state[entry].length < 1) {
+                // always return when a non-payment input is empty
                 if (j < 10) {
                     window.scrollTo(0, 0);
                     return;
                 }
 
+                // return when a payment input is empty
                 if (this.state.showPaymentBankInput) {
                     window.scrollTo(0, 0);
                     return;
@@ -86,17 +89,20 @@ class TicketForm extends Component {
             j++;
         }
 
+        // validate email
         if (!this.state.email.includes('@') || this.state.email.length < 3 || this.state.email !== this.state.emailConfirm) {
             window.scrollTo(0, 0);
             return;
         }
 
+        // did the user agree to the ToS etc.?
         if (!this.state.checked) {
             return;
         }
 
+        // did the user chose a payment?
         if (!this.state.chosePayment) {
-            window.scrollTo(0, 700);
+            window.scrollTo(0, 700); // no? Send him back to the required field
             return;
         }
 
@@ -114,18 +120,21 @@ class TicketForm extends Component {
         window.scrollTo(0, 0);
     }
 
+    // user clicked on imei input info icon
     handleClickImeiHelp() {
         this.setState({
             showImeiHelp: !this.state.showImeiHelp
         });
     }
 
+    // user clicked on firmware input info icon
     handleClickFirmwareHelp() {
         this.setState({
             showFirmwareHelp: !this.state.showFirmwareHelp
         });
     }
 
+    // user clicked on the bonus payment selection
     handleClickPaymentBonus() {
         this.setState({
             showPaymentPaypalInput: false,
@@ -134,6 +143,7 @@ class TicketForm extends Component {
         });
     }
 
+    // user clicked on the bonus payment info icon
     handleClickPaymentBonusInfo() {
         this.setState({
             showPaymentBonusInfoModal: !this.state.showPaymentBonusInfoModal
@@ -141,6 +151,7 @@ class TicketForm extends Component {
     }
 
     // Unfortunately there seems to be no "uncheck" event, so there has to be a handler for each element
+    // user clicked on the bank payment selection
     handleClickPaymentBank() {
         this.setState({
             showPaymentPaypalInput: false,
@@ -149,6 +160,7 @@ class TicketForm extends Component {
         });
     }
 
+    // user clicked on the paypal payment selection
     handleClickPaymentPaypal() {
         this.setState({
             showPaymentPaypalInput: true,
