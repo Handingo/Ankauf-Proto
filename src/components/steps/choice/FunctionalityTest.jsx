@@ -58,7 +58,7 @@ class FunctionalityTest extends Component {
         }, () => {
             this.props.dispatch(functionalityActions.getFunctionalityDetailsAction(this.state.data));
         });
-        console.log(this.props.functionality.functionalityDetails);
+        // console.log(this.props.functionality.functionalityDetails);
     }
 
     render() {

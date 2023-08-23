@@ -2,6 +2,9 @@ import * as functionalityActions from "../actions/FunctionalityActions";
 
 const initialState: {
     isKindaOld: boolean | undefined,
+    wantsAppTest: boolean | undefined,
+    hasSimLock: boolean | undefined,
+    hasActivationLock: boolean | undefined,
     functionalityDetails: {
         display: boolean,
         call: boolean,
@@ -13,31 +16,33 @@ const initialState: {
         sensors: boolean,
         buttons: boolean,
         storage: boolean
-    } | undefined,
-    hasSimLock: boolean | undefined,
-    hasActivationLock: boolean | undefined,
-    isMDMActive: boolean | undefined
+    } | undefined
 } = {
     isKindaOld: undefined,
-    functionalityDetails: undefined,
+    wantsAppTest: undefined,
     hasSimLock: undefined,
     hasActivationLock: undefined,
-    isMDMActive: undefined
+    functionalityDetails: undefined
 };
 
 // FunctionalityReducer works with FunctionalityActions.ts
 
 function functionalityReducer(state = initialState, action: any) {
     switch (action.type) {
-        case functionalityActions.FUNCTIONALITY_DETAILS_ACTION:
+        case functionalityActions.WANTS_APP_TEST_ACTION:
             return {
                 ...state,
-                functionalityDetails: action.functionalityDetails
+                wantsAppTest: action.wantsAppTest
             }
         case functionalityActions.IS_KINDA_OLD_ACTION:
             return {
                 ...state,
                 isKindaOld: action.isKindaOld
+            }
+        case functionalityActions.FUNCTIONALITY_DETAILS_ACTION:
+            return {
+                ...state,
+                functionalityDetails: action.functionalityDetails
             }
         case functionalityActions.HAS_SIM_LOCK_ACTION:
             return {
@@ -48,11 +53,6 @@ function functionalityReducer(state = initialState, action: any) {
             return {
                 ...state,
                 hasActivationLock: action.hasActivationLock
-            }
-        case functionalityActions.IS_MDM_ACTIVE_ACTION:
-            return {
-                ...state,
-                isMDMActive: action.isMDMActive
             }
     }
 

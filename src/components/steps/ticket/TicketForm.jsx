@@ -74,13 +74,11 @@ class TicketForm extends Component {
         for (const entry in this.state) {
             if (this.state.hasOwnProperty(entry) && this.state[entry] !== undefined && this.state[entry].length < 1) {
                 if (j < 10) {
-                    console.log(j + " / " + this.state[entry]);
                     window.scrollTo(0, 0);
                     return;
                 }
 
                 if (this.state.showPaymentBankInput) {
-                    console.log("bank / " + this.state[entry]);
                     window.scrollTo(0, 0);
                     return;
                 }

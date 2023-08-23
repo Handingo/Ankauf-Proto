@@ -12,6 +12,7 @@ import FunctionalityChoice from "./choice/FunctionalityChoice";
 import ConditionChoice from "./choice/ConditionChoice";
 import ButtonBack from "../util/button/ButtonBack";
 import FunctionalityTest from "./choice/FunctionalityTest";
+import AppTest from "./choice/AppTest";
 
 class MainContent extends Component {
 
@@ -78,6 +79,11 @@ class MainContent extends Component {
             help="Befand sich das Gerät insgesamt bereits länger als 2 Jahre in Gebrauch?"
             images={["./smartphones/s23.png", "./smartphones/s21.png"]}
             action={functionalityActions.getKindaOldAction}
+        />,
+        <AppTest
+            text="Möchtest du die Funktionsfähigkeit des Geräts per App testen?"
+            images={["./smartphones/s20.png"]}
+            action={functionalityActions.getAppTestAction}
         />,
         // "text" und "help" werden in Zeile 54-57 in FunctionalityChoice.jsx implementiert
         // TODO - Wurde SIM-/Net-Lock entfernt? - help-Link prüfen

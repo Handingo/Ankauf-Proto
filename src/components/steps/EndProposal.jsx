@@ -107,9 +107,9 @@ class EndProposal extends Component {
                 suggestion = isApple ? NaN : suggestion - 150;
             }
     
-            if (this.props.functionality.hasMDMActive === "true") {
+            /*if (this.props.functionality.hasMDMActive === "true") {
                 suggestion = isApple ? NaN : suggestion - 150;
-            }
+            }*/
     
             if (suggestion < 50) {
                 suggestion = suggestion < 10 ? NaN : suggestion - 5;
@@ -179,11 +179,10 @@ class EndProposal extends Component {
             "Farbe",
             "Speicherplatz",
             "Zustand",
-            "Voll funktionsfähig",
             "Älter als 2 Jahre",
+            "Funktionstest per App",
             "Sim-/Net-Lock",
-            "Aktivierungssperre",
-            "Aktive MDM-Software"
+            "Aktivierungssperre"
         ];
         const specifications = [];
 
@@ -211,6 +210,10 @@ class EndProposal extends Component {
         for (const entry in this.props.functionality) {
             i++;
 
+            if (keys[i - 2] === undefined) {
+                break;
+            }
+
             if (!this.props.functionality.hasOwnProperty(entry) || this.props.functionality[entry] === undefined) {
                 continue;
             }
@@ -220,7 +223,7 @@ class EndProposal extends Component {
             specifications.push(<p key={i}><strong>{keys[i - 2] + ":"}</strong><br/><i>{value}</i></p>);
         }
 
-        specifications.push(<hr key={-i}/>);
+        specifications.push(<hr key={-i - 1}/>);
         
         const functionalKeys = [
             "Display",
@@ -241,17 +244,17 @@ class EndProposal extends Component {
 
         for (const entry in this.props.functionality.functionalityDetails) {
             const data = this.props.functionality.functionalityDetails[entry];
-            console.log(data)
+            // console.log(data)
 
             if (!data) {
                 nonFunctional = nonFunctional.concat(functionalKeys[i] + ", ");
-                console.log(nonFunctional)
+                // console.log(nonFunctional)
             }
 
             i++;
         }
 
-        nonFunctional = nonFunctional.substring(0, nonFunctional.length - 2);
+        nonFunctional = nonFunctional.length > 0 ? nonFunctional.substring(0, nonFunctional.length - 2) : "N/A";
         specifications.push(<p key={i + 50}><strong>Nicht funktionsfähig:</strong><br/><i>{nonFunctional}</i></p>);
 
         i = 0;
