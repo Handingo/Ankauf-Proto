@@ -3,7 +3,7 @@
 + 2 Jahre und funktion vertauschen
 + Auszahlung auch über Paypal
 + endscreen link zur app
-funktionstest in frage einbauen - checkboxen kamera etc, als props übergeben - wenn nicht in den props, nicht anzeigen
++ funktionstest in frage einbauen - checkboxen kamera etc, als props übergeben - wenn nicht in den props, nicht anzeigen
 
 Muss diskutiert werden:
 Firmware wirklich behalten? <- auskommentieren
