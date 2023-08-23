@@ -18,6 +18,9 @@
 
 .functionality-test-row p {
     margin-bottom: 0;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
 }
 
 .functionality-test-row input {

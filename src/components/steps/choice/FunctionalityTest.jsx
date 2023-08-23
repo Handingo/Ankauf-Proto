@@ -51,43 +51,43 @@ class FunctionalityTest extends Component {
                         <p>Bitte setze bei <u>zutreffenden</u> Punkten einen Haken.</p>
                         <div className="functionality-test-row">
                             <input type="checkbox" name="display" onChange={this.handleChangeCheckbox}/>
-                            <p><strong>Display</strong>&emsp;Das Display ist responsiv, gibt alle Farben korrekt wieder und alle Pixel werden dargestellt.</p>
+                            <p><strong>Display</strong> Funktioniert das Display einwandfrei?</p>
                         </div>
                         <div className="functionality-test-row">
                             <input type="checkbox" name="call" onChange={this.handleChangeCheckbox}/>
-                            <p><strong>Telefon</strong>&emsp;In einem Anruf höre ich die andere Person und sie hört mich ebenfalls.</p>
+                            <p><strong>Telefon</strong> Kann man klar & deutlich telefonieren?</p>
                         </div>
                         <div className="functionality-test-row">
                             <input type="checkbox" name="battery" onChange={this.handleChangeCheckbox}/>
-                            <p><strong>Akkumulator</strong>&emsp;Der Akku entlädt sich nicht allzu schnell und lässt sich problemlos aufladen.</p>
+                            <p><strong>Akku</strong> Hält der Akku in Betrieb länger als 4 Std.?</p>
                         </div>
                         <div className="functionality-test-row">
                             <input type="checkbox" name="camera" onChange={this.handleChangeCheckbox}/>
-                            <p><strong>Kamera</strong>&emsp;Sowohl Front- als auch Rückkamera, sofern vorhanden, erstellen Fotos und Videos ohne merkwürdige Effekte, wie Verzerrungen oder Artefakte.</p>
+                            <p><strong>Kamera</strong> Funktionieren alle Kameras tadellos?</p>
                         </div>
                         <div className="functionality-test-row">
                             <input type="checkbox" name="connectivity" onChange={this.handleChangeCheckbox}/>
-                            <p><strong>Verbindung</strong>&emsp;WLAN, mobiles Internet und Bluetooth funktionieren einwandfrei.</p>
+                            <p><strong>Verbindung</strong> Funktionieren WLAN, Bluetooth, etc.?</p>
                         </div>
                         <div className="functionality-test-row">
                             <input type="checkbox" name="performance" onChange={this.handleChangeCheckbox}/>
-                            <p><strong>Leistung</strong>&emsp;Das schnelle Wechseln zwischen verschiedenen Apps verursacht keine Ruckler oder gar Abstürze.</p>
+                            <p><strong>Leistung</strong> Lässt sich das Gerät flüssig bedienen?</p>
                         </div>
                         <div className="functionality-test-row">
                             <input type="checkbox" name="authentication" onChange={this.handleChangeCheckbox}/>
-                            <p><strong>Authentifizierung</strong>&emsp;Der Fingerabdrucksensor und die Gesichtserkennung, sofern vorhanden, funktionieren werksgemäß.</p>
-                        </div>
-                        <div className="functionality-test-row">
-                            <input type="checkbox" name="buttons" onChange={this.handleChangeCheckbox}/>
-                            <p><strong>Knöpfe</strong>&emsp;Sämtliche Knöpfe, wie der An-/Aus-Schalter, Lautstärkeregler oder Home-Button, funktionieren einwandfrei.</p>
+                            <p><strong>Biometrie</strong> Funktioniert das Entsperren?</p>
                         </div>
                         <div className="functionality-test-row">
                             <input type="checkbox" name="sensors" onChange={this.handleChangeCheckbox}/>
-                            <p><strong>Sensoren</strong>&emsp;Alle Sensoren, wie das Gyroskop oder der Beschleunigungsmesser, sind intakt.</p>
+                            <p><strong>Sensoren</strong> Funktionieren alle Lagesensoren?</p>
+                        </div>
+                        <div className="functionality-test-row">
+                            <input type="checkbox" name="buttons" onChange={this.handleChangeCheckbox}/>
+                            <p><strong>Knöpfe</strong> Funktionieren sämtliche Knöpfe?</p>
                         </div>
                         <div className="functionality-test-row">
                             <input type="checkbox" name="storage" onChange={this.handleChangeCheckbox}/>
-                            <p><strong>Speicher</strong>&emsp;Der interne Speicher lässt sich vollständig abrufen und beschreiben. Vorhandene SD-Karten-Slots funktionieren tadellos.</p>
+                            <p><strong>Speicher</strong> Lassen sich der vorhandene Speicher und ggf. die SD-Karte komplett nutzen? </p>
                         </div>
                     </Modal.Body>
                     <Modal.Footer>
