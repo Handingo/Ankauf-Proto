@@ -288,7 +288,7 @@ class TicketForm extends Component {
                                 />
                                 <Form.Control.Feedback type="invalid">Eine IMEI hat 15 Stellen.</Form.Control.Feedback>
                             </Form.Group>
-                            <Form.Group as={Col}>
+                            {/*<Form.Group as={Col}>
                                 <Form.Label htmlFor="ticket-input-firmware-version">
                                     <p>Firmware-Version <span onClick={this.handleClickFirmwareHelp}><IconInfo/></span></p>
                                 </Form.Label>
@@ -298,7 +298,7 @@ class TicketForm extends Component {
                                     maxLength={48}
                                     placeholder="Firmware-Version des Geräts"
                                 />
-                            </Form.Group>
+                            </Form.Group>*/}
                             <div id="delivery-service">
                                 <Form.Group as={Col}>
                                     <Form.Label htmlFor="delivery-service-selection">
