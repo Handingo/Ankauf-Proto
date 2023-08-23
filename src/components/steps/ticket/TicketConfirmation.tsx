@@ -13,9 +13,9 @@ class TicketConfirmation extends Component {
                     <br/>
                     Um dein Gerät noch einmal funktional zu testen, nutze bitte folgende App:
                     <br/><br/>
-                    <Link text="NSYS Test für Android" href="https://play.google.com/store/apps/details?id=com.nsysgroup.nsystest"/>
+                    <Link newTab text="NSYS Test für Android" href="https://play.google.com/store/apps/details?id=com.nsysgroup.nsystest"/>
                     <br/><br/>
-                    <Link text="NSYS Test für Apple" href="https://apps.apple.com/de/app/nsys-test/id1448501054"/>
+                    <Link newTab text="NSYS Test für Apple" href="https://apps.apple.com/de/app/nsys-test/id1448501054"/>
                     <br/><br/>
                     - Dein Handingo-Team -<br/>
                     Am Schlangengraben 20<br/>
