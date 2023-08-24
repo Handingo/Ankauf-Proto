@@ -9,3 +9,7 @@ body {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+:root {
+    --theme-color: #1a95a3;
+}

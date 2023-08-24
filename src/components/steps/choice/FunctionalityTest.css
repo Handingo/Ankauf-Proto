@@ -38,6 +38,6 @@
     margin-right: 32px;
     margin-top: 0;
     transform: scale(1.5);
-    accent-color: #1a95a3;
+    accent-color: var(--theme-color);
     cursor: pointer;
 }

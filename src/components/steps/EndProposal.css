@@ -83,5 +83,5 @@ input[type="file"]::-webkit-file-upload-button {
 
 #proposal-failure-text a {
     text-decoration: none;
-    color: #1a95a3;
+    color: var(--theme-color);
 }

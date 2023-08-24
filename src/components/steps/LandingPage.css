@@ -74,7 +74,7 @@
 }
 
 #init-text a {
-    color: #1a95a3;
+    color: var(--theme-color);
 }
 
 @media only screen and (max-width: 991px) {

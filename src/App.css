@@ -18,12 +18,12 @@ button {
 }
 
 .btn.btn-primary {
-    background-color: #1a95a3;
-    border-color: #1a95a3;
-    --bs-btn-bg: #1a95a3;
+    background-color: var(--theme-color);
+    border-color: var(--theme-color);
+    --bs-btn-bg: var(--theme-color);
     --bs-btn-active-bg: #1a95a3bb;
     --bs-btn-active-border-color: #1a95a3bb;
-    --bs-btn-border-color: #1a95a3;
+    --bs-btn-border-color: var(--theme-color);
     font-size: 1.1rem !important;
 }
 
