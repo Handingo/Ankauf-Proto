@@ -80,17 +80,6 @@ class MainContent extends Component {
             images={["./image-support/new.jpg"]}
             action={functionalityActions.getKindaOldAction}
         />,
-        <AppTest
-            text="Funktionsfähigkeit des Geräts per App testen?"
-            help="Diese App testet das Smartphone ganz ausführlich und mit wenig Aufwand. Wenn wir an deinem Gerät interessiert sind, dann würden wir dir einen Code senden, welcher es dir ermöglicht, den Test durchführen zu können."
-            images={["./image-support/working.jpg"]}
-            action={functionalityActions.getAppTestAction}
-        />,
-        // "text" und "help" werden in Zeile 54-57 in FunctionalityChoice.jsx implementiert
-        // TODO - Wurde SIM-/Net-Lock entfernt? - help-Link prüfen
-        <FunctionalityTest
-            text="Wie funktionsfähig ist dein Gerät?"
-        />,
         <FunctionalityChoice
             text="Hat das Gerät SIM-/Net-Lock?"
             help="Bevor du dein Gerät verkaufen kannst, muss SIM-/Net-Lock entfernt werden, da sonst ggf. keine SIM-Karten von anderen Anbietern in das Gerät eingesetzt werden können. Erfahre mehr am Ende dieser Seite, unter dem Kapitel Service und Simlock-/Net-Lock entfernen oder unter https://handingo.de/pages/simlock-netlock-entfernen."
@@ -104,6 +93,19 @@ class MainContent extends Component {
             images={["./image-support/appleid.jpg"]}
             action={functionalityActions.getActivationLockAction}
         />,
+        // TODO - verständlich benennen (AppTest vs FunctionalityTest) - AppTestChoice könnte schon reichen
+        <AppTest
+            text="Funktionsfähigkeit des Geräts per App testen?"
+            help="Diese App testet das Smartphone ganz ausführlich und mit wenig Aufwand. Wenn wir an deinem Gerät interessiert sind, dann würden wir dir einen Code senden, welcher es dir ermöglicht, den Test durchführen zu können."
+            images={["./image-support/working.jpg"]}
+            action={functionalityActions.getAppTestAction}
+        />,
+        // "text" und "help" werden in Zeile 54-57 in FunctionalityChoice.jsx implementiert
+        // TODO - Wurde SIM-/Net-Lock entfernt? - help-Link prüfen
+        <FunctionalityTest
+            text="Wie funktionsfähig ist dein Gerät?"
+        />,
+        
         /*
         <FunctionalityChoice
             text="Ist eine MDM-Software o. ä. aktiv?"
