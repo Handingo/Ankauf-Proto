@@ -20,7 +20,7 @@
 }
 
 .rbt .dropdown-item.active {
-    background-color: #1a95a3bb;
+    background-color: var(--theme-color-primary-hover);
 }
 
 .searchbar.container input::placeholder {

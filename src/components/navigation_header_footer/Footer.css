@@ -55,7 +55,7 @@
 }
 
 .bottom-menu a:hover {
-    color: var(--theme-color);
+    color: var(--theme-color-primary);
     transition: 200ms ease-in;
 }
 

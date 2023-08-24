@@ -19,7 +19,7 @@
 }
 
 #ticket-confirmation a {
-    color: var(--theme-color);
+    color: var(--theme-color-primary);
 }
 
 @media only screen and (max-width: 990px) {

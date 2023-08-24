@@ -11,5 +11,7 @@ code {
 }
 
 :root {
-    --theme-color: #1a95a3;
+    --theme-color-primary: #1a95a3;
+    --theme-color-primary-hover: #1a95a3bb;
+    --theme-color-primary-disabled: #1a95a399;
 }
