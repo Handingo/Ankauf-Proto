@@ -338,7 +338,7 @@ class EndProposal extends Component {
                     </Card>
                 </div>
                 <br/>
-                <p>* Hier kannst du bis zu 5 Dateien hochladen.</p>
+                <p>* Hier kannst du bis zu 5 Dateien hochladen. Bspw. Fotos, die das Gerät zeigen oder Dokumente, wie die Rechnung.</p>
                 <br/>
                 <h3>Unser Vorschlag:</h3>
                 {!isNaN(suggestion)
