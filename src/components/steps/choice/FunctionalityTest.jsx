@@ -39,6 +39,7 @@ class FunctionalityTest extends Component {
     }
 
     handleClick() {
+        this.props.dispatch(functionalityActions.getFunctionalityDetailsAction(this.state.data)); // could get optimized - this is here to make zero inputs possible
         this.props.dispatch(selectionActions.getSelectStepAction(this.props.selection.step + 1));
         window.scrollTo(0, 0);
     }
@@ -56,7 +57,7 @@ class FunctionalityTest extends Component {
                 [e.currentTarget.getAttribute("name")]: e.currentTarget.checked
             }
         }, () => {
-            this.props.dispatch(functionalityActions.getFunctionalityDetailsAction(this.state.data));
+            this.props.dispatch(functionalityActions.getFunctionalityDetailsAction(this.state.data)); // could get optimized - only push the element that got updated
         });
         // console.log(this.props.functionality.functionalityDetails);
     }
@@ -70,7 +71,7 @@ class FunctionalityTest extends Component {
                 <br/>
                 <p>{this.props.text}</p>
                 <br/>
-                <h3>{functionalityAvailable ? "Du hast die Überprüfung durchgeführt." : "Bitte überprüfe die Funktionsfähigkeit deines Geräts."}</h3>
+                <h3>{functionalityAvailable ? "Du hast die Überprüfung durchgeführt." : "Bitte beschreibe die Funktionsfähigkeit deines Geräts."}</h3>
                 <br/>
                 <br/>
                 <div id="functionality-buttons">
