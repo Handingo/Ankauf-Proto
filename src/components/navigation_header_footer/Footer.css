@@ -1,7 +1,7 @@
 .bottom-menu {
     padding-top: 4%;
     padding-bottom: 4%;
-    background: #F8F9FA;
+    background: var(--background-color-light);
 }
 
 @media only screen and (max-width: 771px) {
@@ -55,7 +55,7 @@
 }
 
 .bottom-menu a:hover {
-    color: var(--theme-color-primary);
+    color: var(--primary-color);
     transition: 200ms ease-in;
 }
 

@@ -10,19 +10,15 @@
     overflow: hidden;
 }
 
-.rbt .rbt-highlight-text {
-    background-color: #00000022;
-}
-
 .rbt .dropdown-item:hover {
-    background-color: #1a95a377;
+    background-color: var(--primary-color-hover);
     color: #fff;
 }
 
 .rbt .dropdown-item.active {
-    background-color: var(--theme-color-primary-hover);
+    background-color: var(--primary-color-hover);
 }
 
 .searchbar.container input::placeholder {
-    color: rgba(0, 0, 0, 0.25);
+    color: var(--placeholder-color);
 }

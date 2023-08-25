@@ -7,7 +7,7 @@ button {
 }
 
 .App {
-    background-color: #EEE;
+    background-color: var(--background-color);
     min-height: 100vh;
     font-family: "DM Sans", sans-serif;
     font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
@@ -18,12 +18,12 @@ button {
 }
 
 .btn.btn-primary {
-    background-color: var(--theme-color-primary);
-    border-color: var(--theme-color-primary);
-    --bs-btn-bg: var(--theme-color-primary);
-    --bs-btn-border-color: var(--theme-color-primary);
-    --bs-btn-active-bg: var(--theme-color-primary-hover);
-    --bs-btn-active-border-color: var(--theme-color-primary-hover);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    --bs-btn-bg: var(--primary-color);
+    --bs-btn-border-color: var(--primary-color);
+    --bs-btn-active-bg: var(--primary-color-hover);
+    --bs-btn-active-border-color: var(--primary-color-hover);
     font-size: 1.1rem !important;
 }
 
@@ -32,23 +32,23 @@ button {
 }
 
 .btn.btn-primary[disabled] {
-    background-color: var(--theme-color-primary-disabled);
-    border-color: var(--theme-color-primary-disabled);
-    --bs-btn-bg: var(--theme-color-primary-disabled);
-    --bs-btn-active-bg: var(--theme-color-primary-disabled);
-    --bs-btn-active-border-color: var(--theme-color-primary-disabled);
-    --bs-btn-border-color: var(--theme-color-primary-disabled);
+    background-color: var(--primary-color-disabled);
+    border-color: var(--primary-color-disabled);
+    --bs-btn-bg: var(--primary-color-disabled);
+    --bs-btn-active-bg: var(--primary-color-disabled);
+    --bs-btn-active-border-color: var(--primary-color-disabled);
+    --bs-btn-border-color: var(--primary-color-disabled);
 }
 
 .btn.btn-primary:hover {
-    background-color: var(--theme-color-primary-hover);
-    border-color: var(--theme-color-primary-hover);
+    background-color: var(--primary-color-hover);
+    border-color: var(--primary-color-hover);
     transition: 200ms ease-in;
 }
 
 .form-control:focus, .form-select:focus, .form-select::selection {
-    border-color: var(--theme-color-primary-hover) !important;
-    box-shadow: 0 1px 1px rgba(26, 149, 163, 0.2) inset, 0 0 8px rgba(26, 149, 163, 0.6) !important;
+    border-color: var(--primary-color-hover) !important;
+    box-shadow: var(--form-select-shadow) !important;
 }
 
 .col {

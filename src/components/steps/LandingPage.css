@@ -51,16 +51,16 @@
 }
 
 #button-start {
-    background-color: #D94136;
-    border-color: #D94136;
+    background-color: var(--primary-color-featured);
+    border-color: var(--primary-color-featured);
     min-width: 200px;
     max-width: 270px;
     width: 20%;
 }
 
 #button-start:hover {
-    background-color: #E95146;
-    border-color: #E95146;
+    background-color: var(--primary-color-featured-hover);
+    border-color: var(--primary-color-featured-hover);
     transition: 200ms ease-in;
 }
 
@@ -74,7 +74,7 @@
 }
 
 #init-text a {
-    color: var(--theme-color-primary);
+    color: var(--primary-color);
 }
 
 @media only screen and (max-width: 991px) {

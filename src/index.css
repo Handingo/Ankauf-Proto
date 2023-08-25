@@ -11,7 +11,23 @@ code {
 }
 
 :root {
-    --theme-color-primary: #1a95a3;
-    --theme-color-primary-hover: #1a95a3bb;
-    --theme-color-primary-disabled: #1a95a399;
+    --background-color: #EEE;
+    --background-color-light: #F8F9FA;
+    --background-color-light-hover: #DFDFDF;
+    --primary-color: #1a95a3;
+    --primary-color-hover: #57aeb8;
+    --primary-color-disabled: #6cb7c0;
+    --primary-color-featured: #D94136;
+    --primary-color-featured-hover: #E95146;
+    --placeholder-color: rgba(0, 0, 0, 0.33);
+    --form-select-shadow: 0 1px 1px rgba(26, 149, 163, 0.2) inset, 0 0 8px rgba(26, 149, 163, 0.6);
+    --hover-shadow: rgba(0, 0, 0, 0.0625) 0px 3px 5px,
+                    rgba(0, 0, 0, 0.05) 0px 3px 10px,
+                    rgba(0, 0, 0, 0.0375) 0px 3px 15px,
+                    rgba(0, 0, 0, 0.025) 0px 3px 20px/* not that sure about the performance inpact of those shadows with extra detail,
+                    rgba(0, 0, 0, 0.0125) 0px 3px 25px*/;
+}
+
+.modal-content {
+    background-color: var(--background-color);
 }

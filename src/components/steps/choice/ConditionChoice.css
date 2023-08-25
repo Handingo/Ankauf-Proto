@@ -61,12 +61,12 @@
 .condition-modal-selected-step {
     border-radius: 15%;
     border-bottom: 2px solid #999 !important;
-    background-color: #F8F9FA;
+    background-color: var(--background-color-light);
     color: #555 !important;
 }
 
 .condition-modal-selected-condition {
-    background-color: var(--theme-color-primary-hover) !important;
+    background-color: var(--primary-color-hover) !important;
     color: #FFF !important;
 }
 
@@ -96,7 +96,7 @@
 
 #condition-modal-selection-buttons button:hover {
     transition: 200ms ease-in;
-    box-shadow: rgba(0, 0, 0, 0.0625) 0px 3px 5px, rgba(0, 0, 0, 0.05) 0px 3px 10px, rgba(0, 0, 0, 0.0375) 0px 3px 15px, rgba(0, 0, 0, 0.025) 0px 3px 20px, rgba(0, 0, 0, 0.0125) 0px 3px 25px;
+    box-shadow: var(--hover-shadow);
 }
 
 @media only screen and (max-width: 991px) {
@@ -106,12 +106,12 @@
 }
 
 #condition-modal-content {
-    background-color: #EEE;
+    background-color: var(--background-color);
     border-radius: 1%;
 }
 
 #condition-modal-result .card-header, #condition-modal-result .card-body {
-    background-color: #F8F9FA;
+    background-color: var(--background-color-light);
 }
 
 #condition-modal-result {

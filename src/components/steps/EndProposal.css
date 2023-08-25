@@ -41,7 +41,7 @@
 }
 
 .card-header, .card-body {
-    background-color: #F8F9FA;
+    background-color: var(--background-color-light);
 }
 
 .card-body button {
@@ -54,15 +54,6 @@
 
 #selection-result-details {
     flex: 1;
-}
-
-input[type="file"]::-webkit-file-upload-button {
-    border: none;
-    padding: 3%;
-    background: #6c757d;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 5px;
 }
 
 #button-create-ticket {
@@ -83,5 +74,5 @@ input[type="file"]::-webkit-file-upload-button {
 
 #proposal-failure-text a {
     text-decoration: none;
-    color: var(--theme-color-primary);
+    color: var(--primary-color);
 }

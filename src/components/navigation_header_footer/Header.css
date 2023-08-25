@@ -7,6 +7,6 @@
 }
 
 .top-menu.navbar.navbar-expand-lg.navbar-light.bg-light.sticky-top .nav-link:hover {
-    background-color: #DFDFDF;
+    background-color: var(--background-color-light-hover);
     transition: 200ms ease-in;
 }
