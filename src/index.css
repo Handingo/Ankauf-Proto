@@ -28,6 +28,26 @@ code {
                     rgba(0, 0, 0, 0.0125) 0px 3px 25px*/;
 }
 
+::-moz-selection {
+    color: #FFF;
+    background: var(--primary-color-hover);
+}
+
+a::-moz-selection {
+    color: #FFF;
+    background: var(--primary-color);
+}
+
+::selection {
+    color: #FFF;
+    background: var(--primary-color-hover);
+}
+
+a::selection {
+    color: #FFF;
+    background: var(--primary-color);
+}
+
 .modal-content {
     background-color: var(--background-color);
 }
