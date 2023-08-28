@@ -11,7 +11,7 @@ const initialState: {
         battery: boolean,
         camera: boolean,
         connectivity: boolean,
-        performance: false,
+        performance: boolean,
         biometry: boolean,
         sensors: boolean,
         buttons: boolean,
