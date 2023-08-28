@@ -6,17 +6,13 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
 :root {
     --background-color: #EEE;
     --background-color-light: #F8F9FA;
     --background-color-light-hover: #DFDFDF;
-    --primary-color: #1a95a3;
-    --primary-color-hover: #57aeb8;
-    --primary-color-disabled: #6cb7c0;
+    --primary-color: #1A95A3;
+    --primary-color-hover: #57AEb8;
+    --primary-color-disabled: #6CB7C0;
     --primary-color-featured: #D94136;
     --primary-color-featured-hover: #E95146;
     --placeholder-color: rgba(0, 0, 0, 0.33);

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import * as selectionActions from "../../../actions/SelectionActions";
 import IconInfo from "../../util/icon/IconInfo";
 
-class AppTest extends Component {
+class AppTestChoice extends Component {
 
     state = {
         showHelp: false
@@ -62,4 +62,4 @@ class AppTest extends Component {
     }
 }
 
-export default connect(state => { return state; })(AppTest);
+export default connect(state => { return state; })(AppTestChoice);
