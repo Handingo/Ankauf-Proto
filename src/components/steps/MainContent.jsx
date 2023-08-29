@@ -80,13 +80,15 @@ class MainContent extends Component {
             images={["./image-support/new.jpg"]}
             action={functionalityActions.getKindaOldAction}
         />,
+        // TODO - Hat das Gerät SIM-/Net-Lock? - check whether the link at the end of the help text isn't a dead site
         <FunctionalityChoice
             text="Hat das Gerät SIM-/Net-Lock?"
             help="Bevor du dein Gerät verkaufen kannst, muss SIM-/Net-Lock entfernt werden, da sonst ggf. keine SIM-Karten von anderen Anbietern in das Gerät eingesetzt werden können. Erfahre mehr am Ende dieser Seite, unter dem Kapitel Service und Simlock-/Net-Lock entfernen oder unter https://handingo.de/pages/simlock-netlock-entfernen."
             images={["./image-support/lock.jpg"]}
             action={functionalityActions.getSimLockAction}
         />,
-        // reversed indicates that the selection should get handled in a positive way - it's good when the customer removed Sim-Lock
+        // reversed indicates that the selection should get handled reversed.
+        // Got GoogleID removed? Yes. Is GoogleID active? No. - Important for the proposal page
         <FunctionalityChoice
             text="Wurde GoogleID/AppleID entfernt?" reversed
             help="Bevor du dein Gerät verkaufen kannst, muss die jeweilige Funktion deaktiviert/entfernt werden. Erfahre mehr am Ende dieser Seite, unter dem Kapitel Service und iCloud & Google-Sperre entfernen oder unter https://handingo.de/pages/icloud-google-sperre-entfernen."
@@ -99,8 +101,6 @@ class MainContent extends Component {
             images={["./image-support/working.jpg"]}
             action={functionalityActions.getAppTestAction}
         />,
-        // "text" und "help" werden in Zeile 54-57 in FunctionalityChoice.jsx implementiert
-        // TODO - Wurde SIM-/Net-Lock entfernt? - help-Link prüfen
         <FunctionalityTest
             text="Wie funktionsfähig ist dein Gerät?"
         />,

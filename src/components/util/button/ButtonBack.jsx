@@ -17,7 +17,7 @@ class ButtonBack extends Component {
         e.preventDefault();
         const step = this.props.selection.step - 1;
         this.props.selectStep(step);
-        this.props.resetStatePart(step);
+        this.props.resetStatePart(step); // deletes all selections that follow after the current step which has been made so far
         window.scrollTo(0, 0);
     }
 

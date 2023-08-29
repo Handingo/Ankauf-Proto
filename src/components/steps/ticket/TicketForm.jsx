@@ -91,7 +91,7 @@ class TicketForm extends Component {
             const elements = document.getElementsByName(entry);
 
             if (elements.length < 1) {
-                window.scrollTo(0, 0);
+                window.scrollTo(0, 0); // couldn't find the element, just scroll to the top
                 return;
             }
 
@@ -118,12 +118,7 @@ class TicketForm extends Component {
             return;
         }
 
-        /*if (!isValidBIC(this.state.bic)) {
-            window.scrollTo(0, 0);
-            return;
-        }
-
-        if (!isValidIBAN(this.state.iban)) {
+        /*if (!isValidBIC(this.state.bic) || !isValidIBAN(this.state.iban)) {
             window.scrollTo(0, 0);
             return;
         }*/
