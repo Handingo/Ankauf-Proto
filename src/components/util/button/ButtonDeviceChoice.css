@@ -1,7 +1,7 @@
 .button-text {
     align-self: center;
     font-weight: 600;
-    font-size: calc(16px + 0.6vw);
+    font-size: calc(var(--standard-size) + 0.6vw);
     line-height: calc(12px + 0.6vh);
     margin: 0;
 }

@@ -33,9 +33,7 @@ export function isValidIBAN(iban: string): boolean {
         return false;
     }
 
-    const mod97: string = regexResult.reduce((total: any, curr: any) => {
-        return (Number(total + curr) % 97).toString()
-    }, "");
+    const mod97: string = regexResult.reduce((total: any, curr: any) => (Number(total + curr) % 97).toString(), "");
 
     return Number(mod97) === 1;
 }

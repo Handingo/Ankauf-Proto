@@ -7,6 +7,7 @@ body {
 }
 
 :root {
+    /* coloring */
     --background-color: #EEE;
     --background-color-light: #F8F9FA;
     --background-color-light-hover: #DFDFDF;
@@ -22,6 +23,9 @@ body {
                     rgba(0, 0, 0, 0.0375) 0px 3px 15px,
                     rgba(0, 0, 0, 0.025) 0px 3px 20px/* not that sure about the performance inpact of those shadows with extra detail,
                     rgba(0, 0, 0, 0.0125) 0px 3px 25px*/;
+
+    /* sizing */
+    --standard-size: 16px;
 }
 
 ::selection {

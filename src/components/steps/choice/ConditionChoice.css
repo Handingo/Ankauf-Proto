@@ -5,12 +5,12 @@
 }
 
 #determine-condition-button {
-    margin-bottom: 16px;
+    margin-bottom: var(--standard-size);
 }
 
 #determine-condition-button, #condition-continue-button {
     min-width: 300px;
-    margin-bottom: 16px;
+    margin-bottom: var(--standard-size);
 }
 
 #condition-modal {

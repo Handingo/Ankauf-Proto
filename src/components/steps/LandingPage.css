@@ -70,7 +70,7 @@
 }
 
 #init-text h5 {
-    margin-bottom: 16px;
+    margin-bottom: var(--standard-size);
 }
 
 #init-text a {

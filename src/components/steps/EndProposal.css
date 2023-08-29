@@ -11,7 +11,7 @@
 }
 
 #step-end img {
-    padding: 16px;
+    padding: var(--standard-size);
 }
 
 @media only screen and (min-width: 991px) {
@@ -60,12 +60,12 @@
     text-align: center;
     min-width: 300px;
     min-height: 30px;
-    margin-bottom: 16px;
+    margin-bottom: var(--standard-size);
 }
 
 #proposal-failure-text {
     font-size: 18px;
-    margin-top: 16px;
+    margin-top: var(--standard-size);
 }
 
 #proposal-failure-text p {

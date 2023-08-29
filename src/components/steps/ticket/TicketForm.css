@@ -17,8 +17,7 @@ option:hover, option:checked { /* TODO - funktioniert nicht, Optionen bleiben bl
 
 .payment-method-container-row {
     display: flex;
-    /* align-items: left; */
-    margin-bottom: 16px;
+    margin-bottom: var(--standard-size);
 }
 
 .payment-method-container-row p {
@@ -135,5 +134,5 @@ input[type="radio"] {
     min-width: 300px;
     min-height: 30px;
     margin-top: 1vh;
-    margin-bottom: 16px;
+    margin-bottom: var(--standard-size);
 }

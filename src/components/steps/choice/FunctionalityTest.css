@@ -19,17 +19,17 @@
 }
 
 #determine-functionality-button {
-    margin-bottom: 16px;
+    margin-bottom: var(--standard-size);
 }
 
 #determine-functionality-button, #functionality-test-continue-button {
     min-width: 300px;
-    margin-bottom: 16px;
+    margin-bottom: var(--standard-size);
 }
 
 .functionality-test-row {
     display: flex;
-    margin-bottom: 16px;
+    margin-bottom: var(--standard-size);
 }
 
 .functionality-test-row p {
@@ -40,8 +40,8 @@
 }
 
 .functionality-test-row input {
-    margin-left: 16px;
-    margin-right: 32px;
+    margin-left: var(--standard-size);
+    margin-right: calc(2 * var(--standard-size));
     margin-top: 0;
     transform: scale(1.5);
     accent-color: var(--primary-color);
