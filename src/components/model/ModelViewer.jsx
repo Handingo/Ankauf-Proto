@@ -1,6 +1,7 @@
 import "./ModelViewer.css";
 import { Component } from "react";
 
+// gets implemented in ConditionChoice.jsx
 class ModelViewer extends Component {
     render() {
         return (

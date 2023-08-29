@@ -2,6 +2,7 @@ import "./Header.css";
 import { Component } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 
+// gets implemented in App.tsx
 class Header extends Component {
     render() {
         return (

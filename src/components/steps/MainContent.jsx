@@ -124,7 +124,7 @@ class MainContent extends Component {
                 {step >= 0 && step < this.steps.length &&
                     this.steps[step]
                 }
-                {step !== 0 && step < this.steps.length - 1 &&
+                {step !== 0 && step < this.steps.length - 1 && // don't render on LandingPage or TicketConfirmation (ticket already got sent there)
                     <ButtonBack/>
                 }
             </div>

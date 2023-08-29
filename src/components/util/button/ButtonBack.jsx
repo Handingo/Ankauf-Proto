@@ -5,6 +5,7 @@ import { bindActionCreators } from "redux";
 import * as selectionActions from "../../../actions/SelectionActions";
 import { Button } from "react-bootstrap";
 
+// gets implemented in MainContent.jsx
 class ButtonBack extends Component {
     
     constructor(props) {

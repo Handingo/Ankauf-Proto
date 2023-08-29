@@ -3,6 +3,7 @@ import { Component } from "react";
 import { Container } from "react-bootstrap";
 import Link from "../util/Link";
 
+// gets implemented in App.tsx
 class Footer extends Component {
 
     private pages: string = "https://handingo.de/pages/";

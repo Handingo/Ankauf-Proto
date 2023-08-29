@@ -6,6 +6,7 @@ import IconPreview from "../icon/IconPreview";
 import * as selectionActions from '../../../actions/SelectionActions';
 import { connect } from 'react-redux';
 
+// gets implemented in DeviceChoice.jsx
 class ButtonDeviceChoice extends Component {
 
     constructor(props) {
