@@ -8,7 +8,7 @@ class TicketConfirmation extends Component {
             <div id="ticket-confirmation">
                 <p>Vielen Dank für die Einsendung!<br/>
                     <br/>
-                    Du erhälst baldestmöglich eine Antwort per E-Mail.<br/>
+                    Du erhältst baldestmöglich eine Antwort per E-Mail.<br/>
                     Sofern die Antwort als Zusage eintrifft, schicken wir dir eine Sendungsmarke zu, mit deren Hilfe du uns dein Gerät schicken kannst.<br/>
                     <br/>
                     Um dein Gerät noch einmal funktional zu testen, nutze bitte folgende App:

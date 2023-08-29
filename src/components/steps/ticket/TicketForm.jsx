@@ -34,12 +34,13 @@ class TicketForm extends Component {
         street: "",
         houseNumber: "",
         imei: "",
-        paypalName: undefined,
-        iban: undefined,
-        bic: undefined,
+        paypalName: "",
+        iban: "",
+        bic: "",
         showImeiHelp: false,
         showFirmwareHelp: false,
         showPaymentBankInput: false,
+        showPaymentPaypalInput: false,
         showPaymentBonusInfoModal: false,
         chosePayment: false,
         validated: false,
@@ -69,26 +70,26 @@ class TicketForm extends Component {
             validated: true
         });
 
-        let j = 0;
-
         // checks whether some fields aren't filled yet
         for (const entry in this.state) {
-            if (this.state.hasOwnProperty(entry) && this.state[entry] !== undefined && this.state[entry].length < 1) {
-                // always return when a non-payment input is empty
-                if (j < 10) {
-                    window.scrollTo(0, 0);
-                    return;
-                }
-
-                // return when a payment input is empty
-                if (this.state.showPaymentBankInput) {
-                    window.scrollTo(0, 0);
-                    return;
-                }
+            if (entry === "paypalName" && (this.state.showPaymentBankInput)) { // Notiz: || weder noch
+                continue;
             }
-            j++;
+
+            if ((entry === "iban" || entry === "bic") && this.state.showPaymentPaypalInput) {
+                continue;
+            }
+
+            if (this.state.hasOwnProperty(entry) && this.state[entry] !== undefined && this.state[entry].length < 1) {
+                
+                console.log(this.state); // bug: accepts ticket without bank input
+                window.scrollTo(0, 0);
+                return;
+            }
         }
 
+        console.log("passed");
+        return;
         // validate email
         if (!this.state.email.includes('@') || this.state.email.length < 3 || this.state.email !== this.state.emailConfirm) {
             window.scrollTo(0, 0);
