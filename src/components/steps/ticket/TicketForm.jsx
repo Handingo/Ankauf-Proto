@@ -72,38 +72,49 @@ class TicketForm extends Component {
 
         // checks whether some fields aren't filled yet
         for (const entry in this.state) {
-            if (entry === "paypalName" && (this.state.showPaymentBankInput)) { // Notiz: || weder noch
+            // ignore Paypal name field when this method is not selected
+            if (entry === "paypalName" && !this.state.showPaymentPaypalInput) {
                 continue;
             }
 
-            if ((entry === "iban" || entry === "bic") && this.state.showPaymentPaypalInput) {
+            // ignore bank fields when this method is not selected
+            if ((entry === "iban" || entry === "bic") && !this.state.showPaymentBankInput) {
                 continue;
             }
 
-            if (this.state.hasOwnProperty(entry) && this.state[entry] !== undefined && this.state[entry].length < 1) {
-                
-                console.log(this.state); // bug: accepts ticket without bank input
+            // check if the input length of the currently iterated element is greater than 0
+            if (!(this.state.hasOwnProperty(entry) && this.state[entry] !== undefined && this.state[entry].length < 1)) {
+                continue;
+            }
+
+            // search for the element which got detected for no input
+            const elements = document.getElementsByName(entry);
+
+            if (elements.length < 1) {
                 window.scrollTo(0, 0);
                 return;
             }
-        }
 
-        console.log("passed");
-        return;
-        // validate email
-        if (!this.state.email.includes('@') || this.state.email.length < 3 || this.state.email !== this.state.emailConfirm) {
-            window.scrollTo(0, 0);
+            // scroll to the element which got no input
+            const elementY = elements[0].getBoundingClientRect().top;
+            window.scrollTo(0, window.scrollY + elementY - 150); // 150px as a buffer, otherwise the header would overlap the form field
             return;
         }
 
-        // did the user agree to the ToS etc.?
-        if (!this.state.checked) {
+        // validate email
+        if (!this.state.email.includes('@') || this.state.email.length < 3 || this.state.email !== this.state.emailConfirm) {
+            window.scrollTo(0, 225);
             return;
         }
 
         // did the user chose a payment?
         if (!this.state.chosePayment) {
             window.scrollTo(0, 700); // no? Send him back to the required field
+            return;
+        }
+
+        // did the user agree to the ToS etc.?
+        if (!this.state.checked) {
             return;
         }
 
