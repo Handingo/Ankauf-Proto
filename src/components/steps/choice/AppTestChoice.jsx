@@ -18,7 +18,7 @@ class AppTestChoice extends Component {
 
     handleClick(e) {
         const name = e.currentTarget.getAttribute("name");
-        this.props.dispatch(this.props.action(name));
+        this.props.dispatch(this.props.action(name)); // dispatch the action that got passed via props with the name attribute as parameter
         this.props.dispatch(selectionActions.getSelectStepAction(this.props.selection.step + (name === "true" ? 2 : 1))); // skip FunctionalityTest if true
         window.scrollTo(0, 0);
     }

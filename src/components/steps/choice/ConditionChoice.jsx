@@ -46,7 +46,7 @@ class ConditionChoice extends Component {
         const conditions = ["Keine Spuren", "Leichte Spuren", "Stärkere Spuren", "Kerben/Risse", "Stärkere Kerben/Risse"];
         const results = ["Wie neu", "Sehr gut", "Gut", "Akzeptabel", "Inakzeptabel"];
         let i = 0;
-        let score = 0;
+        let score = 0; // the higher the score, the worse the condition
         let rawDetails = [];
 
         for (const condition of this.props.condition.selectedConditions) {
@@ -56,11 +56,12 @@ class ConditionChoice extends Component {
 
         i = 0;
 
-        score /= areas.length;
-        score = Math.round(Math.max(0.0, Math.min(results.length - 1, score - 0.51)));
+        score /= areas.length; // scale score to amount of areas to get the average score
+        score = Math.round(Math.max(0.0, Math.min(results.length - 1, score - 0.51))); // map score to readable condition
 
         const details = [];
 
+        // prepare HTML elements for the result modal
         for (const pair of rawDetails) {
             if (i !== 0) {
                 details.push(<hr key={-i}/>);
@@ -70,8 +71,10 @@ class ConditionChoice extends Component {
             i++;
         }
 
+        // push readable condition into Redux cache
         this.props.dispatch(conditionActions.getResultAction(results[score]));
 
+        // push HTML part into local state and display the result modal
         this.setState({
             showResultModal: true,
             resultDetails: details
@@ -85,11 +88,10 @@ class ConditionChoice extends Component {
     }
 
     handleClickModalBack() {
-
         const step = this.state.conditionStep - 1;
 
         if (step < 0) {
-            return;
+            return; // reached first condition step
         }
 
         this.setState({
@@ -101,7 +103,7 @@ class ConditionChoice extends Component {
         const step = this.state.conditionStep + 1;
 
         if (step >= this.props.condition.selectedConditions.length) {
-            return;
+            return; // reached last condition step
         }
 
         this.setState({
@@ -137,21 +139,33 @@ class ConditionChoice extends Component {
     render() {
         const selectedCondition = this.props.condition.selectedConditions[this.state.conditionStep];
         const conditionAvailable = this.props.condition.result !== undefined;
+        const areas = ["Display", "Rahmen", "Rückseite", "Kamera"];
 
         return (
             <div className="step" id={this.props.id}>
+                <h2>Ankauf</h2>
+                <br/>
+                <p>{this.props.text}</p>
+                <br/>
+                <h3>{conditionAvailable ? "Zustand: " + this.props.condition.result : "Noch keinen Zustand ermittelt."}</h3>
+                <br/>
+                <br/>
+                <div id="condition-buttons">
+                    <Button hidden={!conditionAvailable} id="condition-continue-button" onClick={this.handleClick}>Bestätigen</Button>
+                    <Button id="determine-condition-button" onClick={this.handleModal}>{conditionAvailable ? "Erneut ermitteln" : "Zustand ermitteln"}</Button>
+                </div>
                 <Modal id="condition-modal" show={this.state.showModal} onHide={this.handleModal}>
                     <div id="condition-modal-content">
                         <Modal.Header id="condition-modal-header" closeButton>
-                            <p className={this.state.conditionStep === 0 ? "condition-modal-selected-step" : ""} name={0} onClick={this.handleClickModalConditionStep}>Display</p>
-                            <p className={this.state.conditionStep === 1 ? "condition-modal-selected-step" : ""} name={1} onClick={this.handleClickModalConditionStep}>Rahmen</p>
-                            <p className={this.state.conditionStep === 2 ? "condition-modal-selected-step" : ""} name={2} onClick={this.handleClickModalConditionStep}>Rückseite</p>
-                            <p className={this.state.conditionStep === 3 ? "condition-modal-selected-step" : ""} name={3} onClick={this.handleClickModalConditionStep}>Kamera</p>
+                            <p className={this.state.conditionStep === 0 ? "condition-modal-selected-step" : ""} name="0" onClick={this.handleClickModalConditionStep}>{areas[0]}</p>
+                            <p className={this.state.conditionStep === 1 ? "condition-modal-selected-step" : ""} name="1" onClick={this.handleClickModalConditionStep}>{areas[1]}</p>
+                            <p className={this.state.conditionStep === 2 ? "condition-modal-selected-step" : ""} name="2" onClick={this.handleClickModalConditionStep}>{areas[2]}</p>
+                            <p className={this.state.conditionStep === 3 ? "condition-modal-selected-step" : ""} name="3" onClick={this.handleClickModalConditionStep}>{areas[3]}</p>
                         </Modal.Header>
                         <Modal.Body>
                             <div id="condition-modal-selection">
                                 <div id="condition-modal-selection-buttons">
-                                    <h2>{["Display", "Rahmen", "Rückseite", "Kamera"][this.state.conditionStep] /* dynamisch über den Titel erhalten? */}</h2>
+                                    <h2>{areas[this.state.conditionStep]}</h2>
                                     <br/>
                                     <Button className={selectedCondition === 0 ? "condition-modal-selected-condition" : ""} size="lg" variant="light" name="0" onClick={this.handleClickModalSelection}>Keine Spuren</Button>
                                     <Button className={selectedCondition === 1 ? "condition-modal-selected-condition" : ""} size="lg" variant="light" name="1" onClick={this.handleClickModalSelection}>Leichte Spuren</Button>
@@ -216,17 +230,6 @@ class ConditionChoice extends Component {
                         </Modal.Footer>
                     </div>
                 </Modal>
-                <h2>Ankauf</h2>
-                <br/>
-                <p>{this.props.text}</p>
-                <br/>
-                <h3>{conditionAvailable ? "Zustand: " + this.props.condition.result : "Noch keinen Zustand ermittelt."}</h3>
-                <br/>
-                <br/>
-                <div id="condition-buttons">
-                    <Button hidden={!conditionAvailable} id="condition-continue-button" onClick={this.handleClick}>Bestätigen</Button>
-                    <Button id="determine-condition-button" onClick={this.handleModal}>{conditionAvailable ? "Erneut ermitteln" : "Zustand ermitteln"}</Button>
-                </div>
             </div>
         );
     }

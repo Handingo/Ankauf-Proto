@@ -1,11 +1,11 @@
 import * as functionalityActions from "../actions/FunctionalityActions";
 
 const initialState: {
-    isKindaOld: boolean | undefined,
-    wantsAppTest: boolean | undefined,
+    isKindaOld: boolean | undefined, // is your device older than 2 years?
+    wantsAppTest: boolean | undefined, // do you want to test your device via app?
     hasSimLock: boolean | undefined,
-    hasActivationLock: boolean | undefined,
-    functionalityDetails: {
+    hasActivationLock: boolean | undefined, // GoogleID/AppleID
+    functionalityDetails: { // which of these modules are working well?
         display: boolean,
         call: boolean,
         battery: boolean,

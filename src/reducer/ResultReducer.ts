@@ -3,8 +3,10 @@ import * as resultActions from "../actions/ResultActions";
 const initialState: {
     resultValue: number
 } = {
-    resultValue: 0.0
+    resultValue: 0.0 // proposal price
 };
+
+// ResultReducer works with ResultActions.ts
 
 function resultReducer(state = initialState, action: any) {
     switch (action.type) {

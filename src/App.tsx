@@ -7,7 +7,6 @@ import BottomMenu from "./components/navigation_header_footer/Footer";
 import { connect } from "react-redux";
 
 // Root of content for the website
-
 class App extends Component {
     render() {
         return (

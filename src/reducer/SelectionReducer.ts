@@ -8,7 +8,7 @@ const initialState: {
     color: string | undefined,
     internalMemory: string | undefined
 } = {
-    step: 13,
+    step: 0,
     deviceType: undefined,
     brand: undefined,
     model: undefined,
