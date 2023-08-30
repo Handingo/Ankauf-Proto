@@ -5,8 +5,8 @@ const initialState: {
     wantsAppTest: boolean | undefined, // do you want to test your device via app?
     hasSimLock: boolean | undefined,
     hasActivationLock: boolean | undefined, // GoogleID/AppleID
-    functionalityDetails: { // which of these modules are working well?
-        display: boolean,
+    details: { // which of these modules are working well?
+        display: boolean | undefined,
         call: boolean,
         battery: boolean,
         camera: boolean,
@@ -22,7 +22,18 @@ const initialState: {
     wantsAppTest: undefined,
     hasSimLock: undefined,
     hasActivationLock: undefined,
-    functionalityDetails: undefined
+    details: { // which of these modules are working well?
+        display: undefined,
+        call: false,
+        battery: false,
+        camera: false,
+        connectivity: false,
+        performance: false,
+        biometry: false,
+        sensors: false,
+        buttons: false,
+        storage: false
+    }
 };
 
 // FunctionalityReducer works with FunctionalityActions.ts
@@ -39,10 +50,13 @@ function functionalityReducer(state = initialState, action: any) {
                 ...state,
                 isKindaOld: action.isKindaOld
             }
-        case functionalityActions.FUNCTIONALITY_DETAILS_ACTION:
+        case functionalityActions.FUNCTIONALITY_DETAIL_ACTION:
             return {
                 ...state,
-                functionalityDetails: action.functionalityDetails
+                details: {
+                    ...state.details,
+                    [action.functionality]: action.value
+                }
             }
         case functionalityActions.HAS_SIM_LOCK_ACTION:
             return {

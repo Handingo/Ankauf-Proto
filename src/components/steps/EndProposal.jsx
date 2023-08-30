@@ -248,8 +248,8 @@ class EndProposal extends Component {
         i = 0;
 
         // prepare HTML elements for the functionality details (when selected manually instead of via app)
-        for (const entry in this.props.functionality.functionalityDetails) {
-            const data = this.props.functionality.functionalityDetails[entry];
+        for (const entry in this.props.functionality.details) {
+            const data = this.props.functionality.details[entry];
 
             if (!data) {
                 nonFunctional = nonFunctional.concat(functionalKeys[i] + ", ");

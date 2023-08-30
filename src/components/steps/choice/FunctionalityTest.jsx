@@ -1,26 +1,15 @@
 import "./FunctionalityTest.css";
-import { Component } from "react";
-import { Button, Modal } from "react-bootstrap";
+import { connect } from "react-redux";
+import { bindActionCreators } from 'redux';
 import * as functionalityActions from "../../../actions/FunctionalityActions";
 import * as selectionActions from "../../../actions/SelectionActions";
-import { connect } from "react-redux";
+import { Component } from "react";
+import { Button, Modal } from "react-bootstrap";
 
 class FunctionalityTest extends Component {
 
     state = {
-        showModal: false,
-        data: {
-            display: false,
-            call: false,
-            battery: false,
-            camera: false,
-            connectivity: false,
-            performance: false,
-            biometry: false,
-            sensors: false,
-            buttons: false,
-            storage: false
-        }
+        showModal: false
     };
 
     constructor(props) {
@@ -28,19 +17,16 @@ class FunctionalityTest extends Component {
         this.handleClick = this.handleClick.bind(this);
         this.handleModal = this.handleModal.bind(this);
         this.handleChangeCheckbox = this.handleChangeCheckbox.bind(this);
-
-        // TODO - defaultChecked wird noch falsch gesetzt
-        /*if (this.props.functionality.functionalityDetails) {
-            for (const entry in this.props.functionality.functionalityDetails) {
-                this.state[entry] = this.props.functionality.functionalityDetails[entry];
-                console.log(this.state[entry])
-            }
-        }*/
     }
 
     handleClick() {
-        this.props.dispatch(functionalityActions.getFunctionalityDetailsAction(this.state.data)); // could get optimized - this is here to make zero inputs possible
-        this.props.dispatch(selectionActions.getSelectStepAction(this.props.selection.step + 1)); // go to next step
+        // this is here to check whether the user already visited the modal
+        if (this.props.functionality.details.display === undefined) {
+            this.props.setFunctionality("display", false); // if yes, mark it as visited
+        }
+
+        // go to next step
+        this.props.selectStep(this.props.selection.step + 1);
         window.scrollTo(0, 0);
     }
 
@@ -51,19 +37,12 @@ class FunctionalityTest extends Component {
     }
 
     handleChangeCheckbox(e) {
-        this.setState({
-            data: {
-                ...this.state.data,
-                [e.currentTarget.getAttribute("name")]: e.currentTarget.checked
-            }
-        }, () => {
-            this.props.dispatch(functionalityActions.getFunctionalityDetailsAction(this.state.data)); // could get optimized - only push the element that got updated
-        });
-        // console.log(this.props.functionality.functionalityDetails);
+        this.props.setFunctionality(e.currentTarget.getAttribute("name"), e.currentTarget.checked);
+        console.log(this.props.functionality.details);
     }
 
     render() {
-        const functionalityAvailable = this.props.functionality.functionalityDetails !== undefined;
+        const firstTime = this.props.functionality.details.display === undefined;
 
         return (
             <div id="functionality-test">
@@ -71,12 +50,12 @@ class FunctionalityTest extends Component {
                 <br/>
                 <p>{this.props.text}</p>
                 <br/>
-                <h3>{functionalityAvailable ? "Du hast die Überprüfung durchgeführt." : "Bitte beschreibe die Funktionsfähigkeit deines Geräts."}</h3>
+                <h3>{!firstTime ? "Du hast die Überprüfung durchgeführt." : "Bitte beschreibe die Funktionsfähigkeit deines Geräts."}</h3>
                 <br/>
                 <br/>
                 <div id="functionality-buttons">
-                    <Button hidden={!functionalityAvailable} id="functionality-test-continue-button" onClick={this.handleClick}>Bestätigen</Button>
-                    <Button id="determine-functionality-button" onClick={this.handleModal}>{functionalityAvailable ? "Erneut prüfen" : "Funktionen prüfen"}</Button>
+                    <Button hidden={firstTime} id="functionality-test-continue-button" onClick={this.handleClick}>Bestätigen</Button>
+                    <Button id="determine-functionality-button" onClick={this.handleModal}>{!firstTime ? "Erneut prüfen" : "Funktionen prüfen"}</Button>
                 </div>
                 <Modal id="functionality-modal" show={this.state.showModal} onHide={this.handleModal}>
                     <Modal.Header closeButton>
@@ -85,43 +64,43 @@ class FunctionalityTest extends Component {
                     <Modal.Body>
                         <p>Bitte setze bei <u>zutreffenden</u> Punkten einen Haken.</p>
                         <div className="functionality-test-row">
-                            <input type="checkbox" name="display" defaultChecked={functionalityAvailable && this.props.functionality.functionalityDetails.display} onChange={this.handleChangeCheckbox}/>
+                            <input type="checkbox" name="display" defaultChecked={!firstTime && this.props.functionality.details.display} onChange={this.handleChangeCheckbox}/>
                             <p><strong>Display</strong> Funktioniert das Display einwandfrei?</p>
                         </div>
                         <div className="functionality-test-row">
-                            <input type="checkbox" name="call" defaultChecked={functionalityAvailable && this.props.functionality.functionalityDetails.call} onChange={this.handleChangeCheckbox}/>
+                            <input type="checkbox" name="call" defaultChecked={this.props.functionality.details.call} onChange={this.handleChangeCheckbox}/>
                             <p><strong>Telefon</strong> Kann man klar & deutlich telefonieren?</p>
                         </div>
                         <div className="functionality-test-row">
-                            <input type="checkbox" name="battery" defaultChecked={functionalityAvailable && this.props.functionality.functionalityDetails.battery} onChange={this.handleChangeCheckbox}/>
+                            <input type="checkbox" name="battery" defaultChecked={this.props.functionality.details.battery} onChange={this.handleChangeCheckbox}/>
                             <p><strong>Akku</strong> Hält der Akku in Betrieb länger als 4 Std.?</p>
                         </div>
                         <div className="functionality-test-row">
-                            <input type="checkbox" name="camera" defaultChecked={functionalityAvailable && this.props.functionality.functionalityDetails.camera} onChange={this.handleChangeCheckbox}/>
+                            <input type="checkbox" name="camera" defaultChecked={this.props.functionality.details.camera} onChange={this.handleChangeCheckbox}/>
                             <p><strong>Kamera</strong> Funktionieren alle Kameras tadellos?</p>
                         </div>
                         <div className="functionality-test-row">
-                            <input type="checkbox" name="connectivity" defaultChecked={functionalityAvailable && this.props.functionality.functionalityDetails.connectivity} onChange={this.handleChangeCheckbox}/>
+                            <input type="checkbox" name="connectivity" defaultChecked={this.props.functionality.details.connectivity} onChange={this.handleChangeCheckbox}/>
                             <p><strong>Verbindung</strong> Funktionieren WLAN, Bluetooth, etc.?</p>
                         </div>
                         <div className="functionality-test-row">
-                            <input type="checkbox" name="performance" defaultChecked={functionalityAvailable && this.props.functionality.functionalityDetails.performance} onChange={this.handleChangeCheckbox}/>
+                            <input type="checkbox" name="performance" defaultChecked={this.props.functionality.details.performance} onChange={this.handleChangeCheckbox}/>
                             <p><strong>Leistung</strong> Lässt sich das Gerät flüssig bedienen?</p>
                         </div>
                         <div className="functionality-test-row">
-                            <input type="checkbox" name="biometry" defaultChecked={functionalityAvailable && this.props.functionality.functionalityDetails.biometry} onChange={this.handleChangeCheckbox}/>
+                            <input type="checkbox" name="biometry" defaultChecked={this.props.functionality.details.biometry} onChange={this.handleChangeCheckbox}/>
                             <p><strong>Biometrie</strong> Funktioniert das Entsperren?</p>
                         </div>
                         <div className="functionality-test-row">
-                            <input type="checkbox" name="sensors" defaultChecked={functionalityAvailable && this.props.functionality.functionalityDetails.sensors} onChange={this.handleChangeCheckbox}/>
+                            <input type="checkbox" name="sensors" defaultChecked={this.props.functionality.details.sensors} onChange={this.handleChangeCheckbox}/>
                             <p><strong>Sensoren</strong> Funktionieren alle Lagesensoren?</p>
                         </div>
                         <div className="functionality-test-row">
-                            <input type="checkbox" name="buttons" defaultChecked={functionalityAvailable && this.props.functionality.functionalityDetails.buttons} onChange={this.handleChangeCheckbox}/>
+                            <input type="checkbox" name="buttons" defaultChecked={this.props.functionality.details.buttons} onChange={this.handleChangeCheckbox}/>
                             <p><strong>Knöpfe</strong> Funktionieren sämtliche Knöpfe?</p>
                         </div>
                         <div className="functionality-test-row">
-                            <input type="checkbox" name="storage" defaultChecked={functionalityAvailable && this.props.functionality.functionalityDetails.storage} onChange={this.handleChangeCheckbox}/>
+                            <input type="checkbox" name="storage" defaultChecked={this.props.functionality.details.storage} onChange={this.handleChangeCheckbox}/>
                             <p><strong>Speicher</strong> Lassen sich der vorhandene Speicher und ggf. die SD-Karte komplett nutzen? </p>
                         </div>
                     </Modal.Body>
@@ -134,4 +113,9 @@ class FunctionalityTest extends Component {
     }
 }
 
-export default connect(state => { return state; })(FunctionalityTest);
+const mapStateToProps = dispatch => bindActionCreators({
+    selectStep: selectionActions.getSelectStepAction,
+    setFunctionality: functionalityActions.getFunctionalityDetailAction
+}, dispatch);
+
+export default connect(state => { return state; }, mapStateToProps)(FunctionalityTest);
