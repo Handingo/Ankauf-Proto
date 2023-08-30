@@ -40,7 +40,7 @@ class FunctionalityTest extends Component {
 
     handleClick() {
         this.props.dispatch(functionalityActions.getFunctionalityDetailsAction(this.state.data)); // could get optimized - this is here to make zero inputs possible
-        this.props.dispatch(selectionActions.getSelectStepAction(this.props.selection.step + 1));
+        this.props.dispatch(selectionActions.getSelectStepAction(this.props.selection.step + 1)); // go to next step
         window.scrollTo(0, 0);
     }
 

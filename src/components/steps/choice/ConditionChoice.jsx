@@ -31,6 +31,7 @@ class ConditionChoice extends Component {
 
     // gets clicked/called when the user finished the condition process
     handleClick() {
+        // go to next step
         this.props.dispatch(selectionActions.getSelectStepAction(this.props.selection.step + 1));
         window.scrollTo(0, 0);
     }
@@ -123,6 +124,7 @@ class ConditionChoice extends Component {
 
         const part = this.state.conditionStep;
         const condition = Number(e.currentTarget.getAttribute("name"));
+        // push selected condition of a specific device part into Redux cache
         this.props.dispatch(conditionActions.getSelectPartConditionAction(part, condition));
     }
 

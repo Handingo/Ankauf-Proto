@@ -17,6 +17,7 @@ class ButtonDeviceChoice extends Component {
     handleClick(e) {
         // dispatch the action that got passed via props with the name attribute as parameter
         this.props.dispatch(this.props.action(e.currentTarget.getAttribute("name")));
+        // go to next step
         this.props.dispatch(selectionActions.getSelectStepAction(this.props.selection.step + 1));
         window.scrollTo(0, 0);
     }

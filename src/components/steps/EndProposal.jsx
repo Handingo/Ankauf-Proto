@@ -127,7 +127,9 @@ class EndProposal extends Component {
             return;
         }
 
+        // push price suggestion to Redux cache
         this.props.setResultValue(this.state.resultValue);
+        // go to next step
         this.props.selectStep(this.props.selection.step + 1);
         window.scrollTo(0, 0);
     }
@@ -186,6 +188,7 @@ class EndProposal extends Component {
         ];
         const specifications = [];
 
+        // prepare HTML elements for the device selections
         for (const entry in this.props.selection) {
             if (i++ === 0 || !this.props.selection.hasOwnProperty(entry)) {
                 continue;
@@ -204,9 +207,11 @@ class EndProposal extends Component {
         }
 
         i++;
+        // prepare HTML elements for the condition
         specifications.push(<hr key={-i}/>);
         specifications.push(<p key={i}><strong>{keys[i - 2] + ":"}</strong><br/><i>{this.props.condition.result}</i></p>);
 
+        // prepare HTML elements for the functionality selections
         for (const entry in this.props.functionality) {
             i++;
 
@@ -242,13 +247,12 @@ class EndProposal extends Component {
 
         i = 0;
 
+        // prepare HTML elements for the functionality details (when selected manually instead of via app)
         for (const entry in this.props.functionality.functionalityDetails) {
             const data = this.props.functionality.functionalityDetails[entry];
-            // console.log(data)
 
             if (!data) {
                 nonFunctional = nonFunctional.concat(functionalKeys[i] + ", ");
-                // console.log(nonFunctional)
             }
 
             i++;
@@ -281,14 +285,14 @@ class EndProposal extends Component {
                                         const name = image.name.toLowerCase();
                                         const splitName = name.split(".");
 
-                                        if (splitName.length < 2) { // name is empty or has no ending
-                                            return null;
+                                        if (splitName.length < 2) {
+                                            return null; // name is empty or has no ending
                                         }
 
                                         const ending = "." + splitName[splitName.length - 1]
 
                                         if (![".jpg", ".png", ".heic"].includes(ending)) {
-                                            return null;
+                                            return null; // file ending is not supported
                                         }
 
                                         return <Card.Img key={i++} src={URL.createObjectURL(image)} onClick={this.handleClickUploadImage}></Card.Img>;
@@ -310,16 +314,18 @@ class EndProposal extends Component {
                                         const name = document.name.toLowerCase();
                                         const splitName = name.split(".");
 
-                                        if (splitName.length < 2) { // name is empty or has no ending
-                                            return null;
+                                        if (splitName.length < 2) {
+                                            return null; // name is empty or has no ending
                                         }
 
                                         const ending = "." + splitName[splitName.length - 1]
 
                                         if (![".pdf", ".docx", ".odt", ".jpg", ".png", ".heic"].includes(ending)) {
-                                            return null;
+                                            return null; // file ending is not supported
                                         }
 
+                                        // TODO - Documents like .docx can't get displayed via img tag.
+                                        // Maybe these files should get displayed in a different way.
                                         return <Card.Img key={i++} src={URL.createObjectURL(document)} onClick={this.handleClickUploadDocument}></Card.Img>;
                                     })
                                 }

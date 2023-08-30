@@ -14,7 +14,8 @@ class LandingPage extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick(event) {
+    handleClick() {
+        // go to next step
         this.props.selectStep(this.props.selection.step + 1);
         window.scrollTo(0, 0);
     }

@@ -123,6 +123,7 @@ class TicketForm extends Component {
             return;
         }*/
 
+        // go to next step
         this.props.selectStep(this.props.selection.step + 1);
         window.scrollTo(0, 0);
     }
