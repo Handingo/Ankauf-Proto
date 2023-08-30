@@ -6,7 +6,7 @@ const initialState: {
     hasSimLock: boolean | undefined,
     hasActivationLock: boolean | undefined, // GoogleID/AppleID
     details: { // which of these modules are working well?
-        display: boolean | undefined,
+        display: boolean,
         call: boolean,
         battery: boolean,
         camera: boolean,
@@ -16,14 +16,15 @@ const initialState: {
         sensors: boolean,
         buttons: boolean,
         storage: boolean
-    } | undefined
+    } | undefined,
+    checkedDetails: false
 } = {
     isKindaOld: undefined,
     wantsAppTest: undefined,
     hasSimLock: undefined,
     hasActivationLock: undefined,
     details: { // which of these modules are working well?
-        display: undefined,
+        display: false,
         call: false,
         battery: false,
         camera: false,
@@ -33,7 +34,8 @@ const initialState: {
         sensors: false,
         buttons: false,
         storage: false
-    }
+    },
+    checkedDetails: false
 };
 
 // FunctionalityReducer works with FunctionalityActions.ts
@@ -44,12 +46,12 @@ function functionalityReducer(state = initialState, action: any) {
             return {
                 ...state,
                 wantsAppTest: action.wantsAppTest
-            }
+            };
         case functionalityActions.IS_KINDA_OLD_ACTION:
             return {
                 ...state,
                 isKindaOld: action.isKindaOld
-            }
+            };
         case functionalityActions.FUNCTIONALITY_DETAIL_ACTION:
             return {
                 ...state,
@@ -57,17 +59,22 @@ function functionalityReducer(state = initialState, action: any) {
                     ...state.details,
                     [action.functionality]: action.value
                 }
-            }
+            };
+        case functionalityActions.CHECK_DETAILS_ACTION:
+            return {
+                ...state,
+                checkedDetails: true
+            };
         case functionalityActions.HAS_SIM_LOCK_ACTION:
             return {
                 ...state,
                 hasSimLock: action.hasSimLock
-            }
+            };
         case functionalityActions.HAS_ACTIVATION_LOCK_ACTION:
             return {
                 ...state,
                 hasActivationLock: action.hasActivationLock
-            }
+            };
     }
 
     return state;

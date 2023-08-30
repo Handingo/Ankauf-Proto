@@ -20,11 +20,6 @@ class FunctionalityTest extends Component {
     }
 
     handleClick() {
-        // this is here to check whether the user already visited the modal
-        if (this.props.functionality.details.display === undefined) {
-            this.props.setFunctionality("display", false); // if yes, mark it as visited
-        }
-
         // go to next step
         this.props.selectStep(this.props.selection.step + 1);
         window.scrollTo(0, 0);
@@ -33,7 +28,11 @@ class FunctionalityTest extends Component {
     handleModal() {
         this.setState({
             showModal: !this.state.showModal
-        });
+        }, () => { // register callback
+            if (this.state.showModal) {
+                this.props.checkDetails(); // mark that the user already visited the modal
+            }
+        }); 
     }
 
     handleChangeCheckbox(e) {
@@ -42,7 +41,7 @@ class FunctionalityTest extends Component {
     }
 
     render() {
-        const firstTime = this.props.functionality.details.display === undefined;
+        const firstTime = !this.props.functionality.checkedDetails;
 
         return (
             <div id="functionality-test">
@@ -64,7 +63,7 @@ class FunctionalityTest extends Component {
                     <Modal.Body>
                         <p>Bitte setze bei <u>zutreffenden</u> Punkten einen Haken.</p>
                         <div className="functionality-test-row">
-                            <input type="checkbox" name="display" defaultChecked={!firstTime && this.props.functionality.details.display} onChange={this.handleChangeCheckbox}/>
+                            <input type="checkbox" name="display" defaultChecked={this.props.functionality.details.display} onChange={this.handleChangeCheckbox}/>
                             <p><strong>Display</strong> Funktioniert das Display einwandfrei?</p>
                         </div>
                         <div className="functionality-test-row">
@@ -115,7 +114,8 @@ class FunctionalityTest extends Component {
 
 const mapStateToProps = dispatch => bindActionCreators({
     selectStep: selectionActions.getSelectStepAction,
-    setFunctionality: functionalityActions.getFunctionalityDetailAction
+    setFunctionality: functionalityActions.getFunctionalityDetailAction,
+    checkDetails: functionalityActions.getCheckDetailsAction
 }, dispatch);
 
 export default connect(state => { return state; }, mapStateToProps)(FunctionalityTest);
