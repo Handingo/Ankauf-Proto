@@ -19,9 +19,9 @@
         display: grid;
         grid-template-columns: 66% 33%;
     }
-   
+
     #selection-result-files .card-body {
-        min-height: 426px;
+        min-height: 450px;
     }
 }
 
