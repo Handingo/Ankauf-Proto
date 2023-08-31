@@ -1,4 +1,4 @@
-option:hover, option:checked { /* TODO - funktioniert nicht, Optionen bleiben blau */
+option:hover, option:checked { /* TODO - Could be possible with some extra libraries */
     background-color: #1a95a3 !important;
     accent-color: #1a95a3 !important;
 }
