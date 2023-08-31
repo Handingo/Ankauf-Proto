@@ -17,7 +17,6 @@ const initialState: {
 };
 
 // SelectionReducer works with SelectionActions.ts
-
 function selectionReducer(state = initialState, action: any) {
     switch (action.type) {
         case selectionActions.SELECT_STEP:

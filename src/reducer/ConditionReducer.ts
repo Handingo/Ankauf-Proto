@@ -9,7 +9,6 @@ const initialState: {
 };
 
 // ConditionReducer works with ConditionActions.ts
-
 function conditionReducer(state = initialState, action: any) {
     switch (action.type) {
         case conditionActions.SELECT_PART_CONDITION_ACTION:

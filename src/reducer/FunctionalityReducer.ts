@@ -39,7 +39,6 @@ const initialState: {
 };
 
 // FunctionalityReducer works with FunctionalityActions.ts
-
 function functionalityReducer(state = initialState, action: any) {
     switch (action.type) {
         case functionalityActions.WANTS_APP_TEST_ACTION:

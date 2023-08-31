@@ -7,7 +7,6 @@ const initialState: {
 };
 
 // ResultReducer works with ResultActions.ts
-
 function resultReducer(state = initialState, action: any) {
     switch (action.type) {
         case resultActions.RESULT_VALUE_ACTION:
