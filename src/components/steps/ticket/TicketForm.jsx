@@ -123,6 +123,46 @@ class TicketForm extends Component {
             return;
         }*/
 
+        ////////////////////////////////////////
+        // Temporary - printing important data given by the user
+        const data = {};
+        let i = 0;
+
+        for (const entry in this.props.selection) {
+            if (++i === 1) {
+                continue;
+            }
+
+            data[entry] = this.props.selection[entry];
+        }
+
+        i = 0;
+
+        for (const entry in this.state) {
+            data[entry] = this.state[entry];
+
+            if (++i === 13) {
+                break;
+            }
+        }
+
+        i = 0;
+
+        for (const entry in this.props.functionality) {
+            data[entry] = this.props.functionality[entry];
+
+            if (++i === 5) {
+                break;
+            }
+        }
+
+        data.conditionResult = this.props.condition.result;
+        data.resultValue = this.props.result.resultValue;
+
+        console.log(data);
+
+        ////////////////////////////////////////
+
         // go to next step
         this.props.selectStep(this.props.selection.step + 1);
         window.scrollTo(0, 0);
