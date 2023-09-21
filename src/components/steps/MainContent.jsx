@@ -12,7 +12,7 @@ import FunctionalityChoice from "./choice/FunctionalityChoice";
 import ConditionChoice from "./choice/ConditionChoice";
 import ButtonBack from "../util/button/ButtonBack";
 import FunctionalityTest from "./choice/FunctionalityTest";
-import AppTestChoice from "./choice/AppTestChoice";
+// import AppTestChoice from "./choice/AppTestChoice";
 
 class MainContent extends Component {
 
@@ -95,12 +95,14 @@ class MainContent extends Component {
             images={["./image-support/appleid.jpg"]}
             action={functionalityActions.getActivationLockAction}
         />,
+        /*
         <AppTestChoice
             text="Funktionsfähigkeit des Geräts per App testen?"
             help="Diese App testet das Smartphone ganz ausführlich und mit wenig Aufwand. Wenn wir an deinem Gerät interessiert sind, dann würden wir dir einen Code senden, welcher es dir ermöglicht, den Test durchführen zu können."
             images={["./image-support/working.jpg"]}
             action={functionalityActions.getAppTestAction}
         />,
+        */
         <FunctionalityTest
             text="Wie funktionsfähig ist dein Gerät?"
         />,
