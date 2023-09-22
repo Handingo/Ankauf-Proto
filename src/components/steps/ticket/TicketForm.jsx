@@ -138,16 +138,6 @@ class TicketForm extends Component {
 
         i = 0;
 
-        for (const entry in this.state) {
-            data[entry] = this.state[entry];
-
-            if (++i === 13) {
-                break;
-            }
-        }
-
-        i = 0;
-
         for (const entry in this.props.functionality) {
             data[entry] = this.props.functionality[entry];
 
@@ -159,7 +149,27 @@ class TicketForm extends Component {
         data.conditionResult = this.props.condition.result;
         data.resultValue = this.props.result.resultValue;
 
-        console.log(data);
+        i = 0;
+
+        for (const entry in this.state) {
+            data[entry] = this.state[entry];
+
+            if (++i === 13) {
+                break;
+            }
+        }
+
+        const tab = window.open("about:blank", "_blank");
+        const content = JSON.stringify(data)
+                        .replaceAll("\",\"", "\",<br>&emsp;\"")
+                        .replace("{", "{<br>&emsp;")
+                        .replaceAll(":{", ":{<br>&emsp;&emsp;")
+                        .replaceAll("}", "<br>}")
+                        .replace("},\"", "&emsp;},<br>&emsp;\"")
+                        .replaceAll("\":", "\": ")
+                        .replaceAll(",\"", ", \"");
+        tab.document.write("<!DOCTYPE html><html lang=\"de\"><code>" + content + "</code></html>");
+        tab.document.close();
 
         ////////////////////////////////////////
 
